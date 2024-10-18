@@ -65,6 +65,10 @@ val discardTop = randomCard() // Random card for the discard top
 val unoField = UnoField(discardTop, Array(player1Hand, player2Hand))
 
 // Display the playing field
+<<<<<<< HEAD
 println("Hello from main")
+=======
+println("Hello from branch1 :P")
+>>>>>>> branch1
 println(unoField.displayField())
 
