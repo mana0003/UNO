@@ -5,18 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="merge conflict">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/UnoTest.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/UnoWordSpec.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Cards.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/PlayerHand.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoField.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/UNO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UNO.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/Main.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/MySuite.scala" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="SBT">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="uno" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -28,7 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="branch-2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,6 +74,8 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.Main.executor": "Run",
+    "Application.TUI.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -75,19 +97,29 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="UNO" />
+    <configuration name="main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="uno" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="UNO" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ScalaProjectSettings">
+    <option name="scala3DisclaimerShown" value="true" />
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -104,6 +136,9 @@
       <workItem from="1729189124397" duration="50000" />
       <workItem from="1729189220112" duration="79000" />
       <workItem from="1729189364896" duration="449000" />
+      <workItem from="1729836001679" duration="5520000" />
+      <workItem from="1730911443705" duration="240000" />
+      <workItem from="1730911789512" duration="3395000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -180,6 +215,7 @@
     <MESSAGE value="Change" />
     <MESSAGE value="Worksheet done" />
     <MESSAGE value="merge conflict" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge conflict" />
+    <MESSAGE value="build and project.sbt updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="build and project.sbt updated" />
   </component>
 </project>
