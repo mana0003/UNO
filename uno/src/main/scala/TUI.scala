@@ -17,13 +17,21 @@ object TUI {
         currentPlayer.cards = currentPlayer.cards :+ controller.game.randomCard()
       } else {
         val parts = input.split(" ")
-        if (parts.length == 2) {
-          val card = Card(parts(0), parts(1))
-          if (!controller.playTurn(currentPlayerIndex, card)) {
-            println("Invalid move. Try again.")
-          }
+        val cardOption = if (parts.length == 2) {
+          Some(Card(parts(0), parts(1)))
+        } else if (parts.length == 1 && (parts(0) == "Wild" || parts(0) == "Wild Draw Four")) {
+          Some(Card("", parts(0)))
         } else {
           println("Invalid input. Try again.")
+          None
+        }
+
+        cardOption match {
+          case Some(card) =>
+            if (!controller.playTurn(currentPlayerIndex, card)) {
+              println("Invalid move. Try again.")
+            }
+          case None => // Do nothing
         }
       }
 

@@ -1,4 +1,4 @@
-// src/main/scala/UnoGame.scala
+// package src.main.scala.UnoGame.scala
 class UnoGame {
   var players: Array[PlayerHand] = Array()
   var discardPile: List[Card] = List()
@@ -31,8 +31,8 @@ class UnoGame {
   def randomCard(): Card = {
     val colors = Array("Red", "Blue", "Green", "Yellow")
     val values = (0 to 9).map(_.toString).toArray ++ Array("Skip", "Reverse", "Draw Two", "Wild", "Wild Draw Four")
-    val color = colors(scala.util.Random.nextInt(colors.length))
     val value = values(scala.util.Random.nextInt(values.length))
+    val color = if (value.startsWith("Wild")) "" else colors(scala.util.Random.nextInt(colors.length))
     Card(color, value)
   }
 }

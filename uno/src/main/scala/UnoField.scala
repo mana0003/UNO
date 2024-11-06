@@ -1,4 +1,4 @@
-// src/main/scala/UnoField.scala
+// package src.main.scala.UnoField.scala
 case class UnoField(discardTop: Card, playerHands: Array[PlayerHand]) {
   def displayField(): String = {
     val separator = "=" * 70

@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="merge conflict">
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Cards.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/PlayerHand.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoField.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/UNO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/UNO.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="TUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Cards.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/Cards.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/PlayerHand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/PlayerHand.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoField.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoField.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,32 +68,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.Main.executor": "Run",
-    "Application.TUI.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/SE/UNO",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TUI.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/SE/UNO&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main" />
@@ -138,7 +136,8 @@
       <workItem from="1729189364896" duration="449000" />
       <workItem from="1729836001679" duration="5520000" />
       <workItem from="1730911443705" duration="240000" />
-      <workItem from="1730911789512" duration="3395000" />
+      <workItem from="1730911789512" duration="3617000" />
+      <workItem from="1730918924624" duration="1129000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -180,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729232073288</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="TUI">
+      <option name="closed" value="true" />
+      <created>1730915267672</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730915267672</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +223,7 @@
     <MESSAGE value="Worksheet done" />
     <MESSAGE value="merge conflict" />
     <MESSAGE value="build and project.sbt updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="build and project.sbt updated" />
+    <MESSAGE value="TUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="TUI" />
   </component>
 </project>

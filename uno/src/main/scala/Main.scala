@@ -1,4 +1,4 @@
-// src/main/scala/Main.scala
+// package src.main.scala.Main.scala
 object Main extends App {
   // Initialize the game
   val game = new UnoGame()

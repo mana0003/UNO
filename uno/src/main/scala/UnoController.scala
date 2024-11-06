@@ -1,4 +1,4 @@
-// src/main/scala/UnoController.scala
+// package src.main.scala.UnoController.scala
 class UnoController(val game: UnoGame) {
   def playTurn(playerIndex: Int, card: Card): Boolean = {
     val player = game.players(playerIndex)
