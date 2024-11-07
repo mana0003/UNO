@@ -1,4 +1,3 @@
-// package src.main.scala.Main.scala
 object Main extends App {
   // Initialize the game
   val game = new UnoGame()
@@ -11,5 +10,7 @@ object Main extends App {
   println(unoField.displayField())
 
   // Run the text-based user interface
-  TUI.main(args)
+  while (game.checkWinner().isEmpty) {
+    TUI.main(args)
+  }
 }

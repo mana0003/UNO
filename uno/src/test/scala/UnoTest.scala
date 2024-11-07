@@ -1,7 +1,7 @@
 import org.scalatest.funsuite.AnyFunSuite
 // import scala._
 
-class UnoGameTest extends AnyFunSuite {
+class UnoTest extends AnyFunSuite {
 
   // Test for Card creation
   test("Card should create a valid card") {
