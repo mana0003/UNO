@@ -24,9 +24,11 @@ class UnoGame {
   }
 
   def isValidMove(card: Card): Boolean = {
-    val topCard = discardPile.head
-    card.color == topCard.color || card.value == topCard.value || card.value.startsWith("Wild")
-  }
+  val topCard = discardPile.head
+  println(s"Top card: ${topCard.color} ${topCard.value}")
+  card.color == topCard.color || card.value == topCard.value || card.value.startsWith("Wild") || card.value == "Draw"
+  true
+}
 
   def applyCardEffect(card: Card): Unit = {
     card.value match {

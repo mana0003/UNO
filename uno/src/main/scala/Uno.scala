@@ -1,4 +1,4 @@
-object Main extends App {
+object Uno extends App {
   // Initialize the game
   val game = new UnoGame()
 
@@ -8,9 +8,10 @@ object Main extends App {
   // Display the initial game state
   val unoField = UnoField(game.discardPile.head, game.players)
   println(unoField.displayField())
-
+  val emptyArray = Array("")
+  val tui = new TUI()
   // Run the text-based user interface
   while (game.checkWinner().isEmpty) {
-    TUI.main(args)
+    tui.main(emptyArray)
   }
 }
