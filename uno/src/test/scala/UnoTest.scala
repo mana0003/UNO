@@ -1,42 +1,30 @@
 import org.scalatest.funsuite.AnyFunSuite
-// import scala._
+import org.scalatestplus.mockito.MockitoSugar
+import org.mockito.Mockito._
 
-class UnoTest extends AnyFunSuite {
+class MainTest extends AnyFunSuite with MockitoSugar {
 
-  // Test for Card creation
-  test("Card should create a valid card") {
-    val card = Card("Red", "5")
-    assert(card.color == "Red")
-    assert(card.value == "5")
-  }
+  test("Main should initialize and run the game") {
+    // Mock the UnoGame and TUI
+    val mockGame = mock[UnoGame]
+    val mockTUI = mock[TUI.type]
 
-  // Test for PlayerHand creation
-  test("PlayerHand should create a hand with the specified number of cards") {
-    val cards = Array(Card("Red", "5"), Card("Blue", "2"))
-    val hand = PlayerHand("Player 1", cards)
-    assert(hand.playerName == "Player 1")
-    assert(hand.cards.length == 2)
-    assert(hand.cards.head == Card("Red", "5"))
-  }
+    // Stub methods
+    when(mockGame.discardPile).thenReturn(List(Card("Red", "5")))
+    when(mockGame.players).thenReturn(Array(PlayerHand("Player 1", Array()), PlayerHand("Player 2", Array())))
+    when(mockGame.checkWinner()).thenReturn(None).thenReturn(Some("Player 1"))
 
-  // Test for randomPlayerHand generation
-  test("randomPlayerHand should generate a player hand with 5 cards") {
-    val playerHand = Main.randomPlayerHand("Player 1", 5)
-    assert(playerHand.playerName == "Player 1")
-    assert(playerHand.cards.length == 5)
-  }
+    // Create a new Main object with mocked dependencies
+    object TestMain extends Main {
+      override val game = mockGame
+      override val TUI = mockTUI
+    }
 
-  // Test for UnoField display
-  test("UnoField display should format the field correctly") {
-    val discardTop = Card("Yellow", "7")
-    val player1Hand = PlayerHand("Player 1", Array(Card("Red", "5"), Card("Blue", "2")))
-    val player2Hand = PlayerHand("Player 2", Array(Card("Green", "9"), Card("Yellow", "1")))
+    // Run the main method
+    TestMain.main(Array())
 
-    val unoField = UnoField(discardTop, Array(player1Hand, player2Hand))
-    val fieldDisplay = unoField.displayField()
-
-    assert(fieldDisplay.contains("Discard Top Card: [Yellow 7]"))
-    assert(fieldDisplay.contains("Player 1 Hand: [Red 5], [Blue 2]"))
-    assert(fieldDisplay.contains("Player 2 Hand: [Green 9], [Yellow 1]"))
+    // Verify interactions
+    verify(mockGame).startGame(Array("Player 1", "Player 2"))
+    verify(mockTUI, times(1)).main(Array())
   }
 }
