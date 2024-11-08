@@ -5,8 +5,11 @@ class UnoGame {
   var direction: Int = 1 // 1 for clockwise, -1 for counterclockwise
 
   def startGame(playerNames: Array[String]): Unit = {
-    players = playerNames.map(name => PlayerHand(name, Array.fill(5)(randomCard())))
-    discardPile = List(randomCard())
+    players = playerNames.map(name => PlayerHand(name, Array.fill(5)(randomCard())))  // make new method for this
+    discardPile = List(randomCard())            // make new method for this
+  }
+  def randomPlayerHand(playerName: String, numCards: Int): PlayerHand = {
+    PlayerHand(playerName, Array.fill(numCards)(randomCard()))
   }
 
   def playCard(player: PlayerHand, card: Card): Boolean = {
@@ -27,9 +30,7 @@ class UnoGame {
 
   def applyCardEffect(card: Card): Unit = {
     card.value match {
-      case "Skip" => currentPlayerIndex = (currentPlayerIndex + direction) % players.length
-      case "Reverse" => direction *= -1
-      case "Draw Two" => drawCards(nextPlayerIndex(), 2)
+      case "Draw" => drawCards(nextPlayerIndex(), 2)
       case "Wild Draw Four" => drawCards(nextPlayerIndex(), 4)
       case "Wild" =>
         println("Choose a color (Red, Blue, Green, Yellow):")
@@ -37,7 +38,14 @@ class UnoGame {
         discardPile = Card(newColor, card.value) :: discardPile.tail
       case _ => // No special effect
     }
-    currentPlayerIndex = (currentPlayerIndex + direction) % players.length
+    if (card.value == "Skip") {
+      currentPlayerIndex = (currentPlayerIndex + direction * 2) % 2
+    } else if (card.value == "Reverse") {
+      direction *= -1
+    } else {
+      currentPlayerIndex = (currentPlayerIndex + direction) % players.length
+    }
+
   }
 
   def drawCards(playerIndex: Int, count: Int): Unit = {
