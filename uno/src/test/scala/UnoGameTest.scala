@@ -118,16 +118,16 @@ class UnoGameTest extends AnyFunSuite with TimeLimits {
   }
 
   test("playCard with invalid move does not update discardPile or player hand") {
-    failAfter(Span(10, Seconds)) {
-      val game = new UnoGame()
-      game.startGame(Array("Player 1", "Player 2"))
-      val player = game.players.head
-      val invalidCard = Card("InvalidColor", "InvalidValue")
-      assert(!game.playCard(player, invalidCard))
-      assert(game.discardPile.head != invalidCard)
-      assert(!player.cards.contains(invalidCard))
-    }
+  failAfter(Span(10, Seconds)) {
+    val game = new UnoGame()
+    game.startGame(Array("Player 1", "Player 2"))
+    val player = game.players.head
+    val invalidCard = Card("InvalidColor", "InvalidValue")
+    assert(!game.playCard(player, invalidCard))
+    assert(game.discardPile.head != invalidCard)
+    assert(!player.cards.contains(invalidCard))
   }
+}
 
   test("drawCards should add the specified number of cards to the player's hand") {
     failAfter(Span(10, Seconds)) {

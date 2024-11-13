@@ -5,7 +5,7 @@ class UnoGame {
   var direction: Int = 1 // 1 for clockwise, -1 for counterclockwise
 
   def startGame(playerNames: Array[String]): Unit = {
-    players = playerNames.map(name => PlayerHand(name, Array.fill(5)(randomCard())))  // make new method for this
+    players = playerNames.map(name => randomPlayerHand(name, 7))              //PlayerHand(name, Array.fill(5)(randomCard())))  // make new method for this
     discardPile = List(randomCard())            // make new method for this
   }
   def randomPlayerHand(playerName: String, numCards: Int): PlayerHand = {

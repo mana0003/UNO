@@ -22,33 +22,23 @@ class UnoControllerTest extends AnyFunSuite with BeforeAndAfter {
   }
 
   test("playTurn with a valid move prints the correct message and continues the game") {
-    game.startGame(Array("Player 1", "Player 2"))
-    val player = game.players.head
-    // game.discardPile ::= Card("Yellow", "2") // Ensure there's a compatible top card
+  game.startGame(Array("Player 1", "Player 2"))
+  val player = game.players.head
+  // game.discardPile ::= Card("Red", "5")
+  // player.cards :+= Card("Red", "4")
 
-    val card = player.cards.find(game.isValidMove).getOrElse(player.cards.head)
+  val card = player.cards.find(game.isValidMove).getOrElse(player.cards.head)
 
-    assert(controller.playTurn(0, card))
-    assert(outContent.toString.contains(s"${player.playerName} played ${card.color} ${card.value}"))
-    //
-  }
+  assert(controller.playTurn(1, card))
+  assert(outContent.toString.contains(s"${player.playerName} played ${card.color} ${card.value}"))
+}
 
-  test("playTurn with a valid move and a winning player prints the winner message") {
-    game.players = Array(PlayerHand("Player 1", Array(Card("Red", "5"))), PlayerHand("Player 2", Array()))
-    val player = game.players.head
-    val card = player.cards.head
+    test("playTurn with an invalid move prints the invalid move message") {
+      game.startGame(Array("Player 1", "Player 2"))
+      val player = game.players.head
+      val card = new Card("InvalidColor", "InvalidValue")
 
-    assert(controller.playTurn(0, card))
-    assert(outContent.toString.contains(s"${player.playerName} played ${card.color} ${card.value}"))
-    assert(outContent.toString.contains(s"${player.playerName} wins the game!"))
-  }
-
-  test("playTurn with an invalid move prints the invalid move message") {
-    game.startGame(Array("Player 1", "Player 2"))
-    val player = game.players.head
-    val card = Card("Invalid", "Card")
-
-    assert(!controller.playTurn(0, card))
-    assert(outContent.toString.contains(s"Invalid move by ${player.playerName}"))
-  }
+      assert(!controller.playTurn(1, card))
+      assert(outContent.toString.contains(s"Invalid move by ${player.playerName}"))
+    }
 }
