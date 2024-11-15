@@ -17,6 +17,9 @@ class TUITest extends AnyWordSpec with MockitoSugar with Matchers {
         input should be("Red 5")
       }
     }
+
+
+
     "initialize the game properly with two players" in { // line 3 also doesnt work
       val mockGame = new UnoGame
       val mockController = mock[UnoController]
