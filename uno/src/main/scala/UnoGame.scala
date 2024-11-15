@@ -1,5 +1,5 @@
 class UnoGame {
-  var players: Array[PlayerHand] = Array()
+  var players: Array[PlayerHand] = null
   var discardPile: List[Card] = List()
   var currentPlayerIndex: Int = 0
   var direction: Int = 1 // 1 for clockwise, -1 for counterclockwise
@@ -22,13 +22,17 @@ class UnoGame {
       false
     }
   }
-
   def isValidMove(card: Card): Boolean = {
-  val topCard = discardPile.head
-  println(s"Top card: ${topCard.color} ${topCard.value}")
-  card.color == topCard.color || card.value == topCard.value || card.value.startsWith("Wild") || card.value == "Draw"
-  true
-}
+    val topCard = discardPile.head
+    //card.color == topCard.color || card.value == topCard.value || card.value.startsWith("Wild") || card.value == "Draw"
+    // if Draw is played, check if the player has the right color of the draw card
+    if (card.value == "Draw") {
+      // Check if the player has the right color of the draw card
+      players(currentPlayerIndex).cards.exists(_.color == topCard.color)
+    } else {
+      card.color == topCard.color || card.value == topCard.value || card.value.startsWith("Wild")
+    }
+  }
 
   def applyCardEffect(card: Card): Unit = {
     card.value match {
@@ -41,7 +45,7 @@ class UnoGame {
       case _ => // No special effect
     }
     if (card.value == "Skip") {
-      currentPlayerIndex = (currentPlayerIndex + direction * 2) % 2
+      direction *= -1
     } else if (card.value == "Reverse") {
       direction *= -1
     } else {
@@ -56,7 +60,7 @@ class UnoGame {
   }
 
   def nextPlayerIndex(): Int = {
-    (currentPlayerIndex + direction) % players.length
+    (currentPlayerIndex + direction + players.length) % players.length
   }
 
   def randomCard(): Card = {

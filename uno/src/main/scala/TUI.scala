@@ -1,18 +1,12 @@
 class TUI {
 
   val controller: UnoController = new UnoController(new UnoGame)
-  def main(args: Array[String]): Unit = {
-    val game = new UnoGame
-    val controller = new UnoController(game)
-    val tui = new TUI()
-    tui.run()
-  }
 
   def run(): Unit = {
     controller.game.startGame(Array("Player 1", "Player 2"))
     var currentPlayerIndex = 0
 
-    while (controller.game.checkWinner().isEmpty) {
+    while (controller.game.checkWinner() == null) {
       val currentPlayer = controller.game.players(currentPlayerIndex)
       val topCard = controller.game.discardPile.head
       println(s"Top card on deck: [${topCard.color} ${topCard.value}]")
@@ -27,7 +21,9 @@ class TUI {
         val parts = input.split(" ")
         val cardOption = if (parts.length == 2) {
           Some(Card(parts(0), parts(1)))
-        } else if (parts.length == 1 && (parts(0) == "Wild" || parts(0) == "Wild Draw Four")) {
+        } else if (parts.length == 1 && parts(0) == "Wild") { //|| parts(0) == "Wild Draw")) {
+          Some(Card("", parts(0)))
+        } else if (parts.length == 3 && (parts(0) == "Wild" && parts(1) == "Draw")) {
           Some(Card("", parts(0)))
         } else {
           println("Invalid input. Try again.")
@@ -39,15 +35,16 @@ class TUI {
             if (!controller.playTurn(currentPlayerIndex, card)) {
               println("Invalid move. Try again.")
             }
-          case None => // Do nothing
+          case _ => // Do nothing
         }
       }
 
       currentPlayerIndex = (currentPlayerIndex + 1) % controller.game.players.length
     }
-
-    controller.game.checkWinner().foreach { winner =>
-      println(s"${winner.playerName} wins the game!")
+    // Print the winner
+    controller.game.checkWinner() match {
+      case Some(player) =>
+      case None =>
     }
   }
 

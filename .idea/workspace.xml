@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="TUI UNO and UnoControllerTest not done">
+    <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="TUI UNO and UnoControllerTest still not done">
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Cards2.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Hand2.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Player2.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Round2.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/TUI2.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoController2.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Uno.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/Uno.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/TUITest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/test/scala/TUITest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoControllerTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/test/scala/UnoControllerTest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoGameTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/test/scala/UnoGameTest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/test/scala/UnoTest.scala" afterDir="false" />
@@ -152,7 +161,15 @@
       <workItem from="1731089639630" duration="4391000" />
       <workItem from="1731501217228" duration="428000" />
       <workItem from="1731501664169" duration="9699000" />
-      <workItem from="1731522650577" duration="638000" />
+      <workItem from="1731522650577" duration="1041000" />
+      <workItem from="1731583059950" duration="6975000" />
+      <workItem from="1731590213330" duration="12000" />
+      <workItem from="1731590238154" duration="22140000" />
+      <workItem from="1731616689003" duration="3305000" />
+      <workItem from="1731620095276" duration="657000" />
+      <workItem from="1731625685587" duration="540000" />
+      <workItem from="1731626271889" duration="7003000" />
+      <workItem from="1731651441785" duration="1739000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -234,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731094062796</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="TUI UNO and UnoControllerTest still not done">
+      <option name="closed" value="true" />
+      <created>1731523438945</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731523438945</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +299,7 @@
     <MESSAGE value="TUI not complete" />
     <MESSAGE value="still some issues" />
     <MESSAGE value="TUI UNO and UnoControllerTest not done" />
-    <option name="LAST_COMMIT_MESSAGE" value="TUI UNO and UnoControllerTest not done" />
+    <MESSAGE value="TUI UNO and UnoControllerTest still not done" />
+    <option name="LAST_COMMIT_MESSAGE" value="TUI UNO and UnoControllerTest still not done" />
   </component>
 </project>
