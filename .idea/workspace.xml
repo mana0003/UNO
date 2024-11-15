@@ -4,23 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="TUI UNO and UnoControllerTest still not done">
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Cards2.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Hand2.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Player2.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Round2.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/TUI2.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoController2.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Uno.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/Uno.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/TUITest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/test/scala/TUITest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoControllerTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/test/scala/UnoControllerTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoGameTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/test/scala/UnoGameTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/test/scala/UnoTest.scala" afterDir="false" />
+    <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="TUI UNO still not done">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__junit_junit_4_13_2_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_hamcrest_hamcrest_core_1_3_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_5_1_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_library_2_13_14_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_sbt_test_interface_1_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalameta_junit_interface_1_0_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalameta_munit_3_1_0_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalameta_munit_diff_3_1_0_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__scala_sdk_3_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,7 @@
       <workItem from="1731620095276" duration="657000" />
       <workItem from="1731625685587" duration="540000" />
       <workItem from="1731626271889" duration="7003000" />
-      <workItem from="1731651441785" duration="1739000" />
+      <workItem from="1731651441785" duration="2090000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -259,7 +260,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731523438945</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="TUI UNO and UnoControllerTest still not done">
+      <option name="closed" value="true" />
+      <created>1731654651385</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731654651385</updated>
+    </task>
+    <task id="LOCAL-00013" summary="TUI UNO still not done">
+      <option name="closed" value="true" />
+      <created>1731654680866</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731654680866</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +317,7 @@
     <MESSAGE value="still some issues" />
     <MESSAGE value="TUI UNO and UnoControllerTest not done" />
     <MESSAGE value="TUI UNO and UnoControllerTest still not done" />
-    <option name="LAST_COMMIT_MESSAGE" value="TUI UNO and UnoControllerTest still not done" />
+    <MESSAGE value="TUI UNO still not done" />
+    <option name="LAST_COMMIT_MESSAGE" value="TUI UNO still not done" />
   </component>
 </project>
