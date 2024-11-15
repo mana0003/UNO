@@ -1,68 +1,45 @@
-import scala.util.Random
+enum cardColors:
+  case RED, GREEN, BLUE, YELLOW
 
-// Case class to represent a Card
-case class Card(color: String, value: String)
+enum cardValues:
+  case ZERO
+  case ONE
+  case TWO
+  case THREE
+  case FOUR
+  case FIVE
+  case SIX
+  case SEVEN
+  case EIGHT
+  case NINE
+  case SKIP
+  case REVERSE
+  case BLOCK
+  case DRAW_TWO
+  case WILD
+  case WILD_DRAW_FOUR
 
-// Case class to represent a Player's hand
-case class PlayerHand(playerName: String, cards: Array[Card])
+case class Card(color: cardColors, value: cardValues)
 
-// Case class to represent the field
-case class UnoField(discardTop: Card, playerHands: Array[PlayerHand]) {
-  def displayField(): String = {
-    val separator = "=" * 70
-    val title = "                                 UNO"
-    // Format the discard top card
-    val discard = s"Discard Top Card: [${discardTop.color} ${discardTop.value}]"
 
-    // Format all player hands
-    val hands = playerHands
-      .map { hand =>
-        val cards = hand.cards
-          .map(card => s"[${card.color} ${card.value}]")
-          .mkString(", ")
-        s"${hand.playerName} Hand: $cards"
-      }
-      .mkString("\n")
-
-    // Return the final playing field as a string
-    s"""
-       |$separator
-       |$title
-       |$separator
-       |
-       |$discard
-       |
-       |$hands
-       |
-       |$separator
-    """.stripMargin
-  }
+// can card be played
+def canPlayCard(card: Card, topCard: Card): Boolean = {
+  card.color == topCard.color || card.value == topCard.value || card.value == cardValues.WILD || card.value == cardValues.WILD_DRAW_FOUR
 }
 
-// Possible card colors and values
-val colors = Array("Red", "Blue", "Green", "Yellow")
-val values = (0 to 9).map(_.toString).toArray // Numbers 0 to 9
+val c1 = Card(cardColors.RED, cardValues.ONE)
+assert(c1.color == cardColors.RED)
+assert(c1.value == cardValues.ONE)
+assert(c1.color != cardColors.GREEN)
+assert(c1.value != cardValues.TWO)
 
-// Function to generate a random card
-def randomCard(): Card = {
-  val color = colors(Random.nextInt(colors.length))
-  val value = values(Random.nextInt(values.length))
-  Card(color, value)
-}
+// test can play card
+val c2 = Card(cardColors.RED, cardValues.TWO)
+val c3 = Card(cardColors.GREEN, cardValues.TWO)
+val c4 = Card(cardColors.RED, cardValues.THREE)
+val c5 = Card(cardColors.GREEN, cardValues.THREE)
 
-// Function to generate a random player hand with a specified number of cards
-def randomPlayerHand(playerName: String, numberOfCards: Int): PlayerHand = {
-  val cards = Array.fill(numberOfCards)(randomCard())
-  PlayerHand(playerName, cards)
-}
-
-// Generate random player hands
-val player1Hand = randomPlayerHand("Player 1", 5) // 5 random cards for Player 1
-val player2Hand = randomPlayerHand("Player 2", 5) // 5 random cards for Player 2
-
-// Create the Uno field
-val discardTop = randomCard() // Random card for the discard top
-val unoField = UnoField(discardTop, Array(player1Hand, player2Hand))
-
-// Display the playing field
-println(unoField.displayField())
+assert(canPlayCard(c2, c1))
+assert(!canPlayCard(c3, c1))
+assert(canPlayCard(c4, c1))
+assert(!canPlayCard(c5, c1))
