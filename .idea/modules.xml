@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/UNO.iml" filepath="$PROJECT_DIR$/.idea/UNO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../UNO/.idea/modules/uno.iml" filepath="$PROJECT_DIR$/../../UNO/.idea/modules/uno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../UNO/.idea/modules/uno-build.iml" filepath="$PROJECT_DIR$/../../UNO/.idea/modules/uno-build.iml" />
     </modules>
   </component>
 </project>

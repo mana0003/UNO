@@ -5,28 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="TUI UNO still not done">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__junit_junit_4_13_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_hamcrest_hamcrest_core_1_3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_5_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala_library_2_13_14_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_sbt_test_interface_1_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalameta_junit_interface_1_0_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalameta_munit_3_1_0_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scalameta_munit_diff_3_1_0_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sbt__scala_sdk_3_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Main.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/contoller/UnoController.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/model/Card.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/model/Player.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/model/PlayerHand.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/model/UnoField.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/util/Observer.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/view/TUI.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/controller/UnoControllerTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/model/CardsTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/model/PlayerHandTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/model/PlayerTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/model/UnoFieldTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_5_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_5_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__scala_sdk_3_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/uno/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Cards.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/PlayerHand.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Uno.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoField.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/CardsTest.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/PlayerHandTest.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/TUITest.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoControllerTest.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoFieldTest.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoGameTest.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoTest.scala" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/../../UNO">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="SBT">
@@ -84,32 +106,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TUI.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/SE/UNO&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.Main.executor": "Run",
+    "Application.TUI.executor": "Run",
+    "Application.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/SE/UNO",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main" />
@@ -170,7 +193,11 @@
       <workItem from="1731620095276" duration="657000" />
       <workItem from="1731625685587" duration="540000" />
       <workItem from="1731626271889" duration="7003000" />
-      <workItem from="1731651441785" duration="2090000" />
+      <workItem from="1731651441785" duration="3084000" />
+      <workItem from="1731655849798" duration="13585000" />
+      <workItem from="1731670028163" duration="22000" />
+      <workItem from="1731847222944" duration="1505000" />
+      <workItem from="1732027712001" duration="14828000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -276,7 +303,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731654680866</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="TUI UNO still not done">
+      <option name="closed" value="true" />
+      <created>1731654762302</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731654762302</updated>
+    </task>
+    <task id="LOCAL-00015" summary="TUI UNO still not done">
+      <option name="closed" value="true" />
+      <created>1731654812843</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1731654812843</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
