@@ -1,45 +1,11 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="TUI UNO still not done">
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/Main.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/contoller/UnoController.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/model/Card.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/model/Player.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/model/PlayerHand.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/model/UnoField.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/util/Observer.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/main/scala/view/TUI.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/controller/UnoControllerTest.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/model/CardsTest.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/model/PlayerHandTest.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/model/PlayerTest.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uno/src/test/scala/model/UnoFieldTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_5_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_5_1_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sbt__scala_sdk_3_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/uno/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Cards.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/PlayerHand.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/TUI.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Uno.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoController.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoField.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoGame.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" beforeDir="false" afterPath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/CardsTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/PlayerHandTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/TUITest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoControllerTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoFieldTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoGameTest.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoTest.scala" beforeDir="false" />
-    </list>
+    <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="put up MVC architecture" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,8 +53,8 @@
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
+    &quot;isMigrated&quot;: true
+    }</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -96,8 +62,8 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
+    &quot;associatedIndex&quot;: 2
+    }</component>
   <component name="ProjectId" id="2nOD4tbu2DlJHvqD3Ft2b6DVDHz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -117,7 +83,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/SE/UNO",
@@ -197,7 +163,7 @@
       <workItem from="1731655849798" duration="13585000" />
       <workItem from="1731670028163" duration="22000" />
       <workItem from="1731847222944" duration="1505000" />
-      <workItem from="1732027712001" duration="14828000" />
+      <workItem from="1732027712001" duration="15696000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -319,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731654812843</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="put up MVC architecture">
+      <option name="closed" value="true" />
+      <created>1732123885524</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732123885524</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +335,7 @@
     <MESSAGE value="TUI UNO and UnoControllerTest not done" />
     <MESSAGE value="TUI UNO and UnoControllerTest still not done" />
     <MESSAGE value="TUI UNO still not done" />
-    <option name="LAST_COMMIT_MESSAGE" value="TUI UNO still not done" />
+    <MESSAGE value="put up MVC architecture" />
+    <option name="LAST_COMMIT_MESSAGE" value="put up MVC architecture" />
   </component>
 </project>
