@@ -34,18 +34,23 @@ jobs:
       - name: Change to uno directory
         run: cd uno
 
+      - name: Compile and test
+        run: sbt clean coverage test
+        working-directory: ./uno
+
       # Compile and test the Scala project
       - name: run tests
         run: sbt clean test
         working-directory: ./uno
 
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v2.3.4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+
+
       - name: Package jar
         run: sbt clean package
         working-directory: ./uno
-
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@v2.3.4
-        #with:
-         # github-token: ${{ secrets.GITHUB_TOKEN }}
-        #env:
-         # COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
