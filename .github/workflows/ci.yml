@@ -11,10 +11,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Choose the OS for the CI runner (you can choose windows-latest or macos-latest)
+    runs-on: ubuntu-latest
 
     steps:
-      # Checkout the code from your GitHub repository
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -22,7 +21,7 @@ jobs:
       - name: Set up Scala
         uses: olafurpg/setup-scala@v10
         with:
-          scala-version: '2.13.8'  # Replace with your Scala version
+          scala-version: '3.5.1'
 
       # Set up SBT (Scala build tool)
       - name: Set up SBT
