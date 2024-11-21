@@ -26,12 +26,13 @@ jobs:
 
       # Set up SBT (Scala build tool)
       - name: Set up SBT
-        uses: coursier/setup-sbt@v2
-        with:
-          sbt-version: '1.5.5'  # Use the version of SBT you're working with
+        run: |
+          curl -sSL https://get.sdkman.io | bash
+          source $HOME/.sdkman/bin/sdkman-init.sh
+          sdk install sbt
 
       # Compile and test the Scala project
-      - name: Compile and test
+      - name: run tests
         run: sbt clean test
 
       # Optional: If you want to create a jar file
