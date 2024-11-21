@@ -1,0 +1,40 @@
+name: Scala CI
+
+# Trigger the workflow on push or pull request events to the main branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Choose the OS for the CI runner (you can choose windows-latest or macos-latest)
+
+    steps:
+      # Checkout the code from your GitHub repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Scala
+      - name: Set up Scala
+        uses: olafurpg/setup-scala@v10
+        with:
+          scala-version: '2.13.8'  # Replace with your Scala version
+
+      # Set up SBT (Scala build tool)
+      - name: Set up SBT
+        uses: coursier/setup-sbt@v2
+        with:
+          sbt-version: '1.5.5'  # Use the version of SBT you're working with
+
+      # Compile and test the Scala project
+      - name: Compile and test
+        run: sbt clean test
+
+      # Optional: If you want to create a jar file
+      - name: Package jar
+        run: sbt clean package
+
