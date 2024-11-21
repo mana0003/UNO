@@ -45,3 +45,7 @@ jobs:
         run: sbt clean package
         working-directory: ./uno
 
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v2.3.4
+
+
