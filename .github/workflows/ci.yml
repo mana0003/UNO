@@ -31,11 +31,17 @@ jobs:
           source $HOME/.sdkman/bin/sdkman-init.sh
           sdk install sbt
 
+      # Change directory to 'uno' where build.sbt is located
+      - name: Change to uno directory
+        run: cd uno
+
       # Compile and test the Scala project
       - name: run tests
         run: sbt clean test
+        working-directory: ./uno
 
       # Optional: If you want to create a jar file
       - name: Package jar
         run: sbt clean package
+        working-directory: ./uno
 
