@@ -40,12 +40,14 @@ jobs:
         run: sbt clean test
         working-directory: ./uno
 
-      # Optional: If you want to create a jar file
       - name: Package jar
         run: sbt clean package
         working-directory: ./uno
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.3.4
-
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
