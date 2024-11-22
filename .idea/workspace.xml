@@ -5,7 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="put up MVC architecture">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/project/build.properties" beforeDir="false" afterPath="$PROJECT_DIR$/project/build.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/project/plugin.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/project/plugin.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/UnoPlayingField.sc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/UnoPlayingField.sc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/contoller/UnoController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/contoller/UnoController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/model/Card.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/model/Card.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/model/Player.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/model/Player.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/model/PlayerHand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/model/PlayerHand.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/model/UnoField.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/model/UnoField.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/util/Observer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/util/Observer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/main/scala/view/TUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/UnoWordSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/UnoWordSpec.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/controller/UnoControllerTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/controller/UnoControllerTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/model/CardsTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/model/CardsTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/model/PlayerHandTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/model/PlayerHandTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/model/PlayerTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/model/PlayerTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/src/test/scala/model/UnoFieldTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/model/UnoFieldTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/scala-3.5.1/test-sync/copy-resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/scala-3.5.1/update/update_cache_3/inputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/scala-3.5.1/update/update_cache_3/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/_global/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/csrConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/csrProject/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/dependencyPositions/_global/streams/update_cache_3/input_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/ivyConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/ivySbt/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/moduleSettings/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/projectDescriptors/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/scalaCompilerBridgeScope/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/_global/update/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/compile/incOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/compile/scalacOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/compile/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/runtime/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/bspReporter/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/compile/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/copyResources/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/incOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/scalacOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/test/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/testListeners/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uno/targetnotgood/streams/test/unmanagedJars/_global/streams/export" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +62,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/../../UNO">
       <ProjectState />
     </projectState>
@@ -103,6 +155,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\SE\UNO\" />
+      <recent name="C:\SE\UNO\uno" />
       <recent name="C:\SE\UNO\uno\" />
       <recent name="C:\SE\UNO" />
     </key>
@@ -111,6 +164,19 @@
     <configuration name="main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="uno" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="uno-build" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="uno-build" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

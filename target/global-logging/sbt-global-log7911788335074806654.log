@@ -1,0 +1,94 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.10.2 (Azul Systems, Inc. Java 15.0.10)
+[debug] Load.defaultLoad until apply took 861.9053ms
+[debug]           Load.loadUnit: plugins took 1008.5249ms
+[debug]           Load.loadUnit: defsScala took 0.9262ms
+[debug] [Loading] Scanning directory C:\SE\UNO\project
+[debug]             Load.loadUnit: mkEval took 46.2687ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\SE\UNO\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 54.2218 ms
+[info] loading settings for project uno-build from plugin.sbt ...
+[debug]               Load.resolveProject(uno-build) took 145.3401ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id uno-build, base: C:\SE\UNO\project, plugins: List(<none>))) took 228.0203ms
+[debug] [Loading] Done in C:\SE\UNO\project, returning: (uno-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 11063.2292ms
+[debug]           Load.loadUnit: cleanEvalClasses took 210.9919ms
+[debug]         Load.loadUnit(file:/C:/SE/UNO/project/, ...) took 12315.018ms
+[debug]       Load.apply: load took 12669.5184ms
+[debug]       Load.apply: resolveProjects took 15.4328ms
+[debug]       Load.apply: finalTransforms took 161.4159ms
+[debug]       Load.apply: config.delegates took 19.5914ms
+[debug]       Load.apply: Def.make(settings)... took 1079.2859ms
+[debug]       Load.apply: structureIndex took 178.4738ms
+[debug]       Load.apply: mkStreams took 1.974ms
+[info] loading project definition from C:\SE\UNO\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 17462.8683ms
+[debug]     Load.loadUnit: defsScala took 0.0115ms
+[debug] [Loading] Scanning directory C:\SE\UNO
+[debug]       Load.loadUnit: mkEval took 0.9369ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(scoverage.ScoverageSbtPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.scoverage.coveralls.CoverallsPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(scoverage.ScoverageSbtPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.scoverage.coveralls.CoverallsPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,scoverage.ScoverageSbtPlugin,sbt.plugins.SemanticdbPlugin,sbt.plugins.JUnitXmlReportPlugin,org.scoverage.coveralls.CoverallsPlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 14.5273 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 32.6359ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: C:\SE\UNO, plugins: List(<none>))) took 50.2513ms
+[debug] [Loading] Done in C:\SE\UNO, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 2809.6654ms
+[debug]     Load.loadUnit: cleanEvalClasses took 35.0169ms
+[debug]   Load.loadUnit(file:/C:/SE/UNO/, ...) took 20312.2213ms
+[debug] Load.apply: load took 20417.2145ms
+[debug] Load.apply: resolveProjects took 0.1482ms
+[debug] Load.apply: finalTransforms took 60.9774ms
+[debug] Load.apply: config.delegates took 5.0398ms
+[debug] Load.apply: Def.make(settings)... took 233.8865ms
+[debug] Load.apply: structureIndex took 63.1903ms
+[debug] Load.apply: mkStreams took 0.0029ms
+[info] set current project to uno (in build file:/C:/SE/UNO/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(shell, None, None)
+[info] sbt server started at local:sbt-server-3c27759a31224acbb819
+[debug] Writing bsp connection file
+[info] started sbt server

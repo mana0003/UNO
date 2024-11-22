@@ -1,0 +1,812 @@
+<scoverage 
+statement-count="191" statements-invoked="80" statement-rate="41.88" branch-rate="27.27" version="1.0" timestamp="1732270639696">
+    <packages>
+        <package name="scala" statement-count="7" statements-invoked="0" statement-rate="0.00">
+            <classes>
+                <class 
+                name="scala.Main$" filename="Main.scala" statement-count="7" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                    <methods>
+                        <method name="scala/Main$/main" statement-count="7" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala" class="Main$" class-type="Object" full-class-name="scala.Main$" source="C:\SE\UNO\uno\src\main\scala\Main.scala" method="main" start="216" end="224" line="11" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala" class="Main$" class-type="Object" full-class-name="scala.Main$" source="C:\SE\UNO\uno\src\main\scala\Main.scala" method="main" start="314" end="329" line="14" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala" class="Main$" class-type="Object" full-class-name="scala.Main$" source="C:\SE\UNO\uno\src\main\scala\Main.scala" method="main" start="159" end="167" line="10" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala" class="Main$" class-type="Object" full-class-name="scala.Main$" source="C:\SE\UNO\uno\src\main\scala\Main.scala" method="main" start="216" end="224" line="11" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala" class="Main$" class-type="Object" full-class-name="scala.Main$" source="C:\SE\UNO\uno\src\main\scala\Main.scala" method="main" start="289" end="308" line="13" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala" class="Main$" class-type="Object" full-class-name="scala.Main$" source="C:\SE\UNO\uno\src\main\scala\Main.scala" method="main" start="216" end="224" line="11" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala" class="Main$" class-type="Object" full-class-name="scala.Main$" source="C:\SE\UNO\uno\src\main\scala\Main.scala" method="main" start="249" end="273" line="12" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+                        </method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="scala.controller" statement-count="16" statements-invoked="16" statement-rate="100.00">
+            <classes>
+                <class 
+                name="scala.controller.UnoController" filename="contoller\UnoController.scala" statement-count="16" statements-invoked="16" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="scala.controller/UnoController/draw" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="651" end="659" line="21" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="973" end="1000" line="29" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="860" end="917" line="27" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="691" end="701" line="22" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="770" end="826" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="770" end="804" line="25" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.controller/UnoController/play" statement-count="10" statements-invoked="10" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="264" line="8" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="358" end="390" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="159" end="167" line="7" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="401" end="428" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="392" end="449" line="10" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="249" line="8" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="582" end="602" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="260" line="8" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="291" end="348" line="9" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SE\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="615" end="642" line="19" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="scala.model" statement-count="61" statements-invoked="56" statement-rate="91.80">
+            <classes>
+                <class 
+                name="scala.model.PlayerHand" filename="model\PlayerHand.scala" statement-count="6" statements-invoked="5" statement-rate="83.33" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="scala.model/PlayerHand/addCard" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SE\UNO\uno\src\main\scala\model\PlayerHand.scala" method="addCard" start="135" end="148" line="2" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SE\UNO\uno\src\main\scala\model\PlayerHand.scala" method="addCard" start="84" end="95" line="2" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/PlayerHand/removeCard" statement-count="4" statements-invoked="3" statement-rate="75.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SE\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="209" end="230" line="4" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SE\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="155" end="169" line="4" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SE\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="220" end="224" line="4" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SE\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="220" end="230" line="4" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="scala.model.Player" filename="model\Player.scala" statement-count="9" statements-invoked="9" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="scala.model/Player/play" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="play" start="379" end="390" line="15" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="play" start="332" end="340" line="14" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="play" start="456" end="523" line="17" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="play" start="392" end="450" line="15" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="play" start="473" end="515" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="play" start="420" end="441" line="16" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/Player/valid" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="valid" start="281" end="321" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="valid" start="241" end="250" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/Player/$anonfun" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SE\UNO\uno\src\main\scala\model\Player.scala" method="$anonfun" start="299" end="320" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="scala.model.Card$package$" filename="model\Card.scala" statement-count="21" statements-invoked="19" statement-rate="90.48" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="scala.model/Card$package$/randomCard" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1319" end="1333" line="56" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1341" end="1352" line="56" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1354" end="1365" line="56" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/Card$package$/randomColor" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1213" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1160" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1153" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1115" end="1130" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1187" end="1211" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1161" end="1212" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/Card$package$/randomCards" statement-count="5" statements-invoked="3" statement-rate="60.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1413" end="1445" line="59" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1414" end="1423" line="59" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1414" end="1415" line="59" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1413" end="1452" line="59" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1370" end="1385" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/Card$package$/$anonfun" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="$anonfun" start="1434" end="1444" line="59" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/Card$package$/randomValue" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1263" end="1314" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1217" end="1232" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1315" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1289" end="1313" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1262" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1255" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="scala.model.Card" filename="model\Card.scala" statement-count="14" statements-invoked="14" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="scala.model/Card/getColorCode" statement-count="13" statements-invoked="13" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1025" end="1041" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="880" end="908" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1082" end="1096" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="990" end="1021" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="933" end="963" line="43" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1049" end="1078" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="814" end="853" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="967" end="982" line="43" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="758" end="787" line="40" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="857" end="872" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="791" end="806" line="40" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="704" end="720" line="38" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="912" end="925" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/Card/canBePlayedOn" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SE\UNO\uno\src\main\scala\model\Card.scala" method="canBePlayedOn" start="508" end="525" line="34" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="scala.model.PlayerHand$" filename="model\PlayerHand.scala" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="scala.model/PlayerHand$/$lessinit$greater$default$1" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="PlayerHand$" class-type="Object" full-class-name="scala.model.PlayerHand$" source="C:\SE\UNO\uno\src\main\scala\model\PlayerHand.scala" method="$lessinit$greater$default$1" start="63" end="77" line="1" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="PlayerHand$" class-type="Object" full-class-name="scala.model.PlayerHand$" source="C:\SE\UNO\uno\src\main\scala\model\PlayerHand.scala" method="$lessinit$greater$default$1" start="63" end="63" line="1" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="scala.model.UnoField$" filename="model\UnoField.scala" statement-count="9" statements-invoked="7" statement-rate="77.78" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="scala.model/UnoField$/$anonfun" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$anonfun" start="123" end="133" line="2" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/UnoField$/$lessinit$greater$default$2" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$2" start="188" end="198" line="3" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$2" start="188" end="188" line="3" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/UnoField$/$lessinit$greater$default$1" statement-count="5" statements-invoked="3" statement-rate="60.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="93" end="102" line="2" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="92" line="2" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="144" line="2" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="93" end="94" line="2" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="137" line="2" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.model/UnoField$/$lessinit$greater$default$3" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SE\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$3" start="247" end="247" line="4" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="scala.util" statement-count="9" statements-invoked="8" statement-rate="88.89">
+            <classes>
+                <class 
+                name="scala.util.Observable" filename="util\Observer.scala" statement-count="9" statements-invoked="8" statement-rate="88.89" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="scala.util/Observable/notifyObservers" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="notifyObservers" start="304" end="341" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="notifyObservers" start="266" end="285" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.util/Observable/$anonfun" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="$anonfun" start="329" end="340" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.util/Observable/remove" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="remove" start="226" end="260" line="8" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="remove" start="180" end="190" line="8" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.util/Observable/&lt;init&gt;" statement-count="2" statements-invoked="1" statement-rate="50.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="&lt;init&gt;" start="101" end="107" line="4" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="&lt;init&gt;" start="101" end="109" line="4" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.util/Observable/add" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="add" start="115" end="122" line="6" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.util" class="Observable" class-type="Trait" full-class-name="scala.util.Observable" source="C:\SE\UNO\uno\src\main\scala\util\Observer.scala" method="add" start="158" end="174" line="6" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="scala.view" statement-count="98" statements-invoked="0" statement-rate="0.00">
+            <classes>
+                <class 
+                name="scala.view.TUI" filename="view\TUI.scala" statement-count="98" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                    <methods>
+                        <method 
+                        name="scala.view/TUI/processInputLine" statement-count="30" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="530" end="586" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="510" end="1303" line="17" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="530" end="608" line="18" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="886" end="909" line="24" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="692" end="736" line="19" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="851" end="876" line="23" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1127" end="1165" line="30" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="749" end="770" line="20" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="919" end="937" line="25" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="417" end="504" line="14" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="785" end="1296" line="21" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="426" end="475" line="15" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1262" end="1276" line="33" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="796" end="841" line="22" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1177" end="1183" line="31" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="962" end="978" line="26" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1117" end="1123" line="30" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="962" end="978" line="26" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="620" end="688" line="19" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="962" end="990" line="26" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1042" end="1048" line="28" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1091" end="1105" line="29" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="620" end="676" line="19" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1081" end="1087" line="29" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1052" end="1069" line="28" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="1200" end="1248" line="32" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="738" end="779" line="19" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="483" end="497" line="16" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="311" end="339" line="13" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="processInputLine" start="962" end="1004" line="26" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.view/TUI/gameContinue" statement-count="22" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="2832" end="2904" line="94" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3452" end="3483" line="105" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="2840" end="2903" line="94" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3180" end="3237" line="99" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="2770" end="2826" line="93" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3260" end="3288" line="100" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3327" end="3375" line="102" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3419" end="3484" line="105" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3410" end="3491" line="104" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="2708" end="2732" line="92" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3025" end="3062" line="96" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="2910" end="3019" line="95" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3436" end="3450" line="105" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3260" end="3276" line="100" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3260" end="3276" line="100" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="2918" end="3018" line="95" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3318" end="3404" line="101" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3383" end="3397" line="103" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="2940" end="2977" line="95" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3298" end="3316" line="101" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3012" end="3017" line="95" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameContinue" start="3025" end="3174" line="96" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.view/TUI/&lt;init&gt;" statement-count="1" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="&lt;init&gt;" start="285" end="305" line="11" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.view/TUI/displayField" statement-count="11" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2531" end="2627" line="80" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2531" end="2627" line="80" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2666" end="2697" line="89" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2647" end="2660" line="88" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2339" end="2347" line="75" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2674" end="2696" line="89" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2531" end="2639" line="86" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2339" end="2342" line="75" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2281" end="2305" line="74" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2417" end="2421" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="displayField" start="2417" end="2456" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.view/TUI/$anonfun" statement-count="7" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="$anonfun" start="3160" end="3165" line="97" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="$anonfun" start="1435" end="1455" line="42" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="$anonfun" start="3102" end="3167" line="97" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="$anonfun" start="3110" end="3166" line="97" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="$anonfun" start="3073" end="3091" line="96" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="$anonfun" start="2200" end="2220" line="70" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="$anonfun" start="3128" end="3145" line="97" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.view/TUI/gameOver" statement-count="5" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameOver" start="2059" end="2079" line="67" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameOver" start="2119" end="2140" line="69" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameOver" start="2227" end="2270" line="71" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameOver" start="2235" end="2269" line="71" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="gameOver" start="2164" end="2221" line="70" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.view/TUI/startGame" statement-count="14" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1790" end="1829" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1707" end="1723" line="54" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1891" end="1929" line="60" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1837" end="1849" line="58" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1707" end="1735" line="54" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1707" end="1723" line="54" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1619" end="1633" line="52" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="2030" end="2041" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1639" end="1686" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1937" end="1943" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1588" end="1601" line="51" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1765" end="1777" line="56" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1862" end="1881" line="59" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="startGame" start="1956" end="2020" line="62" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="scala.view/TUI/update" statement-count="8" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="update" start="1504" end="1538" line="44" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="update" start="1546" end="1552" line="47" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="update" start="1314" end="1333" line="39" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="update" start="1517" end="1527" line="45" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="update" start="1556" end="1570" line="47" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="update" start="1376" end="1385" line="41" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="update" start="1458" end="1498" line="42" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="scala.view" class="TUI" class-type="Class" full-class-name="scala.view.TUI" source="C:\SE\UNO\uno\src\main\scala\view\TUI.scala" method="update" start="1403" end="1456" line="42" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+    </packages>
+</scoverage>

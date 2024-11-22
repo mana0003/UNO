@@ -1,0 +1,199 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(early(addDefaultCommands), None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(addDefaultCommands, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(early(initialize), None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(initialize, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(boot, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(writeSbtVersion, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(reload, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtStashOnFailure, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(onFailure loadFailed, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(loadp, None, None)[0m
+[0m[[0m[0minfo[0m] [0m[0mwelcome to sbt 1.10.2 (Oracle Corporation Java 20.0.1)[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.loadUnit: plugins took 135.8524ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.loadUnit: defsScala took 0.464ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Scanning directory C:\Users\manal\.sbt\1.0\plugins[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Found non-root projects [0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Done in C:\Users\manal\.sbt\1.0\plugins, returning: ()[0m
+[0m[[0m[0mdebug[0m] [0m[0mdeducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))[0m
+[0m[[0m[0mdebug[0m] [0m[0m  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)[0m
+[0m[[0m[0mdebug[0m] [0m[0mPlugins.deducer#function took 19.6939 ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m          Load.resolveProject(global-plugins) took 50.0116ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m        Load.loadTransitive: finalizeProject(Project(id global-plugins, base: C:\Users\manal\.sbt\1.0\plugins, plugins: List(<none>))) took 99.5015ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Done in C:\Users\manal\.sbt\1.0\plugins, returning: (global-plugins)[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.loadUnit: loadedProjectsRaw took 140.653ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.loadUnit: cleanEvalClasses took 0.3723ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Load.loadUnit(file:/C:/Users/manal/.sbt/1.0/plugins/, ...) took 293.3943ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Load.apply: load took 541.6371ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Load.apply: resolveProjects took 4.5927ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Load.apply: finalTransforms took 74.2917ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Load.apply: config.delegates took 13.0631ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Load.apply: Def.make(settings)... took 445.651ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Load.apply: structureIndex took 119.2944ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Load.apply: mkStreams took 2.2323ms[0m
+[0m[[0m[0minfo[0m] [0m[0mloading global plugins from C:\Users\manal\.sbt\1.0\plugins[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0mdebug[0m] [0m[0mLoad.defaultLoad until apply took 2745.1218ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m          Load.loadUnit: plugins took 19.6016ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m          Load.loadUnit: defsScala took 0.0045ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Scanning directory C:\SoftwareEngineering\UNO\uno\project[0m
+[0m[[0m[0mdebug[0m] [0m[0m            Load.loadUnit: mkEval took 3.5622ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Found non-root projects [0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Done in C:\SoftwareEngineering\UNO\uno\project, returning: ()[0m
+[0m[[0m[0mdebug[0m] [0m[0mdeducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))[0m
+[0m[[0m[0mdebug[0m] [0m[0m  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)[0m
+[0m[[0m[0mdebug[0m] [0m[0mPlugins.deducer#function took 1.2691 ms[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project uno-build from project.sbt ...[0m
+[0m[[0m[0mdebug[0m] [0m[0m              Load.resolveProject(uno-build) took 4.6547ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m            Load.loadTransitive: finalizeProject(Project(id uno-build, base: C:\SoftwareEngineering\UNO\uno\project, plugins: List(<none>))) took 6.4046ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Done in C:\SoftwareEngineering\UNO\uno\project, returning: (uno-build)[0m
+[0m[[0m[0mdebug[0m] [0m[0m          Load.loadUnit: loadedProjectsRaw took 113.6732ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m          Load.loadUnit: cleanEvalClasses took 4.4722ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m        Load.loadUnit(file:/C:/SoftwareEngineering/UNO/uno/project/, ...) took 138.7041ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.apply: load took 139.8255ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.apply: resolveProjects took 0.1107ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.apply: finalTransforms took 7.3708ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.apply: config.delegates took 0.2987ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.apply: Def.make(settings)... took 74.6591ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.apply: structureIndex took 35.2869ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.apply: mkStreams took 0.0029ms[0m
+[0m[[0m[0minfo[0m] [0m[0mloading project definition from C:\SoftwareEngineering\UNO\uno\project[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Load.loadUnit: plugins took 568.7928ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Load.loadUnit: defsScala took 0.0039ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Scanning directory C:\SoftwareEngineering\UNO\uno[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.loadUnit: mkEval took 0.4251ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Found root project root w/ remaining [0m
+[0m[[0m[0mdebug[0m] [0m[0mdeducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(scoverage.ScoverageSbtPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mClause(Atom(sbt.plugins.JvmPlugin),Set(Atom(scoverage.ScoverageSbtPlugin))))[0m
+[0m[[0m[0mdebug[0m] [0m[0m  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,scoverage.ScoverageSbtPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)[0m
+[0m[[0m[0mdebug[0m] [0m[0mPlugins.deducer#function took 1.3479 ms[0m
+[0m[[0m[0minfo[0m] [0m[0mloading settings for project root from build.sbt ...[0m
+[0m[[0m[0mdebug[0m] [0m[0m        Load.resolveProject(root) took 6.9643ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m      Load.loadTransitive: finalizeProject(Project(id root, base: C:\SoftwareEngineering\UNO\uno, plugins: List(<none>))) took 9.6666ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m[Loading] Done in C:\SoftwareEngineering\UNO\uno, returning: (root)[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Load.loadUnit: loadedProjectsRaw took 78.5681ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Load.loadUnit: cleanEvalClasses took 4.8977ms[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Load.loadUnit(file:/C:/SoftwareEngineering/UNO/uno/, ...) took 653.0288ms[0m
+[0m[[0m[0mdebug[0m] [0m[0mLoad.apply: load took 654.4153ms[0m
+[0m[[0m[0mdebug[0m] [0m[0mLoad.apply: resolveProjects took 0.0781ms[0m
+[0m[[0m[0mdebug[0m] [0m[0mLoad.apply: finalTransforms took 19.9041ms[0m
+[0m[[0m[0mdebug[0m] [0m[0mLoad.apply: config.delegates took 0.3874ms[0m
+[0m[[0m[0mdebug[0m] [0m[0mLoad.apply: Def.make(settings)... took 61.1818ms[0m
+[0m[[0m[0mdebug[0m] [0m[0mLoad.apply: structureIndex took 26.5163ms[0m
+[0m[[0m[0mdebug[0m] [0m[0mLoad.apply: mkStreams took 0.0021ms[0m
+[0m[[0m[0minfo[0m] [0m[0mset current project to uno (in build file:/C:/SoftwareEngineering/UNO/uno/)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(sbtPopOnFailure, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(resumeFromFailure, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(notifyUsersAboutShell, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(iflast shell, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(clean, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: clean[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 0 s, completed 08.11.2024, 19:12:35[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(coverage, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(;set ThisBuild / coverageEnabled := true, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(set ThisBuild / coverageEnabled := true, None, None)[0m
+[0m[[0m[0minfo[0m] [0m[0mDefining ThisBuild / coverageEnabled[0m
+[0m[[0m[0minfo[0m] [0m[0mThe new value will be used by no settings or tasks.[0m
+[0m[[0m[0mdebug[0m] [0m[0mDefining [0m
+[0m[[0m[0mdebug[0m] [0m[0m	ThisBuild / coverageEnabled[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mThe new value will be used by no settings or tasks.[0m
+[0m[[0m[0minfo[0m] [0m[0mReapplying settings...[0m
+[0m[[0m[0minfo[0m] [0m[0mset current project to uno (in build file:/C:/SoftwareEngineering/UNO/uno/)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 7 Scala sources to C:\SoftwareEngineering\UNO\uno\target\scala-3.5.1\classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 8 Scala sources to C:\SoftwareEngineering\UNO\uno\target\scala-3.5.1\test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPlayerHandTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- PlayerHand initializes correctly[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mUnoControllerTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- playTurn with a valid move prints the correct message and continues the game *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  "" did not contain "Player 1 played Yellow 0" (UnoControllerTest.scala:41)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- playTurn with a valid move and a winning player prints the winner message *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.util.NoSuchElementException: head of empty list[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.Nil$.head(List.scala:663)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.collection.immutable.Nil$.head(List.scala:662)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at UnoGame.isValidMove(UnoGame.scala:27)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at UnoGame.playCard(UnoGame.scala:16)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at UnoController.playTurn(UnoController.scala:4)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at UnoControllerTest.testFun$proxy2$1(UnoControllerTest.scala:50)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at UnoControllerTest.$init$$$anonfun$4(UnoControllerTest.scala:45)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply$$anonfun$1(Transformer.scala:22)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:31)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- playTurn with an invalid move prints the invalid move message *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  "" did not contain "Invalid move by Player 1" (UnoControllerTest.scala:61)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mUnoFieldTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- displayField returns correct string representation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mUnoGameTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- startGame initializes players and discardPile[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- randomPlayerHand should create a PlayerHand with the specified number of cards[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- playCard with valid move updates discardPile and player hand *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  game.playCard(player, card) was false (UnoGameTest.scala:41)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- applyCardEffect should handle 'Draw' card effect[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- applyCardEffect should handle 'Wild Draw Four' card effect[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- applyCardEffect should handle 'Wild' card effect[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- applyCardEffect should handle 'Skip' card effect[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- applyCardEffect should handle 'Reverse' card effect[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- playCard with invalid move does not update discardPile or player hand[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- drawCards should add the specified number of cards to the player's hand[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- randomCard generates a valid card[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- checkWinner returns the player with an empty hand[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- checkWinner returns None if no player has an empty hand[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCardsTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Card should correctly identify special cards[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Card should correctly store color and value[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mMainTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Main should initialize and run the game[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTUITest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- TUI main runs without errors[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31mTUITest *** ABORTED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.OutOfMemoryError: Java heap space[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/java.util.Arrays.copyOf(Arrays.java:3537)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/java.io.ByteArrayOutputStream.ensureCapacity(ByteArrayOutputStream.java:100)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/java.io.ByteArrayOutputStream.write(ByteArrayOutputStream.java:132)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/java.io.PrintStream.implWrite(PrintStream.java:643)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/java.io.PrintStream.write(PrintStream.java:623)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:313)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:409)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/sun.nio.cs.StreamEncoder.lockedFlushBuffer(StreamEncoder.java:127)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/sun.nio.cs.StreamEncoder.flushBuffer(StreamEncoder.java:114)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at java.base/java.io.OutputStreamWriter.flushBuffer(OutputStreamWriter.java:193)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
