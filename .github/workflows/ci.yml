@@ -21,7 +21,7 @@ jobs:
       - name: Set up Scala
         uses: olafurpg/setup-scala@v10
         with:
-          scala-version: '3.5.1'
+          scala-version: '3.3.4'
 
       # Set up SBT (Scala build tool)
       - name: Set up SBT
@@ -35,28 +35,29 @@ jobs:
        # run: cd uno
 
       - name: Compile and test with coverage
-        run: sbt clean coverage test coverageReport coverageAggregate
+        run: sbt clean coverage test coverageReport
         working-directory: ./uno
 
-      #- name: Compile and test
-       # run: sbt clean coverage test
-        #working-directory: ./uno
-
-      # Compile and test the Scala project
-    #  - name: run tests
-     #   run: sbt clean test
-      #  working-directory: ./uno
+      - name: Aggregate
+        run: sbt coverageAggregate
+        working-directory: ./uno
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.3.4
-        with:
-          path-to-lcov: ./uno/target/scala-3.3.1/scoverage-report/scoverage.xml
+        #with:
+         # path-to-lcov: ./uno/target/scala-3.3.1/scoverage-report/scoverage.xml
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
       - name: Package jar
         run: sbt clean package
         working-directory: ./uno
+
+      - name: Upload coverage data to Coveralls
+        run: sbt coverageReport coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_FLAG_NAME: Scala ${{ matrix.scala }}
 
 
  # run_tests:
