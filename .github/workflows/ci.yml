@@ -17,35 +17,42 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set Up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
       # Set up Scala
       - name: Set up Scala
         uses: olafurpg/setup-scala@v10
         with:
           scala-version: '3.3.4'
 
-      # Set up SBT (Scala build tool)
-      - name: Set up SBT
-        run: |
-          curl -sSL https://get.sdkman.io | bash
-          source $HOME/.sdkman/bin/sdkman-init.sh
-          sdk install sbt
-
-      # Change directory to 'uno' where build.sbt is located
-      #- name: Change to uno directory
-       # run: cd uno
+        # Set up SBT (Scala build tool)
+        # - name: Set up SBT
+        #   run: |
+        #    curl -sSL https://get.sdkman.io | bash
+        #   source $HOME/.sdkman/bin/sdkman-init.sh
+        #  sdk install sbt
 
       - name: Compile and test with coverage
         run: sbt clean coverage test coverageReport
         working-directory: ./uno
 
-      - name: Aggregate
-        run: sbt coverageAggregate
-        working-directory: ./uno
+          #- name: Aggregate
+          # run: sbt coverageAggregate
+          #working-directory: ./uno
+      - name: Upload coverage data to Coveralls
+        run: sbt coverageAggregate coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_FLAG_NAME: Scala ${{ matrix.scala }}
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.3.4
-        #with:
-         # path-to-lcov: ./uno/target/scala-3.3.1/scoverage-report/scoverage.xml
+          #with:
+        # path-to-lcov: ./uno/target/scala-3.3.1/scoverage-report/scoverage.xml
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
@@ -58,18 +65,18 @@ jobs:
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COVERALLS_FLAG_NAME: Scala ${{ matrix.scala }}
-        working-directory: ./uno
 
 
 
- # run_tests:
-  #  runs-on: ubuntu-latest
-   # steps:
-    #  - uses: actions/checkout@v2
-     # - name: Build Project and export Coverage
-      #  env:
-       #   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        #  COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        #run: |
-         # export CI_BRANCH="${GITHUB_REF#refs/heads/}"
+
+          # run_tests:
+          #  runs-on: ubuntu-latest
+          # steps:
+          #  - uses: actions/checkout@v2
+          # - name: Build Project and export Coverage
+          #  env:
+          #   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          #  COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          #run: |
+          # export CI_BRANCH="${GITHUB_REF#refs/heads/}"
           #sbt clean jacoco jacocoCoveralls
