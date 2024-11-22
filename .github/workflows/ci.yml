@@ -58,6 +58,8 @@ jobs:
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COVERALLS_FLAG_NAME: Scala ${{ matrix.scala }}
+        working-directory: ./uno
+
 
 
  # run_tests:
