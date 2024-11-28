@@ -1,0 +1,11 @@
+[0m[[0m[0minfo[0m] [0m[0mWaiting for measurement data to sync...[0m
+[0m[[0m[0minfo[0m] [0m[0mReading scoverage instrumentation [C:\SE\UNO\uno\target\scala-3.3.1\scoverage-data\scoverage.coverage][0m
+[0m[[0m[0minfo[0m] [0m[0mReading scoverage measurements...[0m
+[0m[[0m[0minfo[0m] [0m[0mGenerating scoverage reports...[0m
+[0m[[0m[0minfo[0m] [0m[0mWritten Cobertura report [C:\SE\UNO\uno\target\scala-3.3.1\coverage-report/cobertura.xml][0m
+[0m[[0m[0minfo[0m] [0m[0mWritten XML coverage report [C:\SE\UNO\uno\target\scala-3.3.1\scoverage-report/scoverage.xml][0m
+[0m[[0m[0minfo[0m] [0m[0mWritten HTML coverage report [C:\SE\UNO\uno\target\scala-3.3.1\scoverage-report/index.html][0m
+[0m[[0m[0minfo[0m] [0m[0mStatement coverage.: 41.88%[0m
+[0m[[0m[0minfo[0m] [0m[0mBranch coverage....: 27.27%[0m
+[0m[[0m[0minfo[0m] [0m[0mCoverage reports completed[0m
+[0m[[0m[0minfo[0m] [0m[0mAll done. Coverage was stmt=[41.88%] branch=[27.27%][0m

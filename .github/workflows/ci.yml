@@ -17,53 +17,35 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up Scala
-      - name: Set up Scala
-        uses: olafurpg/setup-scala@v10
+      - name: Set Up JDK
+        uses: actions/setup-java@v3
         with:
-          scala-version: '3.5.1'
+          java-version: '17'
+          distribution: 'adopt'
 
-      # Set up SBT (Scala build tool)
-      - name: Set up SBT
-        run: |
-          curl -sSL https://get.sdkman.io | bash
-          source $HOME/.sdkman/bin/sdkman-init.sh
-          sdk install sbt
+      - name: Compile and test with coverage
+        run: sbt clean coverage test coverageReport
+        #working-directory: ./uno
 
-      # Change directory to 'uno' where build.sbt is located
-      - name: Change to uno directory
-        run: cd uno
-
-      - name: Compile and test
-        run: sbt clean coverage test
-        working-directory: ./uno
-
-      # Compile and test the Scala project
-      - name: run tests
-        run: sbt clean test
-        working-directory: ./uno
+      - name: Upload coverage data to Coveralls
+        run: sbt coverageAggregate coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_FLAG_NAME: Scala ${{ matrix.scala }}
 
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v2.3.4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          #with:
+        # path-to-lcov: ./uno/target/scala-3.3.1/scoverage-report/scoverage.xml
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-
 
       - name: Package jar
         run: sbt clean package
-        working-directory: ./uno
+        #working-directory: ./uno
 
-
-  run_tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build Project and export Coverage
+      - name: Upload coverage data to Coveralls
+        run: sbt coverageReport coveralls
         env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        run: |
-          export CI_BRANCH="${GITHUB_REF#refs/heads/}"
-          sbt clean jacoco jacocoCoveralls
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_FLAG_NAME: Scala ${{ matrix.scala }}
