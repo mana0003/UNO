@@ -1,4 +1,5 @@
 package scala.view
+
 import scala.model.*
 import scala.controller.*
 import scala.util.*
@@ -6,7 +7,6 @@ import scala.io.StdIn
 import scala.io.AnsiColor._
 import scala.util.{Event, Observer}
 import scala.util.Event.{Quit, Start}
-
 
 class TUI(val controller: UnoController) extends Observer {
   controller.add(this)
@@ -18,7 +18,7 @@ class TUI(val controller: UnoController) extends Observer {
     } else {
       val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)
       if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {
-        controller.play(card)
+        UnoActionFactory.getActionHandler("play", Some(card)).executeAction(controller, controller.field.players(controller.field.currentPlayer))
       } else {
         println("Card does not fit. Do you want to:")
         println("1. Draw a card")
@@ -26,7 +26,7 @@ class TUI(val controller: UnoController) extends Observer {
         println("3. Quit")
         val readLine = StdIn.readLine().toIntOption.getOrElse(-1)
         readLine match {
-          case 1 => controller.draw()
+          case 1 => UnoActionFactory.getActionHandler("draw").executeAction(controller, controller.field.players(controller.field.currentPlayer))
           case 2 => gameContinue()
           case 3 => controller.notifyObservers(Event.Quit)
           case _ =>
@@ -66,7 +66,6 @@ class TUI(val controller: UnoController) extends Observer {
   }
 
   private def gameOver(): Unit = {
-    // clearScreen()
     println("Game over!")
     val winnerIndex = controller.field.players.indexWhere(_.hand.cards.isEmpty)
     println(s"Player ${winnerIndex + 1} wins!")
@@ -76,7 +75,6 @@ class TUI(val controller: UnoController) extends Observer {
     val separator = "=" * 60
     val title = "                           UNO"
     val options = List("1. Start playing UNO", "2. Quit")
-    // Return the final playing field as a string
     val menu =
       s"""
         |$separator

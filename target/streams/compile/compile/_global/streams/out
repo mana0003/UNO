@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:29:20 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m29 |[0m          [33mcase[0m [31m1[0m => actionProcessor.processAction(controller, controller.field.players(controller.field.currentPlayer), [31m"draw"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                    Not found: actionProcessor[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
