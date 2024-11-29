@@ -1,7 +1,7 @@
-[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\SE\UNO\uno\target\scala-3.3.1\test-classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\SoftwareEngineering\UNO\target\scala-3.3.1\test-classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
-[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\SE\UNO\uno\target\scala-3.3.1\test-classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\SoftwareEngineering\UNO\target\scala-3.3.1\test-classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
@@ -23,4 +23,4 @@
 [0m[[0m[0mdebug[0m] [0m[0m	CardTest.tasty[0m
 [0m[[0m[0mdebug[0m] [0m[0m	ControllerTest$TestObserver$1.tasty[0m
 [0m[[0m[0mdebug[0m] [0m[0m	ControllerTest$TestObserver$4.tasty[0m
-[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\SE\UNO\uno\target\scala-3.3.1\test-classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\SoftwareEngineering\UNO\target\scala-3.3.1\test-classes.bak[0m

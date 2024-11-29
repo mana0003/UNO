@@ -23,14 +23,14 @@
         <div class="tab-content">
           <div class="tab-pane active" id="codegrid">
             <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package scala.view
-</span>2 <span style=''>import scala.model.*
-</span>3 <span style=''>import scala.controller.*
-</span>4 <span style=''>import scala.util.*
-</span>5 <span style=''>import scala.io.StdIn
-</span>6 <span style=''>import scala.io.AnsiColor._
-</span>7 <span style=''>import scala.util.{Event, Observer}
-</span>8 <span style=''>import scala.util.Event.{Quit, Start}
-</span>9 <span style=''>
+</span>2 <span style=''>
+</span>3 <span style=''>import scala.model.*
+</span>4 <span style=''>import scala.controller.*
+</span>5 <span style=''>import scala.util.*
+</span>6 <span style=''>import scala.io.StdIn
+</span>7 <span style=''>import scala.io.AnsiColor._
+</span>8 <span style=''>import scala.util.{Event, Observer}
+</span>9 <span style=''>import scala.util.Event.{Quit, Start}
 </span>10 <span style=''>
 </span>11 <span style=''>class TUI(val controller: UnoController) extends Observer {
 </span>12 <span style=''>  </span><span style='background: #F0ADAD'>controller.add(this)</span><span style=''>
@@ -42,7 +42,7 @@
 </span>18 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''> else </span><span style='background: #F0ADAD'>{
 </span>19 <span style=''></span><span style='background: #F0ADAD'>      val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)
 </span>20 <span style=''></span><span style='background: #F0ADAD'>      if (controller.field.players(controller.field.currentPlayer).valid(card) &amp;&amp; card.canBePlayedOn(controller.field.topCard)) {
-</span>21 <span style=''></span><span style='background: #F0ADAD'>        controller.play(card)
+</span>21 <span style=''></span><span style='background: #F0ADAD'>        UnoActionFactory.getActionHandler(&quot;play&quot;, Some(card)).executeAction(controller, controller.field.players(controller.field.currentPlayer))
 </span>22 <span style=''></span><span style='background: #F0ADAD'>      } else {
 </span>23 <span style=''></span><span style='background: #F0ADAD'>        println(&quot;Card does not fit. Do you want to:&quot;)
 </span>24 <span style=''></span><span style='background: #F0ADAD'>        println(&quot;1. Draw a card&quot;)
@@ -50,7 +50,7 @@
 </span>26 <span style=''></span><span style='background: #F0ADAD'>        println(&quot;3. Quit&quot;)
 </span>27 <span style=''></span><span style='background: #F0ADAD'>        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)
 </span>28 <span style=''></span><span style='background: #F0ADAD'>        readLine match {
-</span>29 <span style=''></span><span style='background: #F0ADAD'>          case 1 =&gt; controller.draw()
+</span>29 <span style=''></span><span style='background: #F0ADAD'>          case 1 =&gt; UnoActionFactory.getActionHandler(&quot;draw&quot;).executeAction(controller, controller.field.players(controller.field.currentPlayer))
 </span>30 <span style=''></span><span style='background: #F0ADAD'>          case 2 =&gt; gameContinue()
 </span>31 <span style=''></span><span style='background: #F0ADAD'>          case 3 =&gt; controller.notifyObservers(Event.Quit)
 </span>32 <span style=''></span><span style='background: #F0ADAD'>          case _ =&gt;
@@ -90,47 +90,45 @@
 </span>66 <span style=''>  }
 </span>67 <span style=''>
 </span>68 <span style=''>  </span><span style='background: #F0ADAD'>private def gameOver</span><span style=''>(): Unit = {
-</span>69 <span style=''>    // clearScreen()
-</span>70 <span style=''>    </span><span style='background: #F0ADAD'>println(&quot;Game over!&quot;)</span><span style=''>
-</span>71 <span style=''>    val winnerIndex = </span><span style='background: #F0ADAD'>controller.field.players.indexWhere(_.hand.cards.isEmpty)</span><span style=''>
-</span>72 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Player ${winnerIndex + 1} wins!&quot;)</span><span style=''>
-</span>73 <span style=''>  }
-</span>74 <span style=''>
-</span>75 <span style=''>  </span><span style='background: #F0ADAD'>private def displayField</span><span style=''>(): Unit = {
-</span>76 <span style=''>    val separator = </span><span style='background: #F0ADAD'>&quot;=&quot; * 60</span><span style=''>
-</span>77 <span style=''>    val title = &quot;                           UNO&quot;
-</span>78 <span style=''>    val options = </span><span style='background: #F0ADAD'>List(&quot;1. Start playing UNO&quot;, &quot;2. Quit&quot;)</span><span style=''>
-</span>79 <span style=''>    // Return the final playing field as a string
-</span>80 <span style=''>    val menu =
-</span>81 <span style=''>      </span><span style='background: #F0ADAD'>s&quot;&quot;&quot;
-</span>82 <span style=''></span><span style='background: #F0ADAD'>        |$separator
+</span>69 <span style=''>    </span><span style='background: #F0ADAD'>println(&quot;Game over!&quot;)</span><span style=''>
+</span>70 <span style=''>    val winnerIndex = </span><span style='background: #F0ADAD'>controller.field.players.indexWhere(_.hand.cards.isEmpty)</span><span style=''>
+</span>71 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Player ${winnerIndex + 1} wins!&quot;)</span><span style=''>
+</span>72 <span style=''>  }
+</span>73 <span style=''>
+</span>74 <span style=''>  </span><span style='background: #F0ADAD'>private def displayField</span><span style=''>(): Unit = {
+</span>75 <span style=''>    val separator = </span><span style='background: #F0ADAD'>&quot;=&quot; * 60</span><span style=''>
+</span>76 <span style=''>    val title = &quot;                           UNO&quot;
+</span>77 <span style=''>    val options = </span><span style='background: #F0ADAD'>List(&quot;1. Start playing UNO&quot;, &quot;2. Quit&quot;)</span><span style=''>
+</span>78 <span style=''>    val menu =
+</span>79 <span style=''>      </span><span style='background: #F0ADAD'>s&quot;&quot;&quot;
+</span>80 <span style=''></span><span style='background: #F0ADAD'>        |$separator
+</span>81 <span style=''></span><span style='background: #F0ADAD'>        |
+</span>82 <span style=''></span><span style='background: #F0ADAD'>        |$title
 </span>83 <span style=''></span><span style='background: #F0ADAD'>        |
-</span>84 <span style=''></span><span style='background: #F0ADAD'>        |$title
-</span>85 <span style=''></span><span style='background: #F0ADAD'>        |
-</span>86 <span style=''></span><span style='background: #F0ADAD'>        |$separator
-</span>87 <span style=''></span><span style='background: #F0ADAD'>      &quot;&quot;&quot;.stripMargin</span><span style=''>
-</span>88 <span style=''>
-</span>89 <span style=''>    </span><span style='background: #F0ADAD'>println(menu)</span><span style=''>
-</span>90 <span style=''>    </span><span style='background: #F0ADAD'>println(options.mkString(&quot;\n&quot;))</span><span style=''>
-</span>91 <span style=''>  }
-</span>92 <span style=''>
-</span>93 <span style=''>  </span><span style='background: #F0ADAD'>private def gameContinue</span><span style=''>(): Unit = {
-</span>94 <span style=''>    val currentPlayer = </span><span style='background: #F0ADAD'>controller.field.players(controller.field.currentPlayer)</span><span style=''>
-</span>95 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Current player: Player ${controller.field.currentPlayer + 1}&quot;)</span><span style=''>
-</span>96 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;)</span><span style=''>
-</span>97 <span style=''>    </span><span style='background: #F0ADAD'>currentPlayer.hand.cards.zipWithIndex.foreach { case (card, index) =&gt;
-</span>98 <span style=''></span><span style='background: #F0ADAD'>      println(s&quot;${index + 1}: ${card.getColorCode}${card.value}$RESET&quot;)
-</span>99 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''>
-</span>100 <span style=''>    </span><span style='background: #F0ADAD'>println(&quot;Enter the number of the card you want to play:&quot;)</span><span style=''>
-</span>101 <span style=''>    val cardNumber = </span><span style='background: #F0ADAD'>StdIn.readLine().toIntOption</span><span style=''>
-</span>102 <span style=''>    if (</span><span style='background: #F0ADAD'>cardNumber.isEmpty</span><span style=''>) </span><span style='background: #F0ADAD'>{
-</span>103 <span style=''></span><span style='background: #F0ADAD'>      println(&quot;Invalid input. Please enter a number.&quot;)
-</span>104 <span style=''></span><span style='background: #F0ADAD'>      gameContinue()
-</span>105 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''> else </span><span style='background: #F0ADAD'>{
-</span>106 <span style=''></span><span style='background: #F0ADAD'>      processInputLine(cardNumber.get, currentPlayer.hand.cards.length)
-</span>107 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''>
-</span>108 <span style=''>  }
-</span>109 <span style=''>}
+</span>84 <span style=''></span><span style='background: #F0ADAD'>        |$separator
+</span>85 <span style=''></span><span style='background: #F0ADAD'>      &quot;&quot;&quot;.stripMargin</span><span style=''>
+</span>86 <span style=''>
+</span>87 <span style=''>    </span><span style='background: #F0ADAD'>println(menu)</span><span style=''>
+</span>88 <span style=''>    </span><span style='background: #F0ADAD'>println(options.mkString(&quot;\n&quot;))</span><span style=''>
+</span>89 <span style=''>  }
+</span>90 <span style=''>
+</span>91 <span style=''>  </span><span style='background: #F0ADAD'>private def gameContinue</span><span style=''>(): Unit = {
+</span>92 <span style=''>    val currentPlayer = </span><span style='background: #F0ADAD'>controller.field.players(controller.field.currentPlayer)</span><span style=''>
+</span>93 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Current player: Player ${controller.field.currentPlayer + 1}&quot;)</span><span style=''>
+</span>94 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;)</span><span style=''>
+</span>95 <span style=''>    </span><span style='background: #F0ADAD'>currentPlayer.hand.cards.zipWithIndex.foreach { case (card, index) =&gt;
+</span>96 <span style=''></span><span style='background: #F0ADAD'>      println(s&quot;${index + 1}: ${card.getColorCode}${card.value}$RESET&quot;)
+</span>97 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''>
+</span>98 <span style=''>    </span><span style='background: #F0ADAD'>println(&quot;Enter the number of the card you want to play:&quot;)</span><span style=''>
+</span>99 <span style=''>    val cardNumber = </span><span style='background: #F0ADAD'>StdIn.readLine().toIntOption</span><span style=''>
+</span>100 <span style=''>    if (</span><span style='background: #F0ADAD'>cardNumber.isEmpty</span><span style=''>) </span><span style='background: #F0ADAD'>{
+</span>101 <span style=''></span><span style='background: #F0ADAD'>      println(&quot;Invalid input. Please enter a number.&quot;)
+</span>102 <span style=''></span><span style='background: #F0ADAD'>      gameContinue()
+</span>103 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''> else </span><span style='background: #F0ADAD'>{
+</span>104 <span style=''></span><span style='background: #F0ADAD'>      processInputLine(cardNumber.get, currentPlayer.hand.cards.length)
+</span>105 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''>
+</span>106 <span style=''>  }
+</span>107 <span style=''>}
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -148,7 +146,7 @@
           11
         </td>
         <td>
-          173
+          146
         </td>
         <td>
           285
@@ -172,7 +170,7 @@
           13
         </td>
         <td>
-          143
+          181
         </td>
         <td>
           311
@@ -196,7 +194,7 @@
           14
         </td>
         <td>
-          136
+          149
         </td>
         <td>
           417
@@ -220,7 +218,7 @@
           15
         </td>
         <td>
-          91
+          147
         </td>
         <td>
           426
@@ -244,7 +242,7 @@
           16
         </td>
         <td>
-          15
+          148
         </td>
         <td>
           483
@@ -268,12 +266,12 @@
           17
         </td>
         <td>
-          17
+          180
         </td>
         <td>
           510
           -
-          1303
+          1527
         </td>
         <td>
           Block
@@ -285,14 +283,14 @@
           
         </td>
         <td style="background: #F0ADAD">
-          {\r\n      val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)\r\n      if (controller.field.players(controller.field.currentPlayer).valid(card) &amp;&amp; card.canBePlayedOn(controller.field.topCard)) {\r\n        controller.play(card)\r\n      } else {\r\n        println(&quot;Card does not fit. Do you want to:&quot;)\r\n        println(&quot;1. Draw a card&quot;)\r\n        println(&quot;2. Try again&quot;)\r\n        println(&quot;3. Quit&quot;)\r\n        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n        readLine match {\r\n          case 1 =&gt; controller.draw()\r\n          case 2 =&gt; gameContinue()\r\n          case 3 =&gt; controller.notifyObservers(Event.Quit)\r\n          case _ =&gt;\r\n            println(&quot;Invalid input. Please enter a number.&quot;)\r\n            gameContinue()\r\n        }\r\n      }\r\n    }
+          {\r\n      val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)\r\n      if (controller.field.players(controller.field.currentPlayer).valid(card) &amp;&amp; card.canBePlayedOn(controller.field.topCard)) {\r\n        UnoActionFactory.getActionHandler(&quot;play&quot;, Some(card)).executeAction(controller, controller.field.players(controller.field.currentPlayer))\r\n      } else {\r\n        println(&quot;Card does not fit. Do you want to:&quot;)\r\n        println(&quot;1. Draw a card&quot;)\r\n        println(&quot;2. Try again&quot;)\r\n        println(&quot;3. Quit&quot;)\r\n        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n        readLine match {\r\n          case 1 =&gt; UnoActionFactory.getActionHandler(&quot;draw&quot;).executeAction(controller, controller.field.players(controller.field.currentPlayer))\r\n          case 2 =&gt; gameContinue()\r\n          case 3 =&gt; controller.notifyObservers(Event.Quit)\r\n          case _ =&gt;\r\n            println(&quot;Invalid input. Please enter a number.&quot;)\r\n            gameContinue()\r\n        }\r\n      }\r\n    }
         </td>
       </tr><tr>
         <td>
           18
         </td>
         <td>
-          44
+          151
         </td>
         <td>
           530
@@ -316,7 +314,7 @@
           18
         </td>
         <td>
-          107
+          150
         </td>
         <td>
           530
@@ -340,7 +338,31 @@
           19
         </td>
         <td>
-          5
+          158
+        </td>
+        <td>
+          738
+          -
+          895
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n        UnoActionFactory.getActionHandler(&quot;play&quot;, Some(card)).executeAction(controller, controller.field.players(controller.field.currentPlayer))\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          154
         </td>
         <td>
           692
@@ -364,31 +386,7 @@
           19
         </td>
         <td>
-          147
-        </td>
-        <td>
-          620
-          -
-          688
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          valid
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          controller.field.players(controller.field.currentPlayer).valid(card)
-        </td>
-      </tr><tr>
-        <td>
-          19
-        </td>
-        <td>
-          78
+          153
         </td>
         <td>
           620
@@ -412,60 +410,108 @@
           19
         </td>
         <td>
-          102
+          152
         </td>
         <td>
-          738
+          620
           -
-          779
+          688
         </td>
         <td>
-          Block
+          Apply
         </td>
         <td>
-          &lt;none&gt;
+          valid
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          {\r\n        controller.play(card)\r\n      }
+          controller.field.players(controller.field.currentPlayer).valid(card)
         </td>
       </tr><tr>
         <td>
           20
         </td>
         <td>
-          172
+          155
         </td>
         <td>
           749
           -
-          770
+          886
         </td>
         <td>
           Apply
         </td>
         <td>
-          play
+          executeAction
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          controller.play(card)
+          UnoActionFactory.getActionHandler(&quot;play&quot;, Some(card)).executeAction(controller, controller.field.players(controller.field.currentPlayer))
+        </td>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          157
+        </td>
+        <td>
+          829
+          -
+          885
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          156
+        </td>
+        <td>
+          749
+          -
+          802
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getActionHandler
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          UnoActionFactory.getActionHandler(&quot;play&quot;, Some(card))
         </td>
       </tr><tr>
         <td>
           21
         </td>
         <td>
-          100
+          179
         </td>
         <td>
-          785
+          901
           -
-          1296
+          1520
         </td>
         <td>
           Block
@@ -477,19 +523,19 @@
           
         </td>
         <td style="background: #F0ADAD">
-          {\r\n        println(&quot;Card does not fit. Do you want to:&quot;)\r\n        println(&quot;1. Draw a card&quot;)\r\n        println(&quot;2. Try again&quot;)\r\n        println(&quot;3. Quit&quot;)\r\n        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n        readLine match {\r\n          case 1 =&gt; controller.draw()\r\n          case 2 =&gt; gameContinue()\r\n          case 3 =&gt; controller.notifyObservers(Event.Quit)\r\n          case _ =&gt;\r\n            println(&quot;Invalid input. Please enter a number.&quot;)\r\n            gameContinue()\r\n        }\r\n      }
+          {\r\n        println(&quot;Card does not fit. Do you want to:&quot;)\r\n        println(&quot;1. Draw a card&quot;)\r\n        println(&quot;2. Try again&quot;)\r\n        println(&quot;3. Quit&quot;)\r\n        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n        readLine match {\r\n          case 1 =&gt; UnoActionFactory.getActionHandler(&quot;draw&quot;).executeAction(controller, controller.field.players(controller.field.currentPlayer))\r\n          case 2 =&gt; gameContinue()\r\n          case 3 =&gt; controller.notifyObservers(Event.Quit)\r\n          case _ =&gt;\r\n            println(&quot;Invalid input. Please enter a number.&quot;)\r\n            gameContinue()\r\n        }\r\n      }
         </td>
       </tr><tr>
         <td>
           22
         </td>
         <td>
-          13
+          159
         </td>
         <td>
-          796
+          912
           -
-          841
+          957
         </td>
         <td>
           Apply
@@ -508,12 +554,12 @@
           23
         </td>
         <td>
-          142
+          160
         </td>
         <td>
-          851
+          967
           -
-          876
+          992
         </td>
         <td>
           Apply
@@ -532,12 +578,12 @@
           24
         </td>
         <td>
-          65
+          161
         </td>
         <td>
-          886
+          1002
           -
-          909
+          1025
         </td>
         <td>
           Apply
@@ -556,12 +602,12 @@
           25
         </td>
         <td>
-          46
+          162
         </td>
         <td>
-          919
+          1035
           -
-          937
+          1053
         </td>
         <td>
           Apply
@@ -580,12 +626,12 @@
           26
         </td>
         <td>
-          79
+          164
         </td>
         <td>
-          962
+          1078
           -
-          978
+          1094
         </td>
         <td>
           Apply
@@ -604,36 +650,12 @@
           26
         </td>
         <td>
-          10
+          166
         </td>
         <td>
-          962
+          1078
           -
-          978
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          readLine
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          StdIn.readLine()
-        </td>
-      </tr><tr>
-        <td>
-          26
-        </td>
-        <td>
-          177
-        </td>
-        <td>
-          962
-          -
-          990
+          1106
         </td>
         <td>
           Select
@@ -652,12 +674,12 @@
           26
         </td>
         <td>
-          161
+          163
         </td>
         <td>
-          962
+          1078
           -
-          1004
+          1120
         </td>
         <td>
           Apply
@@ -673,15 +695,39 @@
         </td>
       </tr><tr>
         <td>
+          26
+        </td>
+        <td>
+          165
+        </td>
+        <td>
+          1078
+          -
+          1094
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          readLine
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine()
+        </td>
+      </tr><tr>
+        <td>
           28
         </td>
         <td>
-          105
+          167
         </td>
         <td>
-          1042
+          1158
           -
-          1048
+          1164
         </td>
         <td>
           Block
@@ -700,36 +746,108 @@
           28
         </td>
         <td>
-          27
+          169
         </td>
         <td>
-          1052
+          1168
           -
-          1069
+          1209
         </td>
         <td>
           Apply
         </td>
         <td>
-          draw
+          getActionHandler
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          controller.draw()
+          UnoActionFactory.getActionHandler(&quot;draw&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          168
+        </td>
+        <td>
+          1168
+          -
+          1293
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          executeAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          UnoActionFactory.getActionHandler(&quot;draw&quot;).executeAction(controller, controller.field.players(controller.field.currentPlayer))
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          171
+        </td>
+        <td>
+          1236
+          -
+          1292
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          170
+        </td>
+        <td>
+          1168
+          -
+          1201
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          getActionHandler$default$2
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          UnoActionFactory.getActionHandler
         </td>
       </tr><tr>
         <td>
           29
         </td>
         <td>
-          69
+          173
         </td>
         <td>
-          1091
+          1315
           -
-          1105
+          1329
         </td>
         <td>
           Apply
@@ -748,12 +866,12 @@
           29
         </td>
         <td>
-          144
+          172
         </td>
         <td>
-          1081
+          1305
           -
-          1087
+          1311
         </td>
         <td>
           Block
@@ -772,12 +890,12 @@
           30
         </td>
         <td>
-          163
+          175
         </td>
         <td>
-          1127
+          1351
           -
-          1165
+          1389
         </td>
         <td>
           Apply
@@ -796,12 +914,12 @@
           30
         </td>
         <td>
-          43
+          174
         </td>
         <td>
-          1117
+          1341
           -
-          1123
+          1347
         </td>
         <td>
           Block
@@ -820,12 +938,12 @@
           31
         </td>
         <td>
-          76
+          176
         </td>
         <td>
-          1177
+          1401
           -
-          1183
+          1407
         </td>
         <td>
           Block
@@ -844,12 +962,12 @@
           32
         </td>
         <td>
-          12
+          177
         </td>
         <td>
-          1200
+          1424
           -
-          1248
+          1472
         </td>
         <td>
           Apply
@@ -868,12 +986,12 @@
           33
         </td>
         <td>
-          130
+          178
         </td>
         <td>
-          1262
+          1486
           -
-          1276
+          1500
         </td>
         <td>
           Apply
@@ -892,12 +1010,12 @@
           39
         </td>
         <td>
-          140
+          190
         </td>
         <td>
-          1314
+          1538
           -
-          1333
+          1557
         </td>
         <td>
           DefDef
@@ -916,12 +1034,12 @@
           41
         </td>
         <td>
-          63
+          182
         </td>
         <td>
-          1376
+          1600
           -
-          1385
+          1609
         </td>
         <td>
           Block
@@ -940,36 +1058,12 @@
           42
         </td>
         <td>
-          158
+          185
         </td>
         <td>
-          1435
+          1682
           -
-          1455
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          isEmpty
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          _.hand.cards.isEmpty
-        </td>
-      </tr><tr>
-        <td>
-          42
-        </td>
-        <td>
-          75
-        </td>
-        <td>
-          1458
-          -
-          1498
+          1722
         </td>
         <td>
           Block
@@ -988,12 +1082,36 @@
           42
         </td>
         <td>
-          39
+          184
         </td>
         <td>
-          1403
+          1659
           -
-          1456
+          1679
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          isEmpty
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          _.hand.cards.isEmpty
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          183
+        </td>
+        <td>
+          1627
+          -
+          1680
         </td>
         <td>
           Apply
@@ -1012,12 +1130,12 @@
           44
         </td>
         <td>
-          128
+          187
         </td>
         <td>
-          1504
+          1728
           -
-          1538
+          1762
         </td>
         <td>
           Block
@@ -1036,12 +1154,12 @@
           45
         </td>
         <td>
-          11
+          186
         </td>
         <td>
-          1517
+          1741
           -
-          1527
+          1751
         </td>
         <td>
           Apply
@@ -1060,36 +1178,12 @@
           47
         </td>
         <td>
-          95
+          189
         </td>
         <td>
-          1546
+          1780
           -
-          1552
-        </td>
-        <td>
-          Block
-        </td>
-        <td>
-          &lt;none&gt;
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          case _
-        </td>
-      </tr><tr>
-        <td>
-          47
-        </td>
-        <td>
-          16
-        </td>
-        <td>
-          1556
-          -
-          1570
+          1794
         </td>
         <td>
           Apply
@@ -1105,15 +1199,39 @@
         </td>
       </tr><tr>
         <td>
+          47
+        </td>
+        <td>
+          188
+        </td>
+        <td>
+          1770
+          -
+          1776
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case _
+        </td>
+      </tr><tr>
+        <td>
           51
         </td>
         <td>
-          1
+          204
         </td>
         <td>
-          1588
+          1812
           -
-          1601
+          1825
         </td>
         <td>
           DefDef
@@ -1132,12 +1250,12 @@
           52
         </td>
         <td>
-          64
+          191
         </td>
         <td>
-          1619
+          1843
           -
-          1633
+          1857
         </td>
         <td>
           Apply
@@ -1156,12 +1274,12 @@
           53
         </td>
         <td>
-          34
+          192
         </td>
         <td>
-          1639
+          1863
           -
-          1686
+          1910
         </td>
         <td>
           Apply
@@ -1180,12 +1298,12 @@
           54
         </td>
         <td>
-          77
+          194
         </td>
         <td>
-          1707
+          1931
           -
-          1723
+          1947
         </td>
         <td>
           Apply
@@ -1204,36 +1322,12 @@
           54
         </td>
         <td>
-          2
+          193
         </td>
         <td>
-          1707
+          1931
           -
-          1735
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          toIntOption
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          StdIn.readLine().toIntOption
-        </td>
-      </tr><tr>
-        <td>
-          54
-        </td>
-        <td>
-          160
-        </td>
-        <td>
-          1707
-          -
-          1723
+          1947
         </td>
         <td>
           Apply
@@ -1249,15 +1343,39 @@
         </td>
       </tr><tr>
         <td>
+          54
+        </td>
+        <td>
+          195
+        </td>
+        <td>
+          1931
+          -
+          1959
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toIntOption
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine().toIntOption
+        </td>
+      </tr><tr>
+        <td>
           56
         </td>
         <td>
-          129
+          196
         </td>
         <td>
-          1765
+          1989
           -
-          1777
+          2001
         </td>
         <td>
           Block
@@ -1276,12 +1394,12 @@
           57
         </td>
         <td>
-          92
+          197
         </td>
         <td>
-          1790
+          2014
           -
-          1829
+          2053
         </td>
         <td>
           Apply
@@ -1300,12 +1418,12 @@
           58
         </td>
         <td>
-          26
+          198
         </td>
         <td>
-          1837
+          2061
           -
-          1849
+          2073
         </td>
         <td>
           Block
@@ -1324,12 +1442,12 @@
           59
         </td>
         <td>
-          141
+          199
         </td>
         <td>
-          1862
+          2086
           -
-          1881
+          2105
         </td>
         <td>
           Apply
@@ -1348,12 +1466,12 @@
           60
         </td>
         <td>
-          62
+          200
         </td>
         <td>
-          1891
+          2115
           -
-          1929
+          2153
         </td>
         <td>
           Apply
@@ -1372,12 +1490,12 @@
           61
         </td>
         <td>
-          189
+          201
         </td>
         <td>
-          1937
+          2161
           -
-          1943
+          2167
         </td>
         <td>
           Block
@@ -1396,12 +1514,12 @@
           62
         </td>
         <td>
-          153
+          202
         </td>
         <td>
-          1956
+          2180
           -
-          2020
+          2244
         </td>
         <td>
           Apply
@@ -1420,12 +1538,12 @@
           63
         </td>
         <td>
-          85
+          203
         </td>
         <td>
-          2030
+          2254
           -
-          2041
+          2265
         </td>
         <td>
           Apply
@@ -1444,12 +1562,12 @@
           67
         </td>
         <td>
-          187
+          210
         </td>
         <td>
-          2059
+          2283
           -
-          2079
+          2303
         </td>
         <td>
           DefDef
@@ -1465,15 +1583,15 @@
         </td>
       </tr><tr>
         <td>
-          69
+          68
         </td>
         <td>
-          127
+          205
         </td>
         <td>
-          2119
+          2321
           -
-          2140
+          2342
         </td>
         <td>
           Apply
@@ -1489,15 +1607,15 @@
         </td>
       </tr><tr>
         <td>
-          70
+          69
         </td>
         <td>
-          31
+          207
         </td>
         <td>
-          2200
+          2402
           -
-          2220
+          2422
         </td>
         <td>
           Select
@@ -1513,15 +1631,15 @@
         </td>
       </tr><tr>
         <td>
-          70
+          69
         </td>
         <td>
-          99
+          206
         </td>
         <td>
-          2164
+          2366
           -
-          2221
+          2423
         </td>
         <td>
           Apply
@@ -1537,39 +1655,15 @@
         </td>
       </tr><tr>
         <td>
-          71
+          70
         </td>
         <td>
-          139
+          209
         </td>
         <td>
-          2227
+          2437
           -
-          2270
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          println
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          println(s&quot;Player ${winnerIndex + 1} wins!&quot;)
-        </td>
-      </tr><tr>
-        <td>
-          71
-        </td>
-        <td>
-          61
-        </td>
-        <td>
-          2235
-          -
-          2269
+          2471
         </td>
         <td>
           Apply
@@ -1585,15 +1679,39 @@
         </td>
       </tr><tr>
         <td>
-          74
+          70
         </td>
         <td>
-          72
+          208
         </td>
         <td>
-          2281
+          2429
           -
-          2305
+          2472
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(s&quot;Player ${winnerIndex + 1} wins!&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          73
+        </td>
+        <td>
+          221
+        </td>
+        <td>
+          2483
+          -
+          2507
         </td>
         <td>
           DefDef
@@ -1609,15 +1727,15 @@
         </td>
       </tr><tr>
         <td>
-          75
+          74
         </td>
         <td>
-          157
+          211
         </td>
         <td>
-          2339
+          2541
           -
-          2347
+          2549
         </td>
         <td>
           Apply
@@ -1633,15 +1751,15 @@
         </td>
       </tr><tr>
         <td>
-          75
+          74
         </td>
         <td>
-          87
+          212
         </td>
         <td>
-          2339
+          2541
           -
-          2342
+          2544
         </td>
         <td>
           Apply
@@ -1657,15 +1775,15 @@
         </td>
       </tr><tr>
         <td>
-          77
+          76
         </td>
         <td>
-          126
+          214
         </td>
         <td>
-          2417
+          2619
           -
-          2421
+          2623
         </td>
         <td>
           Ident
@@ -1681,15 +1799,15 @@
         </td>
       </tr><tr>
         <td>
-          77
+          76
         </td>
         <td>
-          9
+          213
         </td>
         <td>
-          2417
+          2619
           -
-          2456
+          2658
         </td>
         <td>
           Apply
@@ -1705,15 +1823,15 @@
         </td>
       </tr><tr>
         <td>
-          80
+          78
         </td>
         <td>
-          23
+          216
         </td>
         <td>
-          2531
+          2682
           -
-          2627
+          2778
         </td>
         <td>
           Apply
@@ -1729,15 +1847,15 @@
         </td>
       </tr><tr>
         <td>
-          80
+          78
         </td>
         <td>
-          98
+          215
         </td>
         <td>
-          2531
+          2682
           -
-          2627
+          2778
         </td>
         <td>
           Apply
@@ -1753,15 +1871,15 @@
         </td>
       </tr><tr>
         <td>
-          86
+          84
         </td>
         <td>
-          138
+          217
         </td>
         <td>
-          2531
+          2682
           -
-          2639
+          2790
         </td>
         <td>
           Select
@@ -1777,15 +1895,15 @@
         </td>
       </tr><tr>
         <td>
-          88
+          86
         </td>
         <td>
-          67
+          218
         </td>
         <td>
-          2647
+          2798
           -
-          2660
+          2811
         </td>
         <td>
           Apply
@@ -1801,39 +1919,15 @@
         </td>
       </tr><tr>
         <td>
-          89
+          87
         </td>
         <td>
-          190
+          220
         </td>
         <td>
-          2666
+          2825
           -
-          2697
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          println
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          println(options.mkString(&quot;\\n&quot;))
-        </td>
-      </tr><tr>
-        <td>
-          89
-        </td>
-        <td>
-          156
-        </td>
-        <td>
-          2674
-          -
-          2696
+          2847
         </td>
         <td>
           Apply
@@ -1849,15 +1943,39 @@
         </td>
       </tr><tr>
         <td>
-          92
+          87
         </td>
         <td>
-          82
+          219
         </td>
         <td>
-          2708
+          2817
           -
-          2732
+          2848
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(options.mkString(&quot;\\n&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          90
+        </td>
+        <td>
+          248
+        </td>
+        <td>
+          2859
+          -
+          2883
         </td>
         <td>
           DefDef
@@ -1873,15 +1991,15 @@
         </td>
       </tr><tr>
         <td>
-          93
+          91
         </td>
         <td>
-          8
+          222
         </td>
         <td>
-          2770
+          2921
           -
-          2826
+          2977
         </td>
         <td>
           Apply
@@ -1897,15 +2015,15 @@
         </td>
       </tr><tr>
         <td>
-          94
+          92
         </td>
         <td>
-          131
+          223
         </td>
         <td>
-          2832
+          2983
           -
-          2904
+          3055
         </td>
         <td>
           Apply
@@ -1921,15 +2039,15 @@
         </td>
       </tr><tr>
         <td>
-          94
+          92
         </td>
         <td>
-          59
+          224
         </td>
         <td>
-          2840
+          2991
           -
-          2903
+          3054
         </td>
         <td>
           Apply
@@ -1945,63 +2063,15 @@
         </td>
       </tr><tr>
         <td>
-          95
+          93
         </td>
         <td>
-          22
+          227
         </td>
         <td>
-          2910
+          3091
           -
-          3019
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          println
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          println(s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;)
-        </td>
-      </tr><tr>
-        <td>
-          95
-        </td>
-        <td>
-          135
-        </td>
-        <td>
-          2918
-          -
-          3018
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          s
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;
-        </td>
-      </tr><tr>
-        <td>
-          95
-        </td>
-        <td>
-          66
-        </td>
-        <td>
-          2940
-          -
-          2977
+          3128
         </td>
         <td>
           Select
@@ -2017,15 +2087,63 @@
         </td>
       </tr><tr>
         <td>
-          95
+          93
         </td>
         <td>
-          188
+          226
         </td>
         <td>
-          3012
+          3069
           -
-          3017
+          3169
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;
+        </td>
+      </tr><tr>
+        <td>
+          93
+        </td>
+        <td>
+          225
+        </td>
+        <td>
+          3061
+          -
+          3170
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          93
+        </td>
+        <td>
+          228
+        </td>
+        <td>
+          3163
+          -
+          3168
         </td>
         <td>
           Ident
@@ -2041,63 +2159,15 @@
         </td>
       </tr><tr>
         <td>
-          96
+          94
         </td>
         <td>
-          73
+          229
         </td>
         <td>
-          3025
+          3176
           -
-          3062
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          zipWithIndex
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          currentPlayer.hand.cards.zipWithIndex
-        </td>
-      </tr><tr>
-        <td>
-          96
-        </td>
-        <td>
-          4
-        </td>
-        <td>
-          3073
-          -
-          3091
-        </td>
-        <td>
-          Block
-        </td>
-        <td>
-          &lt;none&gt;
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          case (card, index)
-        </td>
-      </tr><tr>
-        <td>
-          96
-        </td>
-        <td>
-          152
-        </td>
-        <td>
-          3025
-          -
-          3174
+          3325
         </td>
         <td>
           Apply
@@ -2113,15 +2183,63 @@
         </td>
       </tr><tr>
         <td>
-          97
+          94
         </td>
         <td>
-          137
+          231
         </td>
         <td>
-          3160
+          3224
           -
-          3165
+          3242
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case (card, index)
+        </td>
+      </tr><tr>
+        <td>
+          94
+        </td>
+        <td>
+          230
+        </td>
+        <td>
+          3176
+          -
+          3213
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          zipWithIndex
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          currentPlayer.hand.cards.zipWithIndex
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          235
+        </td>
+        <td>
+          3311
+          -
+          3316
         </td>
         <td>
           Ident
@@ -2137,15 +2255,15 @@
         </td>
       </tr><tr>
         <td>
-          97
+          95
         </td>
         <td>
-          125
+          232
         </td>
         <td>
-          3102
+          3253
           -
-          3167
+          3318
         </td>
         <td>
           Apply
@@ -2161,15 +2279,39 @@
         </td>
       </tr><tr>
         <td>
-          97
+          95
         </td>
         <td>
-          58
+          234
         </td>
         <td>
-          3110
+          3279
           -
-          3166
+          3296
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          getColorCode
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          card.getColorCode
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          233
+        </td>
+        <td>
+          3261
+          -
+          3317
         </td>
         <td>
           Apply
@@ -2188,36 +2330,12 @@
           97
         </td>
         <td>
-          18
+          236
         </td>
         <td>
-          3128
+          3331
           -
-          3145
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          getColorCode
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          card.getColorCode
-        </td>
-      </tr><tr>
-        <td>
-          99
-        </td>
-        <td>
-          68
-        </td>
-        <td>
-          3180
-          -
-          3237
+          3388
         </td>
         <td>
           Apply
@@ -2233,39 +2351,15 @@
         </td>
       </tr><tr>
         <td>
-          100
+          98
         </td>
         <td>
-          71
+          238
         </td>
         <td>
-          3260
+          3411
           -
-          3288
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          toIntOption
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          StdIn.readLine().toIntOption
-        </td>
-      </tr><tr>
-        <td>
-          100
-        </td>
-        <td>
-          120
-        </td>
-        <td>
-          3260
-          -
-          3276
+          3427
         </td>
         <td>
           Apply
@@ -2281,15 +2375,15 @@
         </td>
       </tr><tr>
         <td>
-          100
+          98
         </td>
         <td>
-          186
+          237
         </td>
         <td>
-          3260
+          3411
           -
-          3276
+          3427
         </td>
         <td>
           Apply
@@ -2305,39 +2399,39 @@
         </td>
       </tr><tr>
         <td>
-          101
+          98
         </td>
         <td>
-          21
+          239
         </td>
         <td>
-          3318
+          3411
           -
-          3404
+          3439
         </td>
         <td>
-          Block
+          Select
         </td>
         <td>
-          &lt;none&gt;
+          toIntOption
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          {\r\n      println(&quot;Invalid input. Please enter a number.&quot;)\r\n      gameContinue()\r\n    }
+          StdIn.readLine().toIntOption
         </td>
       </tr><tr>
         <td>
-          101
+          99
         </td>
         <td>
-          6
+          240
         </td>
         <td>
-          3298
+          3449
           -
-          3316
+          3467
         </td>
         <td>
           Select
@@ -2353,15 +2447,39 @@
         </td>
       </tr><tr>
         <td>
-          102
+          99
         </td>
         <td>
-          124
+          243
         </td>
         <td>
-          3327
+          3469
           -
-          3375
+          3555
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n      println(&quot;Invalid input. Please enter a number.&quot;)\r\n      gameContinue()\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          100
+        </td>
+        <td>
+          241
+        </td>
+        <td>
+          3478
+          -
+          3526
         </td>
         <td>
           Apply
@@ -2377,15 +2495,15 @@
         </td>
       </tr><tr>
         <td>
-          103
+          101
         </td>
         <td>
-          57
+          242
         </td>
         <td>
-          3383
+          3534
           -
-          3397
+          3548
         </td>
         <td>
           Apply
@@ -2401,15 +2519,15 @@
         </td>
       </tr><tr>
         <td>
-          104
+          102
         </td>
         <td>
-          118
+          247
         </td>
         <td>
-          3410
+          3561
           -
-          3491
+          3642
         </td>
         <td>
           Block
@@ -2425,39 +2543,39 @@
         </td>
       </tr><tr>
         <td>
-          105
+          103
         </td>
         <td>
-          185
+          245
         </td>
         <td>
-          3452
+          3587
           -
-          3483
+          3601
         </td>
         <td>
           Select
         </td>
         <td>
-          length
+          get
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          currentPlayer.hand.cards.length
+          cardNumber.get
         </td>
       </tr><tr>
         <td>
-          105
+          103
         </td>
         <td>
-          133
+          244
         </td>
         <td>
-          3419
+          3570
           -
-          3484
+          3635
         </td>
         <td>
           Apply
@@ -2473,27 +2591,27 @@
         </td>
       </tr><tr>
         <td>
-          105
+          103
         </td>
         <td>
-          70
+          246
         </td>
         <td>
-          3436
+          3603
           -
-          3450
+          3634
         </td>
         <td>
           Select
         </td>
         <td>
-          get
+          length
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          cardNumber.get
+          currentPlayer.hand.cards.length
         </td>
       </tr>
     </table>

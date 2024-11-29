@@ -1,7 +1,13 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:29:20 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m29 |[0m          [33mcase[0m [31m1[0m => actionProcessor.processAction(controller, controller.field.players(controller.field.currentPlayer), [31m"draw"[0m)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                    Not found: actionProcessor[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\contoller\UnoActionProcessor.scala:46:35 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m46 |[0m    [33mval[0m [36mhandler[0m = UnoActionFactory.getActionHandler(action)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mvalue getActionHandler is not a member of object controller.UnoActionFactory[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:21:25 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m21 |[0m        UnoActionFactory.getActionHandler([31m"play"[0m, Some(card)).executeAction(controller, controller.field.players(controller.field.currentPlayer))[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mvalue getActionHandler is not a member of object controller.UnoActionFactory[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:29:37 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m29 |[0m          [33mcase[0m [31m1[0m => UnoActionFactory.getActionHandler([31m"draw"[0m).executeAction(controller, controller.field.players(controller.field.currentPlayer))[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mvalue getActionHandler is not a member of object controller.UnoActionFactory[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m

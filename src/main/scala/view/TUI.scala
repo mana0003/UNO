@@ -18,7 +18,7 @@ class TUI(val controller: UnoController) extends Observer {
     } else {
       val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)
       if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {
-        UnoActionFactory.getActionHandler("play", Some(card)).executeAction(controller, controller.field.players(controller.field.currentPlayer))
+        UnoActionFactory.builder().setAction("play").setCard(card).build().executeAction(controller, controller.field.players(controller.field.currentPlayer))
       } else {
         println("Card does not fit. Do you want to:")
         println("1. Draw a card")
@@ -26,7 +26,7 @@ class TUI(val controller: UnoController) extends Observer {
         println("3. Quit")
         val readLine = StdIn.readLine().toIntOption.getOrElse(-1)
         readLine match {
-          case 1 => UnoActionFactory.getActionHandler("draw").executeAction(controller, controller.field.players(controller.field.currentPlayer))
+          case 1 => UnoActionFactory.builder().setAction("draw").build().executeAction(controller, controller.field.players(controller.field.currentPlayer))
           case 2 => gameContinue()
           case 3 => controller.notifyObservers(Event.Quit)
           case _ =>
