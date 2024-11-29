@@ -1,0 +1,458 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          contoller\UnoController.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package scala.controller
+</span>2 <span style=''>import scala.model.*
+</span>3 <span style=''>import scala.view.*
+</span>4 <span style=''>import scala.util.*
+</span>5 <span style=''>
+</span>6 <span style=''>class UnoController(var field: UnoField) extends Observable {
+</span>7 <span style=''>
+</span>8 <span style=''>  </span><span style='background: #AEF1AE'>def play</span><span style=''>(card: Card): Unit = {
+</span>9 <span style=''>    val updatedPlayer = </span><span style='background: #AEF1AE'>field.players(field.currentPlayer).play(card).get</span><span style=''>
+</span>10 <span style=''>    val updatedPlayers = </span><span style='background: #AEF1AE'>field.players.updated(field.currentPlayer, updatedPlayer)</span><span style=''>
+</span>11 <span style=''>    if (</span><span style='background: #AEF1AE'>updatedPlayer.hand.cards.isEmpty</span><span style=''>) </span><span style='background: #AEF1AE'>{
+</span>12 <span style=''></span><span style='background: #AEF1AE'>      notifyObservers(Event.Quit)
+</span>13 <span style=''></span><span style='background: #AEF1AE'>      return
+</span>14 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''>
+</span>15 <span style=''>    field = field.copy(
+</span>16 <span style=''>      players = updatedPlayers,
+</span>17 <span style=''>      topCard = card,
+</span>18 <span style=''>      currentPlayer = (field.currentPlayer + 1) % </span><span style='background: #AEF1AE'>field.players.length</span><span style=''>
+</span>19 <span style=''>    )
+</span>20 <span style=''>    </span><span style='background: #AEF1AE'>notifyObservers(Event.Play)</span><span style=''>
+</span>21 <span style=''>  }
+</span>22 <span style=''>  </span><span style='background: #AEF1AE'>def draw</span><span style=''>(): Unit = {
+</span>23 <span style=''>    val newCard = </span><span style='background: #AEF1AE'>randomCard</span><span style=''>
+</span>24 <span style=''>    val updatedPlayer = Player(
+</span>25 <span style=''>      field.currentPlayer,
+</span>26 <span style=''>      </span><span style='background: #AEF1AE'>field.players(field.currentPlayer).hand.addCard(newCard)</span><span style=''>
+</span>27 <span style=''>    )
+</span>28 <span style=''>    val updatedPlayers = </span><span style='background: #AEF1AE'>field.players.updated(field.currentPlayer, updatedPlayer)</span><span style=''>
+</span>29 <span style=''>    field = field.copy(players = updatedPlayers)
+</span>30 <span style=''>    </span><span style='background: #AEF1AE'>notifyObservers(Event.Draw)</span><span style=''>
+</span>31 <span style=''>  }
+</span>32 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          7
+        </td>
+        <td>
+          16
+        </td>
+        <td>
+          159
+          -
+          167
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          play
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def play
+        </td>
+      </tr><tr>
+        <td>
+          8
+        </td>
+        <td>
+          8
+        </td>
+        <td>
+          215
+          -
+          249
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          field.players(field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          8
+        </td>
+        <td>
+          7
+        </td>
+        <td>
+          215
+          -
+          260
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          field.players(field.currentPlayer).play(card)
+        </td>
+      </tr><tr>
+        <td>
+          8
+        </td>
+        <td>
+          9
+        </td>
+        <td>
+          215
+          -
+          264
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          get
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          field.players(field.currentPlayer).play(card).get
+        </td>
+      </tr><tr>
+        <td>
+          9
+        </td>
+        <td>
+          10
+        </td>
+        <td>
+          291
+          -
+          348
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          updated
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          field.players.updated(field.currentPlayer, updatedPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          11
+        </td>
+        <td>
+          358
+          -
+          390
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          isEmpty
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          updatedPlayer.hand.cards.isEmpty
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          13
+        </td>
+        <td>
+          392
+          -
+          449
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\r\n      notifyObservers(Event.Quit)\r\n      return\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          12
+        </td>
+        <td>
+          401
+          -
+          428
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          notifyObservers(Event.Quit)
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          14
+        </td>
+        <td>
+          582
+          -
+          602
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          length
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          field.players.length
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          15
+        </td>
+        <td>
+          615
+          -
+          642
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          notifyObservers(Event.Play)
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          22
+        </td>
+        <td>
+          651
+          -
+          659
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          draw
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def draw
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          17
+        </td>
+        <td>
+          691
+          -
+          701
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          randomCard
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          randomCard
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          19
+        </td>
+        <td>
+          770
+          -
+          804
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          field.players(field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          18
+        </td>
+        <td>
+          770
+          -
+          826
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          addCard
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          field.players(field.currentPlayer).hand.addCard(newCard)
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          20
+        </td>
+        <td>
+          860
+          -
+          917
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          updated
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          field.players.updated(field.currentPlayer, updatedPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          21
+        </td>
+        <td>
+          973
+          -
+          1000
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          notifyObservers(Event.Draw)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

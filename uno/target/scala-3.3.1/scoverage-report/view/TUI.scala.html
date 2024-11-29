@@ -1,0 +1,2503 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          view\TUI.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package scala.view
+</span>2 <span style=''>import scala.model.*
+</span>3 <span style=''>import scala.controller.*
+</span>4 <span style=''>import scala.util.*
+</span>5 <span style=''>import scala.io.StdIn
+</span>6 <span style=''>import scala.io.AnsiColor._
+</span>7 <span style=''>import scala.util.{Event, Observer}
+</span>8 <span style=''>import scala.util.Event.{Quit, Start}
+</span>9 <span style=''>
+</span>10 <span style=''>
+</span>11 <span style=''>class TUI(val controller: UnoController) extends Observer {
+</span>12 <span style=''>  </span><span style='background: #F0ADAD'>controller.add(this)</span><span style=''>
+</span>13 <span style=''>
+</span>14 <span style=''>  </span><span style='background: #F0ADAD'>private def processInputLine</span><span style=''>(input: Int, handSize: Int): Unit = {
+</span>15 <span style=''>    if (input &lt; 1 || input &gt; handSize) </span><span style='background: #F0ADAD'>{
+</span>16 <span style=''></span><span style='background: #F0ADAD'>      println(&quot;Invalid card number. Please try again.&quot;)
+</span>17 <span style=''></span><span style='background: #F0ADAD'>      gameContinue()
+</span>18 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''> else </span><span style='background: #F0ADAD'>{
+</span>19 <span style=''></span><span style='background: #F0ADAD'>      val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)
+</span>20 <span style=''></span><span style='background: #F0ADAD'>      if (controller.field.players(controller.field.currentPlayer).valid(card) &amp;&amp; card.canBePlayedOn(controller.field.topCard)) {
+</span>21 <span style=''></span><span style='background: #F0ADAD'>        controller.play(card)
+</span>22 <span style=''></span><span style='background: #F0ADAD'>      } else {
+</span>23 <span style=''></span><span style='background: #F0ADAD'>        println(&quot;Card does not fit. Do you want to:&quot;)
+</span>24 <span style=''></span><span style='background: #F0ADAD'>        println(&quot;1. Draw a card&quot;)
+</span>25 <span style=''></span><span style='background: #F0ADAD'>        println(&quot;2. Try again&quot;)
+</span>26 <span style=''></span><span style='background: #F0ADAD'>        println(&quot;3. Quit&quot;)
+</span>27 <span style=''></span><span style='background: #F0ADAD'>        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)
+</span>28 <span style=''></span><span style='background: #F0ADAD'>        readLine match {
+</span>29 <span style=''></span><span style='background: #F0ADAD'>          case 1 =&gt; controller.draw()
+</span>30 <span style=''></span><span style='background: #F0ADAD'>          case 2 =&gt; gameContinue()
+</span>31 <span style=''></span><span style='background: #F0ADAD'>          case 3 =&gt; controller.notifyObservers(Event.Quit)
+</span>32 <span style=''></span><span style='background: #F0ADAD'>          case _ =&gt;
+</span>33 <span style=''></span><span style='background: #F0ADAD'>            println(&quot;Invalid input. Please enter a number.&quot;)
+</span>34 <span style=''></span><span style='background: #F0ADAD'>            gameContinue()
+</span>35 <span style=''></span><span style='background: #F0ADAD'>        }
+</span>36 <span style=''></span><span style='background: #F0ADAD'>      }
+</span>37 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''>
+</span>38 <span style=''>  }
+</span>39 <span style=''>
+</span>40 <span style=''>  </span><span style='background: #F0ADAD'>override def update</span><span style=''>(e: Event): Unit = {
+</span>41 <span style=''>    e match {
+</span>42 <span style=''>      </span><span style='background: #F0ADAD'>case Quit</span><span style=''> =&gt;
+</span>43 <span style=''>        if (!</span><span style='background: #F0ADAD'>controller.field.players.exists(_.hand.cards.isEmpty)</span><span style=''>) </span><span style='background: #F0ADAD'>{
+</span>44 <span style=''></span><span style='background: #F0ADAD'>          // no winner yet
+</span>45 <span style=''></span><span style='background: #F0ADAD'>        }</span><span style=''> else </span><span style='background: #F0ADAD'>{
+</span>46 <span style=''></span><span style='background: #F0ADAD'>          gameOver()
+</span>47 <span style=''></span><span style='background: #F0ADAD'>        }</span><span style=''>
+</span>48 <span style=''>      </span><span style='background: #F0ADAD'>case _</span><span style=''> =&gt; </span><span style='background: #F0ADAD'>gameContinue()</span><span style=''>
+</span>49 <span style=''>    }
+</span>50 <span style=''>  }
+</span>51 <span style=''>
+</span>52 <span style=''>  </span><span style='background: #F0ADAD'>def startGame</span><span style=''>(): Unit = {
+</span>53 <span style=''>    </span><span style='background: #F0ADAD'>displayField()</span><span style=''>
+</span>54 <span style=''>    </span><span style='background: #F0ADAD'>println(&quot;Enter a number from the menu above: &quot;)</span><span style=''>
+</span>55 <span style=''>    val readLine = </span><span style='background: #F0ADAD'>StdIn.readLine().toIntOption</span><span style=''>
+</span>56 <span style=''>    readLine match {
+</span>57 <span style=''>      </span><span style='background: #F0ADAD'>case Some(1)</span><span style=''> =&gt;
+</span>58 <span style=''>        </span><span style='background: #F0ADAD'>controller.notifyObservers(Event.Start)</span><span style=''>
+</span>59 <span style=''>      </span><span style='background: #F0ADAD'>case Some(2)</span><span style=''> =&gt;
+</span>60 <span style=''>        </span><span style='background: #F0ADAD'>println(&quot;Goodbye!&quot;)</span><span style=''>
+</span>61 <span style=''>        </span><span style='background: #F0ADAD'>controller.notifyObservers(Event.Quit)</span><span style=''>
+</span>62 <span style=''>      </span><span style='background: #F0ADAD'>case _</span><span style=''> =&gt;
+</span>63 <span style=''>        </span><span style='background: #F0ADAD'>println(&quot;Invalid input. Please enter a number between 1 and 2.&quot;)</span><span style=''>
+</span>64 <span style=''>        </span><span style='background: #F0ADAD'>startGame()</span><span style=''>
+</span>65 <span style=''>    }
+</span>66 <span style=''>  }
+</span>67 <span style=''>
+</span>68 <span style=''>  </span><span style='background: #F0ADAD'>private def gameOver</span><span style=''>(): Unit = {
+</span>69 <span style=''>    // clearScreen()
+</span>70 <span style=''>    </span><span style='background: #F0ADAD'>println(&quot;Game over!&quot;)</span><span style=''>
+</span>71 <span style=''>    val winnerIndex = </span><span style='background: #F0ADAD'>controller.field.players.indexWhere(_.hand.cards.isEmpty)</span><span style=''>
+</span>72 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Player ${winnerIndex + 1} wins!&quot;)</span><span style=''>
+</span>73 <span style=''>  }
+</span>74 <span style=''>
+</span>75 <span style=''>  </span><span style='background: #F0ADAD'>private def displayField</span><span style=''>(): Unit = {
+</span>76 <span style=''>    val separator = </span><span style='background: #F0ADAD'>&quot;=&quot; * 60</span><span style=''>
+</span>77 <span style=''>    val title = &quot;                           UNO&quot;
+</span>78 <span style=''>    val options = </span><span style='background: #F0ADAD'>List(&quot;1. Start playing UNO&quot;, &quot;2. Quit&quot;)</span><span style=''>
+</span>79 <span style=''>    // Return the final playing field as a string
+</span>80 <span style=''>    val menu =
+</span>81 <span style=''>      </span><span style='background: #F0ADAD'>s&quot;&quot;&quot;
+</span>82 <span style=''></span><span style='background: #F0ADAD'>        |$separator
+</span>83 <span style=''></span><span style='background: #F0ADAD'>        |
+</span>84 <span style=''></span><span style='background: #F0ADAD'>        |$title
+</span>85 <span style=''></span><span style='background: #F0ADAD'>        |
+</span>86 <span style=''></span><span style='background: #F0ADAD'>        |$separator
+</span>87 <span style=''></span><span style='background: #F0ADAD'>      &quot;&quot;&quot;.stripMargin</span><span style=''>
+</span>88 <span style=''>
+</span>89 <span style=''>    </span><span style='background: #F0ADAD'>println(menu)</span><span style=''>
+</span>90 <span style=''>    </span><span style='background: #F0ADAD'>println(options.mkString(&quot;\n&quot;))</span><span style=''>
+</span>91 <span style=''>  }
+</span>92 <span style=''>
+</span>93 <span style=''>  </span><span style='background: #F0ADAD'>private def gameContinue</span><span style=''>(): Unit = {
+</span>94 <span style=''>    val currentPlayer = </span><span style='background: #F0ADAD'>controller.field.players(controller.field.currentPlayer)</span><span style=''>
+</span>95 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Current player: Player ${controller.field.currentPlayer + 1}&quot;)</span><span style=''>
+</span>96 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;)</span><span style=''>
+</span>97 <span style=''>    </span><span style='background: #F0ADAD'>currentPlayer.hand.cards.zipWithIndex.foreach { case (card, index) =&gt;
+</span>98 <span style=''></span><span style='background: #F0ADAD'>      println(s&quot;${index + 1}: ${card.getColorCode}${card.value}$RESET&quot;)
+</span>99 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''>
+</span>100 <span style=''>    </span><span style='background: #F0ADAD'>println(&quot;Enter the number of the card you want to play:&quot;)</span><span style=''>
+</span>101 <span style=''>    val cardNumber = </span><span style='background: #F0ADAD'>StdIn.readLine().toIntOption</span><span style=''>
+</span>102 <span style=''>    if (</span><span style='background: #F0ADAD'>cardNumber.isEmpty</span><span style=''>) </span><span style='background: #F0ADAD'>{
+</span>103 <span style=''></span><span style='background: #F0ADAD'>      println(&quot;Invalid input. Please enter a number.&quot;)
+</span>104 <span style=''></span><span style='background: #F0ADAD'>      gameContinue()
+</span>105 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''> else </span><span style='background: #F0ADAD'>{
+</span>106 <span style=''></span><span style='background: #F0ADAD'>      processInputLine(cardNumber.get, currentPlayer.hand.cards.length)
+</span>107 <span style=''></span><span style='background: #F0ADAD'>    }</span><span style=''>
+</span>108 <span style=''>  }
+</span>109 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          93
+        </td>
+        <td>
+          285
+          -
+          305
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          add
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.add(this)
+        </td>
+      </tr><tr>
+        <td>
+          13
+        </td>
+        <td>
+          123
+        </td>
+        <td>
+          311
+          -
+          339
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          processInputLine
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          private def processInputLine
+        </td>
+      </tr><tr>
+        <td>
+          14
+        </td>
+        <td>
+          96
+        </td>
+        <td>
+          417
+          -
+          504
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n      println(&quot;Invalid card number. Please try again.&quot;)\r\n      gameContinue()\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          15
+        </td>
+        <td>
+          94
+        </td>
+        <td>
+          426
+          -
+          475
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Invalid card number. Please try again.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          95
+        </td>
+        <td>
+          483
+          -
+          497
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          gameContinue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gameContinue()
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          122
+        </td>
+        <td>
+          510
+          -
+          1303
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n      val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)\r\n      if (controller.field.players(controller.field.currentPlayer).valid(card) &amp;&amp; card.canBePlayedOn(controller.field.topCard)) {\r\n        controller.play(card)\r\n      } else {\r\n        println(&quot;Card does not fit. Do you want to:&quot;)\r\n        println(&quot;1. Draw a card&quot;)\r\n        println(&quot;2. Try again&quot;)\r\n        println(&quot;3. Quit&quot;)\r\n        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n        readLine match {\r\n          case 1 =&gt; controller.draw()\r\n          case 2 =&gt; gameContinue()\r\n          case 3 =&gt; controller.notifyObservers(Event.Quit)\r\n          case _ =&gt;\r\n            println(&quot;Invalid input. Please enter a number.&quot;)\r\n            gameContinue()\r\n        }\r\n      }\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          98
+        </td>
+        <td>
+          530
+          -
+          586
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          97
+        </td>
+        <td>
+          530
+          -
+          608
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          101
+        </td>
+        <td>
+          692
+          -
+          736
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          canBePlayedOn
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          card.canBePlayedOn(controller.field.topCard)
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          100
+        </td>
+        <td>
+          620
+          -
+          676
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          103
+        </td>
+        <td>
+          738
+          -
+          779
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n        controller.play(card)\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          620
+          -
+          688
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          valid
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer).valid(card)
+        </td>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          102
+        </td>
+        <td>
+          749
+          -
+          770
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.play(card)
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          121
+        </td>
+        <td>
+          785
+          -
+          1296
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n        println(&quot;Card does not fit. Do you want to:&quot;)\r\n        println(&quot;1. Draw a card&quot;)\r\n        println(&quot;2. Try again&quot;)\r\n        println(&quot;3. Quit&quot;)\r\n        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n        readLine match {\r\n          case 1 =&gt; controller.draw()\r\n          case 2 =&gt; gameContinue()\r\n          case 3 =&gt; controller.notifyObservers(Event.Quit)\r\n          case _ =&gt;\r\n            println(&quot;Invalid input. Please enter a number.&quot;)\r\n            gameContinue()\r\n        }\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          104
+        </td>
+        <td>
+          796
+          -
+          841
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Card does not fit. Do you want to:&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          105
+        </td>
+        <td>
+          851
+          -
+          876
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;1. Draw a card&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          106
+        </td>
+        <td>
+          886
+          -
+          909
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;2. Try again&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          107
+        </td>
+        <td>
+          919
+          -
+          937
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;3. Quit&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          110
+        </td>
+        <td>
+          962
+          -
+          978
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          readLine
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine()
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          109
+        </td>
+        <td>
+          962
+          -
+          978
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          augmentString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine()
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          108
+        </td>
+        <td>
+          962
+          -
+          1004
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getOrElse
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine().toIntOption.getOrElse(-1)
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          111
+        </td>
+        <td>
+          962
+          -
+          990
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toIntOption
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine().toIntOption
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          113
+        </td>
+        <td>
+          1052
+          -
+          1069
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          draw
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.draw()
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          112
+        </td>
+        <td>
+          1042
+          -
+          1048
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case 1
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          115
+        </td>
+        <td>
+          1091
+          -
+          1105
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          gameContinue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gameContinue()
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          114
+        </td>
+        <td>
+          1081
+          -
+          1087
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case 2
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          116
+        </td>
+        <td>
+          1117
+          -
+          1123
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case 3
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          117
+        </td>
+        <td>
+          1127
+          -
+          1165
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.notifyObservers(Event.Quit)
+        </td>
+      </tr><tr>
+        <td>
+          31
+        </td>
+        <td>
+          118
+        </td>
+        <td>
+          1177
+          -
+          1183
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case _
+        </td>
+      </tr><tr>
+        <td>
+          32
+        </td>
+        <td>
+          119
+        </td>
+        <td>
+          1200
+          -
+          1248
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Invalid input. Please enter a number.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          33
+        </td>
+        <td>
+          120
+        </td>
+        <td>
+          1262
+          -
+          1276
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          gameContinue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gameContinue()
+        </td>
+      </tr><tr>
+        <td>
+          39
+        </td>
+        <td>
+          132
+        </td>
+        <td>
+          1314
+          -
+          1333
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          update
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          override def update
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          124
+        </td>
+        <td>
+          1376
+          -
+          1385
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Quit
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          125
+        </td>
+        <td>
+          1403
+          -
+          1456
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          exists
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players.exists(_.hand.cards.isEmpty)
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          127
+        </td>
+        <td>
+          1458
+          -
+          1498
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n          // no winner yet\r\n        }
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          126
+        </td>
+        <td>
+          1435
+          -
+          1455
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          isEmpty
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          _.hand.cards.isEmpty
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          129
+        </td>
+        <td>
+          1504
+          -
+          1538
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n          gameOver()\r\n        }
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          128
+        </td>
+        <td>
+          1517
+          -
+          1527
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          gameOver
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gameOver()
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          131
+        </td>
+        <td>
+          1556
+          -
+          1570
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          gameContinue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gameContinue()
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          130
+        </td>
+        <td>
+          1546
+          -
+          1552
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case _
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          146
+        </td>
+        <td>
+          1588
+          -
+          1601
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          startGame
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          def startGame
+        </td>
+      </tr><tr>
+        <td>
+          52
+        </td>
+        <td>
+          133
+        </td>
+        <td>
+          1619
+          -
+          1633
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          displayField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          displayField()
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          134
+        </td>
+        <td>
+          1639
+          -
+          1686
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Enter a number from the menu above: &quot;)
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          137
+        </td>
+        <td>
+          1707
+          -
+          1735
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toIntOption
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine().toIntOption
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          136
+        </td>
+        <td>
+          1707
+          -
+          1723
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          readLine
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine()
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          135
+        </td>
+        <td>
+          1707
+          -
+          1723
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          augmentString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine()
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          138
+        </td>
+        <td>
+          1765
+          -
+          1777
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Some(1)
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          139
+        </td>
+        <td>
+          1790
+          -
+          1829
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.notifyObservers(Event.Start)
+        </td>
+      </tr><tr>
+        <td>
+          58
+        </td>
+        <td>
+          140
+        </td>
+        <td>
+          1837
+          -
+          1849
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Some(2)
+        </td>
+      </tr><tr>
+        <td>
+          59
+        </td>
+        <td>
+          141
+        </td>
+        <td>
+          1862
+          -
+          1881
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Goodbye!&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          142
+        </td>
+        <td>
+          1891
+          -
+          1929
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.notifyObservers(Event.Quit)
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          143
+        </td>
+        <td>
+          1937
+          -
+          1943
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case _
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          144
+        </td>
+        <td>
+          1956
+          -
+          2020
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Invalid input. Please enter a number between 1 and 2.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          145
+        </td>
+        <td>
+          2030
+          -
+          2041
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          startGame
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          startGame()
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          152
+        </td>
+        <td>
+          2059
+          -
+          2079
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          gameOver
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          private def gameOver
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          147
+        </td>
+        <td>
+          2119
+          -
+          2140
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Game over!&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          149
+        </td>
+        <td>
+          2200
+          -
+          2220
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          isEmpty
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          _.hand.cards.isEmpty
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          148
+        </td>
+        <td>
+          2164
+          -
+          2221
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          indexWhere
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players.indexWhere(_.hand.cards.isEmpty)
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          151
+        </td>
+        <td>
+          2235
+          -
+          2269
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;Player ${winnerIndex + 1} wins!&quot;
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          150
+        </td>
+        <td>
+          2227
+          -
+          2270
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(s&quot;Player ${winnerIndex + 1} wins!&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          74
+        </td>
+        <td>
+          163
+        </td>
+        <td>
+          2281
+          -
+          2305
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          displayField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          private def displayField
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          154
+        </td>
+        <td>
+          2339
+          -
+          2342
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          augmentString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;=&quot;
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          153
+        </td>
+        <td>
+          2339
+          -
+          2347
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          *
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;=&quot; * 60
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          155
+        </td>
+        <td>
+          2417
+          -
+          2456
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          List(&quot;1. Start playing UNO&quot;, &quot;2. Quit&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          156
+        </td>
+        <td>
+          2417
+          -
+          2421
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          List
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          List
+        </td>
+      </tr><tr>
+        <td>
+          80
+        </td>
+        <td>
+          158
+        </td>
+        <td>
+          2531
+          -
+          2627
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;&quot;&quot;\r\n        |$separator\r\n        |\r\n        |$title\r\n        |\r\n        |$separator\r\n      &quot;&quot;&quot;
+        </td>
+      </tr><tr>
+        <td>
+          80
+        </td>
+        <td>
+          157
+        </td>
+        <td>
+          2531
+          -
+          2627
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          augmentString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;&quot;&quot;\r\n        |$separator\r\n        |\r\n        |$title\r\n        |\r\n        |$separator\r\n      &quot;&quot;&quot;
+        </td>
+      </tr><tr>
+        <td>
+          86
+        </td>
+        <td>
+          159
+        </td>
+        <td>
+          2531
+          -
+          2639
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          stripMargin
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;&quot;&quot;\r\n        |$separator\r\n        |\r\n        |$title\r\n        |\r\n        |$separator\r\n      &quot;&quot;&quot;.stripMargin
+        </td>
+      </tr><tr>
+        <td>
+          88
+        </td>
+        <td>
+          160
+        </td>
+        <td>
+          2647
+          -
+          2660
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(menu)
+        </td>
+      </tr><tr>
+        <td>
+          89
+        </td>
+        <td>
+          162
+        </td>
+        <td>
+          2674
+          -
+          2696
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          mkString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          options.mkString(&quot;\\n&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          89
+        </td>
+        <td>
+          161
+        </td>
+        <td>
+          2666
+          -
+          2697
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(options.mkString(&quot;\\n&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          92
+        </td>
+        <td>
+          190
+        </td>
+        <td>
+          2708
+          -
+          2732
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          gameContinue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          private def gameContinue
+        </td>
+      </tr><tr>
+        <td>
+          93
+        </td>
+        <td>
+          164
+        </td>
+        <td>
+          2770
+          -
+          2826
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          94
+        </td>
+        <td>
+          166
+        </td>
+        <td>
+          2840
+          -
+          2903
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;Current player: Player ${controller.field.currentPlayer + 1}&quot;
+        </td>
+      </tr><tr>
+        <td>
+          94
+        </td>
+        <td>
+          165
+        </td>
+        <td>
+          2832
+          -
+          2904
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(s&quot;Current player: Player ${controller.field.currentPlayer + 1}&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          167
+        </td>
+        <td>
+          2910
+          -
+          3019
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          169
+        </td>
+        <td>
+          2940
+          -
+          2977
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          getColorCode
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.topCard.getColorCode
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          168
+        </td>
+        <td>
+          2918
+          -
+          3018
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET&quot;
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          170
+        </td>
+        <td>
+          3012
+          -
+          3017
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          RESET
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          RESET
+        </td>
+      </tr><tr>
+        <td>
+          96
+        </td>
+        <td>
+          173
+        </td>
+        <td>
+          3073
+          -
+          3091
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case (card, index)
+        </td>
+      </tr><tr>
+        <td>
+          96
+        </td>
+        <td>
+          172
+        </td>
+        <td>
+          3025
+          -
+          3062
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          zipWithIndex
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          currentPlayer.hand.cards.zipWithIndex
+        </td>
+      </tr><tr>
+        <td>
+          96
+        </td>
+        <td>
+          171
+        </td>
+        <td>
+          3025
+          -
+          3174
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          foreach
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          currentPlayer.hand.cards.zipWithIndex.foreach { case (card, index) =&gt;\r\n      println(s&quot;${index + 1}: ${card.getColorCode}${card.value}$RESET&quot;)\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          97
+        </td>
+        <td>
+          176
+        </td>
+        <td>
+          3128
+          -
+          3145
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          getColorCode
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          card.getColorCode
+        </td>
+      </tr><tr>
+        <td>
+          97
+        </td>
+        <td>
+          175
+        </td>
+        <td>
+          3110
+          -
+          3166
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;${index + 1}: ${card.getColorCode}${card.value}$RESET&quot;
+        </td>
+      </tr><tr>
+        <td>
+          97
+        </td>
+        <td>
+          174
+        </td>
+        <td>
+          3102
+          -
+          3167
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(s&quot;${index + 1}: ${card.getColorCode}${card.value}$RESET&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          97
+        </td>
+        <td>
+          177
+        </td>
+        <td>
+          3160
+          -
+          3165
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          RESET
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          RESET
+        </td>
+      </tr><tr>
+        <td>
+          99
+        </td>
+        <td>
+          178
+        </td>
+        <td>
+          3180
+          -
+          3237
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Enter the number of the card you want to play:&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          100
+        </td>
+        <td>
+          181
+        </td>
+        <td>
+          3260
+          -
+          3288
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toIntOption
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine().toIntOption
+        </td>
+      </tr><tr>
+        <td>
+          100
+        </td>
+        <td>
+          180
+        </td>
+        <td>
+          3260
+          -
+          3276
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          readLine
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine()
+        </td>
+      </tr><tr>
+        <td>
+          100
+        </td>
+        <td>
+          179
+        </td>
+        <td>
+          3260
+          -
+          3276
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          augmentString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StdIn.readLine()
+        </td>
+      </tr><tr>
+        <td>
+          101
+        </td>
+        <td>
+          182
+        </td>
+        <td>
+          3298
+          -
+          3316
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          isEmpty
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          cardNumber.isEmpty
+        </td>
+      </tr><tr>
+        <td>
+          101
+        </td>
+        <td>
+          185
+        </td>
+        <td>
+          3318
+          -
+          3404
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n      println(&quot;Invalid input. Please enter a number.&quot;)\r\n      gameContinue()\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          102
+        </td>
+        <td>
+          183
+        </td>
+        <td>
+          3327
+          -
+          3375
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(&quot;Invalid input. Please enter a number.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          103
+        </td>
+        <td>
+          184
+        </td>
+        <td>
+          3383
+          -
+          3397
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          gameContinue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gameContinue()
+        </td>
+      </tr><tr>
+        <td>
+          104
+        </td>
+        <td>
+          189
+        </td>
+        <td>
+          3410
+          -
+          3491
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n      processInputLine(cardNumber.get, currentPlayer.hand.cards.length)\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          105
+        </td>
+        <td>
+          187
+        </td>
+        <td>
+          3436
+          -
+          3450
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          get
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          cardNumber.get
+        </td>
+      </tr><tr>
+        <td>
+          105
+        </td>
+        <td>
+          186
+        </td>
+        <td>
+          3419
+          -
+          3484
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          processInputLine
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          processInputLine(cardNumber.get, currentPlayer.hand.cards.length)
+        </td>
+      </tr><tr>
+        <td>
+          105
+        </td>
+        <td>
+          188
+        </td>
+        <td>
+          3452
+          -
+          3483
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          length
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          currentPlayer.hand.cards.length
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>
