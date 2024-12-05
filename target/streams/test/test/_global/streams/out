@@ -1,16 +1,11 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.model.UnoFieldTest, org.scalatest.tools.Framework$$anon$1@3b254593, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.model.CardTest, org.scalatest.tools.Framework$$anon$1@3b254593, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.model.PlayerTest, org.scalatest.tools.Framework$$anon$1@3b254593, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.model.PlayerHandTest, org.scalatest.tools.Framework$$anon$1@3b254593, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.model.UnoFieldTest, org.scalatest.tools.Framework$$anon$1@5dc6f0e7, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.model.CardTest, org.scalatest.tools.Framework$$anon$1@5dc6f0e7, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.controller.ControllerTest, org.scalatest.tools.Framework$$anon$1@5dc6f0e7, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.model.PlayerHandTest, org.scalatest.tools.Framework$$anon$1@5dc6f0e7, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.model.PlayerTest, org.scalatest.tools.Framework$$anon$1@5dc6f0e7, false, [SuiteSelector])[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mUnoFieldTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mPlayerTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mPlayer[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should play a card[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should check if card is valid[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should not play a card[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mAn UnoField[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should have two players[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(scala.controller.ControllerTest, org.scalatest.tools.Framework$$anon$1@3b254593, false, [SuiteSelector])[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mPlayerHandTest:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mPlayerHand[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m  when created[0m[0m
@@ -19,6 +14,19 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m  when existing[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m  - should be able to get a card removed[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m  - should be able to get a card added[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPlayerTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPlayer[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should play a card[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should check if card is valid[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not play a card[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mControllerTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mThe Controller[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should notify its observers on start[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should notify its observers on quit[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should don't notify its observers on remove[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should play a card[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should draw a card[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should quit the game[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCardTest:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mA Card[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should have a color[0m[0m
@@ -32,15 +40,7 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should give random value[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should give random card[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should give list of random cards[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mControllerTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mThe Controller[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should notify its observers on start[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should notify its observers on quit[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should don't notify its observers on remove[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should play a card[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should draw a card[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should quit the game[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 1 second, 394 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 475 milliseconds.[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 25[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 5, aborted 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 25, failed 0, canceled 0, ignored 0, pending 0[0m[0m
