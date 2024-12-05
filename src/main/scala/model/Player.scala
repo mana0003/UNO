@@ -1,4 +1,4 @@
-package scala.model
+package model
 import scala.controller.*
 import scala.view.*
 import scala.model.*

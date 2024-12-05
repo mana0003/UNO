@@ -1,10 +1,10 @@
-package scala.model
+package model
 
-import scala.model.*
-import scala.view.*
-import scala.util.Event
-import scala.util.Observable
-import scala.controller.*
+//import model.*
+import view.*
+//import scala.util.Event
+//import scala.util.Observable
+import controller.*
 import scala.io._
 
 enum cardColors {

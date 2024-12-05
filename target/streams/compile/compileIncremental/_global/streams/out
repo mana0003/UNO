@@ -1,60 +1,6 @@
 [0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
-[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 34 products, 11 sources, 2 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 36 products, 13 sources, 2 libraries[0m
 [0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/view/TUI.scala, ${BASE}/src/main/scala/contoller/UnoController.scala, ${BASE}/src/main/scala/model/UnoField.scala, ${BASE}/src/main/scala/contoller/UnoActionBuilder.scala, ${BASE}/src/main/scala/contoller/UnoActionStrategy.scala, ${BASE}/src/main/scala/util/Command.scala, ${BASE}/src/main/scala/model/PlayerHand.scala, ${BASE}/src/main/scala/util/Observer.scala, ${BASE}/src/main/scala/Main.scala, ${BASE}/src/main/scala/model/Card.scala, ${BASE}/src/main/scala/util/CommandManager.scala, ${BASE}/src/main/scala/model/Player.scala, ${BASE}/src/main/scala/contoller/UnoActionProcessor.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(${BASE}/src/main/scala/util/Command.scala, ${BASE}/src/main/scala/util/CommandManager.scala), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
-[0m[[0m[0mdebug[0m] [0m[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial source changes:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	removed: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	added: Set(${BASE}/src/main/scala/util/Command.scala, ${BASE}/src/main/scala/util/CommandManager.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	modified: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(${BASE}/src/main/scala/util/Command.scala, ${BASE}/src/main/scala/util/CommandManager.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: [0m
-[0m[[0m[0mdebug[0m] [0m[0mcompilation cycle 1[0m
-[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to C:\SoftwareEngineering\UNO\target\scala-3.3.1\classes ...[0m
-[0m[[0m[0mdebug[0m] [0m[0mReturning already retrieved and compiled bridge: C:\Users\manal\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-sbt-bridge\3.3.1\scala3-sbt-bridge-3.3.1.jar.[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 14ed87d7 for Scala Compiler version 3.3.1[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	-coverage-out:C:\SoftwareEngineering\UNO\target\scala-3.3.1/scoverage-data[0m
-[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
-[0m[[0m[0mdebug[0m] [0m[0m	C:\SoftwareEngineering\UNO\target\scala-3.3.1\classes;C:\Users\manal\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.3.1\scala3-library_3-3.3.1.jar;C:\Users\manal\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scalactic\scalactic_3\3.2.14\scalactic_3-3.2.14.jar;C:\Users\manal\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.13.10\scala-library-2.13.10.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 3.8150683 s[0m
-[0m[[0m[0mdebug[0m] [0m[0mdone compiling[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidating (transitively) by inheritance from util.Command...[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: util.Command[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated by transitive inheritance dependency: Set(util.Command)[0m
-[0m[[0m[0mdebug[0m] [0m[0mThe following modified names cause invalidation of util.CommandManager: [UsedName(Command,[Default]), UsedName(undo,[Default]), UsedName(execute,[Default])][0m
-[0m[[0m[0mdebug[0m] [0m[0mChange NamesChange(util.Command,ModifiedNames(changes = UsedName(Command;init;,[Default]), UsedName(synchronized,[Default]), UsedName(toString,[Default]), UsedName($isInstanceOf,[Default]), UsedName(equals,[Default]), UsedName(notify,[Default]), UsedName(asInstanceOf,[Default]), UsedName(undo,[Default]), UsedName($asInstanceOf,[Default]), UsedName(getClass,[Default]), UsedName(Object;init;,[Default]), UsedName(wait,[Default]), UsedName(clone,[Default]), UsedName(!=,[Default]), UsedName(Command,[Default]), UsedName(isInstanceOf,[Default]), UsedName(##,[Default]), UsedName(finalize,[Default]), UsedName(execute,[Default]), UsedName(==,[Default]), UsedName(hashCode,[Default]), UsedName(ne,[Default]), UsedName(notifyAll,[Default]), UsedName(eq,[Default]))) invalidates 2 classes due to The util.Command has the following regular definitions changed:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	UsedName(Command;init;,[Default]), UsedName(synchronized,[Default]), UsedName(toString,[Default]), UsedName($isInstanceOf,[Default]), UsedName(equals,[Default]), UsedName(notify,[Default]), UsedName(asInstanceOf,[Default]), UsedName(undo,[Default]), UsedName($asInstanceOf,[Default]), UsedName(getClass,[Default]), UsedName(Object;init;,[Default]), UsedName(wait,[Default]), UsedName(clone,[Default]), UsedName(!=,[Default]), UsedName(Command,[Default]), UsedName(isInstanceOf,[Default]), UsedName(##,[Default]), UsedName(finalize,[Default]), UsedName(execute,[Default]), UsedName(==,[Default]), UsedName(hashCode,[Default]), UsedName(ne,[Default]), UsedName(notifyAll,[Default]), UsedName(eq,[Default]).[0m
-[0m[[0m[0mdebug[0m] [0m[0m  > by transitive inheritance: Set(util.Command)[0m
-[0m[[0m[0mdebug[0m] [0m[0m  > [0m
-[0m[[0m[0mdebug[0m] [0m[0m  > by member reference: Set(util.CommandManager)[0m
-[0m[[0m[0mdebug[0m] [0m[0m  > [0m
-[0m[[0m[0mdebug[0m] [0m[0m        [0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidating (transitively) by inheritance from util.CommandManager...[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: util.CommandManager[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated by transitive inheritance dependency: Set(util.CommandManager)[0m
-[0m[[0m[0mdebug[0m] [0m[0mChange NamesChange(util.CommandManager,ModifiedNames(changes = UsedName(synchronized,[Default]), UsedName(toString,[Default]), UsedName(CommandManager;init;,[Default]), UsedName($isInstanceOf,[Default]), UsedName(equals,[Default]), UsedName(notify,[Default]), UsedName(redoStep,[Default]), UsedName(doStep,[Default]), UsedName(asInstanceOf,[Default]), UsedName($asInstanceOf,[Default]), UsedName(getClass,[Default]), UsedName(Object;init;,[Default]), UsedName(undoStep,[Default]), UsedName(wait,[Default]), UsedName(clone,[Default]), UsedName(!=,[Default]), UsedName(isInstanceOf,[Default]), UsedName(##,[Default]), UsedName(finalize,[Default]), UsedName(==,[Default]), UsedName(hashCode,[Default]), UsedName(ne,[Default]), UsedName(notifyAll,[Default]), UsedName(eq,[Default]), UsedName(CommandManager,[Default]))) invalidates 1 classes due to The util.CommandManager has the following regular definitions changed:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	UsedName(synchronized,[Default]), UsedName(toString,[Default]), UsedName(CommandManager;init;,[Default]), UsedName($isInstanceOf,[Default]), UsedName(equals,[Default]), UsedName(notify,[Default]), UsedName(redoStep,[Default]), UsedName(doStep,[Default]), UsedName(asInstanceOf,[Default]), UsedName($asInstanceOf,[Default]), UsedName(getClass,[Default]), UsedName(Object;init;,[Default]), UsedName(undoStep,[Default]), UsedName(wait,[Default]), UsedName(clone,[Default]), UsedName(!=,[Default]), UsedName(isInstanceOf,[Default]), UsedName(##,[Default]), UsedName(finalize,[Default]), UsedName(==,[Default]), UsedName(hashCode,[Default]), UsedName(ne,[Default]), UsedName(notifyAll,[Default]), UsedName(eq,[Default]), UsedName(CommandManager,[Default]).[0m
-[0m[[0m[0mdebug[0m] [0m[0m  > by transitive inheritance: Set(util.CommandManager)[0m
-[0m[[0m[0mdebug[0m] [0m[0m  > [0m
-[0m[[0m[0mdebug[0m] [0m[0m  > [0m
-[0m[[0m[0mdebug[0m] [0m[0m  > [0m
-[0m[[0m[0mdebug[0m] [0m[0m        [0m
-[0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: [0m
-[0m[[0m[0mdebug[0m] [0m[0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
-[0m[[0m[0mdebug[0m] [0m[0mFinal step, transitive dependencies:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: util.Command, util.CommandManager[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding util.CommandManager by util.Command[0m
-[0m[[0m[0mdebug[0m] [0m[0mNo classes were invalidated.[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m

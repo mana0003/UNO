@@ -1,4 +1,5 @@
-package scala.model
+package model
+import scala.model.*
 case class PlayerHand(cards: List[Card] = randomCards(5)) {
   def addCard(card: Card): PlayerHand = copy(cards = card :: cards)
 

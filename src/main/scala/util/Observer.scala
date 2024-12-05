@@ -1,8 +1,8 @@
-package scala.util
+package util
 // refactoring.guru
 
 trait Observable {
-  var subscribers: Vector[Observer] = Vector()
+  private var subscribers: Vector[Observer] = Vector()
 
   def add(s: Observer): Unit = subscribers = subscribers :+ s
 
@@ -20,4 +20,7 @@ enum Event {
   , Quit
   , Play
   , Draw
+  , Undo
+  , Redo
+  , Error
 }

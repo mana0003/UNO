@@ -1,11 +1,11 @@
-package scala.view
+package view
 
-import scala.model.*
-import scala.controller.*
+import model.*
+import controller.*
 import scala.util.*
 import scala.io.StdIn
 import scala.io.AnsiColor._
-import scala.util.{Event, Observer}
+//import util.{Event, Observer}
 import scala.util.Event.{Quit, Start}
 
 class TUI(val controller: UnoController) extends Observer {
