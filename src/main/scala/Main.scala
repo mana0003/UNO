@@ -1,5 +1,5 @@
 // src/main/scala/Main.scala
-package scala
+//package scala
 import controller.*
 import model.*
 import util.*

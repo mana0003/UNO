@@ -48,6 +48,12 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\controller\UnoController.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	controller\UnoController.tasty[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\controller\UnoController.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\Main.tasty[0m
 [0m[[0m[0mdebug[0m] [0m[0m	model[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\model[0m
 [0m[[0m[0mdebug[0m] [0m[0m	model\Card$.class[0m
@@ -96,14 +102,6 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\model\UnoField.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	model\UnoField.tasty[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\model\UnoField.tasty[0m
-[0m[[0m[0mdebug[0m] [0m[0m	scala[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\scala[0m
-[0m[[0m[0mdebug[0m] [0m[0m	scala\Main$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\scala\Main$.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	scala\Main.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\scala\Main.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	scala\Main.tasty[0m
-[0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\scala\Main.tasty[0m
 [0m[[0m[0mdebug[0m] [0m[0m	util[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  C:\SE\UNO\target\scala-3.3.1\classes\util[0m
 [0m[[0m[0mdebug[0m] [0m[0m	util\Command.class[0m
