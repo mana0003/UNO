@@ -19,227 +19,6 @@
 # '' sign
 # ------------------------------------------
 0
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-302
-1063
-11
-apply
-Apply
-false
-0
-false
-Try {\r\n    previousState = Some(controller.field) // Save state for undo\r\n    //controller.draw()\r\n    /*controller.field = controller.field.draw()\r\n    controller.notifyObservers(Event.Draw)*/\r\n    val newCard = randomCard // Draw a random card\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n\r\n    // Update the player's hand\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))\r\n\r\n    // Update the list of players\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer)\r\n\r\n    // Update the game state\r\n    controller.field = controller.field.copy(players = updatedPlayers)\r\n    controller.notifyObservers(Event.Draw)\r\n  }
-
-1
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-515
-525
-16
-randomCard
-Ident
-false
-0
-false
-randomCard
-
-2
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-573
-629
-17
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-3
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-716
-751
-20
-addCard
-Apply
-false
-0
-false
-currentPlayer.hand.addCard(newCard)
-
-4
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-816
-910
-23
-updated
-Apply
-false
-0
-false
-controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer)
-
-5
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-1020
-1058
-29
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Draw)
-
-6
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-266
-286
-11
-execute
-DefDef
-false
-0
-false
-override def execute
-
-7
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1129
-1145
-33
-<none>
-Block
-false
-0
-false
-case Some(state)
-
-8
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1156
-1281
-34
-apply
-Apply
-false
-0
-false
-Try {\r\n        controller.field = state\r\n        controller.notifyObservers(Event.Undo) // Notify that undo occurred\r\n      }
-
-9
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1205
-1243
-36
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Undo)
-
-10
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1287
-1296
-38
-<none>
-Block
-false
-0
-false
-case None
-
-11
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1308
-1356
-38
-<init>
-Apply
-false
-0
-false
-new IllegalStateException("No state to undo to")
-
-12
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1069
-1086
-32
-undo
-DefDef
-false
-0
-false
-override def undo
-
-13
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -247,16 +26,16 @@ Class
 controller.PlayCommand
 execute
 312
-1367
+1359
 10
 apply
 Apply
 false
 0
 false
-Try {\r\n    previousState = Some(controller.field) // Save state for undo\r\n    //controller.play(card)\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n\r\n    // Validate the move\r\n    if (!card.canBePlayedOn(controller.field.topCard)) {\r\n      throw new IllegalArgumentException("Card cannot be played on the current top card")\r\n    }\r\n\r\n    // Update the player's hand by removing the card\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))\r\n\r\n    // Update the list of players\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    // Update the game state with the new topCard and move to the next player\r\n    controller.field = controller.field.copy(\r\n      players = updatedPlayers,\r\n      topCard = card,\r\n      currentPlayer = (controller.field.currentPlayer + 1) % controller.field.players.size\r\n    )\r\n\r\n    // Notify observers about the play event\r\n    controller.notifyObservers(Event.Play)\r\n  }
+Try {\r\n    previousState = Some(controller.field) // Save state for undo\r\n    //controller.play(card)\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n\r\n    // Validate the move \r\n    if (!card.canBePlayedOn(controller.field.topCard)) {\r\n      throw new IllegalArgumentException("Card cannot be played on the current top card")\r\n    }\r\n\r\n    // Update players hand by removing card\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))\r\n\r\n    // Update the list of players\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    // Update the game state with the new topCard and move to the next player\r\n    controller.field = controller.field.copy(\r\n      players = updatedPlayers,\r\n      topCard = card,\r\n      currentPlayer = (controller.field.currentPlayer + 1) % controller.field.players.size\r\n    )\r\n\r\n    // Notify observers about the play event\r\n    controller.notifyObservers(Event.Play)\r\n  }
 
-14
+1
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -273,15 +52,15 @@ false
 false
 controller.field.players(controller.field.currentPlayer)
 
-15
+2
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 execute
-534
-578
+535
+579
 16
 canBePlayedOn
 Apply
@@ -290,15 +69,15 @@ false
 false
 card.canBePlayedOn(controller.field.topCard)
 
-16
+3
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 execute
-589
-672
+590
+673
 17
 throw
 Apply
@@ -307,15 +86,15 @@ false
 false
 throw new IllegalArgumentException("Card cannot be played on the current top card")
 
-17
+4
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 execute
-595
-672
+596
+673
 17
 <init>
 Apply
@@ -324,15 +103,15 @@ false
 false
 new IllegalArgumentException("Card cannot be played on the current top card")
 
-18
+5
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 execute
-580
-679
+581
+680
 16
 <none>
 Block
@@ -341,15 +120,15 @@ true
 false
 {\r\n      throw new IllegalArgumentException("Card cannot be played on the current top card")\r\n    }
 
-19
+6
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 execute
-787
-822
+779
+814
 21
 removeCard
 Apply
@@ -358,15 +137,15 @@ false
 false
 currentPlayer.hand.removeCard(card)
 
-20
+7
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 execute
-887
-987
+879
+979
 24
 updated
 Apply
@@ -375,15 +154,15 @@ false
 false
 controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )
 
-21
+8
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 execute
-1234
-1263
+1226
+1255
 33
 size
 Select
@@ -392,15 +171,15 @@ false
 false
 controller.field.players.size
 
-22
+9
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 execute
-1324
-1362
+1316
+1354
 37
 notifyObservers
 Apply
@@ -409,7 +188,7 @@ false
 false
 controller.notifyObservers(Event.Play)
 
-23
+10
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -426,15 +205,15 @@ false
 false
 override def execute
 
-24
+11
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 undo
-1433
-1449
+1425
+1441
 41
 <none>
 Block
@@ -443,15 +222,15 @@ false
 false
 case Some(state)
 
-25
+12
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 undo
-1460
-1585
+1452
+1577
 42
 apply
 Apply
@@ -460,15 +239,15 @@ false
 false
 Try {\r\n        controller.field = state\r\n        controller.notifyObservers(Event.Undo) // Notify that undo occurred\r\n      }
 
-26
+13
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 undo
-1509
-1547
+1501
+1539
 44
 notifyObservers
 Apply
@@ -477,15 +256,15 @@ false
 false
 controller.notifyObservers(Event.Undo)
 
-27
+14
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 undo
-1591
-1600
+1583
+1592
 46
 <none>
 Block
@@ -494,15 +273,15 @@ false
 false
 case None
 
-28
+15
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 undo
-1612
-1660
+1604
+1652
 46
 <init>
 Apply
@@ -511,15 +290,15 @@ false
 false
 new IllegalStateException("No state to undo to")
 
-29
+16
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
 Class
 controller.PlayCommand
 undo
-1373
-1390
+1365
+1382
 40
 undo
 DefDef
@@ -528,7 +307,7 @@ false
 false
 override def undo
 
-30
+17
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -545,7 +324,7 @@ false
 false
 new CommandManager()
 
-31
+18
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -562,7 +341,7 @@ false
 false
 new PlayCommand(this, card)
 
-32
+19
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -579,7 +358,7 @@ false
 false
 commandManager.doStep(command)
 
-33
+20
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -596,7 +375,7 @@ false
 false
 case Success(_)
 
-34
+21
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -613,7 +392,7 @@ false
 false
 case Failure(exception)
 
-35
+22
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -630,7 +409,7 @@ false
 false
 notifyObservers(Event.Error)
 
-36
+23
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -647,7 +426,7 @@ false
 false
 def play
 
-37
+24
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -664,7 +443,7 @@ false
 false
 new DrawCommand(this)
 
-38
+25
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -681,7 +460,7 @@ false
 false
 commandManager.doStep(command)
 
-39
+26
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -698,7 +477,7 @@ false
 false
 case Success(_)
 
-40
+27
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -715,7 +494,7 @@ false
 false
 case Failure(exception)
 
-41
+28
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -732,7 +511,7 @@ false
 false
 notifyObservers(Event.Error)
 
-42
+29
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -749,7 +528,7 @@ false
 false
 def draw
 
-43
+30
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -766,7 +545,7 @@ false
 false
 commandManager.undoStep
 
-44
+31
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -783,7 +562,7 @@ false
 false
 case Success(_)
 
-45
+32
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -800,7 +579,7 @@ false
 false
 notifyObservers(Event.Undo)
 
-46
+33
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -817,7 +596,7 @@ false
 false
 case Failure(exception)
 
-47
+34
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -834,7 +613,7 @@ false
 false
 notifyObservers(Event.Error)
 
-48
+35
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -851,7 +630,7 @@ false
 false
 def undo
 
-49
+36
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -868,7 +647,7 @@ false
 false
 commandManager.redoStep
 
-50
+37
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -885,7 +664,7 @@ false
 false
 case Success(_)
 
-51
+38
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -902,7 +681,7 @@ false
 false
 notifyObservers(Event.Redo)
 
-52
+39
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -919,7 +698,7 @@ false
 false
 case Failure(exception)
 
-53
+40
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -936,7 +715,7 @@ false
 false
 notifyObservers(Event.Error)
 
-54
+41
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController

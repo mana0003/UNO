@@ -13,12 +13,12 @@ class PlayCommand(controller: UnoController, card: Card) extends util.Command {
     //controller.play(card)
     val currentPlayer = controller.field.players(controller.field.currentPlayer)
 
-    // Validate the move
+    // Validate the move 
     if (!card.canBePlayedOn(controller.field.topCard)) {
       throw new IllegalArgumentException("Card cannot be played on the current top card")
     }
 
-    // Update the player's hand by removing the card
+    // Update players hand by removing card
     val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
 
     // Update the list of players

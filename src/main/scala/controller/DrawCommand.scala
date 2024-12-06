@@ -14,17 +14,6 @@ class DrawCommand(controller: UnoController) extends util.Command {
     //controller.draw()
     val newCard = randomCard // Draw a random card
     val currentPlayer = controller.field.players(controller.field.currentPlayer)
-
-    // Update the player's hand
-    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))
-
-    // Update the list of players
-    val updatedPlayers = controller.field.players.updated(
-      controller.field.currentPlayer,
-      updatedPlayer)
-
-    // Update the game state
-    controller.field = controller.field.copy(players = updatedPlayers)
     controller.notifyObservers(Event.Draw)
   }
 

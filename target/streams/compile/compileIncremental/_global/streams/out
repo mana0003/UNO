@@ -2,48 +2,5 @@
 [0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
 [0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 38 products, 15 sources, 2 libraries[0m
 [0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/view/TUI.scala, ${BASE}/src/main/scala/model/UnoField.scala, ${BASE}/src/main/scala/util/Command.scala, ${BASE}/src/main/scala/model/PlayerHand.scala, ${BASE}/src/main/scala/controller/UnoActionBuilder.scala, ${BASE}/src/main/scala/util/Observer.scala, ${BASE}/src/main/scala/Main.scala, ${BASE}/src/main/scala/model/Card.scala, ${BASE}/src/main/scala/util/CommandManager.scala, ${BASE}/src/main/scala/controller/UnoActionStrategy.scala, ${BASE}/src/main/scala/controller/UnoActionProcessor.scala, ${BASE}/src/main/scala/controller/UnoController.scala, ${BASE}/src/main/scala/model/Player.scala, ${BASE}/src/main/scala/controller/DrawCommand.scala, ${BASE}/src/main/scala/controller/PlayCommand.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(${BASE}/src/main/scala/controller/UnoController.scala), unmodified = ...),Set(${BASE}/target/scala-3.3.1/classes/controller/UnoController.class),Set(),API Changes: Set())[0m
-[0m[[0m[0mdebug[0m] [0m[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial source changes:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	removed: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(${BASE}/src/main/scala/controller/UnoController.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set(${BASE}/target/scala-3.3.1/classes/controller/UnoController.class)[0m
-[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(controller.UnoController, controller.PlayCommand, controller.DrawCommand)[0m
-[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	product: Set(${BASE}/src/main/scala/controller/UnoController.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(controller.UnoController, controller.PlayCommand, controller.DrawCommand)[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(${BASE}/src/main/scala/controller/UnoController.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: controller.UnoController, controller.PlayCommand, controller.DrawCommand[0m
-[0m[[0m[0mdebug[0m] [0m[0mcompilation cycle 1[0m
-[0m[[0m[0minfo[0m] [0m[0mcompiling 3 Scala sources to C:\SE\UNO\target\scala-3.3.1\classes ...[0m
-[0m[[0m[0mdebug[0m] [0m[0mReturning already retrieved and compiled bridge: C:\Users\miche\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-sbt-bridge\3.3.1\scala3-sbt-bridge-3.3.1.jar.[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 20f529be for Scala Compiler version 3.3.1[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	-coverage-out:C:\SE\UNO\target\scala-3.3.1/scoverage-data[0m
-[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
-[0m[[0m[0mdebug[0m] [0m[0m	C:\SE\UNO\target\scala-3.3.1\classes;C:\Users\miche\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.3.1\scala3-library_3-3.3.1.jar;C:\Users\miche\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scalactic\scalactic_3\3.2.14\scalactic_3-3.2.14.jar;C:\Users\miche\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.13.10\scala-library-2.13.10.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 15.3308541 s[0m
-[0m[[0m[0mdebug[0m] [0m[0mdone compiling[0m
-[0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: [0m
-[0m[[0m[0mdebug[0m] [0m[0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
-[0m[[0m[0mdebug[0m] [0m[0mFinal step, transitive dependencies:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: controller.UnoController, controller.PlayCommand, controller.DrawCommand[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.ConcreteUnoActionProcessor by controller.UnoController[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.PlayCommand by controller.UnoController[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.DrawCommand by controller.UnoController[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.DrawCardStrategy by controller.UnoController[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.UnoActionBuilder by controller.DrawCardStrategy[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding view.TUI by controller.UnoActionBuilder[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding Main by view.TUI[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.PlayCardStrategy by controller.UnoController[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.UnoActionHandler by controller.UnoController[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.UnoActionProcessor by controller.UnoController[0m
-[0m[[0m[0mdebug[0m] [0m[0mIncluding controller.UnoActionStrategy by controller.UnoController[0m
-[0m[[0m[0mdebug[0m] [0m[0mNo classes were invalidated.[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
