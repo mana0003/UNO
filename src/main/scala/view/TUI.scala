@@ -7,6 +7,9 @@ import scala.io.StdIn
 import scala.io.AnsiColor._
 //import util.{Event, Observer}
 import util.Event.{Quit, Start}
+import util.CommandManager
+import util.Command
+
 
 class TUI(val controller: UnoController) extends Observer {
   controller.add(this)
@@ -23,12 +26,16 @@ class TUI(val controller: UnoController) extends Observer {
         println("Card does not fit. Do you want to:")
         println("1. Draw a card")
         println("2. Try again")
-        println("3. Quit")
+        println("3. Undo")
+        println("4. Redo")
+        println("5. Quit")
         val readLine = StdIn.readLine().toIntOption.getOrElse(-1)
         readLine match {
           case 1 => UnoActionFactory.builder().setAction("draw").build().executeAction(controller, controller.field.players(controller.field.currentPlayer))
           case 2 => gameContinue()
-          case 3 => controller.notifyObservers(Event.Quit)
+          case 3 => undoAction()
+          case 4 => redoAction()
+          case 5 => controller.notifyObservers(Event.Quit)
           case _ =>
             println("Invalid input. Please enter a number.")
             gameContinue()
@@ -77,11 +84,11 @@ class TUI(val controller: UnoController) extends Observer {
     val options = List("1. Start playing UNO", "2. Quit")
     val menu =
       s"""
-        |$separator
-        |
-        |$title
-        |
-        |$separator
+         |$separator
+         |
+         |$title
+         |
+         |$separator
       """.stripMargin
 
     println(menu)
@@ -103,5 +110,15 @@ class TUI(val controller: UnoController) extends Observer {
     } else {
       processInputLine(cardNumber.get, currentPlayer.hand.cards.length)
     }
+  }
+
+  private def undoAction(): Unit = {
+    controller.undo()
+    gameContinue()
+  }
+
+  private def redoAction(): Unit = {
+    controller.redo()
+    gameContinue()
   }
 }
