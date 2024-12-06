@@ -7,40 +7,43 @@ class CommandManager {
   private var redoStack: List[Command] = Nil
 
   def doStep(command: Command): Try[Unit] = {
-    command.execute() match {
+    val result = command.execute()
+    result match {
       case Success(_) =>
         undoStack = command :: undoStack
-        redoStack = Nil
-        Success(())
-      case Failure(exception) => Failure(exception)
+        redoStack = Nil // Clear the redo stack after a new command
+      case Failure(_) => // Do nothing
     }
+    result
   }
 
   def undoStep: Try[Unit] = {
     undoStack match {
       case Nil => Failure(new NoSuchElementException("No commands to undo"))
-      case head :: stack =>
-        head.undo() match {
+      case head :: tail =>
+        val result = head.undo()
+        result match {
           case Success(_) =>
-            undoStack = stack
+            undoStack = tail
             redoStack = head :: redoStack
-            Success(())
-          case Failure(exception) => Failure(exception)
+          case Failure(_) => // Do nothing
         }
+        result
     }
   }
 
   def redoStep: Try[Unit] = {
     redoStack match {
       case Nil => Failure(new NoSuchElementException("No commands to redo"))
-      case head :: stack =>
-        head.execute() match {
+      case head :: tail =>
+        val result = head.execute()
+        result match {
           case Success(_) =>
-            redoStack = stack
+            redoStack = tail
             undoStack = head :: undoStack
-            Success(())
-          case Failure(exception) => Failure(exception)
+          case Failure(_) => // Do nothing
         }
+        result
     }
   }
 }
