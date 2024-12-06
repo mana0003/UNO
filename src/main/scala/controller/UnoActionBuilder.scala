@@ -1,7 +1,7 @@
 // UnoActionProcessor.scala
 package controller
-import scala.model.*
-import scala.controller.*
+import model.*
+import controller.*
 
 
 class UnoActionBuilder {

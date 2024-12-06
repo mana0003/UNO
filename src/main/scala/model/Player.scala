@@ -1,8 +1,8 @@
 package model
-import scala.controller.*
-import scala.view.*
-import scala.model.*
-import scala.util.*
+import controller.*
+import view.*
+import model.*
+import util.*
 import scala.util.Failure
 import scala.util.Success
 import scala.util.Try

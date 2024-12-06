@@ -1,13 +1,91 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\contoller\UnoActionProcessor.scala:46:35 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m46 |[0m    [33mval[0m [36mhandler[0m = UnoActionFactory.getActionHandler(action)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mvalue getActionHandler is not a member of object controller.UnoActionFactory[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:21:25 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m21 |[0m        UnoActionFactory.getActionHandler([31m"play"[0m, Some(card)).executeAction(controller, controller.field.players(controller.field.currentPlayer))[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mvalue getActionHandler is not a member of object controller.UnoActionFactory[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:29:37 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m29 |[0m          [33mcase[0m [31m1[0m => UnoActionFactory.getActionHandler([31m"draw"[0m).executeAction(controller, controller.field.players(controller.field.currentPlayer))[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mvalue getActionHandler is not a member of object controller.UnoActionFactory[0m
-[0m[[0m[31merror[0m] [0m[0mthree errors found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\controller\UnoController.scala:3:13 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m3 |[0m[33mimport[0m scala.model.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value model is not a member of scala - did you mean scala.None?[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\controller\UnoActionStrategy.scala:4:13 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m4 |[0m[33mimport[0m scala.controller.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value controller is not a member of scala[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\controller\UnoActionProcessor.scala:3:13 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m3 |[0m[33mimport[0m scala.model.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value model is not a member of scala - did you mean scala.None?[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\controller\PlayCommand.scala:2:13 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m2 |[0m[33mimport[0m scala.controller.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value controller is not a member of scala[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\controller\DrawCommand.scala:2:13 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m2 |[0m[33mimport[0m scala.model.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value model is not a member of scala - did you mean scala.None?[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:11:49 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m11 |[0m[33mclass[0m [35mTUI[0m([33mval[0m [36mcontroller[0m: [35mUnoController[0m) [33mextends[0m [35mObserver[0m {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                                 ^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                                Not found: type Observer[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\Main.scala:4:13 ------------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m4 |[0m[33mimport[0m scala.model.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value model is not a member of scala - did you mean scala.None?[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\controller\UnoActionBuilder.scala:3:13 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m3 |[0m[33mimport[0m scala.model.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value model is not a member of scala - did you mean scala.None?[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\model\Player.scala:2:13 ----[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m2 |[0m[33mimport[0m scala.controller.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value controller is not a member of scala[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\model\PlayerHand.scala:2:13 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m2 |[0m[33mimport[0m scala.model.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value model is not a member of scala - did you mean scala.None?[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\model\UnoField.scala:2:13 --[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m2 |[0m[33mimport[0m scala.model.*[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value model is not a member of scala - did you mean scala.None?[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:9:18 --------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m9 |[0m[33mimport[0m scala.util.Event.{Quit, Start}[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value Event is not a member of util[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:12:13 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m12 |[0m  controller.add([33mthis[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m  ^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m  value add is not a member of controller.UnoController[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:31:31 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m31 |[0m          [33mcase[0m [31m3[0m => controller.notifyObservers(Event.Quit)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m       value notifyObservers is not a member of controller.UnoController[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:31:47 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m31 |[0m          [33mcase[0m [31m3[0m => controller.notifyObservers(Event.Quit)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                               ^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                               Not found: Event[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:40:25 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m40 |[0m  [33moverride[0m [33mdef[0m update(e: Event): Unit = {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                         ^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                         Not found: type Event[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:58:19 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m58 |[0m        controller.notifyObservers(Event.Start)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m        ^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m       value notifyObservers is not a member of controller.UnoController[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:58:35 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m58 |[0m        controller.notifyObservers(Event.Start)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                   ^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                   Not found: Event[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:61:19 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m61 |[0m        controller.notifyObservers(Event.Quit)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m        ^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m       value notifyObservers is not a member of controller.UnoController[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\TUI.scala:61:35 -------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m61 |[0m        controller.notifyObservers(Event.Quit)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                   ^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                   Not found: Event[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m20 errors found[0m

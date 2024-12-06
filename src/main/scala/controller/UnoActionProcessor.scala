@@ -1,8 +1,8 @@
 package controller
 
-import scala.model.*
-import scala.controller.*
-import scala.util.Event
+import model.*
+import controller.*
+import util.Event
 
 abstract class UnoActionProcessor {
   def processAction(controller: UnoController, player: Player, action: String): Unit = {

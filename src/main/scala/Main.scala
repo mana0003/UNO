@@ -1,10 +1,9 @@
 // src/main/scala/Main.scala
 package scala
-
-import scala.model.*
-import scala.util.*
-import scala.controller.*
-import scala.view.*
+import controller.*
+import model.*
+import util.*
+import view.*
 
 object Main {
 

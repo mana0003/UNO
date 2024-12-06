@@ -1,8 +1,8 @@
 // UnoActionStrategy.scala
 package controller
 
-import scala.controller.*
-import scala.model.*
+import controller.*
+import model.*
 
 trait UnoActionStrategy {
   def executeAction(controller: UnoController, player: Player): Unit

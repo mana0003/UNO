@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
@@ -6,38 +5,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="put up MVC architecture">
-      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoController.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoController.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Player.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Player.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardColors.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardColors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardColors.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardColors.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardValues.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardValues.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardValues.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardValues.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Event.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Event.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Event.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observable.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observable.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observer.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observer.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/view/TUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/view/TUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/view/TUI.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/view/TUI.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d8cff250f1931532ab29$.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/config-classes/$6c83783460ce16b6467a$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d8cff250f1931532ab29.cache" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/config-classes/$6c83783460ce16b6467a.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$d8cff250f1931532ab29.class" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/config-classes/$6c83783460ce16b6467a.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/DrawCommand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/DrawCommand.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/PlayCommand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/PlayCommand.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/UnoActionBuilder.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/UnoActionBuilder.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/UnoActionProcessor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/UnoActionProcessor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/UnoActionStrategy.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/UnoActionStrategy.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/UnoController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/UnoController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/model/Player.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/model/Player.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/model/PlayerHand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/model/PlayerHand.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/model/UnoField.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/model/UnoField.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/util/Observer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/util/Observer.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/Main.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/ConcreteUnoActionProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/ConcreteUnoActionProcessor.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/DrawCardStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/DrawCardStrategy.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/PlayCardStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/PlayCardStrategy.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionBuilder.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionFactory$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionFactory.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionHandler.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionProcessor.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoActionStrategy.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/controller/UnoController.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card$package.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Card.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Player$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/Player.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/PlayerHand.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/UnoField.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardColors$$anon$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardColors$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardColors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardColors.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardValues$$anon$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardValues$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardValues.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/model/cardValues.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Event$$anon$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Event$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Event.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Event.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observable.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/util/Observer.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/view/TUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/scala/view/TUI.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/CommandManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.coverage" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.991969ad-a23a-4216-b086-241277b3ac35.97" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/uno_3-0.1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/zinc/inc_compile_3.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/zinc/inc_compile_3.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/_global/_global/compileOutputs/previous" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/_global/_global/discoveredMainClasses/data" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/_global/_global/discoveredMainClasses/data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compile/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compile/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +190,9 @@
       <recent name="C:\SE\UNO\uno" />
       <recent name="C:\SE\UNO\uno\" />
       <recent name="C:\SE\UNO" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager">
