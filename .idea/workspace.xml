@@ -5,22 +5,103 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="put up MVC architecture">
+      <change beforePath="$PROJECT_DIR$/.idea/scala_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/DrawCommand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/DrawCommand.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/PlayCommand.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/PlayCommand.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$53572da3e7d3f05b524f$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$53572da3e7d3f05b524f.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$53572da3e7d3f05b524f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/_global/_global/compileOutputs/previous" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/exportedProducts/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/incOptions/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/util/CommandManager.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/util/CommandManager.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/ConcreteUnoActionProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/ConcreteUnoActionProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/ConcreteUnoActionProcessor.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/ConcreteUnoActionProcessor.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCardStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCardStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCardStrategy.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCardStrategy.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCardStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCardStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCardStrategy.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCardStrategy.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionBuilder.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionBuilder.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionHandler.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionHandler.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionProcessor.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionProcessor.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionStrategy.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionStrategy.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card$package$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card$package$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/PlayerHand$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/PlayerHand$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/PlayerHand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/PlayerHand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/UnoField$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/UnoField$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Command.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Command.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/CommandManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/CommandManager.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/CommandManager.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Event.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Event.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observable.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observable.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observer.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observer.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.coverage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.be15d0ec-9772-47d2-b3c6-8b72048e7267.101" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.05e4cb03-225e-4f5e-9dad-47df7457ce70.99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.6bf4aeab-17ec-45ea-a9ac-15eba3aa9400.97" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.c96a332d-8369-49b0-8a82-97b33f90116d.97" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/uno_3-0.1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/update/update_cache_3/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/update/update_cache_3/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/update/update_cache_3/output" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/update/update_cache_3/output" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/zinc/inc_compile_3.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/zinc/inc_compile_3.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/_global/update/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/_global/_global/compileOutputs/previous" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compile/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compile/_global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/exportedProductJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/exportedProductJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/exportedProducts/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/_global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/incOptions/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/managedClasspath/_global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/inputs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/output" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/dependencyClasspathAsJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/dependencyClasspathAsJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/exportedProductJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/exportedProductJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/fullClasspathAsJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/fullClasspathAsJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/internalDependencyAsJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/internalDependencyAsJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/test/managedClasspath/_global/streams/export" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,33 +172,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.Main.executor": "Debug",
-    "Application.TUI.executor": "Run",
-    "Application.main.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/SE/UNO",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.TUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/SE/UNO&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\SE\UNO\" />
@@ -144,6 +225,7 @@
     </recent_temporary>
   </component>
   <component name="ScalaProjectSettings">
+    <option name="migrateConfigurationsNotificationShown" value="true" />
     <option name="scala3DisclaimerShown" value="true" />
   </component>
   <component name="SharedIndexes">

@@ -19,6 +19,312 @@
 # '' sign
 # ------------------------------------------
 0
+src\\main\\scala\\Main.scala
+<empty>
+Main$
+Object
+<empty>.Main$
+main
+192
+200
+10
+$lessinit$greater$default$1
+Select
+false
+0
+false
+UnoField
+
+1
+src\\main\\scala\\Main.scala
+<empty>
+Main$
+Object
+<empty>.Main$
+main
+192
+200
+10
+$lessinit$greater$default$2
+Select
+false
+0
+false
+UnoField
+
+2
+src\\main\\scala\\Main.scala
+<empty>
+Main$
+Object
+<empty>.Main$
+main
+192
+200
+10
+$lessinit$greater$default$3
+Select
+false
+0
+false
+UnoField
+
+3
+src\\main\\scala\\Main.scala
+<empty>
+Main$
+Object
+<empty>.Main$
+main
+225
+249
+11
+<init>
+Apply
+false
+0
+false
+new UnoController(field)
+
+4
+src\\main\\scala\\Main.scala
+<empty>
+Main$
+Object
+<empty>.Main$
+main
+265
+284
+12
+<init>
+Apply
+false
+0
+false
+new TUI(controller)
+
+5
+src\\main\\scala\\Main.scala
+<empty>
+Main$
+Object
+<empty>.Main$
+main
+290
+305
+13
+startGame
+Apply
+false
+0
+false
+tui.startGame()
+
+6
+src\\main\\scala\\Main.scala
+<empty>
+Main$
+Object
+<empty>.Main$
+main
+135
+143
+9
+main
+DefDef
+false
+0
+false
+def main
+
+7
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+execute
+302
+582
+11
+apply
+Apply
+false
+0
+false
+Try {\r\n    previousState = Some(controller.field) // Save state for undo\r\n    //controller.draw()\r\n    val newCard = randomCard // Draw a random card\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n    controller.notifyObservers(Event.Draw)\r\n  }
+
+8
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+execute
+419
+429
+14
+randomCard
+Ident
+false
+0
+false
+randomCard
+
+9
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+execute
+477
+533
+15
+apply
+Apply
+false
+0
+false
+controller.field.players(controller.field.currentPlayer)
+
+10
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+execute
+539
+577
+16
+notifyObservers
+Apply
+false
+0
+false
+controller.notifyObservers(Event.Draw)
+
+11
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+execute
+266
+286
+11
+execute
+DefDef
+false
+0
+false
+override def execute
+
+12
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+undo
+648
+664
+20
+<none>
+Block
+false
+0
+false
+case Some(state)
+
+13
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+undo
+675
+800
+21
+apply
+Apply
+false
+0
+false
+Try {\r\n        controller.field = state\r\n        controller.notifyObservers(Event.Undo) // Notify that undo occurred\r\n      }
+
+14
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+undo
+724
+762
+23
+notifyObservers
+Apply
+false
+0
+false
+controller.notifyObservers(Event.Undo)
+
+15
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+undo
+806
+815
+25
+<none>
+Block
+false
+0
+false
+case None
+
+16
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+undo
+827
+875
+25
+<init>
+Apply
+false
+0
+false
+new IllegalStateException("No state to undo to")
+
+17
+src\\main\\scala\\controller\\DrawCommand.scala
+controller
+DrawCommand
+Class
+controller.DrawCommand
+undo
+588
+605
+19
+undo
+DefDef
+false
+0
+false
+override def undo
+
+18
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -35,7 +341,7 @@ false
 false
 Try {\r\n    previousState = Some(controller.field) // Save state for undo\r\n    //controller.play(card)\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n\r\n    // Validate the move \r\n    if (!card.canBePlayedOn(controller.field.topCard)) {\r\n      throw new IllegalArgumentException("Card cannot be played on the current top card")\r\n    }\r\n\r\n    // Update players hand by removing card\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))\r\n\r\n    // Update the list of players\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    // Update the game state with the new topCard and move to the next player\r\n    controller.field = controller.field.copy(\r\n      players = updatedPlayers,\r\n      topCard = card,\r\n      currentPlayer = (controller.field.currentPlayer + 1) % controller.field.players.size\r\n    )\r\n\r\n    // Notify observers about the play event\r\n    controller.notifyObservers(Event.Play)\r\n  }
 
-1
+19
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -52,7 +358,7 @@ false
 false
 controller.field.players(controller.field.currentPlayer)
 
-2
+20
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -69,7 +375,7 @@ false
 false
 card.canBePlayedOn(controller.field.topCard)
 
-3
+21
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -86,7 +392,7 @@ false
 false
 throw new IllegalArgumentException("Card cannot be played on the current top card")
 
-4
+22
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -103,7 +409,7 @@ false
 false
 new IllegalArgumentException("Card cannot be played on the current top card")
 
-5
+23
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -120,7 +426,7 @@ true
 false
 {\r\n      throw new IllegalArgumentException("Card cannot be played on the current top card")\r\n    }
 
-6
+24
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -137,7 +443,7 @@ false
 false
 currentPlayer.hand.removeCard(card)
 
-7
+25
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -154,7 +460,7 @@ false
 false
 controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )
 
-8
+26
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -171,7 +477,7 @@ false
 false
 controller.field.players.size
 
-9
+27
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -188,7 +494,7 @@ false
 false
 controller.notifyObservers(Event.Play)
 
-10
+28
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -205,7 +511,7 @@ false
 false
 override def execute
 
-11
+29
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -222,7 +528,7 @@ false
 false
 case Some(state)
 
-12
+30
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -239,7 +545,7 @@ false
 false
 Try {\r\n        controller.field = state\r\n        controller.notifyObservers(Event.Undo) // Notify that undo occurred\r\n      }
 
-13
+31
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -256,7 +562,7 @@ false
 false
 controller.notifyObservers(Event.Undo)
 
-14
+32
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -273,7 +579,7 @@ false
 false
 case None
 
-15
+33
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -290,7 +596,7 @@ false
 false
 new IllegalStateException("No state to undo to")
 
-16
+34
 src\\main\\scala\\controller\\PlayCommand.scala
 controller
 PlayCommand
@@ -307,7 +613,976 @@ false
 false
 override def undo
 
-17
+35
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+setAction
+195
+208
+10
+setAction
+DefDef
+false
+0
+false
+def setAction
+
+36
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+setCard
+293
+304
+15
+setCard
+DefDef
+false
+0
+false
+def setCard
+
+37
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+449
+460
+22
+<none>
+Block
+false
+0
+false
+case "draw"
+
+38
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+464
+484
+22
+<init>
+Apply
+false
+0
+false
+new DrawCardStrategy
+
+39
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+492
+503
+23
+<none>
+Block
+false
+0
+false
+case "play"
+
+40
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+529
+541
+24
+<none>
+Block
+false
+0
+false
+case Some(c)
+
+41
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+545
+568
+24
+<init>
+Apply
+false
+0
+false
+new PlayCardStrategy(c)
+
+42
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+578
+587
+25
+<none>
+Block
+false
+0
+false
+case None
+
+43
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+591
+666
+25
+throw
+Apply
+false
+0
+false
+throw new IllegalArgumentException("Card must be provided for play action")
+
+44
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+597
+666
+25
+<init>
+Apply
+false
+0
+false
+new IllegalArgumentException("Card must be provided for play action")
+
+45
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+683
+689
+27
+<none>
+Block
+false
+0
+false
+case _
+
+46
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+693
+750
+27
+throw
+Apply
+false
+0
+false
+throw new IllegalArgumentException("Unknown action type")
+
+47
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+699
+750
+27
+<init>
+Apply
+false
+0
+false
+new IllegalArgumentException("Unknown action type")
+
+48
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionBuilder
+Class
+controller.UnoActionBuilder
+build
+387
+396
+20
+build
+DefDef
+false
+0
+false
+def build
+
+49
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionFactory$
+Object
+controller.UnoActionFactory$
+builder
+832
+852
+33
+<init>
+Apply
+false
+0
+false
+new UnoActionBuilder
+
+50
+src\\main\\scala\\controller\\UnoActionBuilder.scala
+controller
+UnoActionFactory$
+Object
+controller.UnoActionFactory$
+builder
+798
+809
+33
+builder
+DefDef
+false
+0
+false
+def builder
+
+51
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+processAction
+211
+253
+8
+validateAction
+Apply
+false
+0
+false
+validateAction(controller, player, action)
+
+52
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+processAction
+259
+299
+9
+handleAction
+Apply
+false
+0
+false
+handleAction(controller, player, action)
+
+53
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+processAction
+305
+347
+10
+completeAction
+Apply
+false
+0
+false
+completeAction(controller, player, action)
+
+54
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+processAction
+119
+136
+7
+processAction
+DefDef
+false
+0
+false
+def processAction
+
+55
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+451
+514
+14
+println
+Apply
+false
+0
+false
+println(s"Validating action: $action for player: ${player.id}")
+
+56
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+459
+513
+14
+s
+Apply
+false
+0
+false
+s"Validating action: $action for player: ${player.id}"
+
+57
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+542
+553
+16
+<none>
+Block
+false
+0
+false
+case "play"
+
+58
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+619
+657
+18
+valid
+Apply
+false
+0
+false
+player.valid(controller.field.topCard)
+
+59
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+672
+728
+19
+throw
+Apply
+false
+0
+false
+throw new IllegalArgumentException("Card does not fit.")
+
+60
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+678
+728
+19
+<init>
+Apply
+false
+0
+false
+new IllegalArgumentException("Card does not fit.")
+
+61
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+659
+739
+18
+<none>
+Block
+true
+0
+false
+{\r\n          throw new IllegalArgumentException("Card does not fit.")\r\n        }
+
+62
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+747
+753
+21
+<none>
+Block
+false
+0
+false
+case _
+
+63
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+766
+823
+22
+throw
+Apply
+false
+0
+false
+throw new IllegalArgumentException("Unknown action type")
+
+64
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+772
+823
+22
+<init>
+Apply
+false
+0
+false
+new IllegalArgumentException("Unknown action type")
+
+65
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+validateAction
+358
+376
+13
+validateAction
+DefDef
+false
+0
+false
+def validateAction
+
+66
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+934
+997
+27
+println
+Apply
+false
+0
+false
+println(s"Completing action: $action for player: ${player.id}")
+
+67
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+942
+996
+27
+s
+Apply
+false
+0
+false
+s"Completing action: $action for player: ${player.id}"
+
+68
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+1025
+1036
+29
+<none>
+Block
+false
+0
+false
+case "draw"
+
+69
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+1105
+1143
+31
+notifyObservers
+Apply
+false
+0
+false
+controller.notifyObservers(Event.Draw)
+
+70
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+1151
+1162
+32
+<none>
+Block
+false
+0
+false
+case "play"
+
+71
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+1232
+1270
+34
+notifyObservers
+Apply
+false
+0
+false
+controller.notifyObservers(Event.Play)
+
+72
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+1278
+1284
+35
+<none>
+Block
+false
+0
+false
+case _
+
+73
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+1297
+1354
+36
+throw
+Apply
+false
+0
+false
+throw new IllegalArgumentException("Unknown action type")
+
+74
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+1303
+1354
+36
+<init>
+Apply
+false
+0
+false
+new IllegalArgumentException("Unknown action type")
+
+75
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+UnoActionProcessor
+Class
+controller.UnoActionProcessor
+completeAction
+841
+859
+26
+completeAction
+DefDef
+false
+0
+false
+def completeAction
+
+76
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+ConcreteUnoActionProcessor
+Class
+controller.ConcreteUnoActionProcessor
+handleAction
+1639
+1691
+45
+build
+Apply
+false
+0
+false
+UnoActionFactory.builder().setAction(action).build()
+
+77
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+ConcreteUnoActionProcessor
+Class
+controller.ConcreteUnoActionProcessor
+handleAction
+1639
+1683
+45
+setAction
+Apply
+false
+0
+false
+UnoActionFactory.builder().setAction(action)
+
+78
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+ConcreteUnoActionProcessor
+Class
+controller.ConcreteUnoActionProcessor
+handleAction
+1639
+1665
+45
+builder
+Apply
+false
+0
+false
+UnoActionFactory.builder()
+
+79
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+ConcreteUnoActionProcessor
+Class
+controller.ConcreteUnoActionProcessor
+handleAction
+1697
+1738
+46
+executeAction
+Apply
+false
+0
+false
+handler.executeAction(controller, player)
+
+80
+src\\main\\scala\\controller\\UnoActionProcessor.scala
+controller
+ConcreteUnoActionProcessor
+Class
+controller.ConcreteUnoActionProcessor
+handleAction
+1525
+1550
+44
+handleAction
+DefDef
+false
+0
+false
+override def handleAction
+
+81
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+DrawCardStrategy
+Class
+controller.DrawCardStrategy
+executeAction
+330
+367
+12
+println
+Apply
+false
+0
+false
+println(s"${player.id} draws a card")
+
+82
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+DrawCardStrategy
+Class
+controller.DrawCardStrategy
+executeAction
+338
+366
+12
+s
+Apply
+false
+0
+false
+s"${player.id} draws a card"
+
+83
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+DrawCardStrategy
+Class
+controller.DrawCardStrategy
+executeAction
+373
+390
+13
+draw
+Apply
+false
+0
+false
+controller.draw()
+
+84
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+DrawCardStrategy
+Class
+controller.DrawCardStrategy
+executeAction
+245
+271
+11
+executeAction
+DefDef
+false
+0
+false
+override def executeAction
+
+85
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+PlayCardStrategy
+Class
+controller.PlayCardStrategy
+executeAction
+553
+590
+19
+println
+Apply
+false
+0
+false
+println(s"${player.id} plays a card")
+
+86
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+PlayCardStrategy
+Class
+controller.PlayCardStrategy
+executeAction
+561
+589
+19
+s
+Apply
+false
+0
+false
+s"${player.id} plays a card"
+
+87
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+PlayCardStrategy
+Class
+controller.PlayCardStrategy
+executeAction
+596
+617
+20
+play
+Apply
+false
+0
+false
+controller.play(card)
+
+88
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+PlayCardStrategy
+Class
+controller.PlayCardStrategy
+executeAction
+468
+494
+18
+executeAction
+DefDef
+false
+0
+false
+override def executeAction
+
+89
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+UnoActionHandler
+Class
+controller.UnoActionHandler
+setStrategy
+690
+705
+25
+setStrategy
+DefDef
+false
+0
+false
+def setStrategy
+
+90
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+UnoActionHandler
+Class
+controller.UnoActionHandler
+executeStrategy
+863
+905
+30
+executeAction
+Apply
+false
+0
+false
+strategy.executeAction(controller, player)
+
+91
+src\\main\\scala\\controller\\UnoActionStrategy.scala
+controller
+UnoActionHandler
+Class
+controller.UnoActionHandler
+executeStrategy
+785
+804
+29
+executeStrategy
+DefDef
+false
+0
+false
+def executeStrategy
+
+92
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -324,7 +1599,7 @@ false
 false
 new CommandManager()
 
-18
+93
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -341,7 +1616,7 @@ false
 false
 new PlayCommand(this, card)
 
-19
+94
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -358,7 +1633,7 @@ false
 false
 commandManager.doStep(command)
 
-20
+95
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -375,7 +1650,7 @@ false
 false
 case Success(_)
 
-21
+96
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -392,7 +1667,7 @@ false
 false
 case Failure(exception)
 
-22
+97
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -409,7 +1684,7 @@ false
 false
 notifyObservers(Event.Error)
 
-23
+98
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -426,7 +1701,7 @@ false
 false
 def play
 
-24
+99
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -443,7 +1718,7 @@ false
 false
 new DrawCommand(this)
 
-25
+100
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -460,7 +1735,7 @@ false
 false
 commandManager.doStep(command)
 
-26
+101
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -477,7 +1752,7 @@ false
 false
 case Success(_)
 
-27
+102
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -494,7 +1769,7 @@ false
 false
 case Failure(exception)
 
-28
+103
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -511,7 +1786,7 @@ false
 false
 notifyObservers(Event.Error)
 
-29
+104
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -528,7 +1803,7 @@ false
 false
 def draw
 
-30
+105
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -545,7 +1820,7 @@ false
 false
 commandManager.undoStep
 
-31
+106
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -562,7 +1837,7 @@ false
 false
 case Success(_)
 
-32
+107
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -579,7 +1854,7 @@ false
 false
 notifyObservers(Event.Undo)
 
-33
+108
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -596,7 +1871,7 @@ false
 false
 case Failure(exception)
 
-34
+109
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -613,7 +1888,7 @@ false
 false
 notifyObservers(Event.Error)
 
-35
+110
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -630,7 +1905,7 @@ false
 false
 def undo
 
-36
+111
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -647,7 +1922,7 @@ false
 false
 commandManager.redoStep
 
-37
+112
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -664,7 +1939,7 @@ false
 false
 case Success(_)
 
-38
+113
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -681,7 +1956,7 @@ false
 false
 notifyObservers(Event.Redo)
 
-39
+114
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -698,7 +1973,7 @@ false
 false
 case Failure(exception)
 
-40
+115
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -715,7 +1990,7 @@ false
 false
 notifyObservers(Event.Error)
 
-41
+116
 src\\main\\scala\\controller\\UnoController.scala
 controller
 UnoController
@@ -725,6 +2000,4494 @@ redo
 993
 1001
 37
+redo
+DefDef
+false
+0
+false
+def redo
+
+117
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+canBePlayedOn
+490
+507
+34
+canBePlayedOn
+DefDef
+false
+0
+false
+def canBePlayedOn
+
+118
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+740
+769
+40
+<none>
+Block
+false
+0
+false
+case Card(_, cardValues.WILD)
+
+119
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+773
+788
+40
+WHITE
+Select
+false
+0
+false
+AnsiColor.WHITE
+
+120
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+796
+835
+41
+<none>
+Block
+false
+0
+false
+case Card(_, cardValues.WILD_DRAW_FOUR)
+
+121
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+839
+854
+41
+WHITE
+Select
+false
+0
+false
+AnsiColor.WHITE
+
+122
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+862
+890
+42
+<none>
+Block
+false
+0
+false
+case Card(cardColors.RED, _)
+
+123
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+894
+907
+42
+RED
+Select
+false
+0
+false
+AnsiColor.RED
+
+124
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+915
+945
+43
+<none>
+Block
+false
+0
+false
+case Card(cardColors.GREEN, _)
+
+125
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+949
+964
+43
+GREEN
+Select
+false
+0
+false
+AnsiColor.GREEN
+
+126
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+972
+1003
+44
+<none>
+Block
+false
+0
+false
+case Card(cardColors.YELLOW, _)
+
+127
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+1007
+1023
+44
+YELLOW
+Select
+false
+0
+false
+AnsiColor.YELLOW
+
+128
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+1031
+1060
+45
+<none>
+Block
+false
+0
+false
+case Card(cardColors.BLUE, _)
+
+129
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+1064
+1078
+45
+BLUE
+Select
+false
+0
+false
+AnsiColor.BLUE
+
+130
+src\\main\\scala\\model\\Card.scala
+model
+Card
+Class
+model.Card
+getColorCode
+686
+702
+38
+getColorCode
+DefDef
+false
+0
+false
+def getColorCode
+
+131
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomColor
+1118
+1195
+51
+apply
+Apply
+false
+0
+false
+cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
+
+132
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomColor
+1118
+1135
+51
+wrapRefArray
+Apply
+false
+0
+false
+cardColors.values
+
+133
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomColor
+1118
+1142
+51
+toList
+Select
+false
+0
+false
+cardColors.values.toList
+
+134
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomColor
+1143
+1194
+51
+nextInt
+Apply
+false
+0
+false
+scala.util.Random.nextInt(cardColors.values.length)
+
+135
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomColor
+1169
+1193
+51
+length
+Select
+false
+0
+false
+cardColors.values.length
+
+136
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomColor
+1097
+1112
+50
+randomColor
+DefDef
+false
+0
+false
+def randomColor
+
+137
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomValue
+1220
+1297
+54
+apply
+Apply
+false
+0
+false
+cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
+
+138
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomValue
+1220
+1237
+54
+wrapRefArray
+Apply
+false
+0
+false
+cardValues.values
+
+139
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomValue
+1220
+1244
+54
+toList
+Select
+false
+0
+false
+cardValues.values.toList
+
+140
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomValue
+1245
+1296
+54
+nextInt
+Apply
+false
+0
+false
+scala.util.Random.nextInt(cardValues.values.length)
+
+141
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomValue
+1271
+1295
+54
+length
+Select
+false
+0
+false
+cardValues.values.length
+
+142
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomValue
+1199
+1214
+53
+randomValue
+DefDef
+false
+0
+false
+def randomValue
+
+143
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomCard
+1323
+1334
+56
+randomColor
+Ident
+false
+0
+false
+randomColor
+
+144
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomCard
+1336
+1347
+56
+randomValue
+Ident
+false
+0
+false
+randomValue
+
+145
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomCard
+1301
+1315
+56
+randomCard
+DefDef
+false
+0
+false
+def randomCard
+
+146
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomCards
+1395
+1427
+59
+map
+Apply
+false
+0
+false
+(0 until i).map(_ => randomCard)
+
+147
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomCards
+1396
+1405
+59
+until
+Apply
+false
+0
+false
+0 until i
+
+148
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomCards
+1396
+1397
+59
+intWrapper
+Apply
+false
+0
+false
+0
+
+149
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+$anonfun
+1416
+1426
+59
+randomCard
+Ident
+false
+0
+false
+randomCard
+
+150
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomCards
+1395
+1434
+59
+toList
+Select
+false
+0
+false
+(0 until i).map(_ => randomCard).toList
+
+151
+src\\main\\scala\\model\\Card.scala
+model
+Card$package$
+Object
+model.Card$package$
+randomCards
+1352
+1367
+58
+randomCards
+DefDef
+false
+0
+false
+def randomCards
+
+152
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+valid
+251
+291
+11
+exists
+Apply
+false
+0
+false
+hand.cards.exists(_.canBePlayedOn(card))
+
+153
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+$anonfun
+269
+290
+11
+canBePlayedOn
+Apply
+false
+0
+false
+_.canBePlayedOn(card)
+
+154
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+valid
+211
+220
+10
+valid
+DefDef
+false
+0
+false
+def valid
+
+155
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+play
+349
+360
+15
+valid
+Apply
+false
+0
+false
+valid(card)
+
+156
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+play
+390
+411
+16
+removeCard
+Apply
+false
+0
+false
+hand.removeCard(card)
+
+157
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+play
+362
+420
+15
+<none>
+Block
+true
+0
+false
+{\r\n      Success(Player(id, hand.removeCard(card)))\r\n    }
+
+158
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+play
+443
+485
+18
+<init>
+Apply
+false
+0
+false
+IllegalArgumentException("Illeagal move.")
+
+159
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+play
+426
+493
+17
+<none>
+Block
+true
+0
+false
+{\r\n      Failure(IllegalArgumentException("Illeagal move."))\r\n    }
+
+160
+src\\main\\scala\\model\\Player.scala
+model
+Player
+Class
+model.Player
+play
+302
+310
+14
+play
+DefDef
+false
+0
+false
+def play
+
+161
+src\\main\\scala\\model\\PlayerHand.scala
+model
+PlayerHand
+Class
+model.PlayerHand
+addCard
+145
+158
+3
+::
+Apply
+false
+0
+false
+card :: cards
+
+162
+src\\main\\scala\\model\\PlayerHand.scala
+model
+PlayerHand
+Class
+model.PlayerHand
+addCard
+94
+105
+3
+addCard
+DefDef
+false
+0
+false
+def addCard
+
+163
+src\\main\\scala\\model\\PlayerHand.scala
+model
+PlayerHand
+Class
+model.PlayerHand
+removeCard
+219
+240
+5
+diff
+Apply
+false
+0
+false
+cards diff List(card)
+
+164
+src\\main\\scala\\model\\PlayerHand.scala
+model
+PlayerHand
+Class
+model.PlayerHand
+removeCard
+230
+240
+5
+apply
+Apply
+false
+0
+false
+List(card)
+
+165
+src\\main\\scala\\model\\PlayerHand.scala
+model
+PlayerHand
+Class
+model.PlayerHand
+removeCard
+230
+234
+5
+List
+Ident
+false
+0
+false
+List
+
+166
+src\\main\\scala\\model\\PlayerHand.scala
+model
+PlayerHand
+Class
+model.PlayerHand
+removeCard
+165
+179
+5
+removeCard
+DefDef
+false
+0
+false
+def removeCard
+
+167
+src\\main\\scala\\model\\PlayerHand.scala
+model
+PlayerHand$
+Object
+model.PlayerHand$
+$lessinit$greater$default$1
+73
+87
+2
+randomCards
+Apply
+false
+0
+false
+randomCards(5)
+
+168
+src\\main\\scala\\model\\PlayerHand.scala
+model
+PlayerHand$
+Object
+model.PlayerHand$
+$lessinit$greater$default$1
+73
+73
+2
+$lessinit$greater$default$1
+DefDef
+false
+0
+false
+
+
+169
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$lessinit$greater$default$1
+104
+149
+4
+map
+Apply
+false
+0
+false
+(0 until 2).map(i => Player(i, PlayerHand()))
+
+170
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$lessinit$greater$default$1
+105
+114
+4
+until
+Apply
+false
+0
+false
+0 until 2
+
+171
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$lessinit$greater$default$1
+105
+106
+4
+intWrapper
+Apply
+false
+0
+false
+0
+
+172
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$anonfun
+135
+145
+4
+$lessinit$greater$default$1
+Select
+false
+0
+false
+PlayerHand
+
+173
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$lessinit$greater$default$1
+104
+156
+4
+toList
+Select
+false
+0
+false
+(0 until 2).map(i => Player(i, PlayerHand())).toList
+
+174
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$lessinit$greater$default$1
+104
+104
+4
+$lessinit$greater$default$1
+DefDef
+false
+0
+false
+
+
+175
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$lessinit$greater$default$2
+200
+210
+5
+randomCard
+Ident
+false
+0
+false
+randomCard
+
+176
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$lessinit$greater$default$2
+200
+200
+5
+$lessinit$greater$default$2
+DefDef
+false
+0
+false
+
+
+177
+src\\main\\scala\\model\\UnoField.scala
+model
+UnoField$
+Object
+model.UnoField$
+$lessinit$greater$default$3
+259
+259
+6
+$lessinit$greater$default$3
+DefDef
+false
+0
+false
+
+
+178
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+<init>
+126
+129
+5
+Nil
+Ident
+false
+0
+false
+Nil
+
+179
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+<init>
+172
+175
+6
+Nil
+Ident
+false
+0
+false
+Nil
+
+180
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+doStep
+243
+260
+9
+execute
+Apply
+false
+0
+false
+command.execute()
+
+181
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+doStep
+288
+303
+11
+<none>
+Block
+false
+0
+false
+case Success(_)
+
+182
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+doStep
+328
+348
+12
+::
+Apply
+false
+0
+false
+command :: undoStack
+
+183
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+doStep
+370
+373
+13
+Nil
+Ident
+false
+0
+false
+Nil
+
+184
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+doStep
+425
+440
+14
+<none>
+Block
+false
+0
+false
+case Failure(_)
+
+185
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+doStep
+181
+191
+8
+doStep
+DefDef
+false
+0
+false
+def doStep
+
+186
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+undoStep
+545
+553
+21
+<none>
+Block
+false
+0
+false
+case Nil
+
+187
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+undoStep
+565
+614
+21
+<init>
+Apply
+false
+0
+false
+new NoSuchElementException("No commands to undo")
+
+188
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+undoStep
+623
+640
+22
+<none>
+Block
+false
+0
+false
+case head :: tail
+
+189
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+undoStep
+666
+677
+23
+undo
+Apply
+false
+0
+false
+head.undo()
+
+190
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+undoStep
+713
+728
+25
+<none>
+Block
+false
+0
+false
+case Success(_)
+
+191
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+undoStep
+787
+804
+27
+::
+Apply
+false
+0
+false
+head :: redoStack
+
+192
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+undoStep
+816
+831
+28
+<none>
+Block
+false
+0
+false
+case Failure(_)
+
+193
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+undoStep
+487
+499
+19
+undoStep
+DefDef
+false
+0
+false
+def undoStep
+
+194
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+redoStep
+951
+959
+36
+<none>
+Block
+false
+0
+false
+case Nil
+
+195
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+redoStep
+971
+1020
+36
+<init>
+Apply
+false
+0
+false
+new NoSuchElementException("No commands to redo")
+
+196
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+redoStep
+1029
+1046
+37
+<none>
+Block
+false
+0
+false
+case head :: tail
+
+197
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+redoStep
+1072
+1086
+38
+execute
+Apply
+false
+0
+false
+head.execute()
+
+198
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+redoStep
+1122
+1137
+40
+<none>
+Block
+false
+0
+false
+case Success(_)
+
+199
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+redoStep
+1196
+1213
+42
+::
+Apply
+false
+0
+false
+head :: undoStack
+
+200
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+redoStep
+1225
+1240
+43
+<none>
+Block
+false
+0
+false
+case Failure(_)
+
+201
+src\\main\\scala\\util\\CommandManager.scala
+util
+CommandManager
+Class
+util.CommandManager
+redoStep
+893
+905
+34
+redoStep
+DefDef
+false
+0
+false
+def redoStep
+
+202
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+<init>
+103
+111
+4
+apply
+Apply
+false
+0
+false
+Vector()
+
+203
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+<init>
+103
+109
+4
+Vector
+Ident
+false
+0
+false
+Vector
+
+204
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+add
+160
+176
+6
+:+
+Apply
+false
+0
+false
+subscribers :+ s
+
+205
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+add
+117
+124
+6
+add
+DefDef
+false
+0
+false
+def add
+
+206
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+remove
+228
+262
+8
+filterNot
+Apply
+false
+0
+false
+subscribers.filterNot(o => o == s)
+
+207
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+remove
+182
+192
+8
+remove
+DefDef
+false
+0
+false
+def remove
+
+208
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+notifyObservers
+306
+343
+10
+foreach
+Apply
+false
+0
+false
+subscribers.foreach(o => o.update(e))
+
+209
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+$anonfun
+331
+342
+10
+update
+Apply
+false
+0
+false
+o.update(e)
+
+210
+src\\main\\scala\\util\\Observer.scala
+util
+Observable
+Trait
+util.Observable
+notifyObservers
+268
+287
+10
+notifyObservers
+DefDef
+false
+0
+false
+def notifyObservers
+
+211
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+<init>
+261
+281
+11
+add
+Apply
+false
+0
+false
+controller.add(this)
+
+212
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+<init>
+314
+332
+12
+<init>
+Apply
+false
+0
+false
+new CommandManager
+
+213
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+449
+498
+16
+println
+Apply
+false
+0
+false
+println("Invalid card number. Please try again.")
+
+214
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+504
+518
+17
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+215
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+442
+523
+15
+<none>
+Block
+true
+0
+false
+{\r\n    println("Invalid card number. Please try again.")\r\n    gameContinue()\r\n  }
+
+216
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+547
+625
+19
+apply
+Apply
+false
+0
+false
+controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)
+
+217
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+547
+603
+19
+apply
+Apply
+false
+0
+false
+controller.field.players(controller.field.currentPlayer)
+
+218
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+635
+703
+20
+valid
+Apply
+false
+0
+false
+controller.field.players(controller.field.currentPlayer).valid(card)
+
+219
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+635
+691
+20
+apply
+Apply
+false
+0
+false
+controller.field.players(controller.field.currentPlayer)
+
+220
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+707
+751
+20
+canBePlayedOn
+Apply
+false
+0
+false
+card.canBePlayedOn(controller.field.topCard)
+
+221
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+780
+813
+21
+<init>
+Apply
+false
+0
+false
+new PlayCommand(controller, card)
+
+222
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+821
+855
+22
+doStep
+Apply
+false
+0
+false
+commandManager.doStep(playCommand)
+
+223
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+873
+888
+23
+<none>
+Block
+false
+0
+false
+case Success(_)
+
+224
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+903
+955
+24
+println
+Apply
+false
+0
+false
+println("Card played successfully. Do you want to:")
+
+225
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+967
+989
+25
+println
+Apply
+false
+0
+false
+println("1. Continue")
+
+226
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1001
+1031
+26
+println
+Apply
+false
+0
+false
+println("2. Undo last action")
+
+227
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1043
+1080
+27
+println
+Apply
+false
+0
+false
+println("3. Redo last undone action")
+
+228
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1105
+1147
+28
+getOrElse
+Apply
+false
+0
+false
+StdIn.readLine().toIntOption.getOrElse(-1)
+
+229
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1105
+1121
+28
+augmentString
+Apply
+false
+0
+false
+StdIn.readLine()
+
+230
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1105
+1121
+28
+readLine
+Apply
+false
+0
+false
+StdIn.readLine()
+
+231
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1105
+1133
+28
+toIntOption
+Select
+false
+0
+false
+StdIn.readLine().toIntOption
+
+232
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1187
+1193
+30
+<none>
+Block
+false
+0
+false
+case 1
+
+233
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1197
+1211
+30
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+234
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1225
+1231
+31
+<none>
+Block
+false
+0
+false
+case 2
+
+235
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1235
+1241
+31
+undo
+Apply
+false
+0
+false
+undo()
+
+236
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1243
+1257
+31
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+237
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1271
+1277
+32
+<none>
+Block
+false
+0
+false
+case 3
+
+238
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1281
+1287
+32
+redo
+Apply
+false
+0
+false
+redo()
+
+239
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1289
+1303
+32
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+240
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1317
+1323
+33
+<none>
+Block
+false
+0
+false
+case _
+
+241
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1342
+1390
+34
+println
+Apply
+false
+0
+false
+println("Invalid input. Please enter a number.")
+
+242
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1406
+1420
+35
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+243
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1443
+1466
+37
+<none>
+Block
+false
+0
+false
+case Failure(exception)
+
+244
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1470
+1526
+37
+println
+Apply
+false
+0
+false
+println(s"Failed to play card: ${exception.getMessage}")
+
+245
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1478
+1525
+37
+s
+Apply
+false
+0
+false
+s"Failed to play card: ${exception.getMessage}"
+
+246
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1503
+1523
+37
+getMessage
+Apply
+false
+0
+false
+exception.getMessage
+
+247
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+753
+1542
+20
+<none>
+Block
+true
+0
+false
+{\r\n      val playCommand = new PlayCommand(controller, card)\r\n      commandManager.doStep(playCommand) match {\r\n        case Success(_) =>\r\n          println("Card played successfully. Do you want to:")\r\n          println("1. Continue")\r\n          println("2. Undo last action")\r\n          println("3. Redo last undone action")\r\n          val choice = StdIn.readLine().toIntOption.getOrElse(-1)\r\n          choice match {\r\n            case 1 => gameContinue()\r\n            case 2 => undo(); gameContinue()\r\n            case 3 => redo(); gameContinue()\r\n            case _ =>\r\n              println("Invalid input. Please enter a number.")\r\n              gameContinue()\r\n          }\r\n        case Failure(exception) => println(s"Failed to play card: ${exception.getMessage}")\r\n      }\r\n    }
+
+248
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1557
+1602
+40
+println
+Apply
+false
+0
+false
+println("Card does not fit. Do you want to:")
+
+249
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1610
+1635
+41
+println
+Apply
+false
+0
+false
+println("1. Draw a card")
+
+250
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1643
+1666
+42
+println
+Apply
+false
+0
+false
+println("2. Try again")
+
+251
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1674
+1704
+43
+println
+Apply
+false
+0
+false
+println("3. Undo last action")
+
+252
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1712
+1749
+44
+println
+Apply
+false
+0
+false
+println("4. Redo last undone action")
+
+253
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1757
+1775
+45
+println
+Apply
+false
+0
+false
+println("5. Quit")
+
+254
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1798
+1840
+46
+getOrElse
+Apply
+false
+0
+false
+StdIn.readLine().toIntOption.getOrElse(-1)
+
+255
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1798
+1814
+46
+augmentString
+Apply
+false
+0
+false
+StdIn.readLine()
+
+256
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1798
+1814
+46
+readLine
+Apply
+false
+0
+false
+StdIn.readLine()
+
+257
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1798
+1826
+46
+toIntOption
+Select
+false
+0
+false
+StdIn.readLine().toIntOption
+
+258
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1874
+1880
+48
+<none>
+Block
+false
+0
+false
+case 1
+
+259
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1913
+1940
+49
+<init>
+Apply
+false
+0
+false
+new DrawCommand(controller)
+
+260
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1952
+1986
+50
+doStep
+Apply
+false
+0
+false
+commandManager.doStep(drawCommand)
+
+261
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2008
+2023
+51
+<none>
+Block
+false
+0
+false
+case Success(_)
+
+262
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2073
+2096
+52
+<none>
+Block
+false
+0
+false
+case Failure(exception)
+
+263
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2100
+2156
+52
+println
+Apply
+false
+0
+false
+println(s"Failed to draw card: ${exception.getMessage}")
+
+264
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2108
+2155
+52
+s
+Apply
+false
+0
+false
+s"Failed to draw card: ${exception.getMessage}"
+
+265
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2133
+2153
+52
+getMessage
+Apply
+false
+0
+false
+exception.getMessage
+
+266
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2179
+2185
+54
+<none>
+Block
+false
+0
+false
+case 2
+
+267
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2189
+2203
+54
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+268
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2213
+2219
+55
+<none>
+Block
+false
+0
+false
+case 3
+
+269
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2223
+2229
+55
+undo
+Apply
+false
+0
+false
+undo()
+
+270
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2239
+2245
+56
+<none>
+Block
+false
+0
+false
+case 4
+
+271
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2249
+2255
+56
+redo
+Apply
+false
+0
+false
+redo()
+
+272
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2265
+2271
+57
+<none>
+Block
+false
+0
+false
+case 5
+
+273
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2275
+2313
+57
+notifyObservers
+Apply
+false
+0
+false
+controller.notifyObservers(Event.Quit)
+
+274
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2323
+2329
+58
+<none>
+Block
+false
+0
+false
+case _
+
+275
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2344
+2392
+59
+println
+Apply
+false
+0
+false
+println("Invalid input. Please enter a number.")
+
+276
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+2404
+2418
+60
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+277
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+1548
+2434
+39
+<none>
+Block
+true
+0
+false
+{\r\n      println("Card does not fit. Do you want to:")\r\n      println("1. Draw a card")\r\n      println("2. Try again")\r\n      println("3. Undo last action")\r\n      println("4. Redo last undone action")\r\n      println("5. Quit")\r\n      val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n      readLine match {\r\n        case 1 =>\r\n          val drawCommand = new DrawCommand(controller)\r\n          commandManager.doStep(drawCommand) match {\r\n            case Success(_) => // Command executed successfully\r\n            case Failure(exception) => println(s"Failed to draw card: ${exception.getMessage}")\r\n          }\r\n        case 2 => gameContinue()\r\n        case 3 => undo()\r\n        case 4 => redo()\r\n        case 5 => controller.notifyObservers(Event.Quit)\r\n        case _ =>\r\n          println("Invalid input. Please enter a number.")\r\n          gameContinue()\r\n      }\r\n    }
+
+278
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+529
+2439
+18
+<none>
+Block
+true
+0
+false
+{\r\n    val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)\r\n    if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {\r\n      val playCommand = new PlayCommand(controller, card)\r\n      commandManager.doStep(playCommand) match {\r\n        case Success(_) =>\r\n          println("Card played successfully. Do you want to:")\r\n          println("1. Continue")\r\n          println("2. Undo last action")\r\n          println("3. Redo last undone action")\r\n          val choice = StdIn.readLine().toIntOption.getOrElse(-1)\r\n          choice match {\r\n            case 1 => gameContinue()\r\n            case 2 => undo(); gameContinue()\r\n            case 3 => redo(); gameContinue()\r\n            case _ =>\r\n              println("Invalid input. Please enter a number.")\r\n              gameContinue()\r\n          }\r\n        case Failure(exception) => println(s"Failed to play card: ${exception.getMessage}")\r\n      }\r\n    } else {\r\n      println("Card does not fit. Do you want to:")\r\n      println("1. Draw a card")\r\n      println("2. Try again")\r\n      println("3. Undo last action")\r\n      println("4. Redo last undone action")\r\n      println("5. Quit")\r\n      val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n      readLine match {\r\n        case 1 =>\r\n          val drawCommand = new DrawCommand(controller)\r\n          commandManager.doStep(drawCommand) match {\r\n            case Success(_) => // Command executed successfully\r\n            case Failure(exception) => println(s"Failed to draw card: ${exception.getMessage}")\r\n          }\r\n        case 2 => gameContinue()\r\n        case 3 => undo()\r\n        case 4 => redo()\r\n        case 5 => controller.notifyObservers(Event.Quit)\r\n        case _ =>\r\n          println("Invalid input. Please enter a number.")\r\n          gameContinue()\r\n      }\r\n    }\r\n  }
+
+279
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+processInputLine
+338
+366
+14
+processInputLine
+DefDef
+false
+0
+false
+private def processInputLine
+
+280
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+update
+2510
+2519
+68
+<none>
+Block
+false
+0
+false
+case Quit
+
+281
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+update
+2537
+2590
+69
+exists
+Apply
+false
+0
+false
+controller.field.players.exists(_.hand.cards.isEmpty)
+
+282
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+$anonfun
+2569
+2589
+69
+isEmpty
+Select
+false
+0
+false
+_.hand.cards.isEmpty
+
+283
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+update
+2592
+2632
+69
+<none>
+Block
+true
+0
+false
+{\r\n          // no winner yet\r\n        }
+
+284
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+update
+2651
+2661
+72
+gameOver
+Apply
+false
+0
+false
+gameOver()
+
+285
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+update
+2638
+2672
+71
+<none>
+Block
+true
+0
+false
+{\r\n          gameOver()\r\n        }
+
+286
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+update
+2680
+2686
+74
+<none>
+Block
+false
+0
+false
+case _
+
+287
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+update
+2690
+2704
+74
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+288
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+update
+2448
+2467
+66
+update
+DefDef
+false
+0
+false
+override def update
+
+289
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2753
+2767
+79
+displayField
+Apply
+false
+0
+false
+displayField()
+
+290
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2773
+2820
+80
+println
+Apply
+false
+0
+false
+println("Enter a number from the menu above: ")
+
+291
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2841
+2857
+81
+augmentString
+Apply
+false
+0
+false
+StdIn.readLine()
+
+292
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2841
+2857
+81
+readLine
+Apply
+false
+0
+false
+StdIn.readLine()
+
+293
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2841
+2869
+81
+toIntOption
+Select
+false
+0
+false
+StdIn.readLine().toIntOption
+
+294
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2899
+2911
+83
+<none>
+Block
+false
+0
+false
+case Some(1)
+
+295
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2924
+2963
+84
+notifyObservers
+Apply
+false
+0
+false
+controller.notifyObservers(Event.Start)
+
+296
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2971
+2983
+85
+<none>
+Block
+false
+0
+false
+case Some(2)
+
+297
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2996
+3015
+86
+println
+Apply
+false
+0
+false
+println("Goodbye!")
+
+298
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+3025
+3063
+87
+notifyObservers
+Apply
+false
+0
+false
+controller.notifyObservers(Event.Quit)
+
+299
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+3071
+3077
+88
+<none>
+Block
+false
+0
+false
+case _
+
+300
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+3090
+3154
+89
+println
+Apply
+false
+0
+false
+println("Invalid input. Please enter a number between 1 and 2.")
+
+301
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+3164
+3175
+90
+startGame
+Apply
+false
+0
+false
+startGame()
+
+302
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+startGame
+2722
+2735
+78
+startGame
+DefDef
+false
+0
+false
+def startGame
+
+303
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameOver
+3231
+3252
+95
+println
+Apply
+false
+0
+false
+println("Game over!")
+
+304
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameOver
+3276
+3333
+96
+indexWhere
+Apply
+false
+0
+false
+controller.field.players.indexWhere(_.hand.cards.isEmpty)
+
+305
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+$anonfun
+3312
+3332
+96
+isEmpty
+Select
+false
+0
+false
+_.hand.cards.isEmpty
+
+306
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameOver
+3339
+3382
+97
+println
+Apply
+false
+0
+false
+println(s"Player ${winnerIndex + 1} wins!")
+
+307
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameOver
+3347
+3381
+97
+s
+Apply
+false
+0
+false
+s"Player ${winnerIndex + 1} wins!"
+
+308
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameOver
+3193
+3213
+94
+gameOver
+DefDef
+false
+0
+false
+private def gameOver
+
+309
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3451
+3459
+101
+*
+Apply
+false
+0
+false
+"=" * 60
+
+310
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3451
+3454
+101
+augmentString
+Apply
+false
+0
+false
+"="
+
+311
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3529
+3568
+103
+apply
+Apply
+false
+0
+false
+List("1. Start playing UNO", "2. Quit")
+
+312
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3529
+3533
+103
+List
+Ident
+false
+0
+false
+List
+
+313
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3592
+3688
+105
+augmentString
+Apply
+false
+0
+false
+s"""\r\n        |$separator\r\n        |\r\n        |$title\r\n        |\r\n        |$separator\r\n      """
+
+314
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3592
+3688
+105
+s
+Apply
+false
+0
+false
+s"""\r\n        |$separator\r\n        |\r\n        |$title\r\n        |\r\n        |$separator\r\n      """
+
+315
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3592
+3700
+111
+stripMargin
+Select
+false
+0
+false
+s"""\r\n        |$separator\r\n        |\r\n        |$title\r\n        |\r\n        |$separator\r\n      """.stripMargin
+
+316
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3708
+3721
+113
+println
+Apply
+false
+0
+false
+println(menu)
+
+317
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3727
+3758
+114
+println
+Apply
+false
+0
+false
+println(options.mkString("\\n"))
+
+318
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3735
+3757
+114
+mkString
+Apply
+false
+0
+false
+options.mkString("\\n")
+
+319
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+displayField
+3393
+3417
+100
+displayField
+DefDef
+false
+0
+false
+private def displayField
+
+320
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+3831
+3887
+118
+apply
+Apply
+false
+0
+false
+controller.field.players(controller.field.currentPlayer)
+
+321
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+3893
+3965
+119
+println
+Apply
+false
+0
+false
+println(s"Current player: Player ${controller.field.currentPlayer + 1}")
+
+322
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+3901
+3964
+119
+s
+Apply
+false
+0
+false
+s"Current player: Player ${controller.field.currentPlayer + 1}"
+
+323
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+3971
+4080
+120
+println
+Apply
+false
+0
+false
+println(s"Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET")
+
+324
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+3979
+4079
+120
+s
+Apply
+false
+0
+false
+s"Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET"
+
+325
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4001
+4038
+120
+getColorCode
+Select
+false
+0
+false
+controller.field.topCard.getColorCode
+
+326
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4073
+4078
+120
+RESET
+Ident
+false
+0
+false
+RESET
+
+327
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4086
+4235
+121
+foreach
+Apply
+false
+0
+false
+currentPlayer.hand.cards.zipWithIndex.foreach { case (card, index) =>\r\n      println(s"${index + 1}: ${card.getColorCode}${card.value}$RESET")\r\n    }
+
+328
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4086
+4123
+121
+zipWithIndex
+Select
+false
+0
+false
+currentPlayer.hand.cards.zipWithIndex
+
+329
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+$anonfun
+4134
+4152
+121
+<none>
+Block
+false
+0
+false
+case (card, index)
+
+330
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+$anonfun
+4163
+4228
+122
+println
+Apply
+false
+0
+false
+println(s"${index + 1}: ${card.getColorCode}${card.value}$RESET")
+
+331
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+$anonfun
+4171
+4227
+122
+s
+Apply
+false
+0
+false
+s"${index + 1}: ${card.getColorCode}${card.value}$RESET"
+
+332
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+$anonfun
+4189
+4206
+122
+getColorCode
+Select
+false
+0
+false
+card.getColorCode
+
+333
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+$anonfun
+4221
+4226
+122
+RESET
+Ident
+false
+0
+false
+RESET
+
+334
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4241
+4318
+124
+println
+Apply
+false
+0
+false
+println("Enter the number of the card you want to play or choose an action:")
+
+335
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4324
+4349
+125
+println
+Apply
+false
+0
+false
+println("1. Play a card")
+
+336
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4355
+4385
+126
+println
+Apply
+false
+0
+false
+println("2. Undo last action")
+
+337
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4391
+4428
+127
+println
+Apply
+false
+0
+false
+println("3. Redo last undone action")
+
+338
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4434
+4452
+128
+println
+Apply
+false
+0
+false
+println("4. Quit")
+
+339
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4471
+4513
+129
+getOrElse
+Apply
+false
+0
+false
+StdIn.readLine().toIntOption.getOrElse(-1)
+
+340
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4471
+4487
+129
+augmentString
+Apply
+false
+0
+false
+StdIn.readLine()
+
+341
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4471
+4487
+129
+readLine
+Apply
+false
+0
+false
+StdIn.readLine()
+
+342
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4471
+4499
+129
+toIntOption
+Select
+false
+0
+false
+StdIn.readLine().toIntOption
+
+343
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4541
+4547
+131
+<none>
+Block
+false
+0
+false
+case 1
+
+344
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4577
+4593
+132
+augmentString
+Apply
+false
+0
+false
+StdIn.readLine()
+
+345
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4577
+4593
+132
+readLine
+Apply
+false
+0
+false
+StdIn.readLine()
+
+346
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4577
+4605
+132
+toIntOption
+Select
+false
+0
+false
+StdIn.readLine().toIntOption
+
+347
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4619
+4637
+133
+isEmpty
+Select
+false
+0
+false
+cardNumber.isEmpty
+
+348
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4652
+4700
+134
+println
+Apply
+false
+0
+false
+println("Invalid input. Please enter a number.")
+
+349
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4712
+4726
+135
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+350
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4639
+4737
+133
+<none>
+Block
+true
+0
+false
+{\r\n          println("Invalid input. Please enter a number.")\r\n          gameContinue()\r\n        }
+
+351
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4756
+4821
+137
+processInputLine
+Apply
+false
+0
+false
+processInputLine(cardNumber.get, currentPlayer.hand.cards.length)
+
+352
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4773
+4787
+137
+get
+Select
+false
+0
+false
+cardNumber.get
+
+353
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4789
+4820
+137
+length
+Select
+false
+0
+false
+currentPlayer.hand.cards.length
+
+354
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4743
+4832
+136
+<none>
+Block
+true
+0
+false
+{\r\n          processInputLine(cardNumber.get, currentPlayer.hand.cards.length)\r\n        }
+
+355
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4840
+4846
+139
+<none>
+Block
+false
+0
+false
+case 2
+
+356
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4850
+4856
+139
+undo
+Apply
+false
+0
+false
+undo()
+
+357
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4864
+4870
+140
+<none>
+Block
+false
+0
+false
+case 3
+
+358
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4874
+4880
+140
+redo
+Apply
+false
+0
+false
+redo()
+
+359
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4888
+4894
+141
+<none>
+Block
+false
+0
+false
+case 4
+
+360
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4898
+4936
+141
+notifyObservers
+Apply
+false
+0
+false
+controller.notifyObservers(Event.Quit)
+
+361
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4944
+4950
+142
+<none>
+Block
+false
+0
+false
+case _
+
+362
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+4963
+5011
+143
+println
+Apply
+false
+0
+false
+println("Invalid input. Please enter a number.")
+
+363
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+5021
+5035
+144
+gameContinue
+Apply
+false
+0
+false
+gameContinue()
+
+364
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+gameContinue
+3769
+3793
+117
+gameContinue
+DefDef
+false
+0
+false
+private def gameContinue
+
+365
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+undo
+5079
+5102
+149
+undoStep
+Select
+false
+0
+false
+commandManager.undoStep
+
+366
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+undo
+5118
+5133
+150
+<none>
+Block
+false
+0
+false
+case Success(_)
+
+367
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+undo
+5137
+5163
+150
+println
+Apply
+false
+0
+false
+println("Undo successful")
+
+368
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+undo
+5171
+5194
+151
+<none>
+Block
+false
+0
+false
+case Failure(exception)
+
+369
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+undo
+5198
+5249
+151
+println
+Apply
+false
+0
+false
+println(s"Failed to undo: ${exception.getMessage}")
+
+370
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+undo
+5206
+5248
+151
+s
+Apply
+false
+0
+false
+s"Failed to undo: ${exception.getMessage}"
+
+371
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+undo
+5226
+5246
+151
+getMessage
+Apply
+false
+0
+false
+exception.getMessage
+
+372
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+undo
+5053
+5061
+148
+undo
+DefDef
+false
+0
+false
+def undo
+
+373
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+redo
+5293
+5316
+156
+redoStep
+Select
+false
+0
+false
+commandManager.redoStep
+
+374
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+redo
+5332
+5347
+157
+<none>
+Block
+false
+0
+false
+case Success(_)
+
+375
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+redo
+5351
+5377
+157
+println
+Apply
+false
+0
+false
+println("Redo successful")
+
+376
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+redo
+5385
+5408
+158
+<none>
+Block
+false
+0
+false
+case Failure(exception)
+
+377
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+redo
+5412
+5463
+158
+println
+Apply
+false
+0
+false
+println(s"Failed to redo: ${exception.getMessage}")
+
+378
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+redo
+5420
+5462
+158
+s
+Apply
+false
+0
+false
+s"Failed to redo: ${exception.getMessage}"
+
+379
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+redo
+5440
+5460
+158
+getMessage
+Apply
+false
+0
+false
+exception.getMessage
+
+380
+src\\main\\scala\\view\\TUI.scala
+view
+TUI
+Class
+view.TUI
+redo
+5267
+5275
+155
 redo
 DefDef
 false
