@@ -19,6050 +19,15 @@
 # '' sign
 # ------------------------------------------
 0
-src\\main\\scala\\Main.scala
-<empty>
-Main$
-Object
-<empty>.Main$
-main
-175
-183
-9
-$lessinit$greater$default$1
-Select
-false
-0
-false
-UnoField
-
-1
-src\\main\\scala\\Main.scala
-<empty>
-Main$
-Object
-<empty>.Main$
-main
-175
-183
-9
-$lessinit$greater$default$2
-Select
-false
-0
-false
-UnoField
-
-2
-src\\main\\scala\\Main.scala
-<empty>
-Main$
-Object
-<empty>.Main$
-main
-175
-183
-9
-$lessinit$greater$default$3
-Select
-false
-0
-false
-UnoField
-
-3
-src\\main\\scala\\Main.scala
-<empty>
-Main$
-Object
-<empty>.Main$
-main
-208
-232
-10
-<init>
-Apply
-false
-0
-false
-new UnoController(field)
-
-4
-src\\main\\scala\\Main.scala
-<empty>
-Main$
-Object
-<empty>.Main$
-main
-285
-304
-13
-<init>
-Apply
-false
-0
-false
-new TUI(controller)
-
-5
-src\\main\\scala\\Main.scala
-<empty>
-Main$
-Object
-<empty>.Main$
-main
-310
-338
-14
-launchApp
-Apply
-false
-0
-false
-UnoGUI.launchApp(controller)
-
-6
-src\\main\\scala\\Main.scala
-<empty>
-Main$
-Object
-<empty>.Main$
-main
-372
-387
-17
-startGame
-Apply
-false
-0
-false
-tui.startGame()
-
-7
-src\\main\\scala\\Main.scala
-<empty>
-Main$
-Object
-<empty>.Main$
-main
-118
-126
-8
-main
-DefDef
-false
-0
-false
-def main
-
-8
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-350
-969
-13
-apply
-Apply
-false
-0
-false
-Try {\r\n    previousState = Some(controller.field) // Save the current game state\r\n    val newCard = randomCard // Draw a random card\r\n    drawnCard = Some(newCard) // Save the drawn card for redo\r\n\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))\r\n\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    controller.field = controller.field.copy(players = updatedPlayers)\r\n    controller.notifyObservers(Event.Draw)\r\n  }
-
-9
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-450
-460
-15
-randomCard
-Ident
-false
-0
-false
-randomCard
-
-10
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-573
-629
-18
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-11
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-681
-716
-19
-addCard
-Apply
-false
-0
-false
-currentPlayer.hand.addCard(newCard)
-
-12
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-746
-846
-21
-updated
-Apply
-false
-0
-false
-controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )
-
-13
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-926
-964
-27
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Draw)
-
-14
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-execute
-314
-334
-13
-execute
-DefDef
-false
-0
-false
-override def execute
-
-15
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1035
-1051
-31
-<none>
-Block
-false
-0
-false
-case Some(state)
-
-16
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1062
-1190
-32
-apply
-Apply
-false
-0
-false
-Try {\r\n        controller.field = state // Revert to the previous state\r\n        controller.notifyObservers(Event.Undo)\r\n      }
-
-17
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1143
-1181
-34
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Undo)
-
-18
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1196
-1205
-36
-<none>
-Block
-false
-0
-false
-case None
-
-19
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-1217
-1265
-36
-<init>
-Apply
-false
-0
-false
-new IllegalStateException("No state to undo to")
-
-20
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-undo
-975
-992
-30
-undo
-DefDef
-false
-0
-false
-override def undo
-
-21
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1310
-1859
-39
-apply
-Apply
-false
-0
-false
-Try {\r\n    if (drawnCard.isEmpty) throw new IllegalStateException("No card to redo drawing")\r\n    val newCard = drawnCard.get\r\n\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))\r\n\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    controller.field = controller.field.copy(players = updatedPlayers)\r\n    controller.notifyObservers(Event.Redo)\r\n  }
-
-22
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1325
-1342
-40
-isEmpty
-Select
-false
-0
-false
-drawnCard.isEmpty
-
-23
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1344
-1402
-40
-throw
-Apply
-false
-0
-false
-throw new IllegalStateException("No card to redo drawing")
-
-24
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1350
-1402
-40
-<init>
-Apply
-false
-0
-false
-new IllegalStateException("No card to redo drawing")
-
-25
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1344
-1402
-40
-throw
-Apply
-true
-0
-false
-throw new IllegalStateException("No card to redo drawing")
-
-26
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1422
-1435
-41
-get
-Select
-false
-0
-false
-drawnCard.get
-
-27
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1463
-1519
-43
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-28
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1571
-1606
-44
-addCard
-Apply
-false
-0
-false
-currentPlayer.hand.addCard(newCard)
-
-29
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1636
-1736
-46
-updated
-Apply
-false
-0
-false
-controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )
-
-30
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1816
-1854
-52
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Redo)
-
-31
-src\\main\\scala\\controller\\DrawCommand.scala
-controller
-DrawCommand
-Class
-controller.DrawCommand
-redo
-1277
-1294
-39
-redo
-DefDef
-false
-0
-false
-override def redo
-
-32
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-316
-1143
-12
-apply
-Apply
-false
-0
-false
-Try {\r\n    previousState = Some(controller.field) // Save the current game state\r\n\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n\r\n    if (!card.canBePlayedOn(controller.field.topCard)) {\r\n      throw new IllegalArgumentException("Card cannot be played on the current top card")\r\n    }\r\n\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    val nextPlayer = (controller.field.currentPlayer + 1) % controller.field.players.length\r\n    controller.field = controller.field.copy(\r\n      players = updatedPlayers,\r\n      topCard = card,\r\n      currentPlayer = nextPlayer\r\n    )\r\n    controller.notifyObservers(Event.Play)\r\n  }
-
-33
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-424
-480
-15
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-34
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-493
-537
-17
-canBePlayedOn
-Apply
-false
-0
-false
-card.canBePlayedOn(controller.field.topCard)
-
-35
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-548
-631
-18
-throw
-Apply
-false
-0
-false
-throw new IllegalArgumentException("Card cannot be played on the current top card")
-
-36
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-554
-631
-18
-<init>
-Apply
-false
-0
-false
-new IllegalArgumentException("Card cannot be played on the current top card")
-
-37
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-539
-638
-17
-<none>
-Block
-true
-0
-false
-{\r\n      throw new IllegalArgumentException("Card cannot be played on the current top card")\r\n    }
-
-38
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-692
-727
-21
-removeCard
-Apply
-false
-0
-false
-currentPlayer.hand.removeCard(card)
-
-39
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-755
-855
-22
-updated
-Apply
-false
-0
-false
-controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )
-
-40
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-919
-950
-27
-length
-Select
-false
-0
-false
-controller.field.players.length
-
-41
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-1100
-1138
-33
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Play)
-
-42
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-execute
-280
-300
-12
-execute
-DefDef
-false
-0
-false
-override def execute
-
-43
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-undo
-1209
-1225
-37
-<none>
-Block
-false
-0
-false
-case Some(state)
-
-44
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-undo
-1236
-1364
-38
-apply
-Apply
-false
-0
-false
-Try {\r\n        controller.field = state // Revert to the previous state\r\n        controller.notifyObservers(Event.Undo)\r\n      }
-
-45
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-undo
-1317
-1355
-40
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Undo)
-
-46
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-undo
-1370
-1379
-42
-<none>
-Block
-false
-0
-false
-case None
-
-47
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-undo
-1391
-1439
-42
-<init>
-Apply
-false
-0
-false
-new IllegalStateException("No state to undo to")
-
-48
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-undo
-1149
-1166
-36
-undo
-DefDef
-false
-0
-false
-override def undo
-
-49
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1484
-2231
-45
-apply
-Apply
-false
-0
-false
-Try {\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n\r\n    if (!card.canBePlayedOn(controller.field.topCard)) {\r\n      throw new IllegalStateException("Card cannot be redone on the current top card")\r\n    }\r\n\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    val nextPlayer = (controller.field.currentPlayer + 1) % controller.field.players.length\r\n    controller.field = controller.field.copy(\r\n      players = updatedPlayers,\r\n      topCard = card,\r\n      currentPlayer = nextPlayer\r\n    )\r\n    controller.notifyObservers(Event.Redo)\r\n  }
-
-50
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1515
-1571
-46
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-51
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1584
-1628
-48
-canBePlayedOn
-Apply
-false
-0
-false
-card.canBePlayedOn(controller.field.topCard)
-
-52
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1639
-1719
-49
-throw
-Apply
-false
-0
-false
-throw new IllegalStateException("Card cannot be redone on the current top card")
-
-53
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1645
-1719
-49
-<init>
-Apply
-false
-0
-false
-new IllegalStateException("Card cannot be redone on the current top card")
-
-54
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1630
-1726
-48
-<none>
-Block
-true
-0
-false
-{\r\n      throw new IllegalStateException("Card cannot be redone on the current top card")\r\n    }
-
-55
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1780
-1815
-52
-removeCard
-Apply
-false
-0
-false
-currentPlayer.hand.removeCard(card)
-
-56
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1843
-1943
-53
-updated
-Apply
-false
-0
-false
-controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )
-
-57
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-2007
-2038
-58
-length
-Select
-false
-0
-false
-controller.field.players.length
-
-58
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-2188
-2226
-64
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Redo)
-
-59
-src\\main\\scala\\controller\\PlayCommand.scala
-controller
-PlayCommand
-Class
-controller.PlayCommand
-redo
-1451
-1468
-45
-redo
-DefDef
-false
-0
-false
-override def redo
-
-60
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-setAction
-195
-208
-10
-setAction
-DefDef
-false
-0
-false
-def setAction
-
-61
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-setCard
-293
-304
-15
-setCard
-DefDef
-false
-0
-false
-def setCard
-
-62
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-449
-460
-22
-<none>
-Block
-false
-0
-false
-case "draw"
-
-63
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-464
-484
-22
-<init>
-Apply
-false
-0
-false
-new DrawCardStrategy
-
-64
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-492
-503
-23
-<none>
-Block
-false
-0
-false
-case "play"
-
-65
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-529
-541
-24
-<none>
-Block
-false
-0
-false
-case Some(c)
-
-66
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-545
-568
-24
-<init>
-Apply
-false
-0
-false
-new PlayCardStrategy(c)
-
-67
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-578
-587
-25
-<none>
-Block
-false
-0
-false
-case None
-
-68
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-591
-666
-25
-throw
-Apply
-false
-0
-false
-throw new IllegalArgumentException("Card must be provided for play action")
-
-69
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-597
-666
-25
-<init>
-Apply
-false
-0
-false
-new IllegalArgumentException("Card must be provided for play action")
-
-70
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-683
-689
-27
-<none>
-Block
-false
-0
-false
-case _
-
-71
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-693
-750
-27
-throw
-Apply
-false
-0
-false
-throw new IllegalArgumentException("Unknown action type")
-
-72
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-699
-750
-27
-<init>
-Apply
-false
-0
-false
-new IllegalArgumentException("Unknown action type")
-
-73
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionBuilder
-Class
-controller.UnoActionBuilder
-build
-387
-396
-20
-build
-DefDef
-false
-0
-false
-def build
-
-74
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionFactory$
-Object
-controller.UnoActionFactory$
-builder
-832
-852
-33
-<init>
-Apply
-false
-0
-false
-new UnoActionBuilder
-
-75
-src\\main\\scala\\controller\\UnoActionBuilder.scala
-controller
-UnoActionFactory$
-Object
-controller.UnoActionFactory$
-builder
-798
-809
-33
-builder
-DefDef
-false
-0
-false
-def builder
-
-76
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-processAction
-211
-253
-8
-validateAction
-Apply
-false
-0
-false
-validateAction(controller, player, action)
-
-77
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-processAction
-259
-299
-9
-handleAction
-Apply
-false
-0
-false
-handleAction(controller, player, action)
-
-78
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-processAction
-305
-347
-10
-completeAction
-Apply
-false
-0
-false
-completeAction(controller, player, action)
-
-79
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-processAction
-119
-136
-7
-processAction
-DefDef
-false
-0
-false
-def processAction
-
-80
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-451
-514
-14
-println
-Apply
-false
-0
-false
-println(s"Validating action: $action for player: ${player.id}")
-
-81
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-459
-513
-14
-s
-Apply
-false
-0
-false
-s"Validating action: $action for player: ${player.id}"
-
-82
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-542
-553
-16
-<none>
-Block
-false
-0
-false
-case "play"
-
-83
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-619
-657
-18
-valid
-Apply
-false
-0
-false
-player.valid(controller.field.topCard)
-
-84
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-672
-728
-19
-throw
-Apply
-false
-0
-false
-throw new IllegalArgumentException("Card does not fit.")
-
-85
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-678
-728
-19
-<init>
-Apply
-false
-0
-false
-new IllegalArgumentException("Card does not fit.")
-
-86
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-659
-739
-18
-<none>
-Block
-true
-0
-false
-{\r\n          throw new IllegalArgumentException("Card does not fit.")\r\n        }
-
-87
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-747
-753
-21
-<none>
-Block
-false
-0
-false
-case _
-
-88
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-766
-823
-22
-throw
-Apply
-false
-0
-false
-throw new IllegalArgumentException("Unknown action type")
-
-89
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-772
-823
-22
-<init>
-Apply
-false
-0
-false
-new IllegalArgumentException("Unknown action type")
-
-90
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-validateAction
-358
-376
-13
-validateAction
-DefDef
-false
-0
-false
-def validateAction
-
-91
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-934
-997
-27
-println
-Apply
-false
-0
-false
-println(s"Completing action: $action for player: ${player.id}")
-
-92
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-942
-996
-27
-s
-Apply
-false
-0
-false
-s"Completing action: $action for player: ${player.id}"
-
-93
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-1025
-1036
-29
-<none>
-Block
-false
-0
-false
-case "draw"
-
-94
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-1105
-1143
-31
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Draw)
-
-95
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-1151
-1162
-32
-<none>
-Block
-false
-0
-false
-case "play"
-
-96
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-1232
-1270
-34
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Play)
-
-97
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-1278
-1284
-35
-<none>
-Block
-false
-0
-false
-case _
-
-98
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-1297
-1354
-36
-throw
-Apply
-false
-0
-false
-throw new IllegalArgumentException("Unknown action type")
-
-99
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-1303
-1354
-36
-<init>
-Apply
-false
-0
-false
-new IllegalArgumentException("Unknown action type")
-
-100
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-UnoActionProcessor
-Class
-controller.UnoActionProcessor
-completeAction
-841
-859
-26
-completeAction
-DefDef
-false
-0
-false
-def completeAction
-
-101
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-ConcreteUnoActionProcessor
-Class
-controller.ConcreteUnoActionProcessor
-handleAction
-1639
-1691
-45
-build
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction(action).build()
-
-102
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-ConcreteUnoActionProcessor
-Class
-controller.ConcreteUnoActionProcessor
-handleAction
-1639
-1683
-45
-setAction
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction(action)
-
-103
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-ConcreteUnoActionProcessor
-Class
-controller.ConcreteUnoActionProcessor
-handleAction
-1639
-1665
-45
-builder
-Apply
-false
-0
-false
-UnoActionFactory.builder()
-
-104
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-ConcreteUnoActionProcessor
-Class
-controller.ConcreteUnoActionProcessor
-handleAction
-1697
-1738
-46
-executeAction
-Apply
-false
-0
-false
-handler.executeAction(controller, player)
-
-105
-src\\main\\scala\\controller\\UnoActionProcessor.scala
-controller
-ConcreteUnoActionProcessor
-Class
-controller.ConcreteUnoActionProcessor
-handleAction
-1525
-1550
-44
-handleAction
-DefDef
-false
-0
-false
-override def handleAction
-
-106
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-DrawCardStrategy
-Class
-controller.DrawCardStrategy
-executeAction
-330
-367
-12
-println
-Apply
-false
-0
-false
-println(s"${player.id} draws a card")
-
-107
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-DrawCardStrategy
-Class
-controller.DrawCardStrategy
-executeAction
-338
-366
-12
-s
-Apply
-false
-0
-false
-s"${player.id} draws a card"
-
-108
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-DrawCardStrategy
-Class
-controller.DrawCardStrategy
-executeAction
-373
-390
-13
-draw
-Apply
-false
-0
-false
-controller.draw()
-
-109
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-DrawCardStrategy
-Class
-controller.DrawCardStrategy
-executeAction
-245
-271
-11
-executeAction
-DefDef
-false
-0
-false
-override def executeAction
-
-110
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-PlayCardStrategy
-Class
-controller.PlayCardStrategy
-executeAction
-553
-590
-19
-println
-Apply
-false
-0
-false
-println(s"${player.id} plays a card")
-
-111
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-PlayCardStrategy
-Class
-controller.PlayCardStrategy
-executeAction
-561
-589
-19
-s
-Apply
-false
-0
-false
-s"${player.id} plays a card"
-
-112
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-PlayCardStrategy
-Class
-controller.PlayCardStrategy
-executeAction
-596
-617
-20
-play
-Apply
-false
-0
-false
-controller.play(card)
-
-113
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-PlayCardStrategy
-Class
-controller.PlayCardStrategy
-executeAction
-468
-494
-18
-executeAction
-DefDef
-false
-0
-false
-override def executeAction
-
-114
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-UnoActionHandler
-Class
-controller.UnoActionHandler
-setStrategy
-690
-705
-25
-setStrategy
-DefDef
-false
-0
-false
-def setStrategy
-
-115
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-UnoActionHandler
-Class
-controller.UnoActionHandler
-executeStrategy
-863
-905
-30
-executeAction
-Apply
-false
-0
-false
-strategy.executeAction(controller, player)
-
-116
-src\\main\\scala\\controller\\UnoActionStrategy.scala
-controller
-UnoActionHandler
-Class
-controller.UnoActionHandler
-executeStrategy
-785
-804
-29
-executeStrategy
-DefDef
-false
-0
-false
-def executeStrategy
-
-117
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-<init>
-269
-289
-12
-<init>
-Apply
-false
-0
-false
-new CommandManager()
-
-118
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-play
-345
-372
-15
-<init>
-Apply
-false
-0
-false
-new PlayCommand(this, card)
-
-119
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-play
-378
-408
-16
-doStep
-Apply
-false
-0
-false
-commandManager.doStep(command)
-
-120
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-play
-424
-439
-17
-<none>
-Block
-false
-0
-false
-case Success(_)
-
-121
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-play
-483
-506
-18
-<none>
-Block
-false
-0
-false
-case Failure(exception)
-
-122
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-play
-510
-538
-18
-notifyObservers
-Apply
-false
-0
-false
-notifyObservers(Event.Error)
-
-123
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-play
-295
-303
-14
-play
-DefDef
-false
-0
-false
-def play
-
-124
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-draw
-596
-617
-23
-<init>
-Apply
-false
-0
-false
-new DrawCommand(this)
-
-125
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-draw
-623
-653
-24
-doStep
-Apply
-false
-0
-false
-commandManager.doStep(command)
-
-126
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-draw
-669
-684
-25
-<none>
-Block
-false
-0
-false
-case Success(_)
-
-127
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-draw
-728
-751
-26
-<none>
-Block
-false
-0
-false
-case Failure(exception)
-
-128
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-draw
-755
-783
-26
-notifyObservers
-Apply
-false
-0
-false
-notifyObservers(Event.Error)
-
-129
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-draw
-556
-564
-22
-draw
-DefDef
-false
-0
-false
-def draw
-
-130
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-undo
-827
-850
-31
-undoStep
-Select
-false
-0
-false
-commandManager.undoStep
-
-131
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-undo
-866
-881
-32
-<none>
-Block
-false
-0
-false
-case Success(_)
-
-132
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-undo
-885
-912
-32
-notifyObservers
-Apply
-false
-0
-false
-notifyObservers(Event.Undo)
-
-133
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-undo
-920
-943
-33
-<none>
-Block
-false
-0
-false
-case Failure(exception)
-
-134
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-undo
-947
-975
-33
-notifyObservers
-Apply
-false
-0
-false
-notifyObservers(Event.Error)
-
-135
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-undo
-801
-809
-30
-undo
-DefDef
-false
-0
-false
-def undo
-
-136
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-redo
-1019
-1042
-38
-redoStep
-Select
-false
-0
-false
-commandManager.redoStep
-
-137
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-redo
-1058
-1073
-39
-<none>
-Block
-false
-0
-false
-case Success(_)
-
-138
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-redo
-1077
-1104
-39
-notifyObservers
-Apply
-false
-0
-false
-notifyObservers(Event.Redo)
-
-139
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-redo
-1112
-1135
-40
-<none>
-Block
-false
-0
-false
-case Failure(exception)
-
-140
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-redo
-1139
-1167
-40
-notifyObservers
-Apply
-false
-0
-false
-notifyObservers(Event.Error)
-
-141
-src\\main\\scala\\controller\\UnoController.scala
-controller
-UnoController
-Class
-controller.UnoController
-redo
-993
-1001
-37
-redo
-DefDef
-false
-0
-false
-def redo
-
-142
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-canBePlayedOn
-490
-507
-34
-canBePlayedOn
-DefDef
-false
-0
-false
-def canBePlayedOn
-
-143
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-740
-769
-40
-<none>
-Block
-false
-0
-false
-case Card(_, cardValues.WILD)
-
-144
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-773
-788
-40
-WHITE
-Select
-false
-0
-false
-AnsiColor.WHITE
-
-145
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-796
-835
-41
-<none>
-Block
-false
-0
-false
-case Card(_, cardValues.WILD_DRAW_FOUR)
-
-146
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-839
-854
-41
-WHITE
-Select
-false
-0
-false
-AnsiColor.WHITE
-
-147
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-862
-890
-42
-<none>
-Block
-false
-0
-false
-case Card(cardColors.RED, _)
-
-148
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-894
-907
-42
-RED
-Select
-false
-0
-false
-AnsiColor.RED
-
-149
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-915
-945
-43
-<none>
-Block
-false
-0
-false
-case Card(cardColors.GREEN, _)
-
-150
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-949
-964
-43
-GREEN
-Select
-false
-0
-false
-AnsiColor.GREEN
-
-151
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-972
-1003
-44
-<none>
-Block
-false
-0
-false
-case Card(cardColors.YELLOW, _)
-
-152
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-1007
-1023
-44
-YELLOW
-Select
-false
-0
-false
-AnsiColor.YELLOW
-
-153
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-1031
-1060
-45
-<none>
-Block
-false
-0
-false
-case Card(cardColors.BLUE, _)
-
-154
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-1064
-1078
-45
-BLUE
-Select
-false
-0
-false
-AnsiColor.BLUE
-
-155
-src\\main\\scala\\model\\Card.scala
-model
-Card
-Class
-model.Card
-getColorCode
-686
-702
-38
-getColorCode
-DefDef
-false
-0
-false
-def getColorCode
-
-156
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomColor
-1118
-1195
-51
-apply
-Apply
-false
-0
-false
-cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
-
-157
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomColor
-1118
-1135
-51
-wrapRefArray
-Apply
-false
-0
-false
-cardColors.values
-
-158
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomColor
-1118
-1142
-51
-toList
-Select
-false
-0
-false
-cardColors.values.toList
-
-159
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomColor
-1143
-1194
-51
-nextInt
-Apply
-false
-0
-false
-scala.util.Random.nextInt(cardColors.values.length)
-
-160
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomColor
-1169
-1193
-51
-length
-Select
-false
-0
-false
-cardColors.values.length
-
-161
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomColor
-1097
-1112
-50
-randomColor
-DefDef
-false
-0
-false
-def randomColor
-
-162
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomValue
-1220
-1297
-54
-apply
-Apply
-false
-0
-false
-cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
-
-163
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomValue
-1220
-1237
-54
-wrapRefArray
-Apply
-false
-0
-false
-cardValues.values
-
-164
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomValue
-1220
-1244
-54
-toList
-Select
-false
-0
-false
-cardValues.values.toList
-
-165
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomValue
-1245
-1296
-54
-nextInt
-Apply
-false
-0
-false
-scala.util.Random.nextInt(cardValues.values.length)
-
-166
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomValue
-1271
-1295
-54
-length
-Select
-false
-0
-false
-cardValues.values.length
-
-167
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomValue
-1199
-1214
-53
-randomValue
-DefDef
-false
-0
-false
-def randomValue
-
-168
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomCard
-1323
-1334
-56
-randomColor
-Ident
-false
-0
-false
-randomColor
-
-169
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomCard
-1336
-1347
-56
-randomValue
-Ident
-false
-0
-false
-randomValue
-
-170
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomCard
-1301
-1315
-56
-randomCard
-DefDef
-false
-0
-false
-def randomCard
-
-171
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomCards
-1395
-1427
-59
-map
-Apply
-false
-0
-false
-(0 until i).map(_ => randomCard)
-
-172
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomCards
-1396
-1405
-59
-until
-Apply
-false
-0
-false
-0 until i
-
-173
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomCards
-1396
-1397
-59
-intWrapper
-Apply
-false
-0
-false
-0
-
-174
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-$anonfun
-1416
-1426
-59
-randomCard
-Ident
-false
-0
-false
-randomCard
-
-175
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomCards
-1395
-1434
-59
-toList
-Select
-false
-0
-false
-(0 until i).map(_ => randomCard).toList
-
-176
-src\\main\\scala\\model\\Card.scala
-model
-Card$package$
-Object
-model.Card$package$
-randomCards
-1352
-1367
-58
-randomCards
-DefDef
-false
-0
-false
-def randomCards
-
-177
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-valid
-251
-291
-11
-exists
-Apply
-false
-0
-false
-hand.cards.exists(_.canBePlayedOn(card))
-
-178
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-$anonfun
-269
-290
-11
-canBePlayedOn
-Apply
-false
-0
-false
-_.canBePlayedOn(card)
-
-179
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-valid
-211
-220
-10
-valid
-DefDef
-false
-0
-false
-def valid
-
-180
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-play
-349
-360
-15
-valid
-Apply
-false
-0
-false
-valid(card)
-
-181
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-play
-390
-411
-16
-removeCard
-Apply
-false
-0
-false
-hand.removeCard(card)
-
-182
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-play
-362
-420
-15
-<none>
-Block
-true
-0
-false
-{\r\n      Success(Player(id, hand.removeCard(card)))\r\n    }
-
-183
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-play
-443
-485
-18
-<init>
-Apply
-false
-0
-false
-IllegalArgumentException("Illeagal move.")
-
-184
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-play
-426
-493
-17
-<none>
-Block
-true
-0
-false
-{\r\n      Failure(IllegalArgumentException("Illeagal move."))\r\n    }
-
-185
-src\\main\\scala\\model\\Player.scala
-model
-Player
-Class
-model.Player
-play
-302
-310
-14
-play
-DefDef
-false
-0
-false
-def play
-
-186
-src\\main\\scala\\model\\PlayerHand.scala
-model
-PlayerHand
-Class
-model.PlayerHand
-addCard
-145
-158
-3
-::
-Apply
-false
-0
-false
-card :: cards
-
-187
-src\\main\\scala\\model\\PlayerHand.scala
-model
-PlayerHand
-Class
-model.PlayerHand
-addCard
-94
-105
-3
-addCard
-DefDef
-false
-0
-false
-def addCard
-
-188
-src\\main\\scala\\model\\PlayerHand.scala
-model
-PlayerHand
-Class
-model.PlayerHand
-removeCard
-219
-240
-5
-diff
-Apply
-false
-0
-false
-cards diff List(card)
-
-189
-src\\main\\scala\\model\\PlayerHand.scala
-model
-PlayerHand
-Class
-model.PlayerHand
-removeCard
-230
-240
-5
-apply
-Apply
-false
-0
-false
-List(card)
-
-190
-src\\main\\scala\\model\\PlayerHand.scala
-model
-PlayerHand
-Class
-model.PlayerHand
-removeCard
-230
-234
-5
-List
-Ident
-false
-0
-false
-List
-
-191
-src\\main\\scala\\model\\PlayerHand.scala
-model
-PlayerHand
-Class
-model.PlayerHand
-removeCard
-165
-179
-5
-removeCard
-DefDef
-false
-0
-false
-def removeCard
-
-192
-src\\main\\scala\\model\\PlayerHand.scala
-model
-PlayerHand$
-Object
-model.PlayerHand$
-$lessinit$greater$default$1
-73
-87
-2
-randomCards
-Apply
-false
-0
-false
-randomCards(5)
-
-193
-src\\main\\scala\\model\\PlayerHand.scala
-model
-PlayerHand$
-Object
-model.PlayerHand$
-$lessinit$greater$default$1
-73
-73
-2
-$lessinit$greater$default$1
-DefDef
-false
-0
-false
-
-
-194
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$lessinit$greater$default$1
-104
-149
-4
-map
-Apply
-false
-0
-false
-(0 until 2).map(i => Player(i, PlayerHand()))
-
-195
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$lessinit$greater$default$1
-105
-114
-4
-until
-Apply
-false
-0
-false
-0 until 2
-
-196
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$lessinit$greater$default$1
-105
-106
-4
-intWrapper
-Apply
-false
-0
-false
-0
-
-197
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$anonfun
-135
-145
-4
-$lessinit$greater$default$1
-Select
-false
-0
-false
-PlayerHand
-
-198
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$lessinit$greater$default$1
-104
-156
-4
-toList
-Select
-false
-0
-false
-(0 until 2).map(i => Player(i, PlayerHand())).toList
-
-199
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$lessinit$greater$default$1
-104
-104
-4
-$lessinit$greater$default$1
-DefDef
-false
-0
-false
-
-
-200
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$lessinit$greater$default$2
-200
-210
-5
-randomCard
-Ident
-false
-0
-false
-randomCard
-
-201
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$lessinit$greater$default$2
-200
-200
-5
-$lessinit$greater$default$2
-DefDef
-false
-0
-false
-
-
-202
-src\\main\\scala\\model\\UnoField.scala
-model
-UnoField$
-Object
-model.UnoField$
-$lessinit$greater$default$3
-259
-259
-6
-$lessinit$greater$default$3
-DefDef
-false
-0
-false
-
-
-203
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-<init>
-126
-129
-5
-Nil
-Ident
-false
-0
-false
-Nil
-
-204
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-<init>
-172
-175
-6
-Nil
-Ident
-false
-0
-false
-Nil
-
-205
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-doStep
-243
-260
-9
-execute
-Apply
-false
-0
-false
-command.execute()
-
-206
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-doStep
-288
-303
-11
-<none>
-Block
-false
-0
-false
-case Success(_)
-
-207
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-doStep
-328
-348
-12
-::
-Apply
-false
-0
-false
-command :: undoStack
-
-208
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-doStep
-370
-373
-13
-Nil
-Ident
-false
-0
-false
-Nil
-
-209
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-doStep
-425
-440
-14
-<none>
-Block
-false
-0
-false
-case Failure(_)
-
-210
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-doStep
-181
-191
-8
-doStep
-DefDef
-false
-0
-false
-def doStep
-
-211
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-undoStep
-545
-553
-21
-<none>
-Block
-false
-0
-false
-case Nil
-
-212
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-undoStep
-565
-614
-21
-<init>
-Apply
-false
-0
-false
-new NoSuchElementException("No commands to undo")
-
-213
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-undoStep
-623
-640
-22
-<none>
-Block
-false
-0
-false
-case head :: tail
-
-214
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-undoStep
-666
-677
-23
-undo
-Apply
-false
-0
-false
-head.undo()
-
-215
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-undoStep
-713
-728
-25
-<none>
-Block
-false
-0
-false
-case Success(_)
-
-216
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-undoStep
-787
-804
-27
-::
-Apply
-false
-0
-false
-head :: redoStack
-
-217
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-undoStep
-816
-831
-28
-<none>
-Block
-false
-0
-false
-case Failure(_)
-
-218
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-undoStep
-487
-499
-19
-undoStep
-DefDef
-false
-0
-false
-def undoStep
-
-219
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-redoStep
-951
-959
-36
-<none>
-Block
-false
-0
-false
-case Nil
-
-220
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-redoStep
-971
-1020
-36
-<init>
-Apply
-false
-0
-false
-new NoSuchElementException("No commands to redo")
-
-221
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-redoStep
-1029
-1046
-37
-<none>
-Block
-false
-0
-false
-case head :: tail
-
-222
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-redoStep
-1072
-1086
-38
-execute
-Apply
-false
-0
-false
-head.execute()
-
-223
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-redoStep
-1122
-1137
-40
-<none>
-Block
-false
-0
-false
-case Success(_)
-
-224
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-redoStep
-1196
-1213
-42
-::
-Apply
-false
-0
-false
-head :: undoStack
-
-225
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-redoStep
-1225
-1240
-43
-<none>
-Block
-false
-0
-false
-case Failure(_)
-
-226
-src\\main\\scala\\util\\CommandManager.scala
-util
-CommandManager
-Class
-util.CommandManager
-redoStep
-893
-905
-34
-redoStep
-DefDef
-false
-0
-false
-def redoStep
-
-227
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-<init>
-103
-111
-4
-apply
-Apply
-false
-0
-false
-Vector()
-
-228
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-<init>
-103
-109
-4
-Vector
-Ident
-false
-0
-false
-Vector
-
-229
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-add
-160
-176
-6
-:+
-Apply
-false
-0
-false
-subscribers :+ s
-
-230
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-add
-117
-124
-6
-add
-DefDef
-false
-0
-false
-def add
-
-231
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-remove
-228
-262
-8
-filterNot
-Apply
-false
-0
-false
-subscribers.filterNot(o => o == s)
-
-232
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-remove
-182
-192
-8
-remove
-DefDef
-false
-0
-false
-def remove
-
-233
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-notifyObservers
-306
-343
-10
-foreach
-Apply
-false
-0
-false
-subscribers.foreach(o => o.update(e))
-
-234
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-$anonfun
-331
-342
-10
-update
-Apply
-false
-0
-false
-o.update(e)
-
-235
-src\\main\\scala\\util\\Observer.scala
-util
-Observable
-Trait
-util.Observable
-notifyObservers
-268
-287
-10
-notifyObservers
-DefDef
-false
-0
-false
-def notifyObservers
-
-236
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-<init>
-218
-238
-10
-add
-Apply
-false
-0
-false
-controller.add(this)
-
-237
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-359
-408
-14
-println
-Apply
-false
-0
-false
-println("Invalid card number. Please try again.")
-
-238
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-416
-430
-15
-gameContinue
-Apply
-false
-0
-false
-gameContinue()
-
-239
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-350
-437
-13
-<none>
-Block
-true
-0
-false
-{\r\n      println("Invalid card number. Please try again.")\r\n      gameContinue()\r\n    }
-
-240
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-463
-541
-17
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)
-
-241
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-463
-519
-17
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-242
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-553
-621
-18
-valid
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer).valid(card)
-
-243
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-553
-609
-18
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-244
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-625
-669
-18
-canBePlayedOn
-Apply
-false
-0
-false
-card.canBePlayedOn(controller.field.topCard)
-
-245
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-682
-832
-19
-executeAction
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction("play").setCard(card).build().executeAction(controller, controller.field.players(controller.field.currentPlayer))
-
-246
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-682
-748
-19
-build
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction("play").setCard(card).build()
-
-247
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-682
-740
-19
-setCard
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction("play").setCard(card)
-
-248
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-682
-726
-19
-setAction
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction("play")
-
-249
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-682
-708
-19
-builder
-Apply
-false
-0
-false
-UnoActionFactory.builder()
-
-250
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-775
-831
-19
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-251
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-671
-841
-18
-<none>
-Block
-true
-0
-false
-{\r\n        UnoActionFactory.builder().setAction("play").setCard(card).build().executeAction(controller, controller.field.players(controller.field.currentPlayer))\r\n      }
-
-252
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-858
-903
-21
-println
-Apply
-false
-0
-false
-println("Card does not fit. Do you want to:")
-
-253
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-913
-938
-22
-println
-Apply
-false
-0
-false
-println("1. Draw a card")
-
-254
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-948
-971
-23
-println
-Apply
-false
-0
-false
-println("2. Try again")
-
-255
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-981
-999
-24
-println
-Apply
-false
-0
-false
-println("3. Undo")
-
-256
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1009
-1027
-25
-println
-Apply
-false
-0
-false
-println("4. Redo")
-
-257
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1037
-1055
-26
-println
-Apply
-false
-0
-false
-println("5. Quit")
-
-258
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1080
-1122
-27
-getOrElse
-Apply
-false
-0
-false
-StdIn.readLine().toIntOption.getOrElse(-1)
-
-259
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1080
-1096
-27
-augmentString
-Apply
-false
-0
-false
-StdIn.readLine()
-
-260
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1080
-1096
-27
-readLine
-Apply
-false
-0
-false
-StdIn.readLine()
-
-261
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1080
-1108
-27
-toIntOption
-Select
-false
-0
-false
-StdIn.readLine().toIntOption
-
-262
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1160
-1166
-29
-<none>
-Block
-false
-0
-false
-case 1
-
-263
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1170
-1306
-29
-executeAction
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction("draw").build().executeAction(controller, controller.field.players(controller.field.currentPlayer))
-
-264
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1170
-1222
-29
-build
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction("draw").build()
-
-265
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1170
-1214
-29
-setAction
-Apply
-false
-0
-false
-UnoActionFactory.builder().setAction("draw")
-
-266
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1170
-1196
-29
-builder
-Apply
-false
-0
-false
-UnoActionFactory.builder()
-
-267
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1249
-1305
-29
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-268
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1318
-1324
-30
-<none>
-Block
-false
-0
-false
-case 2
-
-269
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1328
-1342
-30
-gameContinue
-Apply
-false
-0
-false
-gameContinue()
-
-270
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1354
-1360
-31
-<none>
-Block
-false
-0
-false
-case 3
-
-271
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1364
-1376
-31
-undoAction
-Apply
-false
-0
-false
-undoAction()
-
-272
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1388
-1394
-32
-<none>
-Block
-false
-0
-false
-case 4
-
-273
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1398
-1410
-32
-redoAction
-Apply
-false
-0
-false
-redoAction()
-
-274
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1422
-1428
-33
-<none>
-Block
-false
-0
-false
-case 5
-
-275
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1432
-1470
-33
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Quit)
-
-276
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1482
-1488
-34
-<none>
-Block
-false
-0
-false
-case _
-
-277
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1505
-1553
-35
-println
-Apply
-false
-0
-false
-println("Invalid input. Please enter a number.")
-
-278
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-1567
-1581
-36
-gameContinue
-Apply
-false
-0
-false
-gameContinue()
-
-279
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-847
-1601
-20
-<none>
-Block
-true
-0
-false
-{\r\n        println("Card does not fit. Do you want to:")\r\n        println("1. Draw a card")\r\n        println("2. Try again")\r\n        println("3. Undo")\r\n        println("4. Redo")\r\n        println("5. Quit")\r\n        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n        readLine match {\r\n          case 1 => UnoActionFactory.builder().setAction("draw").build().executeAction(controller, controller.field.players(controller.field.currentPlayer))\r\n          case 2 => gameContinue()\r\n          case 3 => undoAction()\r\n          case 4 => redoAction()\r\n          case 5 => controller.notifyObservers(Event.Quit)\r\n          case _ =>\r\n            println("Invalid input. Please enter a number.")\r\n            gameContinue()\r\n        }\r\n      }
-
-280
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-443
-1608
-16
-<none>
-Block
-true
-0
-false
-{\r\n      val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)\r\n      if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {\r\n        UnoActionFactory.builder().setAction("play").setCard(card).build().executeAction(controller, controller.field.players(controller.field.currentPlayer))\r\n      } else {\r\n        println("Card does not fit. Do you want to:")\r\n        println("1. Draw a card")\r\n        println("2. Try again")\r\n        println("3. Undo")\r\n        println("4. Redo")\r\n        println("5. Quit")\r\n        val readLine = StdIn.readLine().toIntOption.getOrElse(-1)\r\n        readLine match {\r\n          case 1 => UnoActionFactory.builder().setAction("draw").build().executeAction(controller, controller.field.players(controller.field.currentPlayer))\r\n          case 2 => gameContinue()\r\n          case 3 => undoAction()\r\n          case 4 => redoAction()\r\n          case 5 => controller.notifyObservers(Event.Quit)\r\n          case _ =>\r\n            println("Invalid input. Please enter a number.")\r\n            gameContinue()\r\n        }\r\n      }\r\n    }
-
-281
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-processInputLine
-244
-272
-12
-processInputLine
-DefDef
-false
-0
-false
-private def processInputLine
-
-282
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-update
-1681
-1690
-44
-<none>
-Block
-false
-0
-false
-case Quit
-
-283
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-update
-1708
-1761
-45
-exists
-Apply
-false
-0
-false
-controller.field.players.exists(_.hand.cards.isEmpty)
-
-284
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-$anonfun
-1740
-1760
-45
-isEmpty
-Select
-false
-0
-false
-_.hand.cards.isEmpty
-
-285
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-update
-1763
-1803
-45
-<none>
-Block
-true
-0
-false
-{\r\n          // no winner yet\r\n        }
-
-286
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-update
-1822
-1832
-48
-gameOver
-Apply
-false
-0
-false
-gameOver()
-
-287
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-update
-1809
-1843
-47
-<none>
-Block
-true
-0
-false
-{\r\n          gameOver()\r\n        }
-
-288
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-update
-1851
-1857
-50
-<none>
-Block
-false
-0
-false
-case _
-
-289
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-update
-1861
-1875
-50
-gameContinue
-Apply
-false
-0
-false
-gameContinue()
-
-290
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-update
-1619
-1638
-42
-update
-DefDef
-false
-0
-false
-override def update
-
-291
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-1924
-1938
-55
-displayField
-Apply
-false
-0
-false
-displayField()
-
-292
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-1944
-1991
-56
-println
-Apply
-false
-0
-false
-println("Enter a number from the menu above: ")
-
-293
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2012
-2028
-57
-augmentString
-Apply
-false
-0
-false
-StdIn.readLine()
-
-294
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2012
-2028
-57
-readLine
-Apply
-false
-0
-false
-StdIn.readLine()
-
-295
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2012
-2040
-57
-toIntOption
-Select
-false
-0
-false
-StdIn.readLine().toIntOption
-
-296
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2070
-2082
-59
-<none>
-Block
-false
-0
-false
-case Some(1)
-
-297
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2095
-2134
-60
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Start)
-
-298
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2142
-2154
-61
-<none>
-Block
-false
-0
-false
-case Some(2)
-
-299
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2167
-2186
-62
-println
-Apply
-false
-0
-false
-println("Goodbye!")
-
-300
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2196
-2234
-63
-notifyObservers
-Apply
-false
-0
-false
-controller.notifyObservers(Event.Quit)
-
-301
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2242
-2248
-64
-<none>
-Block
-false
-0
-false
-case _
-
-302
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2261
-2325
-65
-println
-Apply
-false
-0
-false
-println("Invalid input. Please enter a number between 1 and 2.")
-
-303
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-2335
-2346
-66
-startGame
-Apply
-false
-0
-false
-startGame()
-
-304
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-startGame
-1893
-1906
-54
-startGame
-DefDef
-false
-0
-false
-def startGame
-
-305
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameOver
-2402
-2423
-71
-println
-Apply
-false
-0
-false
-println("Game over!")
-
-306
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameOver
-2447
-2504
-72
-indexWhere
-Apply
-false
-0
-false
-controller.field.players.indexWhere(_.hand.cards.isEmpty)
-
-307
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-$anonfun
-2483
-2503
-72
-isEmpty
-Select
-false
-0
-false
-_.hand.cards.isEmpty
-
-308
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameOver
-2510
-2553
-73
-println
-Apply
-false
-0
-false
-println(s"Player ${winnerIndex + 1} wins!")
-
-309
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameOver
-2518
-2552
-73
-s
-Apply
-false
-0
-false
-s"Player ${winnerIndex + 1} wins!"
-
-310
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameOver
-2364
-2384
-70
-gameOver
-DefDef
-false
-0
-false
-private def gameOver
-
-311
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2622
-2630
-77
-*
-Apply
-false
-0
-false
-"=" * 60
-
-312
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2622
-2625
-77
-augmentString
-Apply
-false
-0
-false
-"="
-
-313
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2700
-2739
-79
-apply
-Apply
-false
-0
-false
-List("1. Start playing UNO", "2. Quit")
-
-314
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2700
-2704
-79
-List
-Ident
-false
-0
-false
-List
-
-315
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2763
-2864
-81
-augmentString
-Apply
-false
-0
-false
-s"""\r\n         |$separator\r\n         |\r\n         |$title\r\n         |\r\n         |$separator\r\n      """
-
-316
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2763
-2864
-81
-s
-Apply
-false
-0
-false
-s"""\r\n         |$separator\r\n         |\r\n         |$title\r\n         |\r\n         |$separator\r\n      """
-
-317
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2763
-2876
-87
-stripMargin
-Select
-false
-0
-false
-s"""\r\n         |$separator\r\n         |\r\n         |$title\r\n         |\r\n         |$separator\r\n      """.stripMargin
-
-318
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2884
-2897
-89
-println
-Apply
-false
-0
-false
-println(menu)
-
-319
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2903
-2934
-90
-println
-Apply
-false
-0
-false
-println(options.mkString("\\n"))
-
-320
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2911
-2933
-90
-mkString
-Apply
-false
-0
-false
-options.mkString("\\n")
-
-321
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-displayField
-2564
-2588
-76
-displayField
-DefDef
-false
-0
-false
-private def displayField
-
-322
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3007
-3063
-94
-apply
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer)
-
-323
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3069
-3141
-95
-println
-Apply
-false
-0
-false
-println(s"Current player: Player ${controller.field.currentPlayer + 1}")
-
-324
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3077
-3140
-95
-s
-Apply
-false
-0
-false
-s"Current player: Player ${controller.field.currentPlayer + 1}"
-
-325
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3147
-3256
-96
-println
-Apply
-false
-0
-false
-println(s"Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET")
-
-326
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3155
-3255
-96
-s
-Apply
-false
-0
-false
-s"Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET"
-
-327
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3177
-3214
-96
-getColorCode
-Select
-false
-0
-false
-controller.field.topCard.getColorCode
-
-328
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3249
-3254
-96
-RESET
-Ident
-false
-0
-false
-RESET
-
-329
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3262
-3411
-97
-foreach
-Apply
-false
-0
-false
-currentPlayer.hand.cards.zipWithIndex.foreach { case (card, index) =>\r\n      println(s"${index + 1}: ${card.getColorCode}${card.value}$RESET")\r\n    }
-
-330
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3262
-3299
-97
-zipWithIndex
-Select
-false
-0
-false
-currentPlayer.hand.cards.zipWithIndex
-
-331
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-$anonfun
-3310
-3328
-97
-<none>
-Block
-false
-0
-false
-case (card, index)
-
-332
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-$anonfun
-3339
-3404
-98
-println
-Apply
-false
-0
-false
-println(s"${index + 1}: ${card.getColorCode}${card.value}$RESET")
-
-333
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-$anonfun
-3347
-3403
-98
-s
-Apply
-false
-0
-false
-s"${index + 1}: ${card.getColorCode}${card.value}$RESET"
-
-334
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-$anonfun
-3365
-3382
-98
-getColorCode
-Select
-false
-0
-false
-card.getColorCode
-
-335
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-$anonfun
-3397
-3402
-98
-RESET
-Ident
-false
-0
-false
-RESET
-
-336
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3417
-3474
-100
-println
-Apply
-false
-0
-false
-println("Enter the number of the card you want to play:")
-
-337
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3497
-3513
-101
-augmentString
-Apply
-false
-0
-false
-StdIn.readLine()
-
-338
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3497
-3513
-101
-readLine
-Apply
-false
-0
-false
-StdIn.readLine()
-
-339
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3497
-3525
-101
-toIntOption
-Select
-false
-0
-false
-StdIn.readLine().toIntOption
-
-340
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3535
-3553
-102
-isEmpty
-Select
-false
-0
-false
-cardNumber.isEmpty
-
-341
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3564
-3612
-103
-println
-Apply
-false
-0
-false
-println("Invalid input. Please enter a number.")
-
-342
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3620
-3634
-104
-gameContinue
-Apply
-false
-0
-false
-gameContinue()
-
-343
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3555
-3641
-102
-<none>
-Block
-true
-0
-false
-{\r\n      println("Invalid input. Please enter a number.")\r\n      gameContinue()\r\n    }
-
-344
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3656
-3721
-106
-processInputLine
-Apply
-false
-0
-false
-processInputLine(cardNumber.get, currentPlayer.hand.cards.length)
-
-345
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3673
-3687
-106
-get
-Select
-false
-0
-false
-cardNumber.get
-
-346
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3689
-3720
-106
-length
-Select
-false
-0
-false
-currentPlayer.hand.cards.length
-
-347
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-3647
-3728
-105
-<none>
-Block
-true
-0
-false
-{\r\n      processInputLine(cardNumber.get, currentPlayer.hand.cards.length)\r\n    }
-
-348
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-gameContinue
-2945
-2969
-93
-gameContinue
-DefDef
-false
-0
-false
-private def gameContinue
-
-349
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-undoAction
-3779
-3796
-111
-undo
-Apply
-false
-0
-false
-controller.undo()
-
-350
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-undoAction
-3802
-3816
-112
-gameContinue
-Apply
-false
-0
-false
-gameContinue()
-
-351
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-undoAction
-3739
-3761
-110
-undoAction
-DefDef
-false
-0
-false
-private def undoAction
-
-352
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-redoAction
-3867
-3884
-116
-redo
-Apply
-false
-0
-false
-controller.redo()
-
-353
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-redoAction
-3890
-3904
-117
-gameContinue
-Apply
-false
-0
-false
-gameContinue()
-
-354
-src\\main\\scala\\view\\TUI.scala
-view
-TUI
-Class
-view.TUI
-redoAction
-3827
-3849
-115
-redoAction
-DefDef
-false
-0
-false
-private def redoAction
-
-355
 src\\main\\scala\\view\\UnoGUI.scala
 view
 BeginState
 Class
 view.BeginState
 display
-561
-582
-19
+659
+680
+23
 clear
 Apply
 false
@@ -6070,16 +35,16 @@ false
 false
 pane.children.clear()
 
-356
+1
 src\\main\\scala\\view\\UnoGUI.scala
 view
 BeginState
 Class
 view.BeginState
 display
-561
-574
-19
+659
+672
+23
 children
 Select
 false
@@ -6087,16 +52,16 @@ false
 false
 pane.children
 
-357
+2
 src\\main\\scala\\view\\UnoGUI.scala
 view
 BeginState
 Class
 view.BeginState
 display
-605
-659
-20
+703
+757
+24
 <init>
 Apply
 false
@@ -6104,16 +69,16 @@ false
 false
 new scalafx.scene.control.Label("Welcome to UNO Game")
 
-358
+3
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-739
-842
-22
+837
+940
+26
 onAction_=
 Apply
 false
@@ -6121,16 +86,16 @@ false
 false
 onAction = _ => {\r\n        gui.setState(new GameState(gui, controller))\r\n        gui.display()\r\n      }
 
-359
+4
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-766
-810
-23
+864
+908
+27
 setState
 Apply
 false
@@ -6138,16 +103,16 @@ false
 false
 gui.setState(new GameState(gui, controller))
 
-360
+5
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-779
-809
-23
+877
+907
+27
 <init>
 Apply
 false
@@ -6155,16 +120,16 @@ false
 false
 new GameState(gui, controller)
 
-361
+6
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-820
-833
-24
+918
+931
+28
 display
 Apply
 false
@@ -6172,33 +137,118 @@ false
 false
 gui.display()
 
-362
+7
 src\\main\\scala\\view\\UnoGUI.scala
 view
-BeginState
+$anon
 Class
-view.BeginState
-display
-855
-900
-27
-addAll
+view.$anon
+<init>
+1005
+1017
+32
+spacing_=
 Apply
 false
 0
 false
-pane.children.addAll(beginLabel, startButton)
+spacing = 20
 
-363
+8
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+1025
+1064
+33
+children_=
+Apply
+false
+0
+false
+children = Seq(beginLabel, startButton)
+
+9
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+1036
+1064
+33
+apply
+Apply
+false
+0
+false
+Seq(beginLabel, startButton)
+
+10
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+1036
+1039
+33
+Seq
+Ident
+false
+0
+false
+Seq
+
+11
 src\\main\\scala\\view\\UnoGUI.scala
 view
 BeginState
 Class
 view.BeginState
 display
-855
-868
-27
+1077
+1102
+35
+add
+Apply
+false
+0
+false
+pane.children.add(layout)
+
+12
+src\\main\\scala\\view\\UnoGUI.scala
+view
+BeginState
+Class
+view.BeginState
+display
+1077
+1090
+35
+observableBuffer2ObservableList
+Apply
+false
+0
+false
+pane.children
+
+13
+src\\main\\scala\\view\\UnoGUI.scala
+view
+BeginState
+Class
+view.BeginState
+display
+1077
+1090
+35
 children
 Select
 false
@@ -6206,50 +256,33 @@ false
 false
 pane.children
 
-364
+14
 src\\main\\scala\\view\\UnoGUI.scala
 view
 BeginState
 Class
 view.BeginState
 display
-876
-886
-27
-sfxLabel2jfx
+1095
+1101
+35
+sfxVBox2jfx
 Apply
 false
 0
 false
-beginLabel
+layout
 
-365
+15
 src\\main\\scala\\view\\UnoGUI.scala
 view
 BeginState
 Class
 view.BeginState
 display
-888
-899
-27
-sfxButton2jfx
-Apply
-false
-0
-false
-startButton
-
-366
-src\\main\\scala\\view\\UnoGUI.scala
-view
-BeginState
-Class
-view.BeginState
-display
-513
-533
-18
+611
+631
+22
 display
 DefDef
 false
@@ -6257,16 +290,16 @@ false
 false
 override def display
 
-367
+16
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 display
-1035
-1056
-33
+1237
+1258
+41
 clear
 Apply
 false
@@ -6274,16 +307,16 @@ false
 false
 pane.children.clear()
 
-368
+17
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 display
-1035
-1048
-33
+1237
+1250
+41
 children
 Select
 false
@@ -6291,16 +324,16 @@ false
 false
 pane.children
 
-369
+18
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 display
-1080
-1176
-34
+1282
+1378
+42
 <init>
 Apply
 false
@@ -6308,16 +341,16 @@ false
 false
 new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
 
-370
+19
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 display
-1112
-1175
-34
+1314
+1377
+42
 s
 Apply
 false
@@ -6325,50 +358,50 @@ false
 false
 s"Current player: Player ${controller.field.currentPlayer + 1}"
 
-371
+20
 src\\main\\scala\\view\\UnoGUI.scala
 view
-GameState
+$anon
 Class
-view.GameState
-display
-1201
-1328
-35
+view.$anon
 <init>
-Apply
-false
-0
-false
-new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}")
-
-372
-src\\main\\scala\\view\\UnoGUI.scala
-view
-GameState
-Class
-view.GameState
-display
-1233
-1327
-35
+1435
+1489
+43
 s
 Apply
 false
 0
 false
-s"Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}"
+s"Current top card: ${controller.field.topCard.value}"
 
-373
+21
 src\\main\\scala\\view\\UnoGUI.scala
 view
-GameState
+$anon
 Class
-view.GameState
-display
-1255
-1292
-35
+view.$anon
+<init>
+1500
+1548
+44
+textFill_=
+Apply
+false
+0
+false
+textFill = controller.field.topCard.getColorCode
+
+22
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+1511
+1548
+44
 getColorCode
 Select
 false
@@ -6376,84 +409,67 @@ false
 false
 controller.field.topCard.getColorCode
 
-374
+23
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-1357
-1395
-36
+1586
+1600
+47
 $lessinit$greater$default$1
 Select
 false
 0
 false
-scalafx.scene.control.ListView[String]
+ListView[Card]
 
-375
+24
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-1405
-1572
-37
+1610
+1727
+48
 items_=
 Apply
 false
 0
 false
-items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards.map(card => s"${card.getColorCode}${card.value}"): _*)
+items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
 
-376
+25
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-1413
-1572
-37
+1618
+1727
+48
 apply
 Apply
 false
 0
 false
-scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards.map(card => s"${card.getColorCode}${card.value}"): _*)
+scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
 
-377
+26
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-1450
-1567
-37
-map
-Apply
-false
-0
-false
-controller.field.players(controller.field.currentPlayer).hand.cards.map(card => s"${card.getColorCode}${card.value}")
-
-378
-src\\main\\scala\\view\\UnoGUI.scala
-view
-$anon
-Class
-view.$anon
-<init>
-1450
-1506
-37
+1655
+1711
+48
 apply
 Apply
 false
@@ -6461,50 +477,254 @@ false
 false
 controller.field.players(controller.field.currentPlayer)
 
-379
-src\\main\\scala\\view\\UnoGUI.scala
-view
-$anon
-Class
-view.$anon
-$anonfun
-1530
-1566
-37
-s
-Apply
-false
-0
-false
-s"${card.getColorCode}${card.value}"
-
-380
-src\\main\\scala\\view\\UnoGUI.scala
-view
-$anon
-Class
-view.$anon
-$anonfun
-1534
-1551
-37
-getColorCode
-Select
-false
-0
-false
-card.getColorCode
-
-381
+27
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-1657
-1690
+1737
+2289
+50
+cellFactory_=
+Apply
+false
+0
+false
+cellFactory = new Callback[ListView[Card], ListCell[Card]] {\r\n        override def call(param: ListView[Card]): ListCell[Card] = {\r\n          new ListCell[Card] {\r\n            item.onChange { (_, _, cardOpt) =>\r\n              val cardOption = Option(cardOpt) // Null in Option umwandeln\r\n              text = cardOption.map(_.value.toString).getOrElse("") // Standardtext, falls keine Karte vorhanden\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink) // Standardfarbe Schwarz\r\n            }\r\n          }\r\n        }\r\n      }
+
+28
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+1751
+2289
+50
+jfxCallbackToFunction1
+Apply
+false
+0
+false
+new Callback[ListView[Card], ListCell[Card]] {\r\n        override def call(param: ListView[Card]): ListCell[Card] = {\r\n          new ListCell[Card] {\r\n            item.onChange { (_, _, cardOpt) =>\r\n              val cardOption = Option(cardOpt) // Null in Option umwandeln\r\n              text = cardOption.map(_.value.toString).getOrElse("") // Standardtext, falls keine Karte vorhanden\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink) // Standardfarbe Schwarz\r\n            }\r\n          }\r\n        }\r\n      }
+
+29
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+1883
+1897
+52
+$lessinit$greater$default$1
+Select
+false
+0
+false
+ListCell[Card]
+
+30
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+1913
+2256
+53
+onChange
+Apply
+false
+0
+false
+item.onChange { (_, _, cardOpt) =>\r\n              val cardOption = Option(cardOpt) // Null in Option umwandeln\r\n              text = cardOption.map(_.value.toString).getOrElse("") // Standardtext, falls keine Karte vorhanden\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink) // Standardfarbe Schwarz\r\n            }
+
+31
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+1913
+1917
+53
+item
+Select
+false
+0
+false
+item
+
+32
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+1980
+1995
+54
+apply
+Apply
+false
+0
+false
+Option(cardOpt)
+
+33
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+2039
+2092
+55
+text_=
+Apply
+false
+0
+false
+text = cardOption.map(_.value.toString).getOrElse("")
+
+34
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+2046
+2092
+55
+getOrElse
+Apply
+false
+0
+false
+cardOption.map(_.value.toString).getOrElse("")
+
+35
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+2046
+2078
+55
+map
+Apply
+false
+0
+false
+cardOption.map(_.value.toString)
+
+36
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+2153
+2216
+56
+textFill_=
+Apply
+false
+0
+false
+textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
+
+37
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+2164
+2216
+56
+getOrElse
+Apply
+false
+0
+false
+cardOption.map(_.getColorCode).getOrElse(Color.Pink)
+
+38
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+2164
+2194
+56
+map
+Apply
+false
+0
+false
+cardOption.map(_.getColorCode)
+
+39
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+2179
+2193
+56
+getColorCode
+Select
+false
+0
+false
+_.getColorCode
+
 40
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+call
+1807
+1824
+51
+call
+DefDef
+false
+0
+false
+override def call
+
+41
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+2376
+2409
+64
 onAction_=
 Apply
 false
@@ -6512,16 +732,16 @@ false
 false
 onAction = _ => controller.draw()
 
-382
+42
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-1673
-1690
-40
+2392
+2409
+64
 draw
 Apply
 false
@@ -6529,16 +749,16 @@ false
 false
 controller.draw()
 
-383
+43
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-1775
-2413
-43
+2494
+3132
+67
 onAction_=
 Apply
 false
@@ -6546,16 +766,16 @@ false
 false
 onAction = _ => {\r\n        val selectedCardIndex = handListView.selectionModel().getSelectedIndex\r\n        if (selectedCardIndex >= 0) {\r\n          val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)\r\n          if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {\r\n            controller.play(card)\r\n          } else {\r\n            showAlert("Invalid Move", "The selected card cannot be played.")\r\n          }\r\n        } else {\r\n          showAlert("No Card Selected", "Please select a card to play.")\r\n        }\r\n      }
 
-384
+44
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-1826
-1872
-44
+2545
+2591
+68
 getSelectedIndex
 Apply
 false
@@ -6563,16 +783,16 @@ false
 false
 handListView.selectionModel().getSelectedIndex
 
-385
+45
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-1826
-1855
-44
+2545
+2574
+68
 apply
 Apply
 false
@@ -6580,16 +800,16 @@ false
 false
 handListView.selectionModel()
 
-386
+46
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-1826
-1853
-44
+2545
+2572
+68
 selectionModel
 Select
 false
@@ -6597,16 +817,16 @@ false
 false
 handListView.selectionModel
 
-387
+47
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-1934
-2020
-46
+2653
+2739
+70
 apply
 Apply
 false
@@ -6614,16 +834,16 @@ false
 false
 controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)
 
-388
+48
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-1934
-1990
-46
+2653
+2709
+70
 apply
 Apply
 false
@@ -6631,16 +851,16 @@ false
 false
 controller.field.players(controller.field.currentPlayer)
 
-389
+49
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2036
-2104
-47
+2755
+2823
+71
 valid
 Apply
 false
@@ -6648,16 +868,16 @@ false
 false
 controller.field.players(controller.field.currentPlayer).valid(card)
 
-390
+50
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2036
-2092
-47
+2755
+2811
+71
 apply
 Apply
 false
@@ -6665,16 +885,16 @@ false
 false
 controller.field.players(controller.field.currentPlayer)
 
-391
+51
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2108
-2152
-47
+2827
+2871
+71
 canBePlayedOn
 Apply
 false
@@ -6682,16 +902,16 @@ false
 false
 card.canBePlayedOn(controller.field.topCard)
 
-392
+52
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2169
-2190
-48
+2888
+2909
+72
 play
 Apply
 false
@@ -6699,16 +919,16 @@ false
 false
 controller.play(card)
 
-393
+53
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2154
-2203
-47
+2873
+2922
+71
 <none>
 Block
 true
@@ -6716,16 +936,16 @@ true
 false
 {\r\n            controller.play(card)\r\n          }
 
-394
+54
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2224
-2288
-50
+2943
+3007
+74
 showAlert
 Apply
 false
@@ -6733,16 +953,16 @@ false
 false
 showAlert("Invalid Move", "The selected card cannot be played.")
 
-395
+55
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2209
-2301
-49
+2928
+3020
+73
 <none>
 Block
 true
@@ -6750,16 +970,16 @@ true
 false
 {\r\n            showAlert("Invalid Move", "The selected card cannot be played.")\r\n          }
 
-396
+56
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-1910
-2312
-45
+2629
+3031
+69
 <none>
 Block
 true
@@ -6767,16 +987,16 @@ true
 false
 {\r\n          val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)\r\n          if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {\r\n            controller.play(card)\r\n          } else {\r\n            showAlert("Invalid Move", "The selected card cannot be played.")\r\n          }\r\n        }
 
-397
+57
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2331
-2393
-53
+3050
+3112
+77
 showAlert
 Apply
 false
@@ -6784,16 +1004,16 @@ false
 false
 showAlert("No Card Selected", "Please select a card to play.")
 
-398
+58
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 $anonfun
-2318
-2404
-52
+3037
+3123
+76
 <none>
 Block
 true
@@ -6801,33 +1021,118 @@ true
 false
 {\r\n          showAlert("No Card Selected", "Please select a card to play.")\r\n        }
 
-399
+59
 src\\main\\scala\\view\\UnoGUI.scala
 view
-GameState
+$anon
 Class
-view.GameState
-display
-2426
-2511
-57
-addAll
+view.$anon
+<init>
+3199
+3211
+83
+spacing_=
 Apply
 false
 0
 false
-pane.children.addAll(playerLabel, topCardLabel, handListView, drawButton, playButton)
+spacing = 20
 
-400
+60
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+3219
+3298
+84
+children_=
+Apply
+false
+0
+false
+children = Seq(playerLabel, topCardLabel, handListView, drawButton, playButton)
+
+61
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+3230
+3298
+84
+apply
+Apply
+false
+0
+false
+Seq(playerLabel, topCardLabel, handListView, drawButton, playButton)
+
+62
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+3230
+3233
+84
+Seq
+Ident
+false
+0
+false
+Seq
+
+63
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 display
-2426
-2439
-57
+3311
+3336
+86
+add
+Apply
+false
+0
+false
+pane.children.add(layout)
+
+64
+src\\main\\scala\\view\\UnoGUI.scala
+view
+GameState
+Class
+view.GameState
+display
+3311
+3324
+86
+observableBuffer2ObservableList
+Apply
+false
+0
+false
+pane.children
+
+65
+src\\main\\scala\\view\\UnoGUI.scala
+view
+GameState
+Class
+view.GameState
+display
+3311
+3324
+86
 children
 Select
 false
@@ -6835,101 +1140,33 @@ false
 false
 pane.children
 
-401
+66
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 display
-2447
-2458
-57
-sfxLabel2jfx
+3329
+3335
+86
+sfxVBox2jfx
 Apply
 false
 0
 false
-playerLabel
+layout
 
-402
+67
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 display
-2460
-2472
-57
-sfxLabel2jfx
-Apply
-false
-0
-false
-topCardLabel
-
-403
-src\\main\\scala\\view\\UnoGUI.scala
-view
-GameState
-Class
-view.GameState
-display
-2474
-2486
-57
-sfxListView2jfx
-Apply
-false
-0
-false
-handListView
-
-404
-src\\main\\scala\\view\\UnoGUI.scala
-view
-GameState
-Class
-view.GameState
-display
-2488
-2498
-57
-sfxButton2jfx
-Apply
-false
-0
-false
-drawButton
-
-405
-src\\main\\scala\\view\\UnoGUI.scala
-view
-GameState
-Class
-view.GameState
-display
-2500
-2510
-57
-sfxButton2jfx
-Apply
-false
-0
-false
-playButton
-
-406
-src\\main\\scala\\view\\UnoGUI.scala
-view
-GameState
-Class
-view.GameState
-display
-987
-1007
-32
+1189
+1209
+40
 display
 DefDef
 false
@@ -6937,16 +1174,16 @@ false
 false
 override def display
 
-407
+68
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 showAlert
-2596
-2814
-66
+3849
+4067
+105
 showAndWait
 Apply
 false
@@ -6954,16 +1191,16 @@ false
 false
 new scalafx.scene.control.Alert(scalafx.scene.control.Alert.AlertType.Information) {\r\n      initOwner(gui.stage)\r\n      this.title = alertTitle\r\n      headerText = None\r\n      contentText = message\r\n    }.showAndWait()
 
-408
+69
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-2688
-2708
-62
+3941
+3961
+101
 initOwner
 Apply
 false
@@ -6971,16 +1208,16 @@ false
 false
 initOwner(gui.stage)
 
-409
+70
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-2716
-2739
-63
+3969
+3992
+102
 title_=
 Apply
 false
@@ -6988,16 +1225,16 @@ false
 false
 this.title = alertTitle
 
-410
+71
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-2747
-2764
-64
+4000
+4017
+103
 headerText_=
 Apply
 false
@@ -7005,16 +1242,16 @@ false
 false
 headerText = None
 
-411
+72
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-2772
-2793
-65
+4025
+4046
+104
 contentText_=
 Apply
 false
@@ -7022,16 +1259,16 @@ false
 false
 contentText = message
 
-412
+73
 src\\main\\scala\\view\\UnoGUI.scala
 view
 GameState
 Class
 view.GameState
 showAlert
-2522
-2543
-60
+3775
+3796
+99
 showAlert
 DefDef
 false
@@ -7039,16 +1276,16 @@ false
 false
 private def showAlert
 
-413
+74
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 <init>
-2901
-2921
-71
+4154
+4174
+110
 add
 Apply
 false
@@ -7056,16 +1293,16 @@ false
 false
 controller.add(this)
 
-414
+75
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 <init>
-2954
-2986
-73
+4207
+4239
+112
 <init>
 Apply
 false
@@ -7073,16 +1310,16 @@ false
 false
 new BeginState(this, controller)
 
-415
+76
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 <init>
-3019
-3027
-74
+4272
+4280
+113
 <init>
 Apply
 false
@@ -7090,16 +1327,16 @@ false
 false
 new Pane
 
-416
+77
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 <init>
-3023
-3027
-74
+4276
+4280
+113
 $lessinit$greater$default$1
 Select
 false
@@ -7107,16 +1344,16 @@ false
 false
 Pane
 
-417
+78
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 <init>
-3060
-3068
-75
+4313
+4321
+114
 <init>
 Apply
 false
@@ -7124,16 +1361,16 @@ false
 false
 new Pane
 
-418
+79
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 <init>
-3064
-3068
-75
+4317
+4321
+114
 $lessinit$greater$default$1
 Select
 false
@@ -7141,16 +1378,16 @@ false
 false
 Pane
 
-419
+80
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3110
-3119
-76
+4363
+4372
+115
 $lessinit$greater$default$1
 Select
 false
@@ -7158,16 +1395,16 @@ false
 false
 StackPane
 
-420
+81
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3127
-3162
-77
+4380
+4415
+116
 children_=
 Apply
 false
@@ -7175,16 +1412,16 @@ false
 false
 children = List(menuPane, gamePane)
 
-421
+82
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3138
-3162
-77
+4391
+4415
+116
 apply
 Apply
 false
@@ -7192,16 +1429,16 @@ false
 false
 List(menuPane, gamePane)
 
-422
+83
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3138
-3142
-77
+4391
+4395
+116
 List
 Ident
 false
@@ -7209,16 +1446,16 @@ false
 false
 List
 
-423
+84
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 setState
-3173
-3185
-80
+4426
+4438
+119
 setState
 DefDef
 false
@@ -7226,16 +1463,16 @@ false
 false
 def setState
 
-424
+85
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 display
-3274
-3297
-85
+4527
+4550
+124
 display
 Apply
 false
@@ -7243,16 +1480,16 @@ false
 false
 state.display(gamePane)
 
-425
+86
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 display
-3303
-3321
-86
+4556
+4574
+125
 toFront
 Apply
 false
@@ -7260,16 +1497,16 @@ false
 false
 gamePane.toFront()
 
-426
+87
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 display
-3245
-3256
-84
+4498
+4509
+123
 display
 DefDef
 false
@@ -7277,16 +1514,16 @@ false
 false
 def display
 
-427
+88
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3402
-3420
-91
+4655
+4673
+130
 title_=
 Apply
 false
@@ -7294,33 +1531,67 @@ false
 false
 title = "Uno Game"
 
-428
+89
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3428
-3512
-92
+4681
+4692
+131
+width_=
+Apply
+false
+0
+false
+width = 800
+
+90
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+4700
+4712
+132
+height_=
+Apply
+false
+0
+false
+height = 600
+
+91
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+4720
+4803
+133
 scene_=
 Apply
 false
 0
 false
-scene = new Scene {\r\n        fill = Color.Black\r\n        content = rootPane\r\n      }
+scene = new Scene {\r\n        fill = Color.Pink\r\n        content = rootPane\r\n      }
 
-429
+92
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3440
-3445
-92
+4732
+4737
+133
 $lessinit$greater$default$1
 Select
 false
@@ -7328,33 +1599,33 @@ false
 false
 Scene
 
-430
+93
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3457
-3475
-93
+4749
+4766
+134
 fill_=
 Apply
 false
 0
 false
-fill = Color.Black
+fill = Color.Pink
 
-431
+94
 src\\main\\scala\\view\\UnoGUI.scala
 view
 $anon
 Class
 view.$anon
 <init>
-3485
-3503
-94
+4776
+4794
+135
 content_=
 Apply
 false
@@ -7362,16 +1633,16 @@ false
 false
 content = rootPane
 
-432
+95
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 start
-3525
-3568
-97
+4816
+4859
+138
 onKeyPressed_=
 Apply
 false
@@ -7379,16 +1650,16 @@ false
 false
 stage.scene().onKeyPressed = handleKeyPress
 
-433
+96
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 start
-3525
-3538
-97
+4816
+4829
+138
 jfxScene2sfx
 Apply
 false
@@ -7396,16 +1667,16 @@ false
 false
 stage.scene()
 
-434
+97
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 start
-3525
-3538
-97
+4816
+4829
+138
 apply
 Apply
 false
@@ -7413,16 +1684,16 @@ false
 false
 stage.scene()
 
-435
+98
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 start
-3525
-3536
-97
+4816
+4827
+138
 scene
 Select
 false
@@ -7430,16 +1701,16 @@ false
 false
 stage.scene
 
-436
+99
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 start
-3554
-3568
-97
+4845
+4859
+138
 eventClosureWrapperWithParam
 Apply
 false
@@ -7447,593 +1718,32 @@ false
 false
 handleKeyPress
 
-437
+100
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 start
-3554
-3568
-97
-handleKeyPress
-Select
-false
-0
-false
-handleKeyPress
-
-438
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-start
-3574
-3583
-98
-display
-Apply
-false
-0
-false
-display()
-
-439
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-start
-3332
-3350
-89
-start
-DefDef
-false
-0
-false
-override def start
-
-440
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-3669
-3676
-102
-code
-Select
-false
-0
-false
-ke.code
-
-441
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-3648
-3692
-102
-<none>
-Block
-false
-0
-false
-case ke: KeyEvent if ke.code == KeyCode.Left
-
-442
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-3711
-3743
-103
-<init>
-Apply
-false
-0
-false
-new BeginState(this, controller)
-
-443
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-3751
-3760
-104
-display
-Apply
-false
-0
-false
-display()
-
-444
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-3766
-3772
-105
-<none>
-Block
-false
-0
-false
-case _
-
-445
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-handleKeyPress
-3594
-3620
-101
-handleKeyPress
-DefDef
-false
-0
-false
-private def handleKeyPress
-
-446
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-3831
-3865
-109
-println
-Apply
-false
-0
-false
-println(s"GUI Received event: $e")
-
-447
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-3839
-3864
-109
-s
-Apply
-false
-0
-false
-s"GUI Received event: $e"
-
-448
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-3888
-3898
-111
-<none>
-Block
-false
-0
-false
-case Start
-
-449
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-3911
-4020
-112
-runLater
-Apply
-false
-0
-false
-Platform.runLater(() => {\r\n          state = new GameState(this, controller)\r\n          display()\r\n        })
-
-450
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-3956
-3987
-113
-<init>
-Apply
-false
-0
-false
-new GameState(this, controller)
-
-451
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-3999
-4008
-114
-display
-Apply
-false
-0
-false
-display()
-
-452
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4028
-4037
-116
-<none>
-Block
-false
-0
-false
-case Play
-
-453
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4050
-4159
-117
-runLater
-Apply
-false
-0
-false
-Platform.runLater(() => {\r\n          state = new GameState(this, controller)\r\n          display()\r\n        })
-
-454
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4095
-4126
-118
-<init>
-Apply
-false
-0
-false
-new GameState(this, controller)
-
-455
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4138
-4147
-119
-display
-Apply
-false
-0
-false
-display()
-
-456
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4167
-4176
-121
-<none>
-Block
-false
-0
-false
-case Draw
-
-457
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4189
-4298
-122
-runLater
-Apply
-false
-0
-false
-Platform.runLater(() => {\r\n          state = new GameState(this, controller)\r\n          display()\r\n        })
-
-458
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4234
-4265
-123
-<init>
-Apply
-false
-0
-false
-new GameState(this, controller)
-
-459
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4277
-4286
-124
-display
-Apply
-false
-0
-false
-display()
-
-460
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4306
-4315
-126
-<none>
-Block
-false
-0
-false
-case Undo
-
-461
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4328
-4437
-127
-runLater
-Apply
-false
-0
-false
-Platform.runLater(() => {\r\n          state = new GameState(this, controller)\r\n          display()\r\n        })
-
-462
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4373
-4404
-128
-<init>
-Apply
-false
-0
-false
-new GameState(this, controller)
-
-463
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4416
-4425
-129
-display
-Apply
-false
-0
-false
-display()
-
-464
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4445
-4454
-131
-<none>
-Block
-false
-0
-false
-case Redo
-
-465
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4467
-4576
-132
-runLater
-Apply
-false
-0
-false
-Platform.runLater(() => {\r\n          state = new GameState(this, controller)\r\n          display()\r\n        })
-
-466
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4512
-4543
-133
-<init>
-Apply
-false
-0
-false
-new GameState(this, controller)
-
-467
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4555
-4564
-134
-display
-Apply
-false
-0
-false
-display()
-
-468
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4584
-4594
-136
-<none>
-Block
-false
-0
-false
-case Error
-
-469
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-update
-4607
-4716
-137
-runLater
-Apply
-false
-0
-false
-Platform.runLater(() => {\r\n          state = new GameState(this, controller)\r\n          display()\r\n        })
-
-470
-src\\main\\scala\\view\\UnoGUI.scala
-view
-UnoGUI
-Class
-view.UnoGUI
-$anonfun
-4652
-4683
+4845
+4859
 138
-<init>
-Apply
+handleKeyPress
+Select
 false
 0
 false
-new GameState(this, controller)
+handleKeyPress
 
-471
+101
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
-$anonfun
-4695
-4704
+start
+4865
+4874
 139
 display
 Apply
@@ -8042,16 +1752,798 @@ false
 false
 display()
 
-472
+102
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+start
+4585
+4603
+128
+start
+DefDef
+false
+0
+false
+override def start
+
+103
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+$anonfun
+4960
+4967
+143
+code
+Select
+false
+0
+false
+ke.code
+
+104
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+$anonfun
+4939
+4983
+143
+<none>
+Block
+false
+0
+false
+case ke: KeyEvent if ke.code == KeyCode.Left
+
+105
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+$anonfun
+5002
+5034
+144
+<init>
+Apply
+false
+0
+false
+new BeginState(this, controller)
+
+106
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+$anonfun
+5042
+5051
+145
+display
+Apply
+false
+0
+false
+display()
+
+107
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+$anonfun
+5057
+5063
+146
+<none>
+Block
+false
+0
+false
+case _
+
+108
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+handleKeyPress
+4885
+4911
+142
+handleKeyPress
+DefDef
+false
+0
+false
+private def handleKeyPress
+
+109
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+updateGUI
+5129
+5185
+150
+apply
+Apply
+false
+0
+false
+controller.field.players(controller.field.currentPlayer)
+
+110
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5242
+5296
+151
+s
+Apply
+false
+0
+false
+s"Current top card: ${controller.field.topCard.value}"
+
+111
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5307
+5355
+152
+textFill_=
+Apply
+false
+0
+false
+textFill = controller.field.topCard.getColorCode
+
+112
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5318
+5355
+152
+getColorCode
+Select
+false
+0
+false
+controller.field.topCard.getColorCode
+
+113
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5391
+5405
+154
+$lessinit$greater$default$1
+Select
+false
+0
+false
+ListView[Card]
+
+114
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5415
+5482
+155
+items_=
+Apply
+false
+0
+false
+items = scalafx.collections.ObservableBuffer(player.hand.cards: _*)
+
+115
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5423
+5482
+155
+apply
+Apply
+false
+0
+false
+scalafx.collections.ObservableBuffer(player.hand.cards: _*)
+
+116
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5490
+5944
+156
+cellFactory_=
+Apply
+false
+0
+false
+cellFactory = new Callback[ListView[Card], ListCell[Card]] {\r\n        override def call(param: ListView[Card]): ListCell[Card] = {\r\n          new ListCell[Card] {\r\n            item.onChange { (_, _, cardOpt) =>\r\n              val cardOption = Option(cardOpt)\r\n              text = cardOption.map(_.value.toString).getOrElse("")\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)\r\n            }\r\n          }\r\n        }\r\n      }
+
+117
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5504
+5944
+156
+jfxCallbackToFunction1
+Apply
+false
+0
+false
+new Callback[ListView[Card], ListCell[Card]] {\r\n        override def call(param: ListView[Card]): ListCell[Card] = {\r\n          new ListCell[Card] {\r\n            item.onChange { (_, _, cardOpt) =>\r\n              val cardOption = Option(cardOpt)\r\n              text = cardOption.map(_.value.toString).getOrElse("")\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)\r\n            }\r\n          }\r\n        }\r\n      }
+
+118
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5636
+5650
+158
+$lessinit$greater$default$1
+Select
+false
+0
+false
+ListCell[Card]
+
+119
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5666
+5911
+159
+onChange
+Apply
+false
+0
+false
+item.onChange { (_, _, cardOpt) =>\r\n              val cardOption = Option(cardOpt)\r\n              text = cardOption.map(_.value.toString).getOrElse("")\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)\r\n            }
+
+120
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+5666
+5670
+159
+item
+Select
+false
+0
+false
+item
+
+121
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+5733
+5748
+160
+apply
+Apply
+false
+0
+false
+Option(cardOpt)
+
+122
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+5764
+5817
+161
+text_=
+Apply
+false
+0
+false
+text = cardOption.map(_.value.toString).getOrElse("")
+
+123
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+5771
+5817
+161
+getOrElse
+Apply
+false
+0
+false
+cardOption.map(_.value.toString).getOrElse("")
+
+124
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+5771
+5803
+161
+map
+Apply
+false
+0
+false
+cardOption.map(_.value.toString)
+
+125
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+5833
+5896
+162
+textFill_=
+Apply
+false
+0
+false
+textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
+
+126
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+5844
+5896
+162
+getOrElse
+Apply
+false
+0
+false
+cardOption.map(_.getColorCode).getOrElse(Color.Pink)
+
+127
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+5844
+5874
+162
+map
+Apply
+false
+0
+false
+cardOption.map(_.getColorCode)
+
+128
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+$anonfun
+5859
+5873
+162
+getColorCode
+Select
+false
+0
+false
+_.getColorCode
+
+129
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+call
+5560
+5577
+157
+call
+DefDef
+false
+0
+false
+override def call
+
+130
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+6057
+6069
+171
+spacing_=
+Apply
+false
+0
+false
+spacing = 20
+
+131
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+6077
+6226
+172
+children_=
+Apply
+false
+0
+false
+children = Seq(new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}"),\r\n        topCardLabel, handListView)
+
+132
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+6088
+6226
+172
+apply
+Apply
+false
+0
+false
+Seq(new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}"),\r\n        topCardLabel, handListView)
+
+133
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+6088
+6091
+172
+Seq
+Ident
+false
+0
+false
+Seq
+
+134
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+6092
+6188
+172
+<init>
+Apply
+false
+0
+false
+new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
+
+135
+src\\main\\scala\\view\\UnoGUI.scala
+view
+$anon
+Class
+view.$anon
+<init>
+6124
+6187
+172
+s
+Apply
+false
+0
+false
+s"Current player: Player ${controller.field.currentPlayer + 1}"
+
+136
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+updateGUI
+6241
+6266
+176
+clear
+Apply
+false
+0
+false
+gamePane.children.clear()
+
+137
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+updateGUI
+6241
+6258
+176
+children
+Select
+false
+0
+false
+gamePane.children
+
+138
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+updateGUI
+6272
+6301
+177
+add
+Apply
+false
+0
+false
+gamePane.children.add(layout)
+
+139
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+updateGUI
+6272
+6289
+177
+observableBuffer2ObservableList
+Apply
+false
+0
+false
+gamePane.children
+
+140
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+updateGUI
+6272
+6289
+177
+children
+Select
+false
+0
+false
+gamePane.children
+
+141
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+updateGUI
+6294
+6300
+177
+sfxVBox2jfx
+Apply
+false
+0
+false
+layout
+
+142
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+updateGUI
+5077
+5098
+149
+updateGUI
+DefDef
+false
+0
+false
+private def updateGUI
+
+143
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 update
-4724
-4733
-141
+6361
+6395
+182
+println
+Apply
+false
+0
+false
+println(s"GUI Received event: $e")
+
+144
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+update
+6369
+6394
+182
+s
+Apply
+false
+0
+false
+s"GUI Received event: $e"
+
+145
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+update
+6418
+6464
+184
+<none>
+Block
+false
+0
+false
+case Start | Play | Draw | Undo | Redo | Error
+
+146
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+update
+6477
+6513
+185
+runLater
+Apply
+false
+0
+false
+Platform.runLater(() => updateGUI())
+
+147
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+$anonfun
+6501
+6512
+185
+updateGUI
+Apply
+false
+0
+false
+updateGUI()
+
+148
+src\\main\\scala\\view\\UnoGUI.scala
+view
+UnoGUI
+Class
+view.UnoGUI
+update
+6521
+6530
+186
 <none>
 Block
 false
@@ -8059,16 +2551,16 @@ false
 false
 case Quit
 
-473
+149
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 update
-4746
-4761
-142
+6543
+6558
+187
 exit
 Apply
 false
@@ -8076,16 +2568,16 @@ false
 false
 Platform.exit()
 
-474
+150
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI
 Class
 view.UnoGUI
 update
-3786
-3805
-108
+6316
+6335
+181
 update
 DefDef
 false
@@ -8093,16 +2585,16 @@ false
 false
 override def update
 
-475
+151
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI$
 Object
 view.UnoGUI$
 launchApp
-4855
-4895
-149
+6652
+6692
+194
 main
 Apply
 false
@@ -8110,16 +2602,16 @@ false
 false
 new UnoGUI(controller).main(Array.empty)
 
-476
+152
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI$
 Object
 view.UnoGUI$
 launchApp
-4855
-4877
-149
+6652
+6674
+194
 <init>
 Apply
 false
@@ -8127,16 +2619,16 @@ false
 false
 new UnoGUI(controller)
 
-477
+153
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI$
 Object
 view.UnoGUI$
 launchApp
-4883
-4894
-149
+6680
+6691
+194
 empty
 Apply
 false
@@ -8144,16 +2636,16 @@ false
 false
 Array.empty
 
-478
+154
 src\\main\\scala\\view\\UnoGUI.scala
 view
 UnoGUI$
 Object
 view.UnoGUI$
 launchApp
-4799
-4812
-148
+6596
+6609
+193
 launchApp
 DefDef
 false

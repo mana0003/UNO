@@ -6,6 +6,7 @@ import view.*
 //import scala.util.Observable
 import controller.*
 import scala.io._
+import scalafx.scene.paint.Color
 
 enum cardColors {
   case RED, BLUE
@@ -36,7 +37,7 @@ case class Card(color: cardColors, value: cardValues) {
     this.color == topCard.color || this.value == topCard.value || this.value == cardValues.WILD || this.value == cardValues.WILD_DRAW_FOUR
   }
 
-  def getColorCode: String = {
+  /*def getColorCode: String = {
     this match {
       case Card(_, cardValues.WILD) => AnsiColor.WHITE
       case Card(_, cardValues.WILD_DRAW_FOUR) => AnsiColor.WHITE
@@ -44,6 +45,16 @@ case class Card(color: cardColors, value: cardValues) {
       case Card(cardColors.GREEN, _) => AnsiColor.GREEN
       case Card(cardColors.YELLOW, _) => AnsiColor.YELLOW
       case Card(cardColors.BLUE, _) => AnsiColor.BLUE
+    }
+  }*/
+
+  def getColorCode: Color = {
+    this match {
+      case Card(_, cardValues.WILD) | Card(_, cardValues.WILD_DRAW_FOUR) => Color.Black
+      case Card(cardColors.RED, _) => Color.Red
+      case Card(cardColors.GREEN, _) => Color.Green
+      case Card(cardColors.YELLOW, _) => Color.Yellow
+      case Card(cardColors.BLUE, _) => Color.Blue
     }
   }
 }

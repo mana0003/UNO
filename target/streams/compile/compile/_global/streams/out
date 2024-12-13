@@ -1,5 +1,37 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\Main.scala:16:8 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m16 |[0m    gui.startGame()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value startGame is not a member of view.UnoGUI[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:158:10 ---[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m158 |[0m          updateGUI()[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:164:10 ---[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m164 |[0m          updateGUI()[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:170:10 ---[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m170 |[0m          updateGUI()[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:176:10 ---[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m176 |[0m          updateGUI()[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:182:10 ---[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m182 |[0m          updateGUI()[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:188:10 ---[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m188 |[0m          updateGUI()[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m6 errors found[0m

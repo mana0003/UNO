@@ -1,6 +1,6 @@
 [0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
 [0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
-[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 51 products, 16 sources, 6 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 61 products, 16 sources, 6 libraries[0m
 [0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/view/TUI.scala, ${BASE}/src/main/scala/model/UnoField.scala, ${BASE}/src/main/scala/util/Command.scala, ${BASE}/src/main/scala/view/UnoGUI.scala, ${BASE}/src/main/scala/model/PlayerHand.scala, ${BASE}/src/main/scala/controller/UnoActionBuilder.scala, ${BASE}/src/main/scala/util/Observer.scala, ${BASE}/src/main/scala/Main.scala, ${BASE}/src/main/scala/model/Card.scala, ${BASE}/src/main/scala/util/CommandManager.scala, ${BASE}/src/main/scala/controller/UnoActionStrategy.scala, ${BASE}/src/main/scala/controller/UnoActionProcessor.scala, ${BASE}/src/main/scala/controller/UnoController.scala, ${BASE}/src/main/scala/model/Player.scala, ${BASE}/src/main/scala/controller/DrawCommand.scala, ${BASE}/src/main/scala/controller/PlayCommand.scala)[0m
 [0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
 [0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
