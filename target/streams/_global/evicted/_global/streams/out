@@ -1,0 +1,10 @@
+[0m[[0m[0mdebug[0m] [0m[0mnot up to date. inChanged = true, force = true[0m
+[0m[[0m[0mdebug[0m] [0m[0mUpdating ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone updating [0m
+[0m[[0m[0minfo[0m] [0m[0mHere are other dependency conflicts that were resolved:[0m
+[0m[[0m[0minfo[0m] [0m[0m	* org.scala-lang:scala3-library_3:3.3.4 is selected over {3.3.1, 3.0.0, 3.1.3}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- uno:uno_3:0.1.0-SNAPSHOT                           (depends on 3.3.4)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.scalafx:scalafx_3:23.0.1-R34                   (depends on 3.3.4)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.scalactic:scalactic_3:3.2.14                   (depends on 3.1.3)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.scala-lang.modules:scala-swing_3:3.0.0         (depends on 3.0.0)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.scala-lang:scala3-library_3:3.3.1              (depends on 3.3.1)[0m
