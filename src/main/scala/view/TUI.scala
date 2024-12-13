@@ -5,11 +5,7 @@ import controller.*
 import util.*
 import scala.io.StdIn
 import scala.io.AnsiColor._
-//import util.{Event, Observer}
 import util.Event.{Quit, Start}
-import util.CommandManager
-import util.Command
-
 
 class TUI(val controller: UnoController) extends Observer {
   controller.add(this)

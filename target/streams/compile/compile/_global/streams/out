@@ -1,9 +1,5 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: C:\SE\UNO\src\main\scala\controller\DrawCommand.scala:10:6 -----------[0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m10 |[0m[33mclass[0m [35mDrawCommand[0m([36mcontroller[0m: [35mUnoController[0m) [33mextends[0m util.Command {[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m      ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mclass DrawCommand needs to be abstract, since def redo(): util.Try[Unit] in [33mtrait[0m [35mCommand[0m in [33mpackage[0m [35mutil[0m is not defined [0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: C:\SE\UNO\src\main\scala\controller\PlayCommand.scala:10:6 -----------[0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m10 |[0m[33mclass[0m [35mPlayCommand[0m([36mcontroller[0m: [35mUnoController[0m, [36mcard[0m: [35mCard[0m) [33mextends[0m util.Command {[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m      ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mclass PlayCommand needs to be abstract, since def redo(): util.Try[Unit] in [33mtrait[0m [35mCommand[0m in [33mpackage[0m [35mutil[0m is not defined [0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\Main.scala:16:8 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m16 |[0m    gui.startGame()[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value startGame is not a member of view.UnoGUI[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
