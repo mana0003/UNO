@@ -10,7 +10,7 @@ import scalafx.Includes._
 import controller.UnoController
 import util.{Event, Observer}
 import util.Event._
-import model.*
+import model._
 import scalafx.scene.control.{ListView, ListCell}
 
 import javafx.util.Callback
@@ -52,9 +52,9 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
         override def call(param: ListView[Card]): ListCell[Card] = {
           new ListCell[Card] {
             item.onChange { (_, _, cardOpt) =>
-              val cardOption = Option(cardOpt) // Null in Option umwandeln
-              text = cardOption.map(_.value.toString).getOrElse("") // Standardtext, falls keine Karte vorhanden
-              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink) // Standardfarbe Schwarz
+              val cardOption = Option(cardOpt)
+              text = cardOption.map(_.value.toString).getOrElse("")
+              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
             }
           }
         }
@@ -86,16 +86,6 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
     }
     pane.children.add(layout)
   }
-
-  /*private def updateGUI(player: Player, topCardLabel: scalafx.scene.control.Label, handListView: ListView[Card]): Unit = {
-    // Update hand cards
-    handListView.items = scalafx.collections.ObservableBuffer(player.hand.cards: _*)
-
-    // Update top card label
-    topCardLabel.text = s"Current top card: ${controller.field.topCard.value}"
-    topCardLabel.textFill = controller.field.topCard.getColorCode
-  }*/
-
 
   private def showAlert(alertTitle: String, message: String): Unit = {
     new scalafx.scene.control.Alert(scalafx.scene.control.Alert.AlertType.Information) {
@@ -147,44 +137,19 @@ class UnoGUI(controller: UnoController) extends JFXApp3 with Observer {
     case _ =>
   }
 
-  private def updateGUI(): Unit = {
-    val player = controller.field.players(controller.field.currentPlayer)
-    val topCardLabel = new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.value}") {
-      textFill = controller.field.topCard.getColorCode
-    }
-    val handListView = new ListView[Card] {
-      items = scalafx.collections.ObservableBuffer(player.hand.cards: _*)
-      cellFactory = new Callback[ListView[Card], ListCell[Card]] {
-        override def call(param: ListView[Card]): ListCell[Card] = {
-          new ListCell[Card] {
-            item.onChange { (_, _, cardOpt) =>
-              val cardOption = Option(cardOpt)
-              text = cardOption.map(_.value.toString).getOrElse("")
-              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
-            }
-          }
-        }
-      }
-    }
-
-    // Call the update method for game state
-    val layout = new scalafx.scene.layout.VBox {
-      spacing = 20
-      children = Seq(new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}"),
-        topCardLabel, handListView)
-    }
-
-    gamePane.children.clear()
-    gamePane.children.add(layout)
-  }
-
-
-    override def update(e: Event): Unit = {
+  override def update(e: Event): Unit = {
     println(s"GUI Received event: $e")
     e match {
-      case Start | Play | Draw | Undo | Redo | Error =>
-        Platform.runLater(() => updateGUI())
-      case Quit =>
+      case Event.Start =>
+        Platform.runLater(() => {
+          state = new GameState(this, controller)
+          display()
+        })
+      case Event.Play | Event.Draw | Event.Undo | Event.Redo | Event.Error =>
+        Platform.runLater(() => {
+          state.display(gamePane) // Refresh the game state
+        })
+      case Event.Quit =>
         Platform.exit()
     }
   }

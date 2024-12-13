@@ -16,7 +16,9 @@ class UnoController(var field: UnoField) extends Observable {
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
       case Success(_) => // Command executed successfully
+        notifyObservers(Event.Play)
       case Failure(exception) => notifyObservers(Event.Error)
+        notifyObservers(Event.Error)
     }
   }
 
@@ -24,21 +26,32 @@ class UnoController(var field: UnoField) extends Observable {
     val command = new DrawCommand(this)
     commandManager.doStep(command) match {
       case Success(_) => // Command executed successfully
-      case Failure(exception) => notifyObservers(Event.Error)
+        notifyObservers(Event.Draw)
+      case Failure(exception) =>
+        notifyObservers(Event.Error)
     }
   }
 
   def undo(): Unit = {
     commandManager.undoStep match {
-      case Success(_) => notifyObservers(Event.Undo)
-      case Failure(exception) => notifyObservers(Event.Error)
+      case Success(_) =>
+        notifyObservers(Event.Undo)
+      case Failure(exception) =>
+        notifyObservers(Event.Error)
     }
   }
 
   def redo(): Unit = {
     commandManager.redoStep match {
-      case Success(_) => notifyObservers(Event.Redo)
-      case Failure(exception) => notifyObservers(Event.Error)
+      case Success(_) =>
+        notifyObservers(Event.Redo)
+      case Failure(exception) =>
+        notifyObservers(Event.Error)
     }
+  }
+
+  def startGame(): Unit = {
+    // Game-specific setup logic
+    notifyObservers(Event.Start) // Notify observers that the game has started
   }
 }

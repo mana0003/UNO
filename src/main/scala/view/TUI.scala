@@ -5,7 +5,7 @@ import controller.*
 import util.*
 import scala.io.StdIn
 import scala.io.AnsiColor._
-import util.Event.{Quit, Start}
+import util.Event.{Quit, Start, Play, Draw, Undo, Redo, Error}
 
 class TUI(val controller: UnoController) extends Observer {
   controller.add(this)
@@ -42,13 +42,26 @@ class TUI(val controller: UnoController) extends Observer {
 
   override def update(e: Event): Unit = {
     e match {
+      case Event.Start =>
+        println("Game Started!")
+        gameContinue()  // Display the field after starting the game
+      case Event.Play =>
+        println("Card played!")
+        gameContinue()  // Refresh the game state after playing a card
+      case Event.Draw =>
+        println("Card drawn!")
+        gameContinue()  // Refresh the game state after drawing a card
+      case Event.Undo =>
+        println("Undo action performed!")
+        gameContinue()  // Refresh the game state after undo
+      case Event.Redo =>
+        println("Redo action performed!")
+        gameContinue()  // Refresh the game state after redo
+      case Event.Error =>
+        println("An error occurred!")
+        gameContinue()  // Continue after an error, but you can add logic for specific errors
       case Quit =>
-        if (!controller.field.players.exists(_.hand.cards.isEmpty)) {
-          // no winner yet
-        } else {
-          gameOver()
-        }
-      case _ => gameContinue()
+        gameOver()  // Handle game over logic
     }
   }
 
