@@ -92,9 +92,36 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
       }
     }
 
+    val undoButton = new scalafx.scene.control.Button("Undo") {
+      onAction = _ => {
+        controller.undo()
+        Platform.runLater(() => gui.display())
+      }
+    }
+
+    val redoButton = new scalafx.scene.control.Button("Redo") {
+      onAction = _ => {
+        controller.redo()
+        Platform.runLater(() => gui.display())
+      }
+    }
+
+    val quitButton = new scalafx.scene.control.Button("Quit") {
+      onAction = _ => {
+        controller.notifyObservers(Event.Quit) // Notify observers to quit the game
+        Platform.exit() // Exit the application
+      }
+    }
+
+    // Layout for the buttons and labels
+    val buttonLayout = new scalafx.scene.layout.HBox {
+      spacing = 10
+      children = Seq(drawButton, playButton, undoButton, redoButton, quitButton)
+    }
+
     val layout = new scalafx.scene.layout.VBox {
       spacing = 20
-      children = Seq(playerLabel, topCardLabel, handListView, drawButton, playButton)
+      children = Seq(playerLabel, topCardLabel, handListView, buttonLayout)
     }
     pane.children.add(layout)
   }
