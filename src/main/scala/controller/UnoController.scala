@@ -11,13 +11,22 @@ import scala.util.Failure
 
 class UnoController(var field: UnoField) extends Observable {
   private val commandManager = new CommandManager()
+  // new
+  private var isGuiActive: Boolean = false
+  
+  def setGuiActive(active: Boolean): Unit = {
+    isGuiActive = active
+  }
+  
+  def isGuiMode: Boolean = isGuiActive
+  // end new
 
   def play(card: Card): Unit = {
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
       case Success(_) => // Command executed successfully
         notifyObservers(Event.Play)
-      case Failure(exception) => notifyObservers(Event.Error)
+      case Failure(exception) => 
         notifyObservers(Event.Error)
     }
   }
@@ -36,7 +45,7 @@ class UnoController(var field: UnoField) extends Observable {
     commandManager.undoStep match {
       case Success(_) =>
         notifyObservers(Event.Undo)
-      case Failure(exception) =>
+      case Failure(_) =>
         notifyObservers(Event.Error)
     }
   }
@@ -45,7 +54,7 @@ class UnoController(var field: UnoField) extends Observable {
     commandManager.redoStep match {
       case Success(_) =>
         notifyObservers(Event.Redo)
-      case Failure(exception) =>
+      case Failure(_) =>
         notifyObservers(Event.Error)
     }
   }

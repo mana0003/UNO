@@ -41,6 +41,11 @@ class TUI(val controller: UnoController) extends Observer {
   }
 
   override def update(e: Event): Unit = {
+    // new
+    if (controller.isGuiMode) {
+      return
+    }
+    // end new
     e match {
       case Event.Start =>
         println("Game Started!")
@@ -60,7 +65,7 @@ class TUI(val controller: UnoController) extends Observer {
       case Event.Error =>
         println("An error occurred!")
         gameContinue()  // Continue after an error, but you can add logic for specific errors
-      case Quit =>
+      case Event.Quit =>
         gameOver()  // Handle game over logic
     }
   }

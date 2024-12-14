@@ -11,11 +11,11 @@ object Main {
     val controller = new UnoController(field)
     
     // Initialize TUI and GUI
-    val tui = new TUI(controller)
+    //val tui = new TUI(controller)
     UnoGUI.launchApp(controller)
     
     // Start the TUI
-    tui.startGame()
+    //tui.startGame()
   }
 
 }

@@ -40,11 +40,13 @@ class BeginState(gui: UnoGUI, controller: UnoController) extends State {
 class GameState(gui: UnoGUI, controller: UnoController) extends State {
   override def display(pane: Pane): Unit = {
     pane.children.clear()
+
     val playerLabel = new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
     val topCardLabel = new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.value}") {
       textFill = controller.field.topCard.getColorCode
     }
 
+    // Update the list of cards after each action
     val handListView = new ListView[Card] {
       items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
 
@@ -62,8 +64,15 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
     }
 
     val drawButton = new scalafx.scene.control.Button("Draw Card") {
-      onAction = _ => controller.draw()
+      onAction = _ => {
+        controller.draw() // Draw a card from the deck
+        // Refresh the display after drawing a card
+        Platform.runLater(() => {
+          gui.display() // Update the GUI after the action
+        })
+      }
     }
+
     val playButton = new scalafx.scene.control.Button("Play Card") {
       onAction = _ => {
         val selectedCardIndex = handListView.selectionModel().getSelectedIndex
@@ -71,6 +80,9 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
           val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)
           if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {
             controller.play(card)
+            Platform.runLater(() => {
+              gui.display()
+            })
           } else {
             showAlert("Invalid Move", "The selected card cannot be played.")
           }
@@ -97,6 +109,7 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
   }
 }
 
+
 class UnoGUI(controller: UnoController) extends JFXApp3 with Observer {
   controller.add(this)
 
@@ -117,6 +130,7 @@ class UnoGUI(controller: UnoController) extends JFXApp3 with Observer {
   }
 
   override def start(): Unit = {
+    controller.setGuiActive(true) // new
     stage = new PrimaryStage {
       title = "Uno Game"
       width = 800

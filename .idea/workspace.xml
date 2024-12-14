@@ -9,15 +9,8 @@
       <change beforePath="$PROJECT_DIR$/src/main/scala/controller/UnoController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/UnoController.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/view/UnoGUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/view/UnoGUI.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCardStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCardStrategy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCardStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCardStrategy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState$$anon$1.class" afterDir="false" />
@@ -37,29 +30,21 @@
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/State.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/State.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$11.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$12.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$14.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$15.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$16.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$17.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$18.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.coverage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.3c98dbad-14fc-44b2-ae85-0a5965944e03.102" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.3c98dbad-14fc-44b2-ae85-0a5965944e03.97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.5471b357-5bed-4609-ad67-c0bb3ad5799a.103" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.5471b357-5bed-4609-ad67-c0bb3ad5799a.98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.f6442986-7c30-46cf-b1ac-31ab887b27cb.104" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.f6442986-7c30-46cf-b1ac-31ab887b27cb.99" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/uno_3-0.1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/zinc/inc_compile_3.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/zinc/inc_compile_3.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compile/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compile/_global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/_global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/incOptions/_global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/inputs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,33 +112,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.TUI.executor&quot;: &quot;Run&quot;,
-    &quot;Application.main.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/SE/UNO&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.Main .executor": "Run",
+    "Application.Main.executor": "Debug",
+    "Application.TUI.executor": "Run",
+    "Application.main.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/SE/UNO",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\SE\UNO\" />
@@ -165,17 +151,32 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="main" />
+  <component name="RunManager" selected="Application.Main ">
+    <configuration name="Main " type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="UNO.uno" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="uno" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main " />
+      <item itemvalue="Application.Main" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -407,9 +408,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/main/scala/Main.scala</url>
-          <line>17</line>
-          <option name="timeStamp" value="14" />
+          <url>file://$PROJECT_DIR$/src/main/scala/view/UnoGUI.scala</url>
+          <line>39</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
