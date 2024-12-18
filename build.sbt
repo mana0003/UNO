@@ -12,7 +12,7 @@ lazy val root = project
     // Add dependencies
     libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test,
     libraryDependencies += "org.scalactic" %% "scalactic" % "3.2.14",
-    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.14" % "test",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.15" % "test",
     libraryDependencies += "org.scalatestplus" %% "mockito-3-4" % "3.2.10.0" % Test,
       libraryDependencies += "org.scalafx" %% "scalafx" % "23.0.1-R34",
       libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "3.0.0",

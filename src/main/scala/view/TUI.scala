@@ -41,32 +41,30 @@ class TUI(val controller: UnoController) extends Observer {
   }
 
   override def update(e: Event): Unit = {
-    // new
     if (controller.isGuiMode) {
       return
     }
-    // end new
     e match {
       case Event.Start =>
         println("Game Started!")
-        gameContinue()  // Display the field after starting the game
+        gameContinue()
       case Event.Play =>
         println("Card played!")
-        gameContinue()  // Refresh the game state after playing a card
+        gameContinue()
       case Event.Draw =>
         println("Card drawn!")
-        gameContinue()  // Refresh the game state after drawing a card
+        gameContinue()
       case Event.Undo =>
         println("Undo action performed!")
-        gameContinue()  // Refresh the game state after undo
+        gameContinue()
       case Event.Redo =>
         println("Redo action performed!")
-        gameContinue()  // Refresh the game state after redo
+        gameContinue()
       case Event.Error =>
         println("An error occurred!")
-        gameContinue()  // Continue after an error, but you can add logic for specific errors
+        gameContinue()
       case Event.Quit =>
-        gameOver()  // Handle game over logic
+        gameOver()
     }
   }
 

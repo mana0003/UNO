@@ -7,26 +7,26 @@ import controller.*
 import util.CommandManager
 import scala.util.Success
 import scala.util.Failure
-
+import scala.io.AnsiColor._
 
 class UnoController(var field: UnoField) extends Observable {
   private val commandManager = new CommandManager()
-  // new
   private var isGuiActive: Boolean = false
-  
+
   def setGuiActive(active: Boolean): Unit = {
     isGuiActive = active
   }
-  
+
   def isGuiMode: Boolean = isGuiActive
-  // end new
 
   def play(card: Card): Unit = {
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
-      case Success(_) => // Command executed successfully
+      case Success(_) =>
+        println(s"Player ${field.currentPlayer + 1} played: ${card.getColorCode}${card.value}$RESET")
+        println(s"Player ${field.currentPlayer + 1} hand: ${field.players(field.currentPlayer).hand.cards.map(c => s"${c.getColorCode}${c.value}$RESET").mkString(", ")}")
         notifyObservers(Event.Play)
-      case Failure(exception) => 
+      case Failure(exception) =>
         notifyObservers(Event.Error)
     }
   }
@@ -34,7 +34,7 @@ class UnoController(var field: UnoField) extends Observable {
   def draw(): Unit = {
     val command = new DrawCommand(this)
     commandManager.doStep(command) match {
-      case Success(_) => // Command executed successfully
+      case Success(_) =>
         notifyObservers(Event.Draw)
       case Failure(exception) =>
         notifyObservers(Event.Error)
@@ -60,7 +60,6 @@ class UnoController(var field: UnoField) extends Observable {
   }
 
   def startGame(): Unit = {
-    // Game-specific setup logic
-    notifyObservers(Event.Start) // Notify observers that the game has started
+    notifyObservers(Event.Start)
   }
 }

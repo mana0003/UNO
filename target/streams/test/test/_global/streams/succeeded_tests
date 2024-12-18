@@ -1,7 +1,0 @@
-#Successful Tests
-#Fri Nov 29 09:53:51 CET 2024
-scala.controller.ControllerTest=1732870431095
-scala.model.CardTest=1732870431132
-scala.model.PlayerHandTest=1732870431100
-scala.model.PlayerTest=1732870431095
-scala.model.UnoFieldTest=1732870431095

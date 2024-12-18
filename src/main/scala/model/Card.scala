@@ -7,6 +7,7 @@ import view.*
 import controller.*
 import scala.io._
 import scalafx.scene.paint.Color
+import scala.io.AnsiColor._
 
 enum cardColors {
   case RED, BLUE

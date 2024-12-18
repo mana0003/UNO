@@ -4,7 +4,7 @@ import scalafx.application.{JFXApp3, Platform}
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.scene.input.{KeyCode, KeyEvent}
-import scalafx.scene.layout.{Pane, StackPane}
+import scalafx.scene.layout.{Pane, StackPane, VBox}
 import scalafx.scene.paint.Color
 import scalafx.Includes._
 import controller.UnoController
@@ -46,7 +46,6 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
       textFill = controller.field.topCard.getColorCode
     }
 
-    // Update the list of cards after each action
     val handListView = new ListView[Card] {
       items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
 
@@ -65,10 +64,9 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
 
     val drawButton = new scalafx.scene.control.Button("Draw Card") {
       onAction = _ => {
-        controller.draw() // Draw a card from the deck
-        // Refresh the display after drawing a card
+        controller.draw()
         Platform.runLater(() => {
-          gui.display() // Update the GUI after the action
+          gui.display()
         })
       }
     }
@@ -108,12 +106,11 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
 
     val quitButton = new scalafx.scene.control.Button("Quit") {
       onAction = _ => {
-        controller.notifyObservers(Event.Quit) // Notify observers to quit the game
-        Platform.exit() // Exit the application
+        controller.notifyObservers(Event.Quit)
+        Platform.exit()
       }
     }
 
-    // Layout for the buttons and labels
     val buttonLayout = new scalafx.scene.layout.HBox {
       spacing = 10
       children = Seq(drawButton, playButton, undoButton, redoButton, quitButton)
@@ -121,7 +118,7 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
 
     val layout = new scalafx.scene.layout.VBox {
       spacing = 20
-      children = Seq(playerLabel, topCardLabel, handListView, buttonLayout)
+      children = Seq(playerLabel, topCardLabel, handListView, drawButton, playButton)
     }
     pane.children.add(layout)
   }
@@ -135,7 +132,6 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
     }.showAndWait()
   }
 }
-
 
 class UnoGUI(controller: UnoController) extends JFXApp3 with Observer {
   controller.add(this)

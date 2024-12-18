@@ -5,16 +5,365 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe62e86a-001c-48b5-8f44-d39bc6c5b177" name="Changes" comment="put up MVC architecture">
+      <change beforePath="$PROJECT_DIR$/.idea/sbt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sbt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scala_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$aa5e12901f41f491505f$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$aa5e12901f41f491505f.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$aa5e12901f41f491505f.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$da6171baac56a635dbda$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$da6171baac56a635dbda.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/project/target/config-classes/$da6171baac56a635dbda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$9c7e206cdedae2ec28f7$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$9c7e206cdedae2ec28f7.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/config-classes/$9c7e206cdedae2ec28f7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/_global/update/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/_global/_global/compileOutputs/previous" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/exportedProducts/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/incOptions/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/exportedProducts/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/fullClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/runtime/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/controller/UnoController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/controller/UnoController.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/model/Card.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/model/Card.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/view/TUI.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/view/UnoGUI.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/view/UnoGUI.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/job-1/target/418d3599/20775802/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/0123472d/496238b3/javafx-graphics-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/0d70002c/1d22524b/javafx-media-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/13f5566a/16e48d61/javafx-base-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/2ce0a491/da5d32ce/javafx-web-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/3bf90005/ed8ba492/javafx-swing-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/4419f925/8fea768b/javafx-controls-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/56cf2b4b/2d84e478/javafx-controls-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/59ebc5e0/2ec3246d/scala3-library_3-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/705a7954/f62a847d/javafx-fxml-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/887acfea/95666378/scalafx_3-23.0.1-R34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/a96672b8/28de87c6/javafx-swing-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/aa626061/61fbeed7/javafx-base-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/b5590f92/d1ccc946/scala-library-2.13.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/b9a122a0/c290069e/javafx-web-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/caeb162e/2c7f6144/javafx-media-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/e83dde66/4416ade0/javafx-fxml-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/ead76b7f/e44d6f7a/javafx-graphics-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_142f1144/target/f6c03205/a5bf0df7/scala-swing_3-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_1507ef72/job-1/target/418d3599/4d10273a/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_1507ef72/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_1507ef72/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_1507ef72/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_1ee3e145/job-1/target/418d3599/011d74ea/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_1ee3e145/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_1ee3e145/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_2f19c82a/job-1/target/418d3599/4d10273a/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_2f19c82a/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_2f19c82a/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_2f19c82a/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/job-1/target/418d3599/5c10241c/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/0123472d/496238b3/javafx-graphics-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/0d70002c/1d22524b/javafx-media-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/13f5566a/16e48d61/javafx-base-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/2ce0a491/da5d32ce/javafx-web-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/3bf90005/ed8ba492/javafx-swing-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/4419f925/8fea768b/javafx-controls-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/56cf2b4b/2d84e478/javafx-controls-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/59ebc5e0/2ec3246d/scala3-library_3-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/705a7954/f62a847d/javafx-fxml-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/887acfea/95666378/scalafx_3-23.0.1-R34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/a96672b8/28de87c6/javafx-swing-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/aa626061/61fbeed7/javafx-base-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/b5590f92/d1ccc946/scala-library-2.13.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/b9a122a0/c290069e/javafx-web-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/caeb162e/2c7f6144/javafx-media-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/e83dde66/4416ade0/javafx-fxml-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/ead76b7f/e44d6f7a/javafx-graphics-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3c53fb01/target/f6c03205/a5bf0df7/scala-swing_3-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3f5af665/job-1/target/418d3599/8d7f3998/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3f5af665/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3f5af665/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_3f5af665/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_47c58672/job-1/target/418d3599/161e1c0a/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_47c58672/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_47c58672/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_488e5d8f/job-1/target/418d3599/4d10273a/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_488e5d8f/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_488e5d8f/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_488e5d8f/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_4d2c6e45/job-1/target/418d3599/2bf7dd91/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_4d2c6e45/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_4d2c6e45/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/job-1/target/418d3599/2eeb6e1d/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/0123472d/496238b3/javafx-graphics-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/0d70002c/1d22524b/javafx-media-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/13f5566a/16e48d61/javafx-base-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/2ce0a491/da5d32ce/javafx-web-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/3bf90005/ed8ba492/javafx-swing-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/4419f925/8fea768b/javafx-controls-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/56cf2b4b/2d84e478/javafx-controls-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/59ebc5e0/2ec3246d/scala3-library_3-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/705a7954/f62a847d/javafx-fxml-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/887acfea/95666378/scalafx_3-23.0.1-R34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/a96672b8/28de87c6/javafx-swing-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/aa626061/61fbeed7/javafx-base-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/b5590f92/d1ccc946/scala-library-2.13.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/b9a122a0/c290069e/javafx-web-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/caeb162e/2c7f6144/javafx-media-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/e83dde66/4416ade0/javafx-fxml-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/ead76b7f/e44d6f7a/javafx-graphics-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5332252f/target/f6c03205/a5bf0df7/scala-swing_3-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5b74ae12/job-1/target/418d3599/12cf1fcc/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5b74ae12/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5b74ae12/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5cfe9c06/job-1/target/418d3599/4d10273a/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5cfe9c06/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5cfe9c06/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_5cfe9c06/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_608b4aa3/job-1/target/418d3599/37822413/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_608b4aa3/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_608b4aa3/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_609370bd/job-1/target/418d3599/161e1c0a/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_609370bd/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_609370bd/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_6c363c33/job-1/target/418d3599/df44cd9b/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_6c363c33/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_6c363c33/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/job-1/target/418d3599/29f81735/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/0123472d/496238b3/javafx-graphics-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/0d70002c/1d22524b/javafx-media-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/13f5566a/16e48d61/javafx-base-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/2ce0a491/da5d32ce/javafx-web-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/3bf90005/ed8ba492/javafx-swing-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/4419f925/8fea768b/javafx-controls-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/56cf2b4b/2d84e478/javafx-controls-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/59ebc5e0/2ec3246d/scala3-library_3-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/705a7954/f62a847d/javafx-fxml-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/887acfea/95666378/scalafx_3-23.0.1-R34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/a96672b8/28de87c6/javafx-swing-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/aa626061/61fbeed7/javafx-base-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/b5590f92/d1ccc946/scala-library-2.13.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/b9a122a0/c290069e/javafx-web-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/caeb162e/2c7f6144/javafx-media-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/e83dde66/4416ade0/javafx-fxml-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/ead76b7f/e44d6f7a/javafx-graphics-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74d20015/target/f6c03205/a5bf0df7/scala-swing_3-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74f78b89/job-1/target/418d3599/a75ff306/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74f78b89/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74f78b89/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_74f78b89/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/job-1/target/418d3599/2eeb6e1d/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/0123472d/496238b3/javafx-graphics-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/0d70002c/1d22524b/javafx-media-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/13f5566a/16e48d61/javafx-base-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/2ce0a491/da5d32ce/javafx-web-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/3bf90005/ed8ba492/javafx-swing-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/4419f925/8fea768b/javafx-controls-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/56cf2b4b/2d84e478/javafx-controls-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/59ebc5e0/2ec3246d/scala3-library_3-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/705a7954/f62a847d/javafx-fxml-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/887acfea/95666378/scalafx_3-23.0.1-R34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/a96672b8/28de87c6/javafx-swing-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/aa626061/61fbeed7/javafx-base-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/b5590f92/d1ccc946/scala-library-2.13.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/b9a122a0/c290069e/javafx-web-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/caeb162e/2c7f6144/javafx-media-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/e83dde66/4416ade0/javafx-fxml-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/ead76b7f/e44d6f7a/javafx-graphics-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_755aa700/target/f6c03205/a5bf0df7/scala-swing_3-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_7b710c8e/job-1/target/418d3599/291b4f73/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_7b710c8e/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_7b710c8e/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_938804bb/job-1/target/418d3599/291b4f73/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_938804bb/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_938804bb/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/job-1/target/418d3599/52892eab/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/0123472d/496238b3/javafx-graphics-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/0d70002c/1d22524b/javafx-media-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/13f5566a/16e48d61/javafx-base-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/2ce0a491/da5d32ce/javafx-web-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/3bf90005/ed8ba492/javafx-swing-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/4419f925/8fea768b/javafx-controls-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/56cf2b4b/2d84e478/javafx-controls-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/59ebc5e0/2ec3246d/scala3-library_3-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/705a7954/f62a847d/javafx-fxml-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/887acfea/95666378/scalafx_3-23.0.1-R34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/a96672b8/28de87c6/javafx-swing-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/aa626061/61fbeed7/javafx-base-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/b5590f92/d1ccc946/scala-library-2.13.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/b9a122a0/c290069e/javafx-web-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/caeb162e/2c7f6144/javafx-media-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/e83dde66/4416ade0/javafx-fxml-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/ead76b7f/e44d6f7a/javafx-graphics-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_9fca6e3f/target/f6c03205/a5bf0df7/scala-swing_3-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_ae2652a8/job-1/target/46647629/e989c2dd/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_ae2652a8/target/00215bc2/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_ae2652a8/target/c29e5941/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_b8d4fcd7/job-1/target/418d3599/7eb2975f/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_bc7c58af/job-1/target/46647629/3529c0d6/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_bc7c58af/target/00215bc2/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_bc7c58af/target/c29e5941/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_bd33b984/job-1/target/418d3599/4875d7fb/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_bd33b984/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_bd33b984/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c294fccf/job-1/target/418d3599/861ca416/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c294fccf/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c294fccf/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/job-1/target/418d3599/f16532c3/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/0123472d/496238b3/javafx-graphics-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/0d70002c/1d22524b/javafx-media-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/13f5566a/16e48d61/javafx-base-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/2ce0a491/da5d32ce/javafx-web-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/3bf90005/ed8ba492/javafx-swing-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/4419f925/8fea768b/javafx-controls-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/56cf2b4b/2d84e478/javafx-controls-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/59ebc5e0/2ec3246d/scala3-library_3-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/705a7954/f62a847d/javafx-fxml-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/887acfea/95666378/scalafx_3-23.0.1-R34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/a96672b8/28de87c6/javafx-swing-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/aa626061/61fbeed7/javafx-base-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/b5590f92/d1ccc946/scala-library-2.13.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/b9a122a0/c290069e/javafx-web-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/caeb162e/2c7f6144/javafx-media-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/e83dde66/4416ade0/javafx-fxml-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/ead76b7f/e44d6f7a/javafx-graphics-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c5fd0520/target/f6c03205/a5bf0df7/scala-swing_3-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/job-1/target/418d3599/20775802/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/0123472d/496238b3/javafx-graphics-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/0d70002c/1d22524b/javafx-media-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/13f5566a/16e48d61/javafx-base-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/2ce0a491/da5d32ce/javafx-web-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/3bf90005/ed8ba492/javafx-swing-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/4419f925/8fea768b/javafx-controls-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/56cf2b4b/2d84e478/javafx-controls-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/59ebc5e0/2ec3246d/scala3-library_3-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/705a7954/f62a847d/javafx-fxml-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/887acfea/95666378/scalafx_3-23.0.1-R34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/a96672b8/28de87c6/javafx-swing-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/aa626061/61fbeed7/javafx-base-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/b5590f92/d1ccc946/scala-library-2.13.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/b9a122a0/c290069e/javafx-web-23.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/caeb162e/2c7f6144/javafx-media-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/e83dde66/4416ade0/javafx-fxml-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/ead76b7f/e44d6f7a/javafx-graphics-23.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c6c390a3/target/f6c03205/a5bf0df7/scala-swing_3-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_c8d75821/job-1/target/418d3599/7eb2975f/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_cb850d15/job-1/target/418d3599/715f4d85/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_cb850d15/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_cb850d15/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_cd42e968/job-1/target/418d3599/4d10273a/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_cd42e968/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_cd42e968/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_cd42e968/target/5e657641/9ca7d3d4/scalactic_3-3.2.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d22c93c6/job-1/target/418d3599/d697b775/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d22c93c6/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d22c93c6/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d67e0a42/job-1/target/418d3599/291b4f73/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d67e0a42/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d67e0a42/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d70fab00/job-1/target/418d3599/715f4d85/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d70fab00/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_d70fab00/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_da84e0ac/job-1/target/418d3599/861ca416/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_da84e0ac/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_da84e0ac/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_ddefeb63/job-1/target/418d3599/715f4d85/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_ddefeb63/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_ddefeb63/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_e062728e/job-1/target/418d3599/08294933/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_e062728e/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_e062728e/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_fc007a50/job-1/target/418d3599/7154c27a/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_fc007a50/target/25c40dd3/06ac27ae/scala-library-2.13.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bg-jobs/sbt_fc007a50/target/42fbf9fa/c31fd233/scala3-library_3-3.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/Main.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/UnoPlayingField.sc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/ConcreteUnoActionProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/ConcreteUnoActionProcessor.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCardStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCardStrategy.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/DrawCommand.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCardStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCardStrategy.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/PlayCommand.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionBuilder.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionFactory.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionHandler.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionProcessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionProcessor.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoActionStrategy.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/controller/UnoController.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card$package$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card$package.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card$package.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Card.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Player$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/Player.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/PlayerHand$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/PlayerHand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/PlayerHand.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/UnoField$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/UnoField.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/UnoField.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/cardColors$$anon$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/cardColors$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/cardColors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/cardColors.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/cardValues$$anon$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/cardValues$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/cardValues.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/model/cardValues.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Command.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/CommandManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/CommandManager.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Event$$anon$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Event$.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Event.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Event.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observable.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/util/Observer.tasty" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState$$anon$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState$$anon$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState$$anon$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState$$anon$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/BeginState.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$14.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState$$anon$5.class" afterDir="false" />
@@ -26,14 +375,123 @@
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/GameState.tasty" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/State.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/State.tasty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/TUI.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$$anon$17.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/classes/view/UnoGUI.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/coverage-report/cobertura.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.coverage" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.d36056c6-2470-4e5c-bc92-4a21f7998da2.104" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-data/scoverage.measurements.d36056c6-2470-4e5c-bc92-4a21f7998da2.99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/Main.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/contoller/UnoActionFactory.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/contoller/UnoActionProcessor.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/contoller/UnoActionStrategy.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/contoller/UnoController.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/model/Card.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/model/Player.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/model/PlayerHand.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/model/UnoField.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/packages.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/pure-min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/scala.controller.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/scala.model.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/scala.util.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/scala.view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/scoverage.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/util/Observer.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/scoverage-report/view/TUI.scala.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/controller/ControllerTest$TestObserver$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/controller/ControllerTest$TestObserver$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/controller/ControllerTest$TestObserver$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/controller/ControllerTest$TestObserver$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/controller/ControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/controller/ControllerTest.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/model/CardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/model/CardTest.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/model/PlayerHandTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/model/PlayerHandTest.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/model/PlayerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/model/PlayerTest.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/model/UnoFieldTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-classes/scala/model/UnoFieldTest.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-sync/copy-resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/test-zinc/inc_compile_3.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/uno_3-0.1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/uno_3-0.1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/update/update_cache_3/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/update/update_cache_3/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/update/update_cache_3/output" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/update/update_cache_3/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-3.3.1/zinc/inc_compile_3.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-3.3.1/zinc/inc_compile_3.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/_global/csrLogger/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/_global/dumpStructure/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/coverageReport/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/_global/update/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/updateClassifiers/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/updateClassifiers/_global/streams/update_cache_3/inputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/_global/updateClassifiers/_global/streams/update_cache_3/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/_global/_global/compileOutputs/previous" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compile/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compile/_global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/exportedProductJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/exportedProductJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/exportedProducts/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/externalDependencyClasspath/_global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/incOptions/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/output" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/packageBin/_global/streams/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/run/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/dependencyClasspathAsJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/dependencyClasspathAsJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/exportedProductJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/exportedProductJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/exportedProducts/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/fullClasspathAsJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/fullClasspathAsJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/internalDependencyAsJars/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/internalDependencyAsJars/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/runtime/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/_global/_global/compileOutputs/previous" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/_global/_global/definedTestNames/data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/_global/_global/dependencyClasspathFiles/previous" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/_global/_global/discoveredMainClasses/data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/bspReporter/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/compile/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/compileIncremental/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/compileIncremental/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/copyResources/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/definedTests/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/dependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/exportedProducts/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/fullClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/incOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/internalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/internalDependencyClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/loadedTestFrameworks/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/scalacOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/_global/streams/succeeded_tests" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/isModule=false name=scala.controller.ControllerTest/test/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/isModule=false name=scala.model.CardTest/test/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/isModule=false name=scala.model.PlayerHandTest/test/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/isModule=false name=scala.model.PlayerTest/test/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/test/isModule=false name=scala.model.UnoFieldTest/test/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/testListeners/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/test/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-reports/TEST-scala.controller.ControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-reports/TEST-scala.model.CardTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-reports/TEST-scala.model.PlayerHandTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-reports/TEST-scala.model.PlayerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-reports/TEST-scala.model.UnoFieldTest.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,34 +559,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.Main .executor": "Run",
-    "Application.Main.executor": "Debug",
-    "Application.TUI.executor": "Run",
-    "Application.main.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/SE/UNO",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.TUI.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/SE/UNO&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\SE\UNO\" />
@@ -140,42 +597,29 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main ">
-    <configuration name="Main " type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="UNO.uno" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
       <module name="uno" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Main " />
-      <item itemvalue="Application.Main" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
   <component name="ScalaProjectSettings">
+    <option name="migrateConfigurationsNotificationShown" value="true" />
     <option name="scala3DisclaimerShown" value="true" />
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-15.0.10-azul-15.0.10-4caba194b151-739f9a4f" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -219,6 +663,9 @@
       <workItem from="1731670028163" duration="22000" />
       <workItem from="1731847222944" duration="1505000" />
       <workItem from="1732027712001" duration="15696000" />
+      <workItem from="1734271899868" duration="1216000" />
+      <workItem from="1734522788744" duration="3101000" />
+      <workItem from="1734539487089" duration="1851000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
