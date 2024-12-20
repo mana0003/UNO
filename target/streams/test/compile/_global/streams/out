@@ -4,50 +4,14 @@
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m                      expression expected but [31mval[0m found[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E171] Type Error: C:\sem3\SE\UNO\src\test\scala\controller\DrawCommandTest.scala:19:35 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m19 |[0m    [33mval[0m [36mresult[0m = drawCommand.doStep()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mmissing argument for parameter command of [33mmethod[0m [35mdoStep[0m in [33mclass[0m [35mDrawCommand[0m: (command: util.Command): util.Try[Unit][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\model\UnoFieldTest.scala:4:13 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m4 |[0m[33mimport[0m scala.view.*[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value view is not a member of scala[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\model\PlayerTest.scala:5:13 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m5 |[0m[33mimport[0m scala.view.*[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value view is not a member of scala[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\model\PlayerHandTest.scala:4:13 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m4 |[0m[33mimport[0m scala.view.*[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value view is not a member of scala[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\model\CardsTest.scala:7:13 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m7 |[0m[33mimport[0m scala.view.*[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m       ^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       value view is not a member of scala[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\DrawCommandTest.scala:23:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m23 |[0m    updatedPlayer.hand.size shouldBe (initialField.players(initialField.currentPlayer).hand.size + [31m1[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\DrawCommandTest.scala:24:23 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m24 |[0m    updatedPlayer.hand.size shouldBe (initialField.players(initialField.currentPlayer).hand.size + [31m1[0m)[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value size is not a member of model.PlayerHand[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E171] Type Error: C:\sem3\SE\UNO\src\test\scala\controller\DrawCommandTest.scala:31:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m31 |[0m    drawCommand.doStep() [34m// Perform a draw[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mmissing argument for parameter command of [33mmethod[0m [35mdoStep[0m in [33mclass[0m [35mDrawCommand[0m: (command: util.Command): util.Try[Unit][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E171] Type Error: C:\sem3\SE\UNO\src\test\scala\controller\DrawCommandTest.scala:43:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m43 |[0m    drawCommand.doStep() [34m// Perform a draw[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mmissing argument for parameter command of [33mmethod[0m [35mdoStep[0m in [33mclass[0m [35mDrawCommand[0m: (command: util.Command): util.Try[Unit][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\DrawCommandTest.scala:49:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m49 |[0m    updatedPlayer.hand.size shouldBe (initialField.players(initialField.currentPlayer).hand.size + [31m1[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\DrawCommandTest.scala:50:23 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m50 |[0m    updatedPlayer.hand.size shouldBe (initialField.players(initialField.currentPlayer).hand.size + [31m1[0m)[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value size is not a member of model.PlayerHand[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:11:13 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m11 |[0m[33mimport[0m util.{Success, Failure}[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m             ^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m             value Success is not a member of util[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:11:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m11 |[0m[33mimport[0m util.{Success, Failure}[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                      ^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                      value Failure is not a member of util[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:18:20 [0m[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m18 |[0m    [33mval[0m [36mvalidCard[0m = mock[[35mCard[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^[0m[0m
@@ -59,10 +23,6 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Card] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:21:29 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m21 |[0m    [33mval[0m [36mresult[0m = PlayCommand.doStep()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m           value doStep is not a member of object controller.PlayCommand[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:24:29 [0m[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m24 |[0m    controller.field.topCard shouldBe validCard[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
@@ -227,12 +187,7 @@
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:25:62 [0m[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m25 |[0m    controller.field.players(initialField.currentPlayer).hand.contains(validCard) shouldBe [31mfalse[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mvalue contains is not a member of model.PlayerHand, but could be made available as an extension method.[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mThe following import might fix the problem:[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m  import org.scalactic.Prettifier.default[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value contains is not a member of model.PlayerHand[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:31:22 [0m[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m31 |[0m    [33mval[0m [36minvalidCard[0m = mock[[35mCard[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                      ^^^^[0m[0m
@@ -244,10 +199,6 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Card] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:34:29 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m34 |[0m    [33mval[0m [36mresult[0m = PlayCommand.doStep()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m           value doStep is not a member of object controller.PlayCommand[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:43:20 [0m[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m43 |[0m    [33mval[0m [36mvalidCard[0m = mock[[35mCard[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^[0m[0m
@@ -259,14 +210,6 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Card] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:46:16 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m46 |[0m    PlayCommand.doStep() [34m// Perform the play[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value doStep is not a member of object controller.PlayCommand[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:47:29 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m47 |[0m    [33mval[0m [36mresult[0m = PlayCommand.undoStep()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m         value undoStep is not a member of object controller.PlayCommand[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:56:20 [0m[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m56 |[0m    [33mval[0m [36mvalidCard[0m = mock[[35mCard[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^[0m[0m
@@ -278,14 +221,6 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Card] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:59:16 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m59 |[0m    PlayCommand.doStep() [34m// Perform the play[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value doStep is not a member of object controller.PlayCommand[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:60:16 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m60 |[0m    PlayCommand.undoStep() [34m// Undo the play[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value undoStep is not a member of object controller.PlayCommand[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:61:29 [0m[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m61 |[0m    [33mval[0m [36mresult[0m = PlayCommand.redoStep() [34m// Redo the play[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^^^^^^^^^^^^^^^^^[0m[0m
@@ -497,7 +432,7 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:98:16 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m98 |[0m    PlayCommand.doStep() [34m// Perform the play[0m
+[0m[[0m[31merror[0m] [0m[0m[31m98 |[0m    PlayCommand.doStep(playCommand) [34m// Perform the play[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value doStep is not a member of object controller.PlayCommand[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\PlayCommandTest.scala:99:16 [0m[0m[0m
@@ -605,8 +540,8 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value draw is not a member of T[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:12:21 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m12 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:15:21 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m15 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                     ^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
@@ -616,44 +551,53 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [controller.UnoController] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:13:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m13 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                      ^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                      Not found: type Player[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:16:17 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m16 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Player] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:14:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m14 |[0m    [33mval[0m [36mtopCard[0m = mock[[35mCard[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                       ^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                       Not found: type Card[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:17:18 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m17 |[0m    [33mval[0m [36mtopCard[0m = mock[[35mCard[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                  ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Card] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:15:25 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m15 |[0m    [33mval[0m [36mvalidCard[0m = mock[[35mCard[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                         ^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                         Not found: type Card[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:18:20 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m18 |[0m    [33mval[0m [36mvalidCard[0m = mock[[35mCard[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                    ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Card] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:26:19 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m26 |[0m    verify(player).valid(topCard)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:29:19 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m29 |[0m    verify(player).valid(topCard)[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value valid is not a member of T - did you mean T.wait?[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:27:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m27 |[0m    verify(controller).notifyObservers(Event.Play)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:30:23 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m30 |[0m    verify(controller).notifyObservers(Event.Play)[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value notifyObservers is not a member of T[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:27:39 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m27 |[0m    verify(controller).notifyObservers(Event.Play)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                       ^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                       Not found: Event[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:31:21 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m31 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:34:21 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m34 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                     ^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
@@ -663,32 +607,42 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [controller.UnoController] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:32:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m32 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                      ^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                      Not found: type Player[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:35:17 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m35 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Player] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:33:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m33 |[0m    [33mval[0m [36mtopCard[0m = mock[[35mCard[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                       ^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                       Not found: type Card[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:36:18 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m36 |[0m    [33mval[0m [36mtopCard[0m = mock[[35mCard[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                  ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Card] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:44:19 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m44 |[0m    verify(player).valid(topCard)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:47:19 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m47 |[0m    verify(player).valid(topCard)[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value valid is not a member of T - did you mean T.wait?[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:45:32 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m45 |[0m    verify(controller, never()).notifyObservers(any())[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:48:32 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m48 |[0m    verify(controller, never()).notifyObservers(any())[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value notifyObservers is not a member of T[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:49:21 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m49 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:52:21 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m52 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                     ^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
@@ -698,20 +652,25 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [controller.UnoController] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:50:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m50 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                      ^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                      Not found: type Player[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:53:17 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m53 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Player] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:58:32 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m58 |[0m    verify(controller, never()).notifyObservers(any())[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:61:32 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m61 |[0m    verify(controller, never()).notifyObservers(any())[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value notifyObservers is not a member of T[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:62:21 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m62 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:65:21 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m65 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                     ^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
@@ -721,14 +680,19 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [controller.UnoController] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:63:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m63 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                      ^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                      Not found: type Player[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:66:17 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m66 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Player] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:66:18 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m66 |[0m    [33mval[0m [36mhandler[0m = mock[UnoActionBuilder.UnoAction][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:69:18 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m69 |[0m    [33mval[0m [36mhandler[0m = mock[UnoActionBuilder.UnoAction][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                  ^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
@@ -738,8 +702,8 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [controller.UnoActionBuilder.UnoAction] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:67:18 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m67 |[0m    [33mval[0m [36mbuilder[0m = mock[UnoActionBuilder.UnoActionBuilder][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:70:18 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m70 |[0m    [33mval[0m [36mbuilder[0m = mock[UnoActionBuilder.UnoActionBuilder][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                  ^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
@@ -749,14 +713,14 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [controller.UnoActionBuilder.UnoActionBuilder] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:78:20 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m78 |[0m    verify(handler).executeAction(controller, player)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:81:20 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m81 |[0m    verify(handler).executeAction(controller, player)[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value executeAction is not a member of T[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:82:21 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m82 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:85:21 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m85 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                     ^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
@@ -766,38 +730,31 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [controller.UnoController] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:83:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m83 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                      ^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                      Not found: type Player[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:86:17 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m86 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                 ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0mall match type arguments [model.Player] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:91:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m91 |[0m    verify(controller).notifyObservers(Event.Play)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:94:23 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m94 |[0m    verify(controller).notifyObservers(Event.Play)[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value notifyObservers is not a member of T[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:91:39 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m91 |[0m    verify(controller).notifyObservers(Event.Play)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                       ^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                       Not found: Event[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:97:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m97 |[0m    verify(controller).notifyObservers(Event.Draw)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value notifyObservers is not a member of T[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:97:39 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m97 |[0m    verify(controller).notifyObservers(Event.Draw)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                       ^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                       Not found: Event[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:101:21 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m101 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:100:23 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m100 |[0m    verify(controller).notifyObservers(Event.Draw)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    value notifyObservers is not a member of T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    where:    T is a type variable with constraint <: Object[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:104:21 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m104 |[0m    [33mval[0m [36mcontroller[0m = mock[[35mUnoController[0m][0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                     ^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
@@ -807,14 +764,19 @@
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0mall match type arguments [controller.UnoController] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:102:22 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m102 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                      ^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                      Not found: type Player[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E051] Reference Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:105:17 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m105 |[0m    [33mval[0m [36mplayer[0m = mock[[35mPlayer[0m][0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                 ^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mAmbiguous overload. The overloaded alternatives of [33mmethod[0m [35mmock[0m in [33mobject[0m [35mMockito[0m with types[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m [T](x$0: Class[T], x$1: org.mockito.MockSettings): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m [T](x$0: Class[T], x$1: org.mockito.stubbing.Answer[?]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m [T](x$0: Class[T], x$1: String): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m [T](x$0: Class[T]): T[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mall match type arguments [model.Player] and expected type <?>[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:110:32 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m110 |[0m    verify(controller, never()).notifyObservers(any())[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\sem3\SE\UNO\src\test\scala\controller\UnoActionProcessorTest.scala:113:32 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m113 |[0m    verify(controller, never()).notifyObservers(any())[0m
 [0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m    value notifyObservers is not a member of T[0m
 [0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
@@ -998,10 +960,4 @@
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    value play is not a member of T[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
 [0m[[0m[31merror[0m] [0m[0m[31m   |[0m    where:    T is a type variable with constraint <: Object[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E100] Syntax Error: C:\sem3\SE\UNO\src\test\scala\util\CommandManagerTest.scala:49:12 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m49 |[0m    manager.undoStep shouldBe a[[35mSuccess[0m[_]][0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m    ^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m [33mmethod[0m [35mundoStep[0m in [33mclass[0m [35mCommandManager[0m must be called with () argument[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m94 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m75 errors found[0m

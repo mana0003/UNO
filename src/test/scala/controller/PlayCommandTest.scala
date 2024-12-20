@@ -1,14 +1,15 @@
 package controller
 
-import org.scalatest._
 import model.*
 import controller.*
 import util.*
+import scala.util.{Success, Failure}
+import org.scalatest._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
 import org.mockito.Mockito._
 import org.mockito.ArgumentMatchers._
-import util.{Success, Failure}
+
 
 class PlayCommandTest extends AnyFunSuite with Matchers {
 
@@ -18,7 +19,7 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     val validCard = mock[Card]
     val playCommand = new PlayCommand(controller, validCard)
 
-    val result = PlayCommand.doStep()
+    val result = playCommand.doStep(playCommand)
 
     result shouldBe a[Success[_]]
     controller.field.topCard shouldBe validCard
@@ -31,7 +32,7 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     val invalidCard = mock[Card]
     val playCommand = new PlayCommand(controller, invalidCard)
 
-    val result = PlayCommand.doStep()
+    val result = playCommand.doStep(playCommand)
 
     result shouldBe a[Failure[_]]
     result.failed.get shouldBe an[IllegalArgumentException]
@@ -43,8 +44,8 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     val validCard = mock[Card]
     val playCommand = new PlayCommand(controller, validCard)
 
-    PlayCommand.doStep() // Perform the play
-    val result = PlayCommand.undoStep()
+    playCommand.doStep(playCommand) // Perform the play
+    val result = playCommand.undoStep()
 
     result shouldBe a[Success[_]]
     controller.field shouldBe initialField // The state should revert to the initial field
@@ -56,8 +57,8 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     val validCard = mock[Card]
     val playCommand = new PlayCommand(controller, validCard)
 
-    PlayCommand.doStep() // Perform the play
-    PlayCommand.undoStep() // Undo the play
+    playCommand.doStep(playCommand) // Perform the play
+    playCommand.undoStep() // Undo the play
     val result = PlayCommand.redoStep() // Redo the play
 
     result shouldBe a[Success[_]]
@@ -95,7 +96,7 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     val validCard = mock[Card]
     val playCommand = new PlayCommand(controller, validCard)
 
-    PlayCommand.doStep() // Perform the play
+    PlayCommand.doStep(playCommand) // Perform the play
     PlayCommand.undoStep() // Undo the play
     controller.field = // Modify the game state so the card can no longer be played
     val result = PlayCommand.redoStep() // Try to redo the play

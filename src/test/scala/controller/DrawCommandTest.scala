@@ -2,6 +2,7 @@ package controller
 
 import controller.*
 import model.*
+import util.*
 import org.scalatest._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
@@ -16,7 +17,7 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
     val controller = new UnoController(initialField)
     val drawCommand = new DrawCommand(controller)
 
-    val result = drawCommand.doStep()
+    val result = drawCommand.doStep(drawCommand)
 
     result shouldBe a[Success[_]]
     val updatedPlayer = controller.field.players(controller.field.currentPlayer)
@@ -28,7 +29,7 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
     val controller = new UnoController(initialField)
     val drawCommand = new DrawCommand(controller)
 
-    drawCommand.doStep() // Perform a draw
+    drawCommand.doStep(drawCommand) // Perform a draw
     val result = drawCommand.undoStep()
 
     result shouldBe a[Success[_]]
@@ -40,7 +41,7 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
     val controller = new UnoController(initialField)
     val drawCommand = new DrawCommand(controller)
 
-    drawCommand.doStep() // Perform a draw
+    drawCommand.doStep(drawCommand) // Perform a draw
     drawCommand.undoStep() // Undo the draw
     val result = drawCommand.redoStep() // Redo the draw
 

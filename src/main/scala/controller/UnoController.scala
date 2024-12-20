@@ -16,6 +16,7 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
 
   def isGuiMode: Boolean = isGuiActive
 
+
   def play(card: Card): Unit = {
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
@@ -67,7 +68,7 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
   override def addObserver(observer: Observer): Unit = {
     super.addObserver(observer)
   }
-
+    
   override def notifyObservers(event: Event): Unit = {
     super.notifyObservers(event)
   }

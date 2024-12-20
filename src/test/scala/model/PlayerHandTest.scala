@@ -1,9 +1,9 @@
 package model
 import org.scalatest.funsuite.AnyFunSuite
-import scala.model.*
-import scala.view.*
-import scala.util.*
-import scala.controller.*
+import model.*
+//import view.*
+//import util.*
+//import controller.*
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*
 

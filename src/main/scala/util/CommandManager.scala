@@ -11,7 +11,7 @@ class CommandManager extends Command {
     val result = command.doStep(command)
     result match {
       case Success(_) =>
-        undoStack = command :: undoStack
+        undoStack = undoStack
         redoStack = Nil // Clear the redo stack after a new command
       case Failure(_) => // Do nothing
     }
