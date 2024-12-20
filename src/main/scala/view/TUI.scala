@@ -7,7 +7,7 @@ import scala.io.AnsiColor._
 
 class TUI(val controller: IUnoController) extends Observer with IView {
   // controller.addObserver(this)
-  
+
   private def processInputLine(input: Int, handSize: Int): Unit = {
     if (input < 1 || input > handSize) {
       println("Invalid card number. Please try again.")

@@ -10,13 +10,13 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
   private val commandManager = new CommandManager()
   private var isGuiActive: Boolean = false
 
-   def setGuiActive(active: Boolean): Unit = {
+  def setGuiActive(active: Boolean): Unit = {
     isGuiActive = active
   }
 
-   def isGuiMode: Boolean = isGuiActive
+  def isGuiMode: Boolean = isGuiActive
 
-   def play(card: Card): Unit = {
+  def play(card: Card): Unit = {
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
       case Success(_) =>
@@ -38,7 +38,7 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
     }
   }
 
-   def undo(): Unit = {
+  def undo(): Unit = {
     commandManager.undoStep() match {
       case Success(_) =>
         notifyObservers(Event.Undo)
@@ -47,7 +47,7 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
     }
   }
 
-   def redo(): Unit = {
+  def redo(): Unit = {
     commandManager.redoStep() match {
       case Success(_) =>
         notifyObservers(Event.Redo)
@@ -56,13 +56,13 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
     }
   }
 
-   def startGame(): Unit = {
+  def startGame(): Unit = {
     notifyObservers(Event.Start)
   }
 
-   def getField: UnoField = field
+  def getField: UnoField = field
 
-   def getCurrentPlayer: Int = field.currentPlayer
+  def getCurrentPlayer: Int = field.currentPlayer
 
   override def addObserver(observer: Observer): Unit = {
     super.addObserver(observer)
