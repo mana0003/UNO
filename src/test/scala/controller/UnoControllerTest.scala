@@ -1,4 +1,4 @@
-package scala.controller
+package controller
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.BeforeAndAfter
@@ -6,17 +6,17 @@ import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 import org.scalatest.matchers.should.Matchers.*
 import org.scalatest.wordspec.AnyWordSpec
-import scala.view.*
-import scala.model.*
-import scala.util.*
-import scala.controller.*
-import scala.model.cardValues.*
-import scala.model.cardColors.*
+import view.*
+import model.*
+import util.*
+import controller.*
+import model.cardValues.*
+import model.cardColors.*
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*
-import scala.util.Event.*
+import util.Event.*
 
-class ControllerTest extends AnyWordSpec {
+class UnoControllerTest extends AnyWordSpec {
   "The Controller" should {
     val field =
       UnoField(
@@ -27,7 +27,7 @@ class ControllerTest extends AnyWordSpec {
 
     "notify its observers on start" in {
       class TestObserver(controller: UnoController) extends Observer {
-        controller.add(this)
+        controller.addObserver(this)
         var bing = false
 
         def update(e: Event): Unit = bing = true
@@ -40,7 +40,7 @@ class ControllerTest extends AnyWordSpec {
 
     "notify its observers on quit" in {
       class TestObserver(controller: UnoController) extends Observer {
-        controller.add(this)
+        controller.addObserver(this)
         var bing = false
 
         def update(e: Event): Unit = bing = true
@@ -53,13 +53,13 @@ class ControllerTest extends AnyWordSpec {
 
     "don't notify its observers on remove" in {
       class TestObserver(val controller: UnoController) extends Observer {
-        controller.add(this)
+        controller.addObserver(this)
         var bing = false
 
         def update(e: Event): Unit = bing = true
       }
       val testObserver = TestObserver(controller)
-      testObserver.controller.remove(testObserver)
+      testObserver.controller.removeObserver(testObserver)
       testObserver.bing should be(false)
       controller.notifyObservers(Event.Start)
       testObserver.bing should be(false)
@@ -77,7 +77,7 @@ class ControllerTest extends AnyWordSpec {
     }
     "quit the game" in {
       class TestObserver(val controller: UnoController) extends Observer {
-      controller.add(this)
+      controller.addObserver(this)
       var bing: Event = Start
       def update(e: Event): Unit = bing = e
       }

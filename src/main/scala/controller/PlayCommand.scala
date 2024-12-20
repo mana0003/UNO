@@ -10,7 +10,7 @@ import scala.util.Try
 class PlayCommand(controller: UnoController, card: Card) extends util.Command {
   private var previousState: Option[UnoField] = None
 
-  override def doStep(): Try[Unit] = Try {
+  override def doStep(command: Command): Try[Unit] = Try {
     previousState = Some(controller.field) // Save the current game state
 
     val currentPlayer = controller.field.players(controller.field.currentPlayer)

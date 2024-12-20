@@ -1,4 +1,4 @@
-package scala.model
+package model
 import org.scalatest.funsuite.AnyFunSuite
 import scala.model.*
 import scala.view.*

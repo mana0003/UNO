@@ -17,8 +17,8 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
    def isGuiMode: Boolean = isGuiActive
 
    def play(card: Card): Unit = {
-    //val command = new PlayCommand(this, card)
-    commandManager.doStep() match {
+    val command = new PlayCommand(this, card)
+    commandManager.doStep(command) match {
       case Success(_) =>
         println(s"Player ${field.currentPlayer + 1} played: ${card.getColorCode}${card.value}$RESET")
         println(s"Player ${field.currentPlayer + 1} hand: ${field.players(field.currentPlayer).hand.cards.map(c => s"${c.getColorCode}${c.value}$RESET").mkString(", ")}")
@@ -29,8 +29,8 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
   }
 
   def draw(): Unit = {
-    //val command = new DrawCommand(this)
-    commandManager.doStep() match {
+    val command = new DrawCommand(this)
+    commandManager.doStep(command) match {
       case Success(_) =>
         notifyObservers(Event.Draw)
       case Failure(exception) =>

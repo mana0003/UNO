@@ -11,7 +11,7 @@ class DrawCommand(controller: UnoController) extends util.Command {
   private var previousState: Option[UnoField] = None
   private var drawnCard: Option[Card] = None
 
-  override def doStep(): Try[Unit] = Try {
+  override def doStep(command: Command): Try[Unit] = Try {
     previousState = Some(controller.field) // Save the current game state
     val newCard = randomCard // Draw a random card
     drawnCard = Some(newCard) // Save the drawn card for redo

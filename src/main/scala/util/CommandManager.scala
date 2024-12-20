@@ -7,11 +7,11 @@ class CommandManager extends Command {
   private var undoStack: List[Command] = Nil
   private var redoStack: List[Command] = Nil
 
-  override def doStep(): Try[Unit] = {
-    val result = doStep()
+  override def doStep(command: Command): Try[Unit] = {
+    val result = command.doStep(command)
     result match {
       case Success(_) =>
-        undoStack = undoStack
+        undoStack = command :: undoStack
         redoStack = Nil // Clear the redo stack after a new command
       case Failure(_) => // Do nothing
     }

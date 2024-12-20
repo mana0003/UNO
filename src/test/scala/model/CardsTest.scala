@@ -1,11 +1,11 @@
-package scala.model
+package model
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*
-import scala.model.*
-import scala.view.*
-import scala.util.*
+import model.*
+import view.*
+import util.*
 import scala.io.AnsiColor
 
 class CardTest extends AnyWordSpec {
