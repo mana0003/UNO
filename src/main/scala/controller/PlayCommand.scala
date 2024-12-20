@@ -10,7 +10,7 @@ import scala.util.Try
 class PlayCommand(controller: UnoController, card: Card) extends util.Command {
   private var previousState: Option[UnoField] = None
 
-  override def execute(): Try[Unit] = Try {
+  override def doStep(): Try[Unit] = Try {
     previousState = Some(controller.field) // Save the current game state
 
     val currentPlayer = controller.field.players(controller.field.currentPlayer)
@@ -34,7 +34,7 @@ class PlayCommand(controller: UnoController, card: Card) extends util.Command {
     controller.notifyObservers(Event.Play)
   }
 
-  override def undo(): Try[Unit] = previousState match {
+  override def undoStep(): Try[Unit] = previousState match {
     case Some(state) =>
       Try {
         controller.field = state // Revert to the previous state
@@ -43,7 +43,7 @@ class PlayCommand(controller: UnoController, card: Card) extends util.Command {
     case None => Failure(new IllegalStateException("No state to undo to"))
   }
 
-  override def redo(): Try[Unit] = Try {
+  override def redoStep(): Try[Unit] = Try {
     val currentPlayer = controller.field.players(controller.field.currentPlayer)
 
     if (!card.canBePlayedOn(controller.field.topCard)) {

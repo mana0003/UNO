@@ -4,11 +4,17 @@ package util
 trait Observable {
   private var subscribers: Vector[Observer] = Vector()
 
-  def add(s: Observer): Unit = subscribers = subscribers :+ s
+  def addObserver(observer: Observer): Unit = {
+    subscribers = subscribers :+ observer
+  }
 
-  def remove(s: Observer): Unit = subscribers = subscribers.filterNot(o => o == s)
+  def removeObserver(observer: Observer): Unit = {
+    subscribers = subscribers.filterNot(o => o == observer)
+  }
 
-  def notifyObservers(e: Event): Unit = subscribers.foreach(o => o.update(e))
+  def notifyObservers(event: Event): Unit = {
+    subscribers.foreach(o => o.update(event))
+  }
 }
 
 trait Observer {

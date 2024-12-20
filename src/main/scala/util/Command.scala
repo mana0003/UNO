@@ -1,9 +1,9 @@
 package util
 
-import scala.util.{Try, Success, Failure}
+import scala.util.Try
 
 trait Command {
-  def execute(): Try[Unit]
-  def undo(): Try[Unit]
-  def redo(): Try[Unit]
+  def doStep(): Try[Unit]
+  def undoStep(): Try[Unit]
+  def redoStep(): Try[Unit]
 }

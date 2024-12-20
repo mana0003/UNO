@@ -1,37 +1,25 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:158:10 ---[0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m158 |[0m          updateGUI()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:164:10 ---[0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m164 |[0m          updateGUI()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:170:10 ---[0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m170 |[0m          updateGUI()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:176:10 ---[0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m176 |[0m          updateGUI()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:182:10 ---[0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m182 |[0m          updateGUI()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SE\UNO\src\main\scala\view\UnoGUI.scala:188:10 ---[0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m188 |[0m          updateGUI()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m          ^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          Not found: updateGUI[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m6 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:108:14 ------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m108 |[0m  [33mprivate[0m [33mdef[0m gameContinue(): Unit = {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m              ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mprivate [33mmethod[0m [35mgameContinue[0m cannot override [33mmethod[0m [35mgameContinue[0m in [33mtrait[0m [35mIView[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:125:14 ------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m125 |[0m  [33mprivate[0m [33mdef[0m undoAction(): Unit = {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m              ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mprivate [33mmethod[0m [35mundoAction[0m cannot override [33mmethod[0m [35mundoAction[0m in [33mtrait[0m [35mIView[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:130:14 ------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m130 |[0m  [33mprivate[0m [33mdef[0m redoAction(): Unit = {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m              ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mprivate [33mmethod[0m [35mredoAction[0m cannot override [33mmethod[0m [35mredoAction[0m in [33mtrait[0m [35mIView[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: C:\SoftwareEngineering\UNO\src\main\scala\view\TUI.scala:8:6 ---------[0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m8 |[0m[33mclass[0m [35mTUI[0m([33mval[0m [36mcontroller[0m: [35mIUnoController[0m) [33mextends[0m [35mObserver[0m [33mwith[0m [35mIView[0m {[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m  |[0m      ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m      class TUI needs to be abstract, since:[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m      it has 4 unimplemented members.[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m      /** As seen from class TUI, the missing signatures are as follows.[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       *  For convenience, these are usable as stub implementations.[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m       */[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m        def addObservers(): Unit = ???[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m        def gameContinue(): Unit = ???[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m        def redoAction(): Unit = ???[0m
+[0m[[0m[31merror[0m] [0m[0m[31m  |[0m        def undoAction(): Unit = ???[0m
+[0m[[0m[31merror[0m] [0m[0mfour errors found[0m

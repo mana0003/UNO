@@ -1,5 +1,3 @@
-package main
-
 import controller._
 import model._
 import view._

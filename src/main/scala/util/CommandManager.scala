@@ -1,27 +1,28 @@
 package util
 
 import scala.util.{Try, Success, Failure}
+import util.Command
 
-class CommandManager {
+class CommandManager extends Command {
   private var undoStack: List[Command] = Nil
   private var redoStack: List[Command] = Nil
 
-  def doStep(command: Command): Try[Unit] = {
-    val result = command.execute()
+  override def doStep(): Try[Unit] = {
+    val result = doStep()
     result match {
       case Success(_) =>
-        undoStack = command :: undoStack
+        undoStack = undoStack
         redoStack = Nil // Clear the redo stack after a new command
       case Failure(_) => // Do nothing
     }
     result
   }
 
-  def undoStep: Try[Unit] = {
+  override def undoStep(): Try[Unit] = {
     undoStack match {
       case Nil => Failure(new NoSuchElementException("No commands to undo"))
       case head :: tail =>
-        val result = head.undo()
+        val result = head.undoStep()
         result match {
           case Success(_) =>
             undoStack = tail
@@ -32,11 +33,11 @@ class CommandManager {
     }
   }
 
-  def redoStep: Try[Unit] = {
+  override def redoStep(): Try[Unit] = {
     redoStack match {
       case Nil => Failure(new NoSuchElementException("No commands to redo"))
       case head :: tail =>
-        val result = head.execute()
+        val result = head.redoStep()
         result match {
           case Success(_) =>
             redoStack = tail

@@ -11,7 +11,7 @@ class DrawCommand(controller: UnoController) extends util.Command {
   private var previousState: Option[UnoField] = None
   private var drawnCard: Option[Card] = None
 
-  override def execute(): Try[Unit] = Try {
+  override def doStep(): Try[Unit] = Try {
     previousState = Some(controller.field) // Save the current game state
     val newCard = randomCard // Draw a random card
     drawnCard = Some(newCard) // Save the drawn card for redo
@@ -28,7 +28,7 @@ class DrawCommand(controller: UnoController) extends util.Command {
     controller.notifyObservers(Event.Draw)
   }
 
-  override def undo(): Try[Unit] = previousState match {
+  override def undoStep(): Try[Unit] = previousState match {
     case Some(state) =>
       Try {
         controller.field = state // Revert to the previous state
@@ -37,7 +37,7 @@ class DrawCommand(controller: UnoController) extends util.Command {
     case None => Failure(new IllegalStateException("No state to undo to"))
   }
 
-  override def redo(): Try[Unit] = Try {
+  override def redoStep(): Try[Unit] = Try {
     if (drawnCard.isEmpty) throw new IllegalStateException("No card to redo drawing")
     val newCard = drawnCard.get
 

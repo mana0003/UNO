@@ -134,7 +134,7 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
 }
 
 class UnoGUI(controller: UnoController) extends JFXApp3 with Observer {
-  controller.add(this)
+  controller.addObserver(this)
 
   private var state: State = new BeginState(this, controller)
   private val menuPane: Pane = new Pane
