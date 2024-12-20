@@ -4,8 +4,6 @@ import model.*
 import org.scalatest._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
-import org.mockito.Mockito._
-import org.mockito.ArgumentMatchers._
 
 class UnoActionBuilderTest extends AnyFunSuite with Matchers {
 
@@ -20,13 +18,13 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
   }
 
   test("setCard() should set the card in the builder") {
-    val card = mock[Card]
+    val card = Card(cardColors.RED, cardValues.THREE)
     val builder = UnoActionBuilder.builder()
     builder.setCard(card) shouldBe theSameInstanceAs(builder)
   }
 
   test("build() should create a PlayAction for action 'play'") {
-    val card = mock[Card]
+    val card = Card(cardColors.RED, cardValues.THREE)
     val builder = UnoActionBuilder.builder()
       .setAction("play")
       .setCard(card)
@@ -53,23 +51,25 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
   }
 
   test("PlayAction.executeAction() should call play on the controller") {
-    val card = mock[Card]
-    val mockController = mock[IUnoController]
-    val player = mock[Player]
+    val card = Card(cardColors.RED, cardValues.THREE)
+    val controller = new UnoController(new UnoField())
+    val player = new Player(0, PlayerHand(List(card)))
+    controller.field = controller.field.copy(players = List(player))
     val action = new UnoActionBuilder.PlayAction(card)
 
-    action.executeAction(mockController, player)
+    action.executeAction(controller, player)
 
-    verify(mockController).play(card)
+    controller.field.topCard shouldBe card
+    controller.field.players(controller.field.currentPlayer).hand.cards shouldBe empty
   }
 
   test("DrawAction.executeAction() should call draw on the controller") {
-    val mockController = mock[IUnoController]
-    val player = mock[Player]
+    val controller = new UnoController(new UnoField())
+    val player = new Player(0, PlayerHand(List()))
     val action = new UnoActionBuilder.DrawAction
 
-    action.executeAction(mockController, player)
+    action.executeAction(controller, player)
 
-    verify(mockController).draw()
+    controller.field.players(controller.field.currentPlayer).hand.cards.size shouldBe 1
   }
 }

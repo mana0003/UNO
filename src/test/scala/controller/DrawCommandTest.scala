@@ -21,7 +21,7 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
 
     result shouldBe a[Success[_]]
     val updatedPlayer = controller.field.players(controller.field.currentPlayer)
-    updatedPlayer.hand.size shouldBe (initialField.players(initialField.currentPlayer).hand.size + 1)
+    updatedPlayer.hand.cards.size shouldBe (initialField.players(initialField.currentPlayer).hand.cards.size + 1)
   }
 
   test("undo() should revert to the previous state") {
@@ -47,7 +47,7 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
 
     result shouldBe a[Success[_]]
     val updatedPlayer = controller.field.players(controller.field.currentPlayer)
-    updatedPlayer.hand.size shouldBe (initialField.players(initialField.currentPlayer).hand.size + 1)
+    updatedPlayer.hand.cards.size shouldBe (initialField.players(initialField.currentPlayer).hand.cards.size + 1)
   }
 
   test("undo() without a prior execute should fail") {

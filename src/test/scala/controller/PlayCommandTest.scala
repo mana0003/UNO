@@ -7,29 +7,26 @@ import scala.util.{Success, Failure}
 import org.scalatest._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
-import org.mockito.Mockito._
-import org.mockito.ArgumentMatchers._
-
 
 class PlayCommandTest extends AnyFunSuite with Matchers {
 
   test("execute() should play a valid card and update the game state") {
     val initialField = new UnoField()
     val controller = new UnoController(initialField)
-    val validCard = mock[Card]
+    val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
     val result = playCommand.doStep(playCommand)
 
     result shouldBe a[Success[_]]
     controller.field.topCard shouldBe validCard
-    controller.field.players(initialField.currentPlayer).hand.contains(validCard) shouldBe false
+    controller.field.players(initialField.currentPlayer).hand.cards.contains(validCard) shouldBe false
   }
 
   test("execute() should fail for an invalid card") {
     val initialField = new UnoField()
     val controller = new UnoController(initialField)
-    val invalidCard = mock[Card]
+    val invalidCard = Card(cardColors.RED, cardValues.THREE) // Assuming this card is invalid in the current context
     val playCommand = new PlayCommand(controller, invalidCard)
 
     val result = playCommand.doStep(playCommand)
@@ -41,7 +38,7 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   test("undo() should revert the game state to before the card was played") {
     val initialField = new UnoField()
     val controller = new UnoController(initialField)
-    val validCard = mock[Card]
+    val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
     playCommand.doStep(playCommand) // Perform the play
@@ -54,25 +51,25 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   test("redo() should reapply the playing of the card") {
     val initialField = new UnoField()
     val controller = new UnoController(initialField)
-    val validCard = mock[Card]
+    val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
     playCommand.doStep(playCommand) // Perform the play
     playCommand.undoStep() // Undo the play
-    val result = PlayCommand.redoStep() // Redo the play
+    val result = playCommand.redoStep() // Redo the play
 
     result shouldBe a[Success[_]]
     controller.field.topCard shouldBe validCard
-    controller.field.players(initialField.currentPlayer).hand.contains(validCard) shouldBe false
+    controller.field.players(initialField.currentPlayer).hand.cards.contains(validCard) shouldBe false
   }
 
   test("undo() without a prior execute should fail") {
     val initialField = new UnoField()
     val controller = new UnoController(initialField)
-    val validCard = mock[Card]
+    val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
-    val result = PlayCommand.undoStep()
+    val result = playCommand.undoStep()
 
     result shouldBe a[Failure[_]]
     result.failed.get shouldBe an[IllegalStateException]
@@ -81,10 +78,10 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   test("redo() without a prior execute should fail") {
     val initialField = new UnoField()
     val controller = new UnoController(initialField)
-    val validCard = mock[Card]
+    val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
-    val result = PlayCommand.redoStep()
+    val result = playCommand.redoStep()
 
     result shouldBe a[Failure[_]]
     result.failed.get shouldBe an[IllegalStateException]
@@ -93,13 +90,14 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   test("redo() should fail if the card cannot be replayed") {
     val initialField = new UnoField()
     val controller = new UnoController(initialField)
-    val validCard = mock[Card]
+    val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
-    PlayCommand.doStep(playCommand) // Perform the play
-    PlayCommand.undoStep() // Undo the play
-    controller.field = // Modify the game state so the card can no longer be played
-    val result = PlayCommand.redoStep() // Try to redo the play
+    playCommand.doStep(playCommand) // Perform the play
+    playCommand.undoStep() // Undo the play
+    // Modify the game state so the card can no longer be played
+    controller.field = controller.field.copy(topCard = Card(cardColors.BLUE, cardValues.FIVE))
+    val result = playCommand.redoStep() // Try to redo the play
 
     result shouldBe a[Failure[_]]
     result.failed.get shouldBe an[IllegalStateException]

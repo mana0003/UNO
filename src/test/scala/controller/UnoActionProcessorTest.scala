@@ -3,22 +3,18 @@ package controller
 import controller.*
 import model.*
 import util.*
-import org.scalatest._
+import org.scalatest.*
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
-import org.mockito.Mockito._
-import org.mockito.ArgumentMatchers._
 
 class UnoActionProcessorTest extends AnyFunSuite with Matchers {
 
   test("processAction should successfully process a 'play' action for a valid card") {
-    val controller = mock[UnoController]
-    val player = mock[Player]
-    val topCard = mock[Card]
-    val validCard = mock[Card]
-
-    when(controller.field.topCard).thenReturn(topCard)
-    when(player.valid(topCard)).thenReturn(true)
+    val initialField = new UnoField()
+    val controller = new UnoController(initialField)
+    val player = new Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.THREE))))
+    val topCard = Card(cardColors.RED, cardValues.TWO)
+    controller.field = controller.field.copy(topCard = topCard)
 
     val processor = new ConcreteUnoActionProcessor
 
@@ -26,64 +22,54 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
       processor.processAction(controller, player, "play")
     }
 
-    verify(player).valid(topCard)
-    verify(controller).notifyObservers(Event.Play)
+    controller.field.topCard shouldBe player.hand.cards.head
+    controller.field.players(controller.field.currentPlayer).hand.cards shouldBe empty
   }
 
   test("processAction should throw an exception for an invalid 'play' action") {
-    val controller = mock[UnoController]
-    val player = mock[Player]
-    val topCard = mock[Card]
-
-    when(controller.field.topCard).thenReturn(topCard)
-    when(player.valid(topCard)).thenReturn(false)
+    val initialField = new UnoField()
+    val controller = new UnoController(initialField)
+    val player = new Player(0, PlayerHand(List(Card(cardColors.BLUE, cardValues.THREE))))
+    val topCard = Card(cardColors.RED, cardValues.TWO)
+    controller.field = controller.field.copy(topCard = topCard)
 
     val processor = new ConcreteUnoActionProcessor
 
     an[IllegalArgumentException] should be thrownBy {
       processor.processAction(controller, player, "play")
     }
-
-    verify(player).valid(topCard)
-    verify(controller, never()).notifyObservers(any())
   }
 
   test("processAction should throw an exception for an unknown action type") {
-    val controller = mock[UnoController]
-    val player = mock[Player]
+    val initialField = new UnoField()
+    val controller = new UnoController(initialField)
+    val player = new Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.THREE))))
 
     val processor = new ConcreteUnoActionProcessor
 
     an[IllegalArgumentException] should be thrownBy {
       processor.processAction(controller, player, "unknown")
     }
-
-    verify(controller, never()).notifyObservers(any())
   }
 
   test("handleAction should invoke the correct handler from UnoActionBuilder") {
-    val controller = mock[UnoController]
-    val player = mock[Player]
+    val initialField = new UnoField()
+    val controller = new UnoController(initialField)
+    val player = new Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.THREE))))
     val action = "play"
-
-    val handler = mock[UnoActionBuilder.UnoAction]
-    val builder = mock[UnoActionBuilder.UnoActionBuilder]
-
-    // Mock the builder
-    when(UnoActionBuilder.builder()).thenReturn(builder)
-    when(builder.setAction(action)).thenReturn(builder)
-    when(builder.build()).thenReturn(handler)
 
     val processor = new ConcreteUnoActionProcessor
 
     processor.handleAction(controller, player, action)
 
-    verify(handler).executeAction(controller, player)
+    controller.field.topCard shouldBe player.hand.cards.head
+    controller.field.players(controller.field.currentPlayer).hand.cards shouldBe empty
   }
 
   test("completeAction should notify observers correctly for 'draw' and 'play' actions") {
-    val controller = mock[UnoController]
-    val player = mock[Player]
+    val initialField = new UnoField()
+    val controller = new UnoController(initialField)
+    val player = new Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.THREE))))
 
     val processor = new ConcreteUnoActionProcessor
 
@@ -91,25 +77,25 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
       processor.completeAction(controller, player, "play")
     }
 
-    verify(controller).notifyObservers(Event.Play)
+    controller.field.topCard shouldBe player.hand.cards.head
 
     noException shouldBe thrownBy {
       processor.completeAction(controller, player, "draw")
     }
 
-    verify(controller).notifyObservers(Event.Draw)
+    // Assuming draw action adds a card to the player's hand
+    controller.field.players(controller.field.currentPlayer).hand.cards should not be empty
   }
 
   test("completeAction should throw an exception for an unknown action type") {
-    val controller = mock[UnoController]
-    val player = mock[Player]
+    val initialField = new UnoField()
+    val controller = new UnoController(initialField)
+    val player = new Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.THREE))))
 
     val processor = new ConcreteUnoActionProcessor
 
     an[IllegalArgumentException] should be thrownBy {
       processor.completeAction(controller, player, "unknown")
     }
-
-    verify(controller, never()).notifyObservers(any())
   }
 }

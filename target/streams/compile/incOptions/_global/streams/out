@@ -1,7 +1,7 @@
-[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\sem3\SE\UNO\target\scala-3.3.1\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\SoftwareEngineering\UNO\target\scala-3.3.1\classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
-[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\sem3\SE\UNO\target\scala-3.3.1\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\SoftwareEngineering\UNO\target\scala-3.3.1\classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
 [0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
@@ -139,4 +139,4 @@
 [0m[[0m[0mdebug[0m] [0m[0m	Main$.tasty[0m
 [0m[[0m[0mdebug[0m] [0m[0m	GameState$$anon$7.tasty[0m
 [0m[[0m[0mdebug[0m] [0m[0m	State.tasty[0m
-[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\sem3\SE\UNO\target\scala-3.3.1\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\SoftwareEngineering\UNO\target\scala-3.3.1\classes.bak[0m

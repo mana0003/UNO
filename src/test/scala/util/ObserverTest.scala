@@ -4,8 +4,7 @@ import org.scalatest.*
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
 
-// Mock Observer for testing
-class MockObserver extends Observer {
+class TestObserver extends Observer {
   var receivedEvents: List[Event] = List()
 
   override def update(e: Event): Unit = {
@@ -20,8 +19,8 @@ class ObservableTest extends AnyFunSuite with Matchers {
 
   test("Observable should allow adding observers and notifying them") {
     val observable = new TestObservable
-    val observer1 = new MockObserver
-    val observer2 = new MockObserver
+    val observer1 = new TestObserver
+    val observer2 = new TestObserver
 
     // Add observers
     observable.addObserver(observer1)
@@ -37,8 +36,8 @@ class ObservableTest extends AnyFunSuite with Matchers {
 
   test("Observable should allow removing observers") {
     val observable = new TestObservable
-    val observer1 = new MockObserver
-    val observer2 = new MockObserver
+    val observer1 = new TestObserver
+    val observer2 = new TestObserver
 
     // Add observers
     observable.addObserver(observer1)
@@ -57,8 +56,8 @@ class ObservableTest extends AnyFunSuite with Matchers {
 
   test("Observable should notify all observers even with multiple events") {
     val observable = new TestObservable
-    val observer1 = new MockObserver
-    val observer2 = new MockObserver
+    val observer1 = new TestObserver
+    val observer2 = new TestObserver
 
     // Add observers
     observable.addObserver(observer1)
