@@ -1,23 +1,21 @@
 package view
 
-import model.*
-import controller.*
-import util.*
+import controller.{IUnoController, UnoActionBuilder}
+import util.{Event, Observer}
 import scala.io.StdIn
 import scala.io.AnsiColor._
-import util.Event.{Quit, Start, Play, Draw, Undo, Redo, Error}
 
-class TUI(val controller: UnoController) extends Observer {
-  controller.add(this)
-
+class TUI(val controller: IUnoController) extends Observer with IView {
+  // controller.addObserver(this)
+  
   private def processInputLine(input: Int, handSize: Int): Unit = {
     if (input < 1 || input > handSize) {
       println("Invalid card number. Please try again.")
       gameContinue()
     } else {
-      val card = controller.field.players(controller.field.currentPlayer).hand.cards(input - 1)
-      if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {
-        UnoActionFactory.builder().setAction("play").setCard(card).build().executeAction(controller, controller.field.players(controller.field.currentPlayer))
+      val card = controller.getField.players(controller.getCurrentPlayer).hand.cards(input - 1)
+      if (controller.getField.players(controller.getCurrentPlayer).valid(card) && card.canBePlayedOn(controller.getField.topCard)) {
+        UnoActionBuilder.builder().setAction("play").setCard(card).build().executeAction(controller, controller.getField.players(controller.getCurrentPlayer))
       } else {
         println("Card does not fit. Do you want to:")
         println("1. Draw a card")
@@ -27,7 +25,7 @@ class TUI(val controller: UnoController) extends Observer {
         println("5. Quit")
         val readLine = StdIn.readLine().toIntOption.getOrElse(-1)
         readLine match {
-          case 1 => UnoActionFactory.builder().setAction("draw").build().executeAction(controller, controller.field.players(controller.field.currentPlayer))
+          case 1 => UnoActionBuilder.builder().setAction("draw").build().executeAction(controller, controller.getField.players(controller.getCurrentPlayer))
           case 2 => gameContinue()
           case 3 => undoAction()
           case 4 => redoAction()
@@ -86,7 +84,7 @@ class TUI(val controller: UnoController) extends Observer {
 
   private def gameOver(): Unit = {
     println("Game over!")
-    val winnerIndex = controller.field.players.indexWhere(_.hand.cards.isEmpty)
+    val winnerIndex = controller.getField.players.indexWhere(_.hand.cards.isEmpty)
     println(s"Player ${winnerIndex + 1} wins!")
   }
 
@@ -108,9 +106,9 @@ class TUI(val controller: UnoController) extends Observer {
   }
 
   private def gameContinue(): Unit = {
-    val currentPlayer = controller.field.players(controller.field.currentPlayer)
-    println(s"Current player: Player ${controller.field.currentPlayer + 1}")
-    println(s"Current top card: ${controller.field.topCard.getColorCode}${controller.field.topCard.value}$RESET")
+    val currentPlayer = controller.getField.players(controller.getCurrentPlayer)
+    println(s"Current player: Player ${controller.getCurrentPlayer + 1}")
+    println(s"Current top card: ${controller.getField.topCard.getColorCode}${controller.getField.topCard.value}$RESET")
     currentPlayer.hand.cards.zipWithIndex.foreach { case (card, index) =>
       println(s"${index + 1}: ${card.getColorCode}${card.value}$RESET")
     }

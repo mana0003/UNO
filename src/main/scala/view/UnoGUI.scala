@@ -118,7 +118,7 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
 
     val layout = new scalafx.scene.layout.VBox {
       spacing = 20
-      children = Seq(playerLabel, topCardLabel, handListView, drawButton, playButton)
+      children = Seq(playerLabel, topCardLabel, handListView, buttonLayout)
     }
     pane.children.add(layout)
   }

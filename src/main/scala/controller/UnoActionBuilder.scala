@@ -1,35 +1,46 @@
-// UnoActionProcessor.scala
 package controller
-import model.*
-import controller.*
 
+import model._
 
-class UnoActionBuilder {
-  private var action: String = _
-  private var card: Option[Card] = None
+object UnoActionBuilder {
+  def builder(): UnoActionBuilder = new UnoActionBuilder
 
-  def setAction(action: String): UnoActionBuilder = {
-    this.action = action
-    this
-  }
+  class UnoActionBuilder {
+    private var action: String = _
+    private var card: Card = _
 
-  def setCard(card: Card): UnoActionBuilder = {
-    this.card = Some(card)
-    this
-  }
+    def setAction(action: String): UnoActionBuilder = {
+      this.action = action
+      this
+    }
 
-  def build(): UnoActionStrategy = {
-    action match {
-      case "draw" => new DrawCardStrategy
-      case "play" => card match {
-        case Some(c) => new PlayCardStrategy(c)
-        case None => throw new IllegalArgumentException("Card must be provided for play action")
+    def setCard(card: Card): UnoActionBuilder = {
+      this.card = card
+      this
+    }
+
+    def build(): UnoAction = {
+      action match {
+        case "play" => new PlayAction(card)
+        case "draw" => new DrawAction
+        case _ => throw new IllegalArgumentException("Unknown action")
       }
-      case _ => throw new IllegalArgumentException("Unknown action type")
     }
   }
-}
 
-object UnoActionFactory {
-  def builder(): UnoActionBuilder = new UnoActionBuilder
+  trait UnoAction {
+    def executeAction(controller: IUnoController, player: Player): Unit
+  }
+
+  class PlayAction(card: Card) extends UnoAction {
+    override def executeAction(controller: IUnoController, player: Player): Unit = {
+      controller.play(card)
+    }
+  }
+
+  class DrawAction extends UnoAction {
+    override def executeAction(controller: IUnoController, player: Player): Unit = {
+      controller.draw()
+    }
+  }
 }

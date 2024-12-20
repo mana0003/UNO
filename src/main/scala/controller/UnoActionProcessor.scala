@@ -43,7 +43,7 @@ abstract class UnoActionProcessor {
 
 class ConcreteUnoActionProcessor extends UnoActionProcessor {
   override def handleAction(controller: UnoController, player: Player, action: String): Unit = {
-    val handler = UnoActionFactory.builder().setAction(action).build()
+    val handler = UnoActionBuilder.builder().setAction(action).build()
     handler.executeAction(controller, player)
   }
 }

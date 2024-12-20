@@ -1,25 +1,22 @@
 package controller
 
 import model.*
-import view.*
-import util.*
-import controller.*
-import util.CommandManager
-import scala.util.Success
-import scala.util.Failure
+import util.{Observable, *}
+
+import scala.util.{Failure, Success}
 import scala.io.AnsiColor._
 
-class UnoController(var field: UnoField) extends Observable {
+class UnoController(var field: UnoField) extends IUnoController with Observable {
   private val commandManager = new CommandManager()
   private var isGuiActive: Boolean = false
 
-  def setGuiActive(active: Boolean): Unit = {
+   def setGuiActive(active: Boolean): Unit = {
     isGuiActive = active
   }
 
-  def isGuiMode: Boolean = isGuiActive
+   def isGuiMode: Boolean = isGuiActive
 
-  def play(card: Card): Unit = {
+   def play(card: Card): Unit = {
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
       case Success(_) =>
@@ -41,7 +38,7 @@ class UnoController(var field: UnoField) extends Observable {
     }
   }
 
-  def undo(): Unit = {
+   def undo(): Unit = {
     commandManager.undoStep match {
       case Success(_) =>
         notifyObservers(Event.Undo)
@@ -50,7 +47,7 @@ class UnoController(var field: UnoField) extends Observable {
     }
   }
 
-  def redo(): Unit = {
+   def redo(): Unit = {
     commandManager.redoStep match {
       case Success(_) =>
         notifyObservers(Event.Redo)
@@ -59,7 +56,11 @@ class UnoController(var field: UnoField) extends Observable {
     }
   }
 
-  def startGame(): Unit = {
+   def startGame(): Unit = {
     notifyObservers(Event.Start)
   }
+
+   def getField: UnoField = field
+
+   def getCurrentPlayer: Int = field.currentPlayer
 }

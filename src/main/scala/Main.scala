@@ -1,16 +1,19 @@
-import controller.*
-import model.*
-import util.*
-import view.*
+package main
+
+import controller._
+import model._
+import view._
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val field = UnoField()
-    val controller = new UnoController(field)
+    val field = new UnoField()
+    val contr: UnoController = new UnoController(field) {
+      // Implement the abstract methods here
+    }
 
     // Initialize TUI and GUI
-    val tui = new TUI(controller)
-    new Thread(() => tui.startGame()).start()
-    UnoGUI.launchApp(controller)
+    val tui: IView = new TUI(contr)
+    new Thread(() => tui.asInstanceOf[TUI].startGame()).start()
+    UnoGUI.launchApp(contr)
   }
 }
