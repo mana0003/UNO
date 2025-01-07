@@ -1,6 +1,9 @@
-package controller
+package controller.patterns.patternsIm
 
-import model._
+import controller.controllerComponent.IUnoController
+import model.*
+import model.cardComponent.cardIm.Card
+import model.gameComponent.gameIm.Player
 
 object UnoActionBuilder {
   def builder(): UnoActionBuilder = new UnoActionBuilder

@@ -1,13 +1,16 @@
-package model
+package model.cardComponent.cardIm
 
 //import model.*
-import view.*
+//import model.cardComponent.{cardColors, cardValues}
+//import model.{cardColors, cardValues}
+//import view.*
 //import scala.util.Event
 //import scala.util.Observable
-import controller.*
-import scala.io._
-import scalafx.scene.paint.Color
-import scala.io.AnsiColor._
+//import controller.*
+//import scalafx.scene.paint.Color
+
+import scala.io.*
+import scala.io.AnsiColor.*
 
 enum cardColors {
   case RED, BLUE
@@ -37,17 +40,6 @@ case class Card(color: cardColors, value: cardValues) {
   def canBePlayedOn(topCard: Card): Boolean = {
     this.color == topCard.color || this.value == topCard.value || this.value == cardValues.WILD || this.value == cardValues.WILD_DRAW_FOUR
   }
-
-  /*def getColorCode: String = {
-    this match {
-      case Card(_, cardValues.WILD) => AnsiColor.WHITE
-      case Card(_, cardValues.WILD_DRAW_FOUR) => AnsiColor.WHITE
-      case Card(cardColors.RED, _) => AnsiColor.RED
-      case Card(cardColors.GREEN, _) => AnsiColor.GREEN
-      case Card(cardColors.YELLOW, _) => AnsiColor.YELLOW
-      case Card(cardColors.BLUE, _) => AnsiColor.BLUE
-    }
-  }*/
 
   def getColorCode: Color = {
     this match {

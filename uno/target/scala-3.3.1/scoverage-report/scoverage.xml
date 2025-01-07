@@ -37,64 +37,64 @@ statement-count="191" statements-invoked="80" statement-rate="41.88" branch-rate
         </package>
         <package name="scala.controller" statement-count="16" statements-invoked="16" statement-rate="100.00">
             <classes>
-                <class 
-                name="scala.controller.UnoController" filename="contoller\UnoController.scala" statement-count="16" statements-invoked="16" statement-rate="100.00" branch-rate="100.00">
+                <class
+                        name="scala.controller.controllerComponent.ControllerIm.UnoController" filename="contoller\UnoController.scala" statement-count="16" statements-invoked="16" statement-rate="100.00" branch-rate="100.00">
                     <methods>
                         <method 
                         name="scala.controller/UnoController/play" statement-count="10" statements-invoked="10" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="249" line="8" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="249" line="8" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="358" end="390" line="10" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="358" end="390" line="10" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="582" end="602" line="17" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="582" end="602" line="17" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="392" end="449" line="10" branch="true" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="392" end="449" line="10" branch="true" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="159" end="167" line="7" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="159" end="167" line="7" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="260" line="8" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="260" line="8" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="291" end="348" line="9" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="291" end="348" line="9" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="264" line="8" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="215" end="264" line="8" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="401" end="428" line="11" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="401" end="428" line="11" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="615" end="642" line="19" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="play" start="615" end="642" line="19" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.controller/UnoController/draw" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="691" end="701" line="22" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="691" end="701" line="22" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="860" end="917" line="27" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="860" end="917" line="27" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="651" end="659" line="21" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="651" end="659" line="21" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="770" end="804" line="25" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="770" end="804" line="25" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="770" end="826" line="25" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="770" end="826" line="25" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="973" end="1000" line="29" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.controller" class="UnoController" class-type="Class" full-class-name="scala.controller.controllerComponent.ControllerIm.UnoController" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\contoller\UnoController.scala" method="draw" start="973" end="1000" line="29" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -104,299 +104,299 @@ statement-count="191" statements-invoked="80" statement-rate="41.88" branch-rate
         </package>
         <package name="scala.model" statement-count="61" statements-invoked="56" statement-rate="91.80">
             <classes>
-                <class 
-                name="scala.model.PlayerHand" filename="model\PlayerHand.scala" statement-count="6" statements-invoked="5" statement-rate="83.33" branch-rate="100.00">
+                <class
+                        name="scala.model.gameComponent.gameIm.PlayerHand" filename="model\PlayerHand.scala" statement-count="6" statements-invoked="5" statement-rate="83.33" branch-rate="100.00">
                     <methods>
                         <method 
                         name="scala.model/PlayerHand/addCard" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="addCard" start="84" end="95" line="2" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="addCard" start="84" end="95" line="2" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="addCard" start="135" end="148" line="2" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="addCard" start="135" end="148" line="2" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/PlayerHand/removeCard" statement-count="4" statements-invoked="3" statement-rate="75.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="220" end="224" line="4" branch="false" invocation-count="0" ignored="false">
+                                <statement
+                                        package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="220" end="224" line="4" branch="false" invocation-count="0" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="220" end="230" line="4" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="220" end="230" line="4" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="209" end="230" line="4" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="209" end="230" line="4" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="155" end="169" line="4" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="PlayerHand" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.PlayerHand" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="removeCard" start="155" end="169" line="4" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                     </methods>
 </class>
-                <class 
-                name="scala.model.Player" filename="model\Player.scala" statement-count="9" statements-invoked="9" statement-rate="100.00" branch-rate="100.00">
+                <class
+                        name="scala.model.gameComponent.gameIm.Player" filename="model\Player.scala" statement-count="9" statements-invoked="9" statement-rate="100.00" branch-rate="100.00">
                     <methods>
                         <method 
                         name="scala.model/Player/$anonfun" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="$anonfun" start="299" end="320" line="11" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="$anonfun" start="299" end="320" line="11" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/Player/play" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="420" end="441" line="16" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="420" end="441" line="16" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="456" end="523" line="17" branch="true" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="456" end="523" line="17" branch="true" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="473" end="515" line="18" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="473" end="515" line="18" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="379" end="390" line="15" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="379" end="390" line="15" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="392" end="450" line="15" branch="true" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="392" end="450" line="15" branch="true" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="332" end="340" line="14" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="play" start="332" end="340" line="14" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/Player/valid" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="valid" start="281" end="321" line="11" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="valid" start="281" end="321" line="11" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="valid" start="241" end="250" line="10" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Player" class-type="Class" full-class-name="scala.model.gameComponent.gameIm.Player" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Player.scala" method="valid" start="241" end="250" line="10" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                     </methods>
 </class>
-                <class 
-                name="scala.model.Card$package$" filename="model\Card.scala" statement-count="21" statements-invoked="19" statement-rate="90.48" branch-rate="100.00">
+                <class
+                        name="scala.model.cardComponent.cardIm.Card$package$" filename="model\Card.scala" statement-count="21" statements-invoked="19" statement-rate="90.48" branch-rate="100.00">
                     <methods>
                         <method 
                         name="scala.model/Card$package$/randomCard" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1354" end="1365" line="56" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1354" end="1365" line="56" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1341" end="1352" line="56" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1341" end="1352" line="56" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1319" end="1333" line="56" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCard" start="1319" end="1333" line="56" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/Card$package$/randomColor" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1187" end="1211" line="51" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1187" end="1211" line="51" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1153" line="51" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1153" line="51" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1161" end="1212" line="51" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1161" end="1212" line="51" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1213" line="51" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1213" line="51" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1160" line="51" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1136" end="1160" line="51" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1115" end="1130" line="50" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomColor" start="1115" end="1130" line="50" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/Card$package$/randomCards" statement-count="5" statements-invoked="3" statement-rate="60.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1414" end="1423" line="59" branch="false" invocation-count="0" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1414" end="1423" line="59" branch="false" invocation-count="0" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1413" end="1452" line="59" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1413" end="1452" line="59" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1413" end="1445" line="59" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1413" end="1445" line="59" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1414" end="1415" line="59" branch="false" invocation-count="0" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1414" end="1415" line="59" branch="false" invocation-count="0" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1370" end="1385" line="58" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomCards" start="1370" end="1385" line="58" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/Card$package$/$anonfun" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="$anonfun" start="1434" end="1444" line="59" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="$anonfun" start="1434" end="1444" line="59" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/Card$package$/randomValue" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1255" line="54" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1255" line="54" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1289" end="1313" line="54" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1289" end="1313" line="54" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1263" end="1314" line="54" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1263" end="1314" line="54" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1315" line="54" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1315" line="54" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1262" line="54" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1238" end="1262" line="54" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1217" end="1232" line="53" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card$package$" class-type="Object" full-class-name="scala.model.cardComponent.cardIm.Card$package$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="randomValue" start="1217" end="1232" line="53" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                     </methods>
 </class>
-                <class 
-                name="scala.model.Card" filename="model\Card.scala" statement-count="14" statements-invoked="14" statement-rate="100.00" branch-rate="100.00">
+                <class
+                        name="scala.model.cardComponent.cardIm.Card" filename="model\Card.scala" statement-count="14" statements-invoked="14" statement-rate="100.00" branch-rate="100.00">
                     <methods>
                         <method 
                         name="scala.model/Card/canBePlayedOn" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="canBePlayedOn" start="508" end="525" line="34" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="canBePlayedOn" start="508" end="525" line="34" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/Card/getColorCode" statement-count="13" statements-invoked="13" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="990" end="1021" line="44" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="990" end="1021" line="44" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1082" end="1096" line="45" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1082" end="1096" line="45" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="814" end="853" line="41" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="814" end="853" line="41" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="912" end="925" line="42" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="912" end="925" line="42" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="967" end="982" line="43" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="967" end="982" line="43" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="791" end="806" line="40" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="791" end="806" line="40" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1049" end="1078" line="45" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1049" end="1078" line="45" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="880" end="908" line="42" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="880" end="908" line="42" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="857" end="872" line="41" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="857" end="872" line="41" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="704" end="720" line="38" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="704" end="720" line="38" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="933" end="963" line="43" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="933" end="963" line="43" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1025" end="1041" line="44" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="1025" end="1041" line="44" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="758" end="787" line="40" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="Card" class-type="Class" full-class-name="scala.model.cardComponent.cardIm.Card" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\Card.scala" method="getColorCode" start="758" end="787" line="40" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                     </methods>
 </class>
-                <class 
-                name="scala.model.PlayerHand$" filename="model\PlayerHand.scala" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                <class
+                        name="scala.model.gameComponent.gameIm.PlayerHand$" filename="model\PlayerHand.scala" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
                     <methods>
                         <method 
                         name="scala.model/PlayerHand$/$lessinit$greater$default$1" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="PlayerHand$" class-type="Object" full-class-name="scala.model.PlayerHand$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="$lessinit$greater$default$1" start="63" end="63" line="1" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="PlayerHand$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.PlayerHand$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="$lessinit$greater$default$1" start="63" end="63" line="1" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="PlayerHand$" class-type="Object" full-class-name="scala.model.PlayerHand$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="$lessinit$greater$default$1" start="63" end="77" line="1" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="PlayerHand$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.PlayerHand$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\PlayerHand.scala" method="$lessinit$greater$default$1" start="63" end="77" line="1" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                     </methods>
 </class>
-                <class 
-                name="scala.model.UnoField$" filename="model\UnoField.scala" statement-count="9" statements-invoked="7" statement-rate="77.78" branch-rate="100.00">
+                <class
+                        name="scala.model.gameComponent.gameIm.UnoField$" filename="model\UnoField.scala" statement-count="9" statements-invoked="7" statement-rate="77.78" branch-rate="100.00">
                     <methods>
                         <method 
                         name="scala.model/UnoField$/$lessinit$greater$default$3" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$3" start="247" end="247" line="4" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$3" start="247" end="247" line="4" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/UnoField$/$lessinit$greater$default$1" statement-count="5" statements-invoked="3" statement-rate="60.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="93" end="94" line="2" branch="false" invocation-count="0" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="93" end="94" line="2" branch="false" invocation-count="0" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="92" line="2" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="92" line="2" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="93" end="102" line="2" branch="false" invocation-count="0" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="93" end="102" line="2" branch="false" invocation-count="0" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="144" line="2" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="144" line="2" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="137" line="2" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$1" start="92" end="137" line="2" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/UnoField$/$lessinit$greater$default$2" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$2" start="188" end="188" line="3" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$2" start="188" end="188" line="3" branch="false" invocation-count="1" ignored="false">
 </statement>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$2" start="188" end="198" line="3" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$lessinit$greater$default$2" start="188" end="198" line="3" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
                         <method 
                         name="scala.model/UnoField$/$anonfun" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
-                                <statement 
-                                package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$anonfun" start="123" end="133" line="2" branch="false" invocation-count="1" ignored="false">
+                                <statement
+                                        package="scala.model" class="UnoField$" class-type="Object" full-class-name="scala.model.gameComponent.gameIm.UnoField$" source="C:\SoftwareEngineering\UNO\uno\src\main\scala\model\UnoField.scala" method="$anonfun" start="123" end="133" line="2" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>

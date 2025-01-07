@@ -1,7 +1,8 @@
-package controller
+package controller.controllerComponent
 
-import util.{Observer, Event}
-import model.{Card, UnoField}
+import model.cardComponent.cardIm.Card
+import model.gameComponent.gameIm.UnoField
+import util.{Event, Observer}
 
 trait IUnoController {
   def addObserver(observer: Observer): Unit

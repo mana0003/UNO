@@ -1,7 +1,11 @@
-package controller
+package controller.patterns.patternsIm
 
-import model.*
 import controller.*
+import controller.controllerComponent.ControllerIm.UnoController
+import controller.patterns.UnoActionProcessor
+import controller.patterns.patternsIm.UnoActionBuilder
+import model.*
+import model.gameComponent.gameIm.Player
 import util.Event
 
 abstract class UnoActionProcessor {

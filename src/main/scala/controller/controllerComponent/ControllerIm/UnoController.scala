@@ -1,10 +1,14 @@
-package controller
+package controller.controllerComponent.ControllerIm
 
-import model._
-import util.{Observable, *}
+import controller.*
+import controller.controllerComponent.IUnoController
+import model.*
+import model.cardComponent.cardIm.Card
+import model.gameComponent.gameIm.UnoField
+import util.*
 
+import scala.io.AnsiColor.*
 import scala.util.{Failure, Success}
-import scala.io.AnsiColor._
 
 class UnoController(var field: UnoField) extends IUnoController with Observable {
   private val commandManager = new CommandManager()

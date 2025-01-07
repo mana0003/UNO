@@ -142,7 +142,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 215
 260
@@ -159,7 +159,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 215
 249
@@ -176,7 +176,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 215
 264
@@ -193,7 +193,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 291
 348
@@ -210,7 +210,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 358
 390
@@ -227,7 +227,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 401
 428
@@ -244,7 +244,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 392
 449
@@ -261,7 +261,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 582
 602
@@ -278,7 +278,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 615
 642
@@ -295,7 +295,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 play
 159
 167
@@ -312,7 +312,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 draw
 691
 701
@@ -329,7 +329,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 draw
 770
 826
@@ -346,7 +346,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 draw
 770
 804
@@ -363,7 +363,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 draw
 860
 917
@@ -380,7 +380,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 draw
 973
 1000
@@ -397,7 +397,7 @@ src\\main\\scala\\contoller\\UnoController.scala
 scala.controller
 UnoController
 Class
-scala.controller.UnoController
+scala.controller.controllerComponent.ControllerIm.UnoController
 draw
 651
 659
@@ -1009,7 +1009,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 valid
 281
 321
@@ -1026,7 +1026,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 $anonfun
 299
 320
@@ -1043,7 +1043,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 valid
 241
 250
@@ -1060,7 +1060,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 play
 379
 390
@@ -1077,7 +1077,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 play
 420
 441
@@ -1094,7 +1094,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 play
 392
 450
@@ -1111,7 +1111,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 play
 473
 515
@@ -1128,7 +1128,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 play
 456
 523
@@ -1145,7 +1145,7 @@ src\\main\\scala\\model\\Player.scala
 scala.model
 Player
 Class
-scala.model.Player
+scala.model.gameComponent.gameIm.Player
 play
 332
 340
@@ -1162,7 +1162,7 @@ src\\main\\scala\\model\\PlayerHand.scala
 scala.model
 PlayerHand
 Class
-scala.model.PlayerHand
+scala.model.gameComponent.gameIm.PlayerHand
 addCard
 135
 148
@@ -1179,7 +1179,7 @@ src\\main\\scala\\model\\PlayerHand.scala
 scala.model
 PlayerHand
 Class
-scala.model.PlayerHand
+scala.model.gameComponent.gameIm.PlayerHand
 addCard
 84
 95
@@ -1196,7 +1196,7 @@ src\\main\\scala\\model\\PlayerHand.scala
 scala.model
 PlayerHand
 Class
-scala.model.PlayerHand
+scala.model.gameComponent.gameIm.PlayerHand
 removeCard
 209
 230
@@ -1213,7 +1213,7 @@ src\\main\\scala\\model\\PlayerHand.scala
 scala.model
 PlayerHand
 Class
-scala.model.PlayerHand
+scala.model.gameComponent.gameIm.PlayerHand
 removeCard
 220
 230
@@ -1230,7 +1230,7 @@ src\\main\\scala\\model\\PlayerHand.scala
 scala.model
 PlayerHand
 Class
-scala.model.PlayerHand
+scala.model.gameComponent.gameIm.PlayerHand
 removeCard
 220
 224
@@ -1247,7 +1247,7 @@ src\\main\\scala\\model\\PlayerHand.scala
 scala.model
 PlayerHand
 Class
-scala.model.PlayerHand
+scala.model.gameComponent.gameIm.PlayerHand
 removeCard
 155
 169
@@ -1264,7 +1264,7 @@ src\\main\\scala\\model\\PlayerHand.scala
 scala.model
 PlayerHand$
 Object
-scala.model.PlayerHand$
+scala.model.gameComponent.gameIm.PlayerHand$
 $lessinit$greater$default$1
 63
 77
@@ -1281,7 +1281,7 @@ src\\main\\scala\\model\\PlayerHand.scala
 scala.model
 PlayerHand$
 Object
-scala.model.PlayerHand$
+scala.model.gameComponent.gameIm.PlayerHand$
 $lessinit$greater$default$1
 63
 63
@@ -1298,7 +1298,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $lessinit$greater$default$1
 92
 137
@@ -1315,7 +1315,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $lessinit$greater$default$1
 93
 102
@@ -1332,7 +1332,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $lessinit$greater$default$1
 93
 94
@@ -1349,7 +1349,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $anonfun
 123
 133
@@ -1366,7 +1366,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $lessinit$greater$default$1
 92
 144
@@ -1383,7 +1383,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $lessinit$greater$default$1
 92
 92
@@ -1400,7 +1400,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $lessinit$greater$default$2
 188
 198
@@ -1417,7 +1417,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $lessinit$greater$default$2
 188
 188
@@ -1434,7 +1434,7 @@ src\\main\\scala\\model\\UnoField.scala
 scala.model
 UnoField$
 Object
-scala.model.UnoField$
+scala.model.gameComponent.gameIm.UnoField$
 $lessinit$greater$default$3
 247
 247
