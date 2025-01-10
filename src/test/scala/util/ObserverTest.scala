@@ -1,6 +1,8 @@
 package util
 
-import org.scalatest.*
+import util.*
+import util.Observable
+import org.scalatest._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
 
@@ -26,6 +28,9 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observable.addObserver(observer1)
     observable.addObserver(observer2)
 
+    // Verify the internal subscribers Vector is modified
+    assert(observable.subscribers.size == 2)
+
     // Notify observers
     observable.notifyObservers(Event.Start)
 
@@ -43,8 +48,14 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observable.addObserver(observer1)
     observable.addObserver(observer2)
 
+    // Verify the internal subscribers Vector is modified
+    assert(observable.subscribers.size == 2)
+
     // Remove one observer
     observable.removeObserver(observer1)
+
+    // Verify the internal subscribers Vector is modified after removal
+    assert(observable.subscribers.size == 1)
 
     // Notify observers
     observable.notifyObservers(Event.Quit)
@@ -63,6 +74,9 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observable.addObserver(observer1)
     observable.addObserver(observer2)
 
+    // Verify the internal subscribers Vector is modified
+    assert(observable.subscribers.size == 2)
+
     // Notify multiple events
     observable.notifyObservers(Event.Play)
     observable.notifyObservers(Event.Draw)
@@ -79,5 +93,68 @@ class ObservableTest extends AnyFunSuite with Matchers {
     noException should be thrownBy {
       observable.notifyObservers(Event.Undo)
     }
+
+    // Verify the internal subscribers Vector is still empty
+    assert(observable.subscribers.isEmpty)
+  }
+
+  test("Observable should handle removing all observers correctly") {
+    val observable = new TestObservable
+    val observer1 = new TestObserver
+    val observer2 = new TestObserver
+
+    // Add observers
+    observable.addObserver(observer1)
+    observable.addObserver(observer2)
+
+    // Verify the internal subscribers Vector is modified
+    assert(observable.subscribers.size == 2)
+
+    // Remove all observers
+    observable.removeObserver(observer1)
+    observable.removeObserver(observer2)
+
+    // Verify the internal subscribers Vector is now empty
+    assert(observable.subscribers.isEmpty)
+
+    // Notify observers (should not notify anyone)
+    observable.notifyObservers(Event.Redo)
+
+    // No observers should have received the event
+    observer1.receivedEvents should be(empty)
+    observer2.receivedEvents should be(empty)
+  }
+
+  test("Observable should correctly manage Vector of observers") {
+    val observable = new TestObservable
+    val observer1 = new TestObserver
+    val observer2 = new TestObserver
+    val observer3 = new TestObserver
+
+    // Add observers to the observable
+    observable.addObserver(observer1)
+    observable.addObserver(observer2)
+    observable.addObserver(observer3)
+
+    // Verify the internal subscribers Vector is modified
+    assert(observable.subscribers.size == 3)
+
+    // Notify observers, all should receive the event
+    observable.notifyObservers(Event.Start)
+    observer1.receivedEvents should contain theSameElementsAs List(Event.Start)
+    observer2.receivedEvents should contain theSameElementsAs List(Event.Start)
+    observer3.receivedEvents should contain theSameElementsAs List(Event.Start)
+
+    // Remove one observer
+    observable.removeObserver(observer2)
+
+    // Verify the internal subscribers Vector is modified after removal
+    assert(observable.subscribers.size == 2)
+
+    // Notify again, only two observers should receive the event
+    observable.notifyObservers(Event.Quit)
+    observer1.receivedEvents should contain theSameElementsAs List(Event.Start, Event.Quit)
+    observer2.receivedEvents should have size 1 // It only received Event.Start before removal
+    observer3.receivedEvents should contain theSameElementsAs List(Event.Start, Event.Quit)
   }
 }

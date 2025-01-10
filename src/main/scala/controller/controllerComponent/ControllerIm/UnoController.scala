@@ -22,7 +22,6 @@ class UnoController @Inject() (var field: IUnoField) extends IUnoController with
   private var chosenColor: Option[cardColors] = None
   private val injector = Guice.createInjector(new MainModule)
 
-
   def setGuiActive(active: Boolean): Unit = {
     isGuiActive = active
   }

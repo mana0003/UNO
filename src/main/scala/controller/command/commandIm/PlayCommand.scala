@@ -1,32 +1,13 @@
 package controller.command.commandIm
 
 import controller.*
-import controller.controllerComponent.IUnoController
-import model.*
-import model.cardComponent.ICard
-import model.gameComponent.IPlayer
-import model.gameComponent.gameIm.UnoField
-import model.gameComponent.IPlayerHand
-import model.gameComponent.gameIm.PlayerHand
-import model.gameComponent.IUnoField
-import model.cardComponent.cardIm.{cardColors, cardValues, randomCards}
-import model.cardComponent.cardIm.Card
-import util.*
-//import view.*
-import scala.util.{Failure, Try}
-/*
-package controller.command.commandIm
-
-import controller.*
 import controller.controllerComponent.ControllerIm.UnoController
 import model.*
 import model.cardComponent.cardIm.Card
 import model.gameComponent.gameIm.UnoField
 import util.*
 //import view.*
-import scala.util.Failure
-import scala.util.Try
-import model.randomCards
+import model.cardComponents.randomCards
 import scala.util.{Failure, Try}
 */
 class PlayCommand(controller: IUnoController, card: ICard) extends util.Command {
@@ -47,11 +28,43 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     val updatedPlayers = controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
 
     val cardsToDraw = card.value match {
+      case cardValues.DRAW_TWO        => 2
+      case cardValues.WILD_DRAW_FOUR  => 4
+      case _                          => 0
+    }
+    val updatedCurrentPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
+    val updatedPlayers = controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
+
+    val cardsToDraw = card.value match {
       case cardValues.DRAW_TWO => 2
       case cardValues.WILD_DRAW_FOUR => 4
       case _ => 0
     }
 
+    val finalPlayers = if (cardsToDraw > 0) {
+      val drawnCards = randomCards(cardsToDraw)  // Draw random cards directly
+      val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard))
+      updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand))
+    } else {
+      updatedPlayers
+    }
+
+    /*val chosenColor = controller.getChosenColorFromGUI() match {
+      case Some(color) => color // If GUI-based color selection
+      case None => controller.getChosenColor() // If console-based color selection
+    }*/
+
+    val newCurrentPlayer = if (card.value == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
+
+    // Handle Wild and Wild Draw Four cards with color selection
+    val updatedTopCard = card.value match {
+      case cardValues.WILD | cardValues.WILD_DRAW_FOUR =>
+        val chosenColor = controller.getChosenColor.getOrElse(cardColors.RED) // Prompt for color selection
+        card.copy(color = chosenColor)
+      case _ => card
+    }
+
+    // Update game field
     val finalPlayers = if (cardsToDraw > 0) {
       val drawnCards = randomCards(cardsToDraw) // Draw random cards directly
       val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard))
@@ -77,13 +90,13 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
 
     // Update game field
     controller.field = controller.field.copy(
+      players = finalPlayers,
       players = finalPlayers.collect { case player: IPlayer => player },
       topCard = card,
       currentPlayer = newCurrentPlayer % controller.field.players.length
     )
     controller.notifyObservers(Event.Play)
   }
-
 
   override def undoStep(): Try[Unit] = previousState match {
     case Some(state) =>

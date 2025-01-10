@@ -1,0 +1,1651 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "https://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage 
+line-rate="0.37" lines-valid="546" lines-covered="201" branches-valid="17" branches-covered="6" branch-rate="0.35" complexity="0" version="1.0" timestamp="1734694025315">
+    <sources>
+        <source>--source</source>
+        <source>C:/sem3/SE/UNO/src/main/scala</source>
+    </sources>
+    <packages>
+        <package name="&lt;empty&gt;" line-rate="0.00" branch-rate="0.00" complexity="0">
+            <classes>
+                <class name="&lt;empty&gt;.Main$" filename="Main.scala" line-rate="0.00" branch-rate="0.00" complexity="0">
+                    <methods>
+                        <method name="&lt;empty&gt;/Main$/main" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="14" hits="0" branch="false"/>
+                                <line number="6" hits="0" branch="false"/>
+                                <line number="13" hits="0" branch="false"/>
+                                <line number="12" hits="0" branch="false"/>
+                                <line number="6" hits="0" branch="false"/>
+                                <line number="5" hits="0" branch="false"/>
+                                <line number="6" hits="0" branch="false"/>
+                                <line number="13" hits="0" branch="false"/>
+                                <line number="6" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="&lt;empty&gt;/Main$/$anonfun" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="13" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="14" hits="0" branch="false"/>
+                        <line number="6" hits="0" branch="false"/>
+                        <line number="13" hits="0" branch="false"/>
+                        <line number="12" hits="0" branch="false"/>
+                        <line number="13" hits="0" branch="false"/>
+                        <line number="6" hits="0" branch="false"/>
+                        <line number="5" hits="0" branch="false"/>
+                        <line number="6" hits="0" branch="false"/>
+                        <line number="13" hits="0" branch="false"/>
+                        <line number="6" hits="0" branch="false"/>
+                    </lines>
+                </class>
+            </classes>
+        </package>
+        <package name="controller" line-rate="0.83" branch-rate="1.00" complexity="0">
+            <classes>
+                <class 
+                name="controller.ConcreteUnoActionProcessor" filename="controller\UnoActionProcessor.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method 
+                        name="controller/ConcreteUnoActionProcessor/handleAction" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="45" hits="1" branch="false"/>
+                                <line number="44" hits="1" branch="false"/>
+                                <line number="46" hits="1" branch="false"/>
+                                <line number="45" hits="1" branch="false"/>
+                                <line number="45" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="45" hits="1" branch="false"/>
+                        <line number="44" hits="1" branch="false"/>
+                        <line number="46" hits="1" branch="false"/>
+                        <line number="45" hits="1" branch="false"/>
+                        <line number="45" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.PlayCommand" filename="controller\PlayCommand.scala" line-rate="0.86" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="controller/PlayCommand/undoStep" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="36" hits="1" branch="false"/>
+                                <line number="40" hits="1" branch="false"/>
+                                <line number="38" hits="1" branch="false"/>
+                                <line number="42" hits="1" branch="false"/>
+                                <line number="37" hits="1" branch="false"/>
+                                <line number="42" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/PlayCommand/redoStep" signature="()V" line-rate="0.64" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="58" hits="0" branch="false"/>
+                                <line number="48" hits="1" branch="false"/>
+                                <line number="48" hits="1" branch="true"/>
+                                <line number="49" hits="1" branch="false"/>
+                                <line number="53" hits="0" branch="false"/>
+                                <line number="46" hits="1" branch="false"/>
+                                <line number="45" hits="1" branch="false"/>
+                                <line number="64" hits="0" branch="false"/>
+                                <line number="49" hits="1" branch="false"/>
+                                <line number="52" hits="0" branch="false"/>
+                                <line number="45" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/PlayCommand/doStep" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="22" hits="1" branch="false"/>
+                                <line number="15" hits="1" branch="false"/>
+                                <line number="12" hits="1" branch="false"/>
+                                <line number="18" hits="1" branch="false"/>
+                                <line number="21" hits="1" branch="false"/>
+                                <line number="33" hits="1" branch="false"/>
+                                <line number="12" hits="1" branch="false"/>
+                                <line number="18" hits="1" branch="false"/>
+                                <line number="17" hits="1" branch="false"/>
+                                <line number="17" hits="1" branch="true"/>
+                                <line number="27" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="36" hits="1" branch="false"/>
+                        <line number="58" hits="0" branch="false"/>
+                        <line number="22" hits="1" branch="false"/>
+                        <line number="48" hits="1" branch="false"/>
+                        <line number="15" hits="1" branch="false"/>
+                        <line number="12" hits="1" branch="false"/>
+                        <line number="48" hits="1" branch="true"/>
+                        <line number="18" hits="1" branch="false"/>
+                        <line number="40" hits="1" branch="false"/>
+                        <line number="38" hits="1" branch="false"/>
+                        <line number="49" hits="1" branch="false"/>
+                        <line number="53" hits="0" branch="false"/>
+                        <line number="21" hits="1" branch="false"/>
+                        <line number="42" hits="1" branch="false"/>
+                        <line number="33" hits="1" branch="false"/>
+                        <line number="46" hits="1" branch="false"/>
+                        <line number="12" hits="1" branch="false"/>
+                        <line number="45" hits="1" branch="false"/>
+                        <line number="18" hits="1" branch="false"/>
+                        <line number="64" hits="0" branch="false"/>
+                        <line number="37" hits="1" branch="false"/>
+                        <line number="49" hits="1" branch="false"/>
+                        <line number="17" hits="1" branch="false"/>
+                        <line number="42" hits="1" branch="false"/>
+                        <line number="52" hits="0" branch="false"/>
+                        <line number="17" hits="1" branch="true"/>
+                        <line number="27" hits="1" branch="false"/>
+                        <line number="45" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.DrawCommand" filename="controller\DrawCommand.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="controller/DrawCommand/redoStep" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="39" hits="1" branch="false"/>
+                                <line number="52" hits="1" branch="false"/>
+                                <line number="40" hits="1" branch="false"/>
+                                <line number="43" hits="1" branch="false"/>
+                                <line number="46" hits="1" branch="false"/>
+                                <line number="40" hits="1" branch="false"/>
+                                <line number="41" hits="1" branch="false"/>
+                                <line number="40" hits="1" branch="true"/>
+                                <line number="44" hits="1" branch="false"/>
+                                <line number="40" hits="1" branch="false"/>
+                                <line number="39" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/DrawCommand/undoStep" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="31" hits="1" branch="false"/>
+                                <line number="36" hits="1" branch="false"/>
+                                <line number="30" hits="1" branch="false"/>
+                                <line number="34" hits="1" branch="false"/>
+                                <line number="32" hits="1" branch="false"/>
+                                <line number="36" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/DrawCommand/doStep" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="15" hits="1" branch="false"/>
+                                <line number="21" hits="1" branch="false"/>
+                                <line number="19" hits="1" branch="false"/>
+                                <line number="13" hits="1" branch="false"/>
+                                <line number="13" hits="1" branch="false"/>
+                                <line number="18" hits="1" branch="false"/>
+                                <line number="27" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="39" hits="1" branch="false"/>
+                        <line number="52" hits="1" branch="false"/>
+                        <line number="31" hits="1" branch="false"/>
+                        <line number="40" hits="1" branch="false"/>
+                        <line number="15" hits="1" branch="false"/>
+                        <line number="43" hits="1" branch="false"/>
+                        <line number="36" hits="1" branch="false"/>
+                        <line number="21" hits="1" branch="false"/>
+                        <line number="19" hits="1" branch="false"/>
+                        <line number="30" hits="1" branch="false"/>
+                        <line number="46" hits="1" branch="false"/>
+                        <line number="13" hits="1" branch="false"/>
+                        <line number="40" hits="1" branch="false"/>
+                        <line number="13" hits="1" branch="false"/>
+                        <line number="34" hits="1" branch="false"/>
+                        <line number="41" hits="1" branch="false"/>
+                        <line number="40" hits="1" branch="true"/>
+                        <line number="32" hits="1" branch="false"/>
+                        <line number="36" hits="1" branch="false"/>
+                        <line number="18" hits="1" branch="false"/>
+                        <line number="44" hits="1" branch="false"/>
+                        <line number="27" hits="1" branch="false"/>
+                        <line number="40" hits="1" branch="false"/>
+                        <line number="39" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.UnoController" filename="controller\UnoController.scala" line-rate="0.57" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="controller/UnoController/startGame" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="60" hits="0" branch="false"/>
+                                <line number="59" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/UnoController/draw" signature="()V" line-rate="0.71" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="37" hits="0" branch="false"/>
+                                <line number="33" hits="1" branch="false"/>
+                                <line number="36" hits="0" branch="false"/>
+                                <line number="31" hits="1" branch="false"/>
+                                <line number="32" hits="1" branch="false"/>
+                                <line number="35" hits="1" branch="false"/>
+                                <line number="34" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/UnoController/undo" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="43" hits="0" branch="false"/>
+                                <line number="45" hits="0" branch="false"/>
+                                <line number="42" hits="0" branch="false"/>
+                                <line number="44" hits="0" branch="false"/>
+                                <line number="41" hits="0" branch="false"/>
+                                <line number="46" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/UnoController/getField" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="63" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="controller/UnoController/getCurrentPlayer" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="65" hits="0" branch="false"/>
+                            </lines>
+</method>
+                        <method name="controller/UnoController/play" signature="()V" line-rate="0.94" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="25" hits="1" branch="false"/>
+                                <line number="23" hits="1" branch="false"/>
+                                <line number="24" hits="1" branch="false"/>
+                                <line number="20" hits="1" branch="false"/>
+                                <line number="19" hits="1" branch="false"/>
+                                <line number="23" hits="1" branch="false"/>
+                                <line number="22" hits="1" branch="false"/>
+                                <line number="24" hits="0" branch="false"/>
+                                <line number="23" hits="1" branch="false"/>
+                                <line number="27" hits="1" branch="false"/>
+                                <line number="24" hits="1" branch="false"/>
+                                <line number="24" hits="1" branch="false"/>
+                                <line number="26" hits="1" branch="false"/>
+                                <line number="24" hits="1" branch="false"/>
+                                <line number="21" hits="1" branch="false"/>
+                                <line number="23" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/UnoController/addObserver" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="68" hits="1" branch="false"/>
+                                <line number="67" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="controller/UnoController/&lt;init&gt;" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="9" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method name="controller/UnoController/$anonfun" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="24" hits="1" branch="false"/>
+                                <line number="24" hits="1" branch="false"/>
+                                <line number="24" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/UnoController/redo" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="52" hits="0" branch="false"/>
+                                <line number="55" hits="0" branch="false"/>
+                                <line number="51" hits="0" branch="false"/>
+                                <line number="54" hits="0" branch="false"/>
+                                <line number="53" hits="0" branch="false"/>
+                                <line number="50" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/UnoController/isGuiMode" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="16" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="controller/UnoController/setGuiActive" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="12" hits="0" branch="false"/>
+                            </lines>
+</method>
+                        <method 
+                        name="controller/UnoController/notifyObservers" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="71" hits="1" branch="false"/>
+                                <line number="72" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="25" hits="1" branch="false"/>
+                        <line number="37" hits="0" branch="false"/>
+                        <line number="52" hits="0" branch="false"/>
+                        <line number="68" hits="1" branch="false"/>
+                        <line number="9" hits="1" branch="false"/>
+                        <line number="23" hits="1" branch="false"/>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="20" hits="1" branch="false"/>
+                        <line number="55" hits="0" branch="false"/>
+                        <line number="71" hits="1" branch="false"/>
+                        <line number="19" hits="1" branch="false"/>
+                        <line number="43" hits="0" branch="false"/>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="23" hits="1" branch="false"/>
+                        <line number="72" hits="1" branch="false"/>
+                        <line number="33" hits="1" branch="false"/>
+                        <line number="45" hits="0" branch="false"/>
+                        <line number="22" hits="1" branch="false"/>
+                        <line number="24" hits="0" branch="false"/>
+                        <line number="60" hits="0" branch="false"/>
+                        <line number="65" hits="0" branch="false"/>
+                        <line number="23" hits="1" branch="false"/>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="36" hits="0" branch="false"/>
+                        <line number="51" hits="0" branch="false"/>
+                        <line number="27" hits="1" branch="false"/>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="42" hits="0" branch="false"/>
+                        <line number="16" hits="0" branch="false"/>
+                        <line number="54" hits="0" branch="false"/>
+                        <line number="31" hits="1" branch="false"/>
+                        <line number="53" hits="0" branch="false"/>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="26" hits="1" branch="false"/>
+                        <line number="12" hits="0" branch="false"/>
+                        <line number="67" hits="1" branch="false"/>
+                        <line number="44" hits="0" branch="false"/>
+                        <line number="50" hits="0" branch="false"/>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="32" hits="1" branch="false"/>
+                        <line number="21" hits="1" branch="false"/>
+                        <line number="35" hits="1" branch="false"/>
+                        <line number="41" hits="0" branch="false"/>
+                        <line number="23" hits="1" branch="false"/>
+                        <line number="63" hits="0" branch="false"/>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="46" hits="0" branch="false"/>
+                        <line number="34" hits="1" branch="false"/>
+                        <line number="59" hits="0" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.DrawCardStrategy" filename="controller\UnoActionStrategy.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method 
+                        name="controller/DrawCardStrategy/executeAction" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="13" hits="1" branch="false"/>
+                                <line number="12" hits="1" branch="false"/>
+                                <line number="12" hits="1" branch="false"/>
+                                <line number="11" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="13" hits="1" branch="false"/>
+                        <line number="12" hits="1" branch="false"/>
+                        <line number="12" hits="1" branch="false"/>
+                        <line number="11" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.DrawAction" filename="controller\UnoActionBuilder.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="controller/DrawAction/executeAction" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="41" hits="1" branch="false"/>
+                                <line number="42" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="41" hits="1" branch="false"/>
+                        <line number="42" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.PlayCardStrategy" filename="controller\UnoActionStrategy.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method 
+                        name="controller/PlayCardStrategy/executeAction" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="19" hits="1" branch="false"/>
+                                <line number="18" hits="1" branch="false"/>
+                                <line number="19" hits="1" branch="false"/>
+                                <line number="20" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="19" hits="1" branch="false"/>
+                        <line number="18" hits="1" branch="false"/>
+                        <line number="19" hits="1" branch="false"/>
+                        <line number="20" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.UnoActionBuilder" filename="controller\UnoActionBuilder.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="controller/UnoActionBuilder/build" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="24" hits="1" branch="false"/>
+                                <line number="25" hits="1" branch="false"/>
+                                <line number="21" hits="1" branch="false"/>
+                                <line number="23" hits="1" branch="false"/>
+                                <line number="25" hits="1" branch="false"/>
+                                <line number="24" hits="1" branch="false"/>
+                                <line number="25" hits="1" branch="false"/>
+                                <line number="23" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="controller/UnoActionBuilder/setCard" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="16" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="controller/UnoActionBuilder/setAction" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="11" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="25" hits="1" branch="false"/>
+                        <line number="16" hits="1" branch="false"/>
+                        <line number="11" hits="1" branch="false"/>
+                        <line number="21" hits="1" branch="false"/>
+                        <line number="23" hits="1" branch="false"/>
+                        <line number="25" hits="1" branch="false"/>
+                        <line number="24" hits="1" branch="false"/>
+                        <line number="25" hits="1" branch="false"/>
+                        <line number="23" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.UnoActionHandler" filename="controller\UnoActionStrategy.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method 
+                        name="controller/UnoActionHandler/setStrategy" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="25" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method 
+                        name="controller/UnoActionHandler/executeStrategy" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="29" hits="1" branch="false"/>
+                                <line number="30" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="25" hits="1" branch="false"/>
+                        <line number="29" hits="1" branch="false"/>
+                        <line number="30" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.UnoActionBuilder$" filename="controller\UnoActionBuilder.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="controller/UnoActionBuilder$/builder" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="5" hits="1" branch="false"/>
+                                <line number="5" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="5" hits="1" branch="false"/>
+                        <line number="5" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.UnoActionProcessor" filename="controller\UnoActionProcessor.scala" line-rate="0.92" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method 
+                        name="controller/UnoActionProcessor/validateAction" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="13" hits="1" branch="false"/>
+                                <line number="14" hits="1" branch="false"/>
+                                <line number="19" hits="1" branch="false"/>
+                                <line number="21" hits="1" branch="false"/>
+                                <line number="14" hits="1" branch="false"/>
+                                <line number="22" hits="1" branch="false"/>
+                                <line number="18" hits="1" branch="false"/>
+                                <line number="18" hits="1" branch="true"/>
+                                <line number="19" hits="1" branch="false"/>
+                                <line number="22" hits="1" branch="false"/>
+                                <line number="16" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method 
+                        name="controller/UnoActionProcessor/completeAction" signature="()V" line-rate="0.80" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="36" hits="1" branch="false"/>
+                                <line number="29" hits="0" branch="false"/>
+                                <line number="34" hits="1" branch="false"/>
+                                <line number="36" hits="1" branch="false"/>
+                                <line number="27" hits="1" branch="false"/>
+                                <line number="32" hits="1" branch="false"/>
+                                <line number="31" hits="0" branch="false"/>
+                                <line number="35" hits="1" branch="false"/>
+                                <line number="27" hits="1" branch="false"/>
+                                <line number="26" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method 
+                        name="controller/UnoActionProcessor/processAction" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="10" hits="1" branch="false"/>
+                                <line number="9" hits="1" branch="false"/>
+                                <line number="8" hits="1" branch="false"/>
+                                <line number="7" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="13" hits="1" branch="false"/>
+                        <line number="36" hits="1" branch="false"/>
+                        <line number="14" hits="1" branch="false"/>
+                        <line number="29" hits="0" branch="false"/>
+                        <line number="19" hits="1" branch="false"/>
+                        <line number="10" hits="1" branch="false"/>
+                        <line number="21" hits="1" branch="false"/>
+                        <line number="34" hits="1" branch="false"/>
+                        <line number="36" hits="1" branch="false"/>
+                        <line number="14" hits="1" branch="false"/>
+                        <line number="22" hits="1" branch="false"/>
+                        <line number="18" hits="1" branch="false"/>
+                        <line number="27" hits="1" branch="false"/>
+                        <line number="32" hits="1" branch="false"/>
+                        <line number="9" hits="1" branch="false"/>
+                        <line number="18" hits="1" branch="true"/>
+                        <line number="19" hits="1" branch="false"/>
+                        <line number="31" hits="0" branch="false"/>
+                        <line number="8" hits="1" branch="false"/>
+                        <line number="22" hits="1" branch="false"/>
+                        <line number="35" hits="1" branch="false"/>
+                        <line number="7" hits="1" branch="false"/>
+                        <line number="16" hits="1" branch="false"/>
+                        <line number="27" hits="1" branch="false"/>
+                        <line number="26" hits="1" branch="false"/>
+                    </lines>
+</class>
+                <class 
+                name="controller.PlayAction" filename="controller\UnoActionBuilder.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="controller/PlayAction/executeAction" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="36" hits="1" branch="false"/>
+                                <line number="35" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="36" hits="1" branch="false"/>
+                        <line number="35" hits="1" branch="false"/>
+                    </lines>
+</class>
+            </classes>
+        </package>
+        <package name="model" line-rate="0.91" branch-rate="1.00" complexity="0">
+            <classes>
+                <class name="model.Card" filename="model\Card.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="model/Card/getColorCode" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="57" hits="1" branch="false"/>
+                                <line number="53" hits="1" branch="false"/>
+                                <line number="56" hits="1" branch="false"/>
+                                <line number="51" hits="1" branch="false"/>
+                                <line number="55" hits="1" branch="false"/>
+                                <line number="54" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="model/Card/canBePlayedOn" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="36" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="57" hits="1" branch="false"/>
+                        <line number="53" hits="1" branch="false"/>
+                        <line number="56" hits="1" branch="false"/>
+                        <line number="51" hits="1" branch="false"/>
+                        <line number="36" hits="1" branch="false"/>
+                        <line number="55" hits="1" branch="false"/>
+                        <line number="54" hits="1" branch="false"/>
+                    </lines>
+                </class>
+                <class name="model.Card$package$" filename="model\Card.scala" line-rate="0.90" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="model/Card$package$/randomCards" signature="()V" line-rate="0.60" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="71" hits="0" branch="false"/>
+                                <line number="71" hits="1" branch="false"/>
+                                <line number="71" hits="1" branch="false"/>
+                                <line number="71" hits="0" branch="false"/>
+                                <line number="70" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="model/Card$package$/randomValue" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="66" hits="1" branch="false"/>
+                                <line number="66" hits="1" branch="false"/>
+                                <line number="66" hits="1" branch="false"/>
+                                <line number="66" hits="1" branch="false"/>
+                                <line number="66" hits="1" branch="false"/>
+                                <line number="65" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="model/Card$package$/$anonfun" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="71" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="model/Card$package$/randomColor" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="63" hits="1" branch="false"/>
+                                <line number="63" hits="1" branch="false"/>
+                                <line number="63" hits="1" branch="false"/>
+                                <line number="62" hits="1" branch="false"/>
+                                <line number="63" hits="1" branch="false"/>
+                                <line number="63" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="model/Card$package$/randomCard" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="68" hits="1" branch="false"/>
+                                <line number="68" hits="1" branch="false"/>
+                                <line number="68" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="66" hits="1" branch="false"/>
+                        <line number="71" hits="0" branch="false"/>
+                        <line number="71" hits="1" branch="false"/>
+                        <line number="63" hits="1" branch="false"/>
+                        <line number="66" hits="1" branch="false"/>
+                        <line number="66" hits="1" branch="false"/>
+                        <line number="71" hits="1" branch="false"/>
+                        <line number="63" hits="1" branch="false"/>
+                        <line number="63" hits="1" branch="false"/>
+                        <line number="68" hits="1" branch="false"/>
+                        <line number="66" hits="1" branch="false"/>
+                        <line number="71" hits="1" branch="false"/>
+                        <line number="68" hits="1" branch="false"/>
+                        <line number="62" hits="1" branch="false"/>
+                        <line number="66" hits="1" branch="false"/>
+                        <line number="71" hits="0" branch="false"/>
+                        <line number="65" hits="1" branch="false"/>
+                        <line number="63" hits="1" branch="false"/>
+                        <line number="70" hits="1" branch="false"/>
+                        <line number="63" hits="1" branch="false"/>
+                        <line number="68" hits="1" branch="false"/>
+                    </lines>
+                </class>
+                <class name="model.UnoField$" filename="model\UnoField.scala" line-rate="0.78" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method 
+                        name="model/UnoField$/$lessinit$greater$default$1" signature="()V" line-rate="0.60" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="4" hits="1" branch="false"/>
+                                <line number="4" hits="0" branch="false"/>
+                                <line number="4" hits="1" branch="false"/>
+                                <line number="4" hits="1" branch="false"/>
+                                <line number="4" hits="0" branch="false"/>
+                            </lines>
+</method>
+                        <method 
+                        name="model/UnoField$/$lessinit$greater$default$2" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="5" hits="1" branch="false"/>
+                                <line number="5" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method name="model/UnoField$/$anonfun" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="4" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="model/UnoField$/$lessinit$greater$default$3" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="6" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="4" hits="1" branch="false"/>
+                        <line number="5" hits="1" branch="false"/>
+                        <line number="4" hits="0" branch="false"/>
+                        <line number="4" hits="1" branch="false"/>
+                        <line number="4" hits="1" branch="false"/>
+                        <line number="5" hits="1" branch="false"/>
+                        <line number="4" hits="1" branch="false"/>
+                        <line number="6" hits="1" branch="false"/>
+                        <line number="4" hits="0" branch="false"/>
+                    </lines>
+                </class>
+                <class name="model.PlayerHand" filename="model\PlayerHand.scala" line-rate="0.83" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="model/PlayerHand/removeCard" signature="()V" line-rate="0.75" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="5" hits="0" branch="false"/>
+                                <line number="5" hits="1" branch="false"/>
+                                <line number="5" hits="1" branch="false"/>
+                                <line number="5" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="model/PlayerHand/addCard" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="3" hits="1" branch="false"/>
+                                <line number="3" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="5" hits="0" branch="false"/>
+                        <line number="3" hits="1" branch="false"/>
+                        <line number="5" hits="1" branch="false"/>
+                        <line number="5" hits="1" branch="false"/>
+                        <line number="5" hits="1" branch="false"/>
+                        <line number="3" hits="1" branch="false"/>
+                    </lines>
+                </class>
+                <class name="model.Player" filename="model\Player.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="model/Player/play" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="16" hits="1" branch="false"/>
+                                <line number="18" hits="1" branch="false"/>
+                                <line number="15" hits="1" branch="false"/>
+                                <line number="15" hits="1" branch="true"/>
+                                <line number="14" hits="1" branch="false"/>
+                                <line number="17" hits="1" branch="true"/>
+                            </lines>
+                        </method>
+                        <method name="model/Player/valid" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="11" hits="1" branch="false"/>
+                                <line number="10" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="model/Player/$anonfun" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="11" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="16" hits="1" branch="false"/>
+                        <line number="18" hits="1" branch="false"/>
+                        <line number="11" hits="1" branch="false"/>
+                        <line number="15" hits="1" branch="false"/>
+                        <line number="10" hits="1" branch="false"/>
+                        <line number="15" hits="1" branch="true"/>
+                        <line number="14" hits="1" branch="false"/>
+                        <line number="17" hits="1" branch="true"/>
+                        <line number="11" hits="1" branch="false"/>
+                    </lines>
+                </class>
+                <class name="model.PlayerHand$" filename="model\PlayerHand.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method 
+                        name="model/PlayerHand$/$lessinit$greater$default$1" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="2" hits="1" branch="false"/>
+                                <line number="2" hits="1" branch="false"/>
+                            </lines>
+</method>
+                    </methods>
+                    <lines>
+                        <line number="2" hits="1" branch="false"/>
+                        <line number="2" hits="1" branch="false"/>
+                    </lines>
+                </class>
+            </classes>
+        </package>
+        <package name="util" line-rate="0.66" branch-rate="1.00" complexity="0">
+            <classes>
+                <class 
+                name="util.CommandManager" filename="util\CommandManager.scala" line-rate="0.57" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="util/CommandManager/doStep" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="15" hits="1" branch="false"/>
+                                <line number="14" hits="1" branch="false"/>
+                                <line number="12" hits="1" branch="false"/>
+                                <line number="9" hits="1" branch="false"/>
+                                <line number="10" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="util/CommandManager/undoStep" signature="()V" line-rate="0.38" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="20" hits="1" branch="false"/>
+                                <line number="29" hits="0" branch="false"/>
+                                <line number="22" hits="1" branch="false"/>
+                                <line number="24" hits="0" branch="false"/>
+                                <line number="28" hits="0" branch="false"/>
+                                <line number="23" hits="0" branch="false"/>
+                                <line number="22" hits="1" branch="false"/>
+                                <line number="26" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="util/CommandManager/redoStep" signature="()V" line-rate="0.38" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="35" hits="1" branch="false"/>
+                                <line number="37" hits="1" branch="false"/>
+                                <line number="41" hits="0" branch="false"/>
+                                <line number="39" hits="0" branch="false"/>
+                                <line number="44" hits="0" branch="false"/>
+                                <line number="37" hits="1" branch="false"/>
+                                <line number="38" hits="0" branch="false"/>
+                                <line number="43" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="util/CommandManager/&lt;init&gt;" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="7" hits="1" branch="false"/>
+                                <line number="6" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="15" hits="1" branch="false"/>
+                        <line number="20" hits="1" branch="false"/>
+                        <line number="35" hits="1" branch="false"/>
+                        <line number="14" hits="1" branch="false"/>
+                        <line number="29" hits="0" branch="false"/>
+                        <line number="22" hits="1" branch="false"/>
+                        <line number="37" hits="1" branch="false"/>
+                        <line number="7" hits="1" branch="false"/>
+                        <line number="24" hits="0" branch="false"/>
+                        <line number="41" hits="0" branch="false"/>
+                        <line number="39" hits="0" branch="false"/>
+                        <line number="12" hits="1" branch="false"/>
+                        <line number="28" hits="0" branch="false"/>
+                        <line number="44" hits="0" branch="false"/>
+                        <line number="9" hits="1" branch="false"/>
+                        <line number="37" hits="1" branch="false"/>
+                        <line number="6" hits="1" branch="false"/>
+                        <line number="23" hits="0" branch="false"/>
+                        <line number="22" hits="1" branch="false"/>
+                        <line number="38" hits="0" branch="false"/>
+                        <line number="43" hits="0" branch="false"/>
+                        <line number="10" hits="1" branch="false"/>
+                        <line number="26" hits="0" branch="false"/>
+                    </lines>
+</class>
+                <class name="util.Observable" filename="util\Observer.scala" line-rate="0.89" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="util/Observable/notifyObservers" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="14" hits="1" branch="false"/>
+                                <line number="15" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="util/Observable/addObserver" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="7" hits="1" branch="false"/>
+                                <line number="6" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="util/Observable/removeObserver" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="10" hits="1" branch="false"/>
+                                <line number="11" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="util/Observable/&lt;init&gt;" signature="()V" line-rate="0.50" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="4" hits="1" branch="false"/>
+                                <line number="4" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="util/Observable/$anonfun" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="15" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="4" hits="1" branch="false"/>
+                        <line number="14" hits="1" branch="false"/>
+                        <line number="7" hits="1" branch="false"/>
+                        <line number="10" hits="1" branch="false"/>
+                        <line number="11" hits="1" branch="false"/>
+                        <line number="15" hits="1" branch="false"/>
+                        <line number="4" hits="0" branch="false"/>
+                        <line number="6" hits="1" branch="false"/>
+                        <line number="15" hits="1" branch="false"/>
+                    </lines>
+                </class>
+            </classes>
+        </package>
+        <package name="view" line-rate="0.00" branch-rate="0.00" complexity="0">
+            <classes>
+                <class name="view.UnoGUI$" filename="view\UnoGUI.scala" line-rate="0.00" branch-rate="0.00" complexity="0">
+                    <methods>
+                        <method name="view/UnoGUI$/launchApp" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="196" hits="0" branch="false"/>
+                                <line number="196" hits="0" branch="false"/>
+                                <line number="195" hits="0" branch="false"/>
+                                <line number="196" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="196" hits="0" branch="false"/>
+                        <line number="196" hits="0" branch="false"/>
+                        <line number="195" hits="0" branch="false"/>
+                        <line number="196" hits="0" branch="false"/>
+                    </lines>
+                </class>
+                <class name="view.$anon" filename="view\UnoGUI.scala" line-rate="0.00" branch-rate="0.00" complexity="0">
+                    <methods>
+                        <method name="view/$anon/$anonfun" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="55" hits="0" branch="false"/>
+                                <line number="101" hits="0" branch="false"/>
+                                <line number="77" hits="0" branch="false"/>
+                                <line number="83" hits="0" branch="true"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="56" hits="0" branch="false"/>
+                                <line number="68" hits="0" branch="false"/>
+                                <line number="86" hits="0" branch="true"/>
+                                <line number="78" hits="0" branch="false"/>
+                                <line number="75" hits="0" branch="false"/>
+                                <line number="81" hits="0" branch="false"/>
+                                <line number="57" hits="0" branch="false"/>
+                                <line number="109" hits="0" branch="false"/>
+                                <line number="57" hits="0" branch="false"/>
+                                <line number="75" hits="0" branch="false"/>
+                                <line number="80" hits="0" branch="false"/>
+                                <line number="94" hits="0" branch="false"/>
+                                <line number="84" hits="0" branch="false"/>
+                                <line number="77" hits="0" branch="false"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="102" hits="0" branch="false"/>
+                                <line number="78" hits="0" branch="false"/>
+                                <line number="87" hits="0" branch="false"/>
+                                <line number="56" hits="0" branch="false"/>
+                                <line number="67" hits="0" branch="false"/>
+                                <line number="76" hits="0" branch="true"/>
+                                <line number="102" hits="0" branch="false"/>
+                                <line number="66" hits="0" branch="false"/>
+                                <line number="78" hits="0" branch="false"/>
+                                <line number="57" hits="0" branch="false"/>
+                                <line number="108" hits="0" branch="false"/>
+                                <line number="79" hits="0" branch="false"/>
+                                <line number="95" hits="0" branch="false"/>
+                                <line number="57" hits="0" branch="false"/>
+                                <line number="75" hits="0" branch="false"/>
+                                <line number="78" hits="0" branch="true"/>
+                                <line number="56" hits="0" branch="false"/>
+                                <line number="28" hits="0" branch="false"/>
+                                <line number="95" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/$anon/&lt;init&gt;" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="65" hits="0" branch="false"/>
+                                <line number="161" hits="0" branch="false"/>
+                                <line number="48" hits="0" branch="false"/>
+                                <line number="115" hits="0" branch="false"/>
+                                <line number="107" hits="0" branch="false"/>
+                                <line number="49" hits="0" branch="false"/>
+                                <line number="33" hits="0" branch="false"/>
+                                <line number="128" hits="0" branch="false"/>
+                                <line number="120" hits="0" branch="false"/>
+                                <line number="53" hits="0" branch="false"/>
+                                <line number="44" hits="0" branch="false"/>
+                                <line number="120" hits="0" branch="false"/>
+                                <line number="127" hits="0" branch="false"/>
+                                <line number="130" hits="0" branch="false"/>
+                                <line number="51" hits="0" branch="false"/>
+                                <line number="142" hits="0" branch="false"/>
+                                <line number="158" hits="0" branch="false"/>
+                                <line number="115" hits="0" branch="false"/>
+                                <line number="160" hits="0" branch="false"/>
+                                <line number="54" hits="0" branch="false"/>
+                                <line number="100" hits="0" branch="false"/>
+                                <line number="45" hits="0" branch="false"/>
+                                <line number="49" hits="0" branch="false"/>
+                                <line number="32" hits="0" branch="false"/>
+                                <line number="33" hits="0" branch="false"/>
+                                <line number="160" hits="0" branch="false"/>
+                                <line number="142" hits="0" branch="false"/>
+                                <line number="119" hits="0" branch="false"/>
+                                <line number="162" hits="0" branch="false"/>
+                                <line number="157" hits="0" branch="false"/>
+                                <line number="120" hits="0" branch="false"/>
+                                <line number="93" hits="0" branch="false"/>
+                                <line number="141" hits="0" branch="false"/>
+                                <line number="74" hits="0" branch="false"/>
+                                <line number="51" hits="0" branch="false"/>
+                                <line number="33" hits="0" branch="false"/>
+                                <line number="129" hits="0" branch="false"/>
+                                <line number="54" hits="0" branch="false"/>
+                                <line number="26" hits="0" branch="false"/>
+                                <line number="45" hits="0" branch="false"/>
+                                <line number="115" hits="0" branch="false"/>
+                                <line number="49" hits="0" branch="false"/>
+                                <line number="159" hits="0" branch="false"/>
+                                <line number="142" hits="0" branch="false"/>
+                                <line number="114" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/$anon/call" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="52" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="55" hits="0" branch="false"/>
+                        <line number="65" hits="0" branch="false"/>
+                        <line number="161" hits="0" branch="false"/>
+                        <line number="48" hits="0" branch="false"/>
+                        <line number="101" hits="0" branch="false"/>
+                        <line number="115" hits="0" branch="false"/>
+                        <line number="77" hits="0" branch="false"/>
+                        <line number="83" hits="0" branch="true"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="56" hits="0" branch="false"/>
+                        <line number="68" hits="0" branch="false"/>
+                        <line number="107" hits="0" branch="false"/>
+                        <line number="49" hits="0" branch="false"/>
+                        <line number="86" hits="0" branch="true"/>
+                        <line number="33" hits="0" branch="false"/>
+                        <line number="128" hits="0" branch="false"/>
+                        <line number="120" hits="0" branch="false"/>
+                        <line number="78" hits="0" branch="false"/>
+                        <line number="53" hits="0" branch="false"/>
+                        <line number="44" hits="0" branch="false"/>
+                        <line number="75" hits="0" branch="false"/>
+                        <line number="81" hits="0" branch="false"/>
+                        <line number="57" hits="0" branch="false"/>
+                        <line number="120" hits="0" branch="false"/>
+                        <line number="127" hits="0" branch="false"/>
+                        <line number="109" hits="0" branch="false"/>
+                        <line number="130" hits="0" branch="false"/>
+                        <line number="57" hits="0" branch="false"/>
+                        <line number="75" hits="0" branch="false"/>
+                        <line number="51" hits="0" branch="false"/>
+                        <line number="142" hits="0" branch="false"/>
+                        <line number="158" hits="0" branch="false"/>
+                        <line number="80" hits="0" branch="false"/>
+                        <line number="94" hits="0" branch="false"/>
+                        <line number="52" hits="0" branch="false"/>
+                        <line number="115" hits="0" branch="false"/>
+                        <line number="160" hits="0" branch="false"/>
+                        <line number="84" hits="0" branch="false"/>
+                        <line number="54" hits="0" branch="false"/>
+                        <line number="100" hits="0" branch="false"/>
+                        <line number="77" hits="0" branch="false"/>
+                        <line number="45" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="49" hits="0" branch="false"/>
+                        <line number="32" hits="0" branch="false"/>
+                        <line number="102" hits="0" branch="false"/>
+                        <line number="78" hits="0" branch="false"/>
+                        <line number="87" hits="0" branch="false"/>
+                        <line number="56" hits="0" branch="false"/>
+                        <line number="67" hits="0" branch="false"/>
+                        <line number="33" hits="0" branch="false"/>
+                        <line number="160" hits="0" branch="false"/>
+                        <line number="142" hits="0" branch="false"/>
+                        <line number="76" hits="0" branch="true"/>
+                        <line number="102" hits="0" branch="false"/>
+                        <line number="66" hits="0" branch="false"/>
+                        <line number="119" hits="0" branch="false"/>
+                        <line number="78" hits="0" branch="false"/>
+                        <line number="162" hits="0" branch="false"/>
+                        <line number="57" hits="0" branch="false"/>
+                        <line number="157" hits="0" branch="false"/>
+                        <line number="120" hits="0" branch="false"/>
+                        <line number="93" hits="0" branch="false"/>
+                        <line number="141" hits="0" branch="false"/>
+                        <line number="108" hits="0" branch="false"/>
+                        <line number="74" hits="0" branch="false"/>
+                        <line number="79" hits="0" branch="false"/>
+                        <line number="51" hits="0" branch="false"/>
+                        <line number="33" hits="0" branch="false"/>
+                        <line number="129" hits="0" branch="false"/>
+                        <line number="54" hits="0" branch="false"/>
+                        <line number="26" hits="0" branch="false"/>
+                        <line number="45" hits="0" branch="false"/>
+                        <line number="95" hits="0" branch="false"/>
+                        <line number="57" hits="0" branch="false"/>
+                        <line number="115" hits="0" branch="false"/>
+                        <line number="75" hits="0" branch="false"/>
+                        <line number="78" hits="0" branch="true"/>
+                        <line number="49" hits="0" branch="false"/>
+                        <line number="56" hits="0" branch="false"/>
+                        <line number="28" hits="0" branch="false"/>
+                        <line number="159" hits="0" branch="false"/>
+                        <line number="142" hits="0" branch="false"/>
+                        <line number="114" hits="0" branch="false"/>
+                        <line number="95" hits="0" branch="false"/>
+                    </lines>
+                </class>
+                <class name="view.GameState" filename="view\UnoGUI.scala" line-rate="0.00" branch-rate="0.00" complexity="0">
+                    <methods>
+                        <method name="view/GameState/display" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="40" hits="0" branch="false"/>
+                                <line number="41" hits="0" branch="false"/>
+                                <line number="122" hits="0" branch="false"/>
+                                <line number="43" hits="0" branch="false"/>
+                                <line number="122" hits="0" branch="false"/>
+                                <line number="41" hits="0" branch="false"/>
+                                <line number="43" hits="0" branch="false"/>
+                                <line number="122" hits="0" branch="false"/>
+                                <line number="122" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/GameState/showAlert" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="131" hits="0" branch="false"/>
+                                <line number="125" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="40" hits="0" branch="false"/>
+                        <line number="41" hits="0" branch="false"/>
+                        <line number="122" hits="0" branch="false"/>
+                        <line number="43" hits="0" branch="false"/>
+                        <line number="122" hits="0" branch="false"/>
+                        <line number="41" hits="0" branch="false"/>
+                        <line number="131" hits="0" branch="false"/>
+                        <line number="43" hits="0" branch="false"/>
+                        <line number="122" hits="0" branch="false"/>
+                        <line number="125" hits="0" branch="false"/>
+                        <line number="122" hits="0" branch="false"/>
+                    </lines>
+                </class>
+                <class name="view.BeginState" filename="view\UnoGUI.scala" line-rate="0.00" branch-rate="0.00" complexity="0">
+                    <methods>
+                        <method name="view/BeginState/display" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="35" hits="0" branch="false"/>
+                                <line number="24" hits="0" branch="false"/>
+                                <line number="35" hits="0" branch="false"/>
+                                <line number="35" hits="0" branch="false"/>
+                                <line number="23" hits="0" branch="false"/>
+                                <line number="23" hits="0" branch="false"/>
+                                <line number="35" hits="0" branch="false"/>
+                                <line number="22" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="35" hits="0" branch="false"/>
+                        <line number="24" hits="0" branch="false"/>
+                        <line number="35" hits="0" branch="false"/>
+                        <line number="35" hits="0" branch="false"/>
+                        <line number="23" hits="0" branch="false"/>
+                        <line number="23" hits="0" branch="false"/>
+                        <line number="35" hits="0" branch="false"/>
+                        <line number="22" hits="0" branch="false"/>
+                    </lines>
+                </class>
+                <class name="view.UnoGUI" filename="view\UnoGUI.scala" line-rate="0.00" branch-rate="0.00" complexity="0">
+                    <methods>
+                        <method name="view/UnoGUI/start" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="154" hits="0" branch="false"/>
+                                <line number="165" hits="0" branch="false"/>
+                                <line number="155" hits="0" branch="false"/>
+                                <line number="165" hits="0" branch="false"/>
+                                <line number="165" hits="0" branch="false"/>
+                                <line number="166" hits="0" branch="false"/>
+                                <line number="165" hits="0" branch="false"/>
+                                <line number="165" hits="0" branch="false"/>
+                                <line number="165" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/UnoGUI/$anonfun" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="170" hits="0" branch="false"/>
+                                <line number="181" hits="0" branch="false"/>
+                                <line number="173" hits="0" branch="false"/>
+                                <line number="170" hits="0" branch="false"/>
+                                <line number="172" hits="0" branch="false"/>
+                                <line number="182" hits="0" branch="false"/>
+                                <line number="171" hits="0" branch="false"/>
+                                <line number="186" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/UnoGUI/update" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="179" hits="0" branch="false"/>
+                                <line number="176" hits="0" branch="false"/>
+                                <line number="189" hits="0" branch="false"/>
+                                <line number="185" hits="0" branch="false"/>
+                                <line number="177" hits="0" branch="false"/>
+                                <line number="177" hits="0" branch="false"/>
+                                <line number="188" hits="0" branch="false"/>
+                                <line number="180" hits="0" branch="false"/>
+                                <line number="184" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/UnoGUI/handleKeyPress" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="169" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/UnoGUI/display" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="150" hits="0" branch="false"/>
+                                <line number="149" hits="0" branch="false"/>
+                                <line number="151" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/UnoGUI/setState" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="145" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/UnoGUI/&lt;init&gt;" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="139" hits="0" branch="false"/>
+                                <line number="140" hits="0" branch="false"/>
+                                <line number="140" hits="0" branch="false"/>
+                                <line number="138" hits="0" branch="false"/>
+                                <line number="139" hits="0" branch="false"/>
+                                <line number="136" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="154" hits="0" branch="false"/>
+                        <line number="139" hits="0" branch="false"/>
+                        <line number="150" hits="0" branch="false"/>
+                        <line number="179" hits="0" branch="false"/>
+                        <line number="176" hits="0" branch="false"/>
+                        <line number="165" hits="0" branch="false"/>
+                        <line number="155" hits="0" branch="false"/>
+                        <line number="140" hits="0" branch="false"/>
+                        <line number="189" hits="0" branch="false"/>
+                        <line number="165" hits="0" branch="false"/>
+                        <line number="170" hits="0" branch="false"/>
+                        <line number="181" hits="0" branch="false"/>
+                        <line number="140" hits="0" branch="false"/>
+                        <line number="149" hits="0" branch="false"/>
+                        <line number="185" hits="0" branch="false"/>
+                        <line number="165" hits="0" branch="false"/>
+                        <line number="173" hits="0" branch="false"/>
+                        <line number="166" hits="0" branch="false"/>
+                        <line number="138" hits="0" branch="false"/>
+                        <line number="177" hits="0" branch="false"/>
+                        <line number="145" hits="0" branch="false"/>
+                        <line number="165" hits="0" branch="false"/>
+                        <line number="177" hits="0" branch="false"/>
+                        <line number="188" hits="0" branch="false"/>
+                        <line number="139" hits="0" branch="false"/>
+                        <line number="151" hits="0" branch="false"/>
+                        <line number="170" hits="0" branch="false"/>
+                        <line number="180" hits="0" branch="false"/>
+                        <line number="165" hits="0" branch="false"/>
+                        <line number="172" hits="0" branch="false"/>
+                        <line number="184" hits="0" branch="false"/>
+                        <line number="136" hits="0" branch="false"/>
+                        <line number="182" hits="0" branch="false"/>
+                        <line number="171" hits="0" branch="false"/>
+                        <line number="165" hits="0" branch="false"/>
+                        <line number="169" hits="0" branch="false"/>
+                        <line number="186" hits="0" branch="false"/>
+                    </lines>
+                </class>
+                <class name="view.TUI" filename="view\TUI.scala" line-rate="0.00" branch-rate="0.00" complexity="0">
+                    <methods>
+                        <method name="view/TUI/startGame" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="69" hits="0" branch="false"/>
+                                <line number="77" hits="0" branch="false"/>
+                                <line number="80" hits="0" branch="false"/>
+                                <line number="71" hits="0" branch="false"/>
+                                <line number="74" hits="0" branch="false"/>
+                                <line number="73" hits="0" branch="false"/>
+                                <line number="76" hits="0" branch="false"/>
+                                <line number="71" hits="0" branch="false"/>
+                                <line number="79" hits="0" branch="false"/>
+                                <line number="70" hits="0" branch="false"/>
+                                <line number="78" hits="0" branch="false"/>
+                                <line number="68" hits="0" branch="false"/>
+                                <line number="71" hits="0" branch="false"/>
+                                <line number="75" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/TUI/$anonfun" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="112" hits="0" branch="false"/>
+                                <line number="112" hits="0" branch="false"/>
+                                <line number="112" hits="0" branch="false"/>
+                                <line number="86" hits="0" branch="false"/>
+                                <line number="111" hits="0" branch="false"/>
+                                <line number="112" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/TUI/displayField" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="93" hits="0" branch="false"/>
+                                <line number="101" hits="0" branch="false"/>
+                                <line number="91" hits="0" branch="false"/>
+                                <line number="104" hits="0" branch="false"/>
+                                <line number="104" hits="0" branch="false"/>
+                                <line number="93" hits="0" branch="false"/>
+                                <line number="95" hits="0" branch="false"/>
+                                <line number="103" hits="0" branch="false"/>
+                                <line number="90" hits="0" branch="false"/>
+                                <line number="91" hits="0" branch="false"/>
+                                <line number="95" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/TUI/redoAction" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="129" hits="0" branch="false"/>
+                                <line number="131" hits="0" branch="false"/>
+                                <line number="130" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/TUI/processInputLine" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="12" hits="0" branch="false"/>
+                                <line number="34" hits="0" branch="false"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="28" hits="0" branch="false"/>
+                                <line number="10" hits="0" branch="false"/>
+                                <line number="16" hits="0" branch="false"/>
+                                <line number="30" hits="0" branch="false"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="17" hits="0" branch="false"/>
+                                <line number="23" hits="0" branch="false"/>
+                                <line number="16" hits="0" branch="false"/>
+                                <line number="31" hits="0" branch="false"/>
+                                <line number="11" hits="0" branch="true"/>
+                                <line number="25" hits="0" branch="false"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="17" hits="0" branch="false"/>
+                                <line number="20" hits="0" branch="false"/>
+                                <line number="15" hits="0" branch="false"/>
+                                <line number="17" hits="0" branch="false"/>
+                                <line number="31" hits="0" branch="false"/>
+                                <line number="28" hits="0" branch="false"/>
+                                <line number="33" hits="0" branch="false"/>
+                                <line number="19" hits="0" branch="false"/>
+                                <line number="15" hits="0" branch="false"/>
+                                <line number="25" hits="0" branch="false"/>
+                                <line number="17" hits="0" branch="false"/>
+                                <line number="14" hits="0" branch="true"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="29" hits="0" branch="false"/>
+                                <line number="17" hits="0" branch="false"/>
+                                <line number="22" hits="0" branch="false"/>
+                                <line number="16" hits="0" branch="false"/>
+                                <line number="25" hits="0" branch="false"/>
+                                <line number="13" hits="0" branch="false"/>
+                                <line number="16" hits="0" branch="false"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="17" hits="0" branch="false"/>
+                                <line number="16" hits="0" branch="false"/>
+                                <line number="17" hits="0" branch="false"/>
+                                <line number="30" hits="0" branch="false"/>
+                                <line number="24" hits="0" branch="false"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="15" hits="0" branch="false"/>
+                                <line number="32" hits="0" branch="false"/>
+                                <line number="16" hits="0" branch="true"/>
+                                <line number="25" hits="0" branch="false"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="16" hits="0" branch="false"/>
+                                <line number="15" hits="0" branch="false"/>
+                                <line number="17" hits="0" branch="false"/>
+                                <line number="27" hits="0" branch="false"/>
+                                <line number="29" hits="0" branch="false"/>
+                                <line number="21" hits="0" branch="false"/>
+                                <line number="18" hits="0" branch="true"/>
+                            </lines>
+                        </method>
+                        <method name="view/TUI/update" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="48" hits="0" branch="false"/>
+                                <line number="57" hits="0" branch="false"/>
+                                <line number="60" hits="0" branch="false"/>
+                                <line number="51" hits="0" branch="false"/>
+                                <line number="54" hits="0" branch="false"/>
+                                <line number="63" hits="0" branch="false"/>
+                                <line number="45" hits="0" branch="false"/>
+                                <line number="41" hits="0" branch="true"/>
+                                <line number="53" hits="0" branch="false"/>
+                                <line number="62" hits="0" branch="false"/>
+                                <line number="47" hits="0" branch="false"/>
+                                <line number="40" hits="0" branch="false"/>
+                                <line number="56" hits="0" branch="false"/>
+                                <line number="59" hits="0" branch="false"/>
+                                <line number="50" hits="0" branch="false"/>
+                                <line number="58" hits="0" branch="false"/>
+                                <line number="52" hits="0" branch="false"/>
+                                <line number="61" hits="0" branch="false"/>
+                                <line number="41" hits="0" branch="false"/>
+                                <line number="55" hits="0" branch="false"/>
+                                <line number="64" hits="0" branch="false"/>
+                                <line number="46" hits="0" branch="false"/>
+                                <line number="49" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/TUI/gameContinue" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="120" hits="0" branch="false"/>
+                                <line number="108" hits="0" branch="false"/>
+                                <line number="110" hits="0" branch="false"/>
+                                <line number="114" hits="0" branch="false"/>
+                                <line number="107" hits="0" branch="false"/>
+                                <line number="109" hits="0" branch="false"/>
+                                <line number="111" hits="0" branch="false"/>
+                                <line number="115" hits="0" branch="false"/>
+                                <line number="118" hits="0" branch="false"/>
+                                <line number="110" hits="0" branch="false"/>
+                                <line number="110" hits="0" branch="false"/>
+                                <line number="117" hits="0" branch="false"/>
+                                <line number="120" hits="0" branch="false"/>
+                                <line number="110" hits="0" branch="false"/>
+                                <line number="108" hits="0" branch="false"/>
+                                <line number="119" hits="0" branch="true"/>
+                                <line number="111" hits="0" branch="false"/>
+                                <line number="115" hits="0" branch="false"/>
+                                <line number="109" hits="0" branch="false"/>
+                                <line number="115" hits="0" branch="false"/>
+                                <line number="120" hits="0" branch="false"/>
+                                <line number="116" hits="0" branch="false"/>
+                                <line number="109" hits="0" branch="false"/>
+                                <line number="116" hits="0" branch="true"/>
+                                <line number="110" hits="0" branch="false"/>
+                                <line number="110" hits="0" branch="false"/>
+                                <line number="108" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/TUI/undoAction" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="124" hits="0" branch="false"/>
+                                <line number="126" hits="0" branch="false"/>
+                                <line number="125" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="view/TUI/gameOver" signature="()V" line-rate="0.00" branch-rate="0.00" complexity="0">
+                            <lines>
+                                <line number="86" hits="0" branch="false"/>
+                                <line number="87" hits="0" branch="false"/>
+                                <line number="85" hits="0" branch="false"/>
+                                <line number="84" hits="0" branch="false"/>
+                                <line number="87" hits="0" branch="false"/>
+                                <line number="86" hits="0" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="12" hits="0" branch="false"/>
+                        <line number="120" hits="0" branch="false"/>
+                        <line number="108" hits="0" branch="false"/>
+                        <line number="129" hits="0" branch="false"/>
+                        <line number="110" hits="0" branch="false"/>
+                        <line number="114" hits="0" branch="false"/>
+                        <line number="86" hits="0" branch="false"/>
+                        <line number="93" hits="0" branch="false"/>
+                        <line number="107" hits="0" branch="false"/>
+                        <line number="109" hits="0" branch="false"/>
+                        <line number="111" hits="0" branch="false"/>
+                        <line number="87" hits="0" branch="false"/>
+                        <line number="101" hits="0" branch="false"/>
+                        <line number="34" hits="0" branch="false"/>
+                        <line number="69" hits="0" branch="false"/>
+                        <line number="77" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="28" hits="0" branch="false"/>
+                        <line number="48" hits="0" branch="false"/>
+                        <line number="115" hits="0" branch="false"/>
+                        <line number="57" hits="0" branch="false"/>
+                        <line number="10" hits="0" branch="false"/>
+                        <line number="118" hits="0" branch="false"/>
+                        <line number="124" hits="0" branch="false"/>
+                        <line number="16" hits="0" branch="false"/>
+                        <line number="30" hits="0" branch="false"/>
+                        <line number="110" hits="0" branch="false"/>
+                        <line number="80" hits="0" branch="false"/>
+                        <line number="112" hits="0" branch="false"/>
+                        <line number="91" hits="0" branch="false"/>
+                        <line number="60" hits="0" branch="false"/>
+                        <line number="104" hits="0" branch="false"/>
+                        <line number="71" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="51" hits="0" branch="false"/>
+                        <line number="17" hits="0" branch="false"/>
+                        <line number="23" hits="0" branch="false"/>
+                        <line number="54" hits="0" branch="false"/>
+                        <line number="16" hits="0" branch="false"/>
+                        <line number="31" hits="0" branch="false"/>
+                        <line number="11" hits="0" branch="true"/>
+                        <line number="74" hits="0" branch="false"/>
+                        <line number="25" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="17" hits="0" branch="false"/>
+                        <line number="63" hits="0" branch="false"/>
+                        <line number="45" hits="0" branch="false"/>
+                        <line number="20" hits="0" branch="false"/>
+                        <line number="15" hits="0" branch="false"/>
+                        <line number="17" hits="0" branch="false"/>
+                        <line number="110" hits="0" branch="false"/>
+                        <line number="117" hits="0" branch="false"/>
+                        <line number="126" hits="0" branch="false"/>
+                        <line number="112" hits="0" branch="false"/>
+                        <line number="104" hits="0" branch="false"/>
+                        <line number="131" hits="0" branch="false"/>
+                        <line number="31" hits="0" branch="false"/>
+                        <line number="112" hits="0" branch="false"/>
+                        <line number="93" hits="0" branch="false"/>
+                        <line number="120" hits="0" branch="false"/>
+                        <line number="73" hits="0" branch="false"/>
+                        <line number="85" hits="0" branch="false"/>
+                        <line number="110" hits="0" branch="false"/>
+                        <line number="108" hits="0" branch="false"/>
+                        <line number="41" hits="0" branch="true"/>
+                        <line number="53" hits="0" branch="false"/>
+                        <line number="62" hits="0" branch="false"/>
+                        <line number="95" hits="0" branch="false"/>
+                        <line number="47" hits="0" branch="false"/>
+                        <line number="86" hits="0" branch="false"/>
+                        <line number="119" hits="0" branch="true"/>
+                        <line number="28" hits="0" branch="false"/>
+                        <line number="33" hits="0" branch="false"/>
+                        <line number="111" hits="0" branch="false"/>
+                        <line number="115" hits="0" branch="false"/>
+                        <line number="19" hits="0" branch="false"/>
+                        <line number="15" hits="0" branch="false"/>
+                        <line number="25" hits="0" branch="false"/>
+                        <line number="17" hits="0" branch="false"/>
+                        <line number="40" hits="0" branch="false"/>
+                        <line number="76" hits="0" branch="false"/>
+                        <line number="109" hits="0" branch="false"/>
+                        <line number="56" hits="0" branch="false"/>
+                        <line number="14" hits="0" branch="true"/>
+                        <line number="71" hits="0" branch="false"/>
+                        <line number="79" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="59" hits="0" branch="false"/>
+                        <line number="29" hits="0" branch="false"/>
+                        <line number="17" hits="0" branch="false"/>
+                        <line number="22" hits="0" branch="false"/>
+                        <line number="84" hits="0" branch="false"/>
+                        <line number="16" hits="0" branch="false"/>
+                        <line number="50" hits="0" branch="false"/>
+                        <line number="25" hits="0" branch="false"/>
+                        <line number="13" hits="0" branch="false"/>
+                        <line number="16" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="17" hits="0" branch="false"/>
+                        <line number="115" hits="0" branch="false"/>
+                        <line number="120" hits="0" branch="false"/>
+                        <line number="70" hits="0" branch="false"/>
+                        <line number="116" hits="0" branch="false"/>
+                        <line number="125" hits="0" branch="false"/>
+                        <line number="78" hits="0" branch="false"/>
+                        <line number="111" hits="0" branch="false"/>
+                        <line number="103" hits="0" branch="false"/>
+                        <line number="109" hits="0" branch="false"/>
+                        <line number="87" hits="0" branch="false"/>
+                        <line number="58" hits="0" branch="false"/>
+                        <line number="116" hits="0" branch="true"/>
+                        <line number="90" hits="0" branch="false"/>
+                        <line number="16" hits="0" branch="false"/>
+                        <line number="17" hits="0" branch="false"/>
+                        <line number="68" hits="0" branch="false"/>
+                        <line number="52" hits="0" branch="false"/>
+                        <line number="91" hits="0" branch="false"/>
+                        <line number="30" hits="0" branch="false"/>
+                        <line number="61" hits="0" branch="false"/>
+                        <line number="71" hits="0" branch="false"/>
+                        <line number="41" hits="0" branch="false"/>
+                        <line number="112" hits="0" branch="false"/>
+                        <line number="24" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="110" hits="0" branch="false"/>
+                        <line number="130" hits="0" branch="false"/>
+                        <line number="95" hits="0" branch="false"/>
+                        <line number="15" hits="0" branch="false"/>
+                        <line number="75" hits="0" branch="false"/>
+                        <line number="86" hits="0" branch="false"/>
+                        <line number="110" hits="0" branch="false"/>
+                        <line number="55" hits="0" branch="false"/>
+                        <line number="32" hits="0" branch="false"/>
+                        <line number="64" hits="0" branch="false"/>
+                        <line number="16" hits="0" branch="true"/>
+                        <line number="25" hits="0" branch="false"/>
+                        <line number="46" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="108" hits="0" branch="false"/>
+                        <line number="16" hits="0" branch="false"/>
+                        <line number="49" hits="0" branch="false"/>
+                        <line number="15" hits="0" branch="false"/>
+                        <line number="17" hits="0" branch="false"/>
+                        <line number="27" hits="0" branch="false"/>
+                        <line number="29" hits="0" branch="false"/>
+                        <line number="21" hits="0" branch="false"/>
+                        <line number="18" hits="0" branch="true"/>
+                    </lines>
+                </class>
+            </classes>
+        </package>
+    </packages>
+</coverage>

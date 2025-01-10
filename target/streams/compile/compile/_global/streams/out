@@ -1,17 +1,8 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\Main.scala:12:54 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m12 |[0m    [33mval[0m [36minjector[0m: [35mInjector[0m = Guice.createInjector([33mnew[0m [35mMainModule[0m)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                                      ^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                              Not found: type MainModule[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\controller\controllerComponent\ControllerIm\UnoController.scala:13:13 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m13 |[0m[33mimport[0m scala.MainModule[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m             ^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m             value MainModule is not a member of scala[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: C:\SoftwareEngineering\UNO\src\main\scala\controller\controllerComponent\ControllerIm\UnoController.scala:23:50 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m23 |[0m  [33mprivate[0m [33mval[0m injector = Guice.createInjector([33mnew[0m MainModule)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                                  ^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                              Not found: type MainModule[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0mthree errors found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: C:\sem3\SE\UNO\src\main\scala\view\UnoGUI.scala:175:30 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m175 |[0m    controller.setChosenColor(color) [0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                              ^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                              Found:    [1m[31m([0m[1m[31mcolor[0m[1m[31m [0m[1m[31m:[0m[1m[31m [0mmodel.cardColors[1m[31m)[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                              Required: [1m[32mOption[0m[1m[32m[[0mmodel.cardColors[1m[32m][0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

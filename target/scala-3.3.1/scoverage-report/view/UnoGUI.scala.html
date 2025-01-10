@@ -1,0 +1,3721 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          view\UnoGUI.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package view
+</span>2 <span style=''>
+</span>3 <span style=''>import scalafx.application.{JFXApp3, Platform}
+</span>4 <span style=''>import scalafx.application.JFXApp3.PrimaryStage
+</span>5 <span style=''>import scalafx.scene.Scene
+</span>6 <span style=''>import scalafx.scene.input.{KeyCode, KeyEvent}
+</span>7 <span style=''>import scalafx.scene.layout.{Pane, StackPane, VBox}
+</span>8 <span style=''>import scalafx.scene.paint.Color
+</span>9 <span style=''>import scalafx.Includes._
+</span>10 <span style=''>import controller.UnoController
+</span>11 <span style=''>import util.{Event, Observer}
+</span>12 <span style=''>import util.Event._
+</span>13 <span style=''>import model._
+</span>14 <span style=''>import scalafx.scene.control.{ListView, ListCell}
+</span>15 <span style=''>
+</span>16 <span style=''>import javafx.util.Callback
+</span>17 <span style=''>
+</span>18 <span style=''>trait State {
+</span>19 <span style=''>  def display(pane: Pane): Unit
+</span>20 <span style=''>}
+</span>21 <span style=''>
+</span>22 <span style=''>class BeginState(gui: UnoGUI, controller: UnoController) extends State {
+</span>23 <span style=''>  </span><span style='background: #F0ADAD'>override def display</span><span style=''>(pane: Pane): Unit = {
+</span>24 <span style=''>    </span><span style='background: #F0ADAD'>pane.children.clear()</span><span style=''>
+</span>25 <span style=''>    val beginLabel = </span><span style='background: #F0ADAD'>new scalafx.scene.control.Label(&quot;Welcome to UNO Game&quot;)</span><span style=''>
+</span>26 <span style=''>    val startButton = new scalafx.scene.control.Button(&quot;Start Game&quot;) {
+</span>27 <span style=''>      </span><span style='background: #F0ADAD'>onAction = _ =&gt; {
+</span>28 <span style=''></span><span style='background: #F0ADAD'>        gui.setState(new GameState(gui, controller))
+</span>29 <span style=''></span><span style='background: #F0ADAD'>        gui.display()
+</span>30 <span style=''></span><span style='background: #F0ADAD'>      }</span><span style=''>
+</span>31 <span style=''>    }
+</span>32 <span style=''>    val layout = new scalafx.scene.layout.VBox {
+</span>33 <span style=''>      </span><span style='background: #F0ADAD'>spacing = 20</span><span style=''>
+</span>34 <span style=''>      </span><span style='background: #F0ADAD'>children = Seq(beginLabel, startButton)</span><span style=''>
+</span>35 <span style=''>    }
+</span>36 <span style=''>    </span><span style='background: #F0ADAD'>pane.children.add(layout)</span><span style=''>
+</span>37 <span style=''>  }
+</span>38 <span style=''>}
+</span>39 <span style=''>
+</span>40 <span style=''>class GameState(gui: UnoGUI, controller: UnoController) extends State {
+</span>41 <span style=''>  </span><span style='background: #F0ADAD'>override def display</span><span style=''>(pane: Pane): Unit = {
+</span>42 <span style=''>    </span><span style='background: #F0ADAD'>pane.children.clear()</span><span style=''>
+</span>43 <span style=''>
+</span>44 <span style=''>    val playerLabel = </span><span style='background: #F0ADAD'>new scalafx.scene.control.Label(s&quot;Current player: Player ${controller.field.currentPlayer + 1}&quot;)</span><span style=''>
+</span>45 <span style=''>    val topCardLabel = new scalafx.scene.control.Label(</span><span style='background: #F0ADAD'>s&quot;Current top card: ${controller.field.topCard.value}&quot;</span><span style=''>) {
+</span>46 <span style=''>      </span><span style='background: #F0ADAD'>textFill = controller.field.topCard.getColorCode</span><span style=''>
+</span>47 <span style=''>    }
+</span>48 <span style=''>
+</span>49 <span style=''>    val handListView = new </span><span style='background: #F0ADAD'>ListView[Card]</span><span style=''> {
+</span>50 <span style=''>      </span><span style='background: #F0ADAD'>items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)</span><span style=''>
+</span>51 <span style=''>
+</span>52 <span style=''>      </span><span style='background: #F0ADAD'>cellFactory = new Callback[ListView[Card], ListCell[Card]] {
+</span>53 <span style=''></span><span style='background: #F0ADAD'>        override def call(param: ListView[Card]): ListCell[Card] = {
+</span>54 <span style=''></span><span style='background: #F0ADAD'>          new ListCell[Card] {
+</span>55 <span style=''></span><span style='background: #F0ADAD'>            item.onChange { (_, _, cardOpt) =&gt;
+</span>56 <span style=''></span><span style='background: #F0ADAD'>              val cardOption = Option(cardOpt)
+</span>57 <span style=''></span><span style='background: #F0ADAD'>              text = cardOption.map(_.value.toString).getOrElse(&quot;&quot;)
+</span>58 <span style=''></span><span style='background: #F0ADAD'>              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
+</span>59 <span style=''></span><span style='background: #F0ADAD'>            }
+</span>60 <span style=''></span><span style='background: #F0ADAD'>          }
+</span>61 <span style=''></span><span style='background: #F0ADAD'>        }
+</span>62 <span style=''></span><span style='background: #F0ADAD'>      }</span><span style=''>
+</span>63 <span style=''>    }
+</span>64 <span style=''>
+</span>65 <span style=''>    val drawButton = new scalafx.scene.control.Button(&quot;Draw Card&quot;) {
+</span>66 <span style=''>      </span><span style='background: #F0ADAD'>onAction = _ =&gt; {
+</span>67 <span style=''></span><span style='background: #F0ADAD'>        controller.draw()
+</span>68 <span style=''></span><span style='background: #F0ADAD'>        Platform.runLater(() =&gt; {
+</span>69 <span style=''></span><span style='background: #F0ADAD'>          gui.display()
+</span>70 <span style=''></span><span style='background: #F0ADAD'>        })
+</span>71 <span style=''></span><span style='background: #F0ADAD'>      }</span><span style=''>
+</span>72 <span style=''>    }
+</span>73 <span style=''>
+</span>74 <span style=''>    val playButton = new scalafx.scene.control.Button(&quot;Play Card&quot;) {
+</span>75 <span style=''>      </span><span style='background: #F0ADAD'>onAction = _ =&gt; {
+</span>76 <span style=''></span><span style='background: #F0ADAD'>        val selectedCardIndex = handListView.selectionModel().getSelectedIndex
+</span>77 <span style=''></span><span style='background: #F0ADAD'>        if (selectedCardIndex &gt;= 0) {
+</span>78 <span style=''></span><span style='background: #F0ADAD'>          val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)
+</span>79 <span style=''></span><span style='background: #F0ADAD'>          if (controller.field.players(controller.field.currentPlayer).valid(card) &amp;&amp; card.canBePlayedOn(controller.field.topCard)) {
+</span>80 <span style=''></span><span style='background: #F0ADAD'>            controller.play(card)
+</span>81 <span style=''></span><span style='background: #F0ADAD'>            Platform.runLater(() =&gt; {
+</span>82 <span style=''></span><span style='background: #F0ADAD'>              gui.display()
+</span>83 <span style=''></span><span style='background: #F0ADAD'>            })
+</span>84 <span style=''></span><span style='background: #F0ADAD'>          } else {
+</span>85 <span style=''></span><span style='background: #F0ADAD'>            showAlert(&quot;Invalid Move&quot;, &quot;The selected card cannot be played.&quot;)
+</span>86 <span style=''></span><span style='background: #F0ADAD'>          }
+</span>87 <span style=''></span><span style='background: #F0ADAD'>        } else {
+</span>88 <span style=''></span><span style='background: #F0ADAD'>          showAlert(&quot;No Card Selected&quot;, &quot;Please select a card to play.&quot;)
+</span>89 <span style=''></span><span style='background: #F0ADAD'>        }
+</span>90 <span style=''></span><span style='background: #F0ADAD'>      }</span><span style=''>
+</span>91 <span style=''>    }
+</span>92 <span style=''>
+</span>93 <span style=''>    val undoButton = new scalafx.scene.control.Button(&quot;Undo&quot;) {
+</span>94 <span style=''>      </span><span style='background: #F0ADAD'>onAction = _ =&gt; {
+</span>95 <span style=''></span><span style='background: #F0ADAD'>        controller.undo()
+</span>96 <span style=''></span><span style='background: #F0ADAD'>        Platform.runLater(() =&gt; gui.display())
+</span>97 <span style=''></span><span style='background: #F0ADAD'>      }</span><span style=''>
+</span>98 <span style=''>    }
+</span>99 <span style=''>
+</span>100 <span style=''>    val redoButton = new scalafx.scene.control.Button(&quot;Redo&quot;) {
+</span>101 <span style=''>      </span><span style='background: #F0ADAD'>onAction = _ =&gt; {
+</span>102 <span style=''></span><span style='background: #F0ADAD'>        controller.redo()
+</span>103 <span style=''></span><span style='background: #F0ADAD'>        Platform.runLater(() =&gt; gui.display())
+</span>104 <span style=''></span><span style='background: #F0ADAD'>      }</span><span style=''>
+</span>105 <span style=''>    }
+</span>106 <span style=''>
+</span>107 <span style=''>    val quitButton = new scalafx.scene.control.Button(&quot;Quit&quot;) {
+</span>108 <span style=''>      </span><span style='background: #F0ADAD'>onAction = _ =&gt; {
+</span>109 <span style=''></span><span style='background: #F0ADAD'>        controller.notifyObservers(Event.Quit)
+</span>110 <span style=''></span><span style='background: #F0ADAD'>        Platform.exit()
+</span>111 <span style=''></span><span style='background: #F0ADAD'>      }</span><span style=''>
+</span>112 <span style=''>    }
+</span>113 <span style=''>
+</span>114 <span style=''>    val buttonLayout = new scalafx.scene.layout.HBox {
+</span>115 <span style=''>      </span><span style='background: #F0ADAD'>spacing = 10</span><span style=''>
+</span>116 <span style=''>      </span><span style='background: #F0ADAD'>children = Seq(drawButton, playButton, undoButton, redoButton, quitButton)</span><span style=''>
+</span>117 <span style=''>    }
+</span>118 <span style=''>
+</span>119 <span style=''>    val layout = new scalafx.scene.layout.VBox {
+</span>120 <span style=''>      </span><span style='background: #F0ADAD'>spacing = 20</span><span style=''>
+</span>121 <span style=''>      </span><span style='background: #F0ADAD'>children = Seq(playerLabel, topCardLabel, handListView, buttonLayout)</span><span style=''>
+</span>122 <span style=''>    }
+</span>123 <span style=''>    </span><span style='background: #F0ADAD'>pane.children.add(layout)</span><span style=''>
+</span>124 <span style=''>  }
+</span>125 <span style=''>
+</span>126 <span style=''>  </span><span style='background: #F0ADAD'>private def showAlert</span><span style=''>(alertTitle: String, message: String): Unit = {
+</span>127 <span style=''>    </span><span style='background: #F0ADAD'>new scalafx.scene.control.Alert(scalafx.scene.control.Alert.AlertType.Information) {
+</span>128 <span style=''></span><span style='background: #F0ADAD'>      initOwner(gui.stage)
+</span>129 <span style=''></span><span style='background: #F0ADAD'>      this.title = alertTitle
+</span>130 <span style=''></span><span style='background: #F0ADAD'>      headerText = None
+</span>131 <span style=''></span><span style='background: #F0ADAD'>      contentText = message
+</span>132 <span style=''></span><span style='background: #F0ADAD'>    }.showAndWait()</span><span style=''>
+</span>133 <span style=''>  }
+</span>134 <span style=''>}
+</span>135 <span style=''>
+</span>136 <span style=''>class UnoGUI(controller: UnoController) extends JFXApp3 with Observer {
+</span>137 <span style=''>  </span><span style='background: #F0ADAD'>controller.addObserver(this)</span><span style=''>
+</span>138 <span style=''>
+</span>139 <span style=''>  private var state: State = </span><span style='background: #F0ADAD'>new BeginState(this, controller)</span><span style=''>
+</span>140 <span style=''>  private val menuPane: Pane = </span><span style='background: #F0ADAD'>new Pane</span><span style=''>
+</span>141 <span style=''>  private val gamePane: Pane = </span><span style='background: #F0ADAD'>new Pane</span><span style=''>
+</span>142 <span style=''>  private val rootPane: StackPane = new </span><span style='background: #F0ADAD'>StackPane</span><span style=''> {
+</span>143 <span style=''>    </span><span style='background: #F0ADAD'>children = List(menuPane, gamePane)</span><span style=''>
+</span>144 <span style=''>  }
+</span>145 <span style=''>
+</span>146 <span style=''>  </span><span style='background: #F0ADAD'>def setState</span><span style=''>(newState: State): Unit = {
+</span>147 <span style=''>    state = newState
+</span>148 <span style=''>  }
+</span>149 <span style=''>
+</span>150 <span style=''>  </span><span style='background: #F0ADAD'>def display</span><span style=''>(): Unit = {
+</span>151 <span style=''>    </span><span style='background: #F0ADAD'>state.display(gamePane)</span><span style=''>
+</span>152 <span style=''>    </span><span style='background: #F0ADAD'>gamePane.toFront()</span><span style=''>
+</span>153 <span style=''>  }
+</span>154 <span style=''>
+</span>155 <span style=''>  </span><span style='background: #F0ADAD'>override def start</span><span style=''>(): Unit = {
+</span>156 <span style=''>    </span><span style='background: #F0ADAD'>controller.setGuiActive(true)</span><span style=''> // new
+</span>157 <span style=''>    stage = new PrimaryStage {
+</span>158 <span style=''>      </span><span style='background: #F0ADAD'>title = &quot;Uno Game&quot;</span><span style=''>
+</span>159 <span style=''>      </span><span style='background: #F0ADAD'>width = 800</span><span style=''>
+</span>160 <span style=''>      </span><span style='background: #F0ADAD'>height = 600</span><span style=''>
+</span>161 <span style=''>      </span><span style='background: #F0ADAD'>scene = new Scene {
+</span>162 <span style=''></span><span style='background: #F0ADAD'>        fill = Color.Pink
+</span>163 <span style=''></span><span style='background: #F0ADAD'>        content = rootPane
+</span>164 <span style=''></span><span style='background: #F0ADAD'>      }</span><span style=''>
+</span>165 <span style=''>    }
+</span>166 <span style=''>    </span><span style='background: #F0ADAD'>stage.scene().onKeyPressed = handleKeyPress</span><span style=''>
+</span>167 <span style=''>    </span><span style='background: #F0ADAD'>display()</span><span style=''>
+</span>168 <span style=''>  }
+</span>169 <span style=''>
+</span>170 <span style=''>  </span><span style='background: #F0ADAD'>private def handleKeyPress</span><span style=''>: KeyEvent =&gt; Unit = {
+</span>171 <span style=''>    </span><span style='background: #F0ADAD'>case ke: KeyEvent if ke.code == KeyCode.Left</span><span style=''> =&gt;
+</span>172 <span style=''>      state = </span><span style='background: #F0ADAD'>new BeginState(this, controller)</span><span style=''>
+</span>173 <span style=''>      </span><span style='background: #F0ADAD'>display()</span><span style=''>
+</span>174 <span style=''>    </span><span style='background: #F0ADAD'>case _</span><span style=''> =&gt;
+</span>175 <span style=''>  }
+</span>176 <span style=''>
+</span>177 <span style=''>  </span><span style='background: #F0ADAD'>override def update</span><span style=''>(e: Event): Unit = {
+</span>178 <span style=''>    </span><span style='background: #F0ADAD'>println(s&quot;GUI Received event: $e&quot;)</span><span style=''>
+</span>179 <span style=''>    e match {
+</span>180 <span style=''>      </span><span style='background: #F0ADAD'>case Event.Start</span><span style=''> =&gt;
+</span>181 <span style=''>        </span><span style='background: #F0ADAD'>Platform.runLater(() =&gt; {
+</span>182 <span style=''></span><span style='background: #F0ADAD'>          state = new GameState(this, controller)
+</span>183 <span style=''></span><span style='background: #F0ADAD'>          display()
+</span>184 <span style=''></span><span style='background: #F0ADAD'>        })</span><span style=''>
+</span>185 <span style=''>      </span><span style='background: #F0ADAD'>case Event.Play | Event.Draw | Event.Undo | Event.Redo | Event.Error</span><span style=''> =&gt;
+</span>186 <span style=''>        </span><span style='background: #F0ADAD'>Platform.runLater(() =&gt; {
+</span>187 <span style=''></span><span style='background: #F0ADAD'>          state.display(gamePane) // Refresh the game state
+</span>188 <span style=''></span><span style='background: #F0ADAD'>        })</span><span style=''>
+</span>189 <span style=''>      </span><span style='background: #F0ADAD'>case Event.Quit</span><span style=''> =&gt;
+</span>190 <span style=''>        </span><span style='background: #F0ADAD'>Platform.exit()</span><span style=''>
+</span>191 <span style=''>    }
+</span>192 <span style=''>  }
+</span>193 <span style=''>}
+</span>194 <span style=''>
+</span>195 <span style=''>object UnoGUI {
+</span>196 <span style=''>  </span><span style='background: #F0ADAD'>def launchApp</span><span style=''>(controller: UnoController): Unit = {
+</span>197 <span style=''>    </span><span style='background: #F0ADAD'>new UnoGUI(controller).main(Array.empty)</span><span style=''>
+</span>198 <span style=''>  }
+</span>199 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          416
+        </td>
+        <td>
+          617
+          -
+          637
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          override def display
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          402
+        </td>
+        <td>
+          665
+          -
+          678
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          children
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          401
+        </td>
+        <td>
+          665
+          -
+          686
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          clear
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children.clear()
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          403
+        </td>
+        <td>
+          709
+          -
+          763
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new scalafx.scene.control.Label(&quot;Welcome to UNO Game&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          404
+        </td>
+        <td>
+          843
+          -
+          946
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          onAction_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          onAction = _ =&gt; {\r\n        gui.setState(new GameState(gui, controller))\r\n        gui.display()\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          406
+        </td>
+        <td>
+          883
+          -
+          913
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new GameState(gui, controller)
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          405
+        </td>
+        <td>
+          870
+          -
+          914
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setState
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gui.setState(new GameState(gui, controller))
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          407
+        </td>
+        <td>
+          924
+          -
+          937
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gui.display()
+        </td>
+      </tr><tr>
+        <td>
+          32
+        </td>
+        <td>
+          408
+        </td>
+        <td>
+          1011
+          -
+          1023
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          spacing_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          spacing = 20
+        </td>
+      </tr><tr>
+        <td>
+          33
+        </td>
+        <td>
+          409
+        </td>
+        <td>
+          1031
+          -
+          1070
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          children_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          children = Seq(beginLabel, startButton)
+        </td>
+      </tr><tr>
+        <td>
+          33
+        </td>
+        <td>
+          411
+        </td>
+        <td>
+          1042
+          -
+          1045
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          Seq
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Seq
+        </td>
+      </tr><tr>
+        <td>
+          33
+        </td>
+        <td>
+          410
+        </td>
+        <td>
+          1042
+          -
+          1070
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Seq(beginLabel, startButton)
+        </td>
+      </tr><tr>
+        <td>
+          35
+        </td>
+        <td>
+          415
+        </td>
+        <td>
+          1101
+          -
+          1107
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          sfxVBox2jfx
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          layout
+        </td>
+      </tr><tr>
+        <td>
+          35
+        </td>
+        <td>
+          412
+        </td>
+        <td>
+          1083
+          -
+          1108
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          add
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children.add(layout)
+        </td>
+      </tr><tr>
+        <td>
+          35
+        </td>
+        <td>
+          414
+        </td>
+        <td>
+          1083
+          -
+          1096
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          children
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children
+        </td>
+      </tr><tr>
+        <td>
+          35
+        </td>
+        <td>
+          413
+        </td>
+        <td>
+          1083
+          -
+          1096
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          observableBuffer2ObservableList
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children
+        </td>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          487
+        </td>
+        <td>
+          1195
+          -
+          1215
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          override def display
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          418
+        </td>
+        <td>
+          1243
+          -
+          1256
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          children
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          417
+        </td>
+        <td>
+          1243
+          -
+          1264
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          clear
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children.clear()
+        </td>
+      </tr><tr>
+        <td>
+          43
+        </td>
+        <td>
+          420
+        </td>
+        <td>
+          1322
+          -
+          1385
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;Current player: Player ${controller.field.currentPlayer + 1}&quot;
+        </td>
+      </tr><tr>
+        <td>
+          43
+        </td>
+        <td>
+          419
+        </td>
+        <td>
+          1290
+          -
+          1386
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new scalafx.scene.control.Label(s&quot;Current player: Player ${controller.field.currentPlayer + 1}&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          421
+        </td>
+        <td>
+          1443
+          -
+          1497
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;Current top card: ${controller.field.topCard.value}&quot;
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          423
+        </td>
+        <td>
+          1519
+          -
+          1556
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          getColorCode
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.topCard.getColorCode
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          422
+        </td>
+        <td>
+          1508
+          -
+          1556
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          textFill_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          textFill = controller.field.topCard.getColorCode
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          424
+        </td>
+        <td>
+          1594
+          -
+          1608
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          $lessinit$greater$default$1
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          ListView[Card]
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          427
+        </td>
+        <td>
+          1663
+          -
+          1719
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          426
+        </td>
+        <td>
+          1626
+          -
+          1735
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          425
+        </td>
+        <td>
+          1618
+          -
+          1735
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          items_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          429
+        </td>
+        <td>
+          1759
+          -
+          2199
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          jfxCallbackToFunction1
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new Callback[ListView[Card], ListCell[Card]] {\r\n        override def call(param: ListView[Card]): ListCell[Card] = {\r\n          new ListCell[Card] {\r\n            item.onChange { (_, _, cardOpt) =&gt;\r\n              val cardOption = Option(cardOpt)\r\n              text = cardOption.map(_.value.toString).getOrElse(&quot;&quot;)\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)\r\n            }\r\n          }\r\n        }\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          428
+        </td>
+        <td>
+          1745
+          -
+          2199
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cellFactory_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          cellFactory = new Callback[ListView[Card], ListCell[Card]] {\r\n        override def call(param: ListView[Card]): ListCell[Card] = {\r\n          new ListCell[Card] {\r\n            item.onChange { (_, _, cardOpt) =&gt;\r\n              val cardOption = Option(cardOpt)\r\n              text = cardOption.map(_.value.toString).getOrElse(&quot;&quot;)\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)\r\n            }\r\n          }\r\n        }\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          52
+        </td>
+        <td>
+          441
+        </td>
+        <td>
+          1815
+          -
+          1832
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          call
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          override def call
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          430
+        </td>
+        <td>
+          1891
+          -
+          1905
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          $lessinit$greater$default$1
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          ListCell[Card]
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          432
+        </td>
+        <td>
+          1921
+          -
+          1925
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          item
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          item
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          431
+        </td>
+        <td>
+          1921
+          -
+          2166
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          onChange
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          item.onChange { (_, _, cardOpt) =&gt;\r\n              val cardOption = Option(cardOpt)\r\n              text = cardOption.map(_.value.toString).getOrElse(&quot;&quot;)\r\n              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)\r\n            }
+        </td>
+      </tr><tr>
+        <td>
+          55
+        </td>
+        <td>
+          433
+        </td>
+        <td>
+          1988
+          -
+          2003
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Option(cardOpt)
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          436
+        </td>
+        <td>
+          2026
+          -
+          2058
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          map
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          cardOption.map(_.value.toString)
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          435
+        </td>
+        <td>
+          2026
+          -
+          2072
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getOrElse
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          cardOption.map(_.value.toString).getOrElse(&quot;&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          434
+        </td>
+        <td>
+          2019
+          -
+          2072
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          text_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          text = cardOption.map(_.value.toString).getOrElse(&quot;&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          439
+        </td>
+        <td>
+          2099
+          -
+          2129
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          map
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          cardOption.map(_.getColorCode)
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          438
+        </td>
+        <td>
+          2099
+          -
+          2151
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getOrElse
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          cardOption.map(_.getColorCode).getOrElse(Color.Pink)
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          437
+        </td>
+        <td>
+          2088
+          -
+          2151
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          textFill_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          440
+        </td>
+        <td>
+          2114
+          -
+          2128
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          getColorCode
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          _.getColorCode
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          442
+        </td>
+        <td>
+          2286
+          -
+          2411
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          onAction_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          onAction = _ =&gt; {\r\n        controller.draw()\r\n        Platform.runLater(() =&gt; {\r\n          gui.display()\r\n        })\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          443
+        </td>
+        <td>
+          2313
+          -
+          2330
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          draw
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.draw()
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          444
+        </td>
+        <td>
+          2340
+          -
+          2402
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          runLater
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Platform.runLater(() =&gt; {\r\n          gui.display()\r\n        })
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          445
+        </td>
+        <td>
+          2377
+          -
+          2390
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gui.display()
+        </td>
+      </tr><tr>
+        <td>
+          74
+        </td>
+        <td>
+          446
+        </td>
+        <td>
+          2498
+          -
+          3220
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          onAction_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          onAction = _ =&gt; {\r\n        val selectedCardIndex = handListView.selectionModel().getSelectedIndex\r\n        if (selectedCardIndex &gt;= 0) {\r\n          val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)\r\n          if (controller.field.players(controller.field.currentPlayer).valid(card) &amp;&amp; card.canBePlayedOn(controller.field.topCard)) {\r\n            controller.play(card)\r\n            Platform.runLater(() =&gt; {\r\n              gui.display()\r\n            })\r\n          } else {\r\n            showAlert(&quot;Invalid Move&quot;, &quot;The selected card cannot be played.&quot;)\r\n          }\r\n        } else {\r\n          showAlert(&quot;No Card Selected&quot;, &quot;Please select a card to play.&quot;)\r\n        }\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          448
+        </td>
+        <td>
+          2549
+          -
+          2578
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          handListView.selectionModel()
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          447
+        </td>
+        <td>
+          2549
+          -
+          2595
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getSelectedIndex
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          handListView.selectionModel().getSelectedIndex
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          449
+        </td>
+        <td>
+          2549
+          -
+          2576
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          selectionModel
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          handListView.selectionModel
+        </td>
+      </tr><tr>
+        <td>
+          76
+        </td>
+        <td>
+          461
+        </td>
+        <td>
+          2633
+          -
+          3119
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n          val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)\r\n          if (controller.field.players(controller.field.currentPlayer).valid(card) &amp;&amp; card.canBePlayedOn(controller.field.topCard)) {\r\n            controller.play(card)\r\n            Platform.runLater(() =&gt; {\r\n              gui.display()\r\n            })\r\n          } else {\r\n            showAlert(&quot;Invalid Move&quot;, &quot;The selected card cannot be played.&quot;)\r\n          }\r\n        }
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          451
+        </td>
+        <td>
+          2657
+          -
+          2713
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          450
+        </td>
+        <td>
+          2657
+          -
+          2743
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          454
+        </td>
+        <td>
+          2831
+          -
+          2875
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          canBePlayedOn
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          card.canBePlayedOn(controller.field.topCard)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          453
+        </td>
+        <td>
+          2759
+          -
+          2815
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          452
+        </td>
+        <td>
+          2759
+          -
+          2827
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          valid
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players(controller.field.currentPlayer).valid(card)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          458
+        </td>
+        <td>
+          2877
+          -
+          3010
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n            controller.play(card)\r\n            Platform.runLater(() =&gt; {\r\n              gui.display()\r\n            })\r\n          }
+        </td>
+      </tr><tr>
+        <td>
+          79
+        </td>
+        <td>
+          455
+        </td>
+        <td>
+          2892
+          -
+          2913
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          play
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.play(card)
+        </td>
+      </tr><tr>
+        <td>
+          80
+        </td>
+        <td>
+          456
+        </td>
+        <td>
+          2927
+          -
+          2997
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          runLater
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Platform.runLater(() =&gt; {\r\n              gui.display()\r\n            })
+        </td>
+      </tr><tr>
+        <td>
+          81
+        </td>
+        <td>
+          457
+        </td>
+        <td>
+          2968
+          -
+          2981
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gui.display()
+        </td>
+      </tr><tr>
+        <td>
+          83
+        </td>
+        <td>
+          460
+        </td>
+        <td>
+          3016
+          -
+          3108
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n            showAlert(&quot;Invalid Move&quot;, &quot;The selected card cannot be played.&quot;)\r\n          }
+        </td>
+      </tr><tr>
+        <td>
+          84
+        </td>
+        <td>
+          459
+        </td>
+        <td>
+          3031
+          -
+          3095
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          showAlert
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          showAlert(&quot;Invalid Move&quot;, &quot;The selected card cannot be played.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          86
+        </td>
+        <td>
+          463
+        </td>
+        <td>
+          3125
+          -
+          3211
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\r\n          showAlert(&quot;No Card Selected&quot;, &quot;Please select a card to play.&quot;)\r\n        }
+        </td>
+      </tr><tr>
+        <td>
+          87
+        </td>
+        <td>
+          462
+        </td>
+        <td>
+          3138
+          -
+          3200
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          showAlert
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          showAlert(&quot;No Card Selected&quot;, &quot;Please select a card to play.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          93
+        </td>
+        <td>
+          464
+        </td>
+        <td>
+          3302
+          -
+          3403
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          onAction_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          onAction = _ =&gt; {\r\n        controller.undo()\r\n        Platform.runLater(() =&gt; gui.display())\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          94
+        </td>
+        <td>
+          465
+        </td>
+        <td>
+          3329
+          -
+          3346
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          undo
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.undo()
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          467
+        </td>
+        <td>
+          3380
+          -
+          3393
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gui.display()
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          466
+        </td>
+        <td>
+          3356
+          -
+          3394
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          runLater
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Platform.runLater(() =&gt; gui.display())
+        </td>
+      </tr><tr>
+        <td>
+          100
+        </td>
+        <td>
+          468
+        </td>
+        <td>
+          3485
+          -
+          3586
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          onAction_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          onAction = _ =&gt; {\r\n        controller.redo()\r\n        Platform.runLater(() =&gt; gui.display())\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          101
+        </td>
+        <td>
+          469
+        </td>
+        <td>
+          3512
+          -
+          3529
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          redo
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.redo()
+        </td>
+      </tr><tr>
+        <td>
+          102
+        </td>
+        <td>
+          471
+        </td>
+        <td>
+          3563
+          -
+          3576
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gui.display()
+        </td>
+      </tr><tr>
+        <td>
+          102
+        </td>
+        <td>
+          470
+        </td>
+        <td>
+          3539
+          -
+          3577
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          runLater
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Platform.runLater(() =&gt; gui.display())
+        </td>
+      </tr><tr>
+        <td>
+          107
+        </td>
+        <td>
+          472
+        </td>
+        <td>
+          3668
+          -
+          3767
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          onAction_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          onAction = _ =&gt; {\r\n        controller.notifyObservers(Event.Quit)\r\n        Platform.exit()\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          108
+        </td>
+        <td>
+          473
+        </td>
+        <td>
+          3695
+          -
+          3733
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.notifyObservers(Event.Quit)
+        </td>
+      </tr><tr>
+        <td>
+          109
+        </td>
+        <td>
+          474
+        </td>
+        <td>
+          3743
+          -
+          3758
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          exit
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Platform.exit()
+        </td>
+      </tr><tr>
+        <td>
+          114
+        </td>
+        <td>
+          475
+        </td>
+        <td>
+          3840
+          -
+          3852
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          spacing_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          spacing = 10
+        </td>
+      </tr><tr>
+        <td>
+          115
+        </td>
+        <td>
+          478
+        </td>
+        <td>
+          3871
+          -
+          3874
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          Seq
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Seq
+        </td>
+      </tr><tr>
+        <td>
+          115
+        </td>
+        <td>
+          477
+        </td>
+        <td>
+          3871
+          -
+          3934
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Seq(drawButton, playButton, undoButton, redoButton, quitButton)
+        </td>
+      </tr><tr>
+        <td>
+          115
+        </td>
+        <td>
+          476
+        </td>
+        <td>
+          3860
+          -
+          3934
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          children_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          children = Seq(drawButton, playButton, undoButton, redoButton, quitButton)
+        </td>
+      </tr><tr>
+        <td>
+          119
+        </td>
+        <td>
+          479
+        </td>
+        <td>
+          4001
+          -
+          4013
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          spacing_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          spacing = 20
+        </td>
+      </tr><tr>
+        <td>
+          120
+        </td>
+        <td>
+          481
+        </td>
+        <td>
+          4032
+          -
+          4090
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Seq(playerLabel, topCardLabel, handListView, buttonLayout)
+        </td>
+      </tr><tr>
+        <td>
+          120
+        </td>
+        <td>
+          480
+        </td>
+        <td>
+          4021
+          -
+          4090
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          children_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          children = Seq(playerLabel, topCardLabel, handListView, buttonLayout)
+        </td>
+      </tr><tr>
+        <td>
+          120
+        </td>
+        <td>
+          482
+        </td>
+        <td>
+          4032
+          -
+          4035
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          Seq
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Seq
+        </td>
+      </tr><tr>
+        <td>
+          122
+        </td>
+        <td>
+          483
+        </td>
+        <td>
+          4103
+          -
+          4128
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          add
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children.add(layout)
+        </td>
+      </tr><tr>
+        <td>
+          122
+        </td>
+        <td>
+          486
+        </td>
+        <td>
+          4121
+          -
+          4127
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          sfxVBox2jfx
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          layout
+        </td>
+      </tr><tr>
+        <td>
+          122
+        </td>
+        <td>
+          485
+        </td>
+        <td>
+          4103
+          -
+          4116
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          children
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children
+        </td>
+      </tr><tr>
+        <td>
+          122
+        </td>
+        <td>
+          484
+        </td>
+        <td>
+          4103
+          -
+          4116
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          observableBuffer2ObservableList
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pane.children
+        </td>
+      </tr><tr>
+        <td>
+          125
+        </td>
+        <td>
+          493
+        </td>
+        <td>
+          4139
+          -
+          4160
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          showAlert
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          private def showAlert
+        </td>
+      </tr><tr>
+        <td>
+          127
+        </td>
+        <td>
+          489
+        </td>
+        <td>
+          4305
+          -
+          4325
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          initOwner
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          initOwner(gui.stage)
+        </td>
+      </tr><tr>
+        <td>
+          128
+        </td>
+        <td>
+          490
+        </td>
+        <td>
+          4333
+          -
+          4356
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          title_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          this.title = alertTitle
+        </td>
+      </tr><tr>
+        <td>
+          129
+        </td>
+        <td>
+          491
+        </td>
+        <td>
+          4364
+          -
+          4381
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          headerText_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          headerText = None
+        </td>
+      </tr><tr>
+        <td>
+          130
+        </td>
+        <td>
+          492
+        </td>
+        <td>
+          4389
+          -
+          4410
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          contentText_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          contentText = message
+        </td>
+      </tr><tr>
+        <td>
+          131
+        </td>
+        <td>
+          488
+        </td>
+        <td>
+          4213
+          -
+          4431
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          showAndWait
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new scalafx.scene.control.Alert(scalafx.scene.control.Alert.AlertType.Information) {\r\n      initOwner(gui.stage)\r\n      this.title = alertTitle\r\n      headerText = None\r\n      contentText = message\r\n    }.showAndWait()
+        </td>
+      </tr><tr>
+        <td>
+          136
+        </td>
+        <td>
+          494
+        </td>
+        <td>
+          4518
+          -
+          4546
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          addObserver
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.addObserver(this)
+        </td>
+      </tr><tr>
+        <td>
+          138
+        </td>
+        <td>
+          495
+        </td>
+        <td>
+          4579
+          -
+          4611
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new BeginState(this, controller)
+        </td>
+      </tr><tr>
+        <td>
+          139
+        </td>
+        <td>
+          496
+        </td>
+        <td>
+          4644
+          -
+          4652
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new Pane
+        </td>
+      </tr><tr>
+        <td>
+          139
+        </td>
+        <td>
+          497
+        </td>
+        <td>
+          4648
+          -
+          4652
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          $lessinit$greater$default$1
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Pane
+        </td>
+      </tr><tr>
+        <td>
+          140
+        </td>
+        <td>
+          499
+        </td>
+        <td>
+          4689
+          -
+          4693
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          $lessinit$greater$default$1
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Pane
+        </td>
+      </tr><tr>
+        <td>
+          140
+        </td>
+        <td>
+          498
+        </td>
+        <td>
+          4685
+          -
+          4693
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new Pane
+        </td>
+      </tr><tr>
+        <td>
+          141
+        </td>
+        <td>
+          500
+        </td>
+        <td>
+          4735
+          -
+          4744
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          $lessinit$greater$default$1
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          StackPane
+        </td>
+      </tr><tr>
+        <td>
+          142
+        </td>
+        <td>
+          501
+        </td>
+        <td>
+          4752
+          -
+          4787
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          children_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          children = List(menuPane, gamePane)
+        </td>
+      </tr><tr>
+        <td>
+          142
+        </td>
+        <td>
+          503
+        </td>
+        <td>
+          4763
+          -
+          4767
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          List
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          List
+        </td>
+      </tr><tr>
+        <td>
+          142
+        </td>
+        <td>
+          502
+        </td>
+        <td>
+          4763
+          -
+          4787
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          List(menuPane, gamePane)
+        </td>
+      </tr><tr>
+        <td>
+          145
+        </td>
+        <td>
+          504
+        </td>
+        <td>
+          4798
+          -
+          4810
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          setState
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          def setState
+        </td>
+      </tr><tr>
+        <td>
+          149
+        </td>
+        <td>
+          507
+        </td>
+        <td>
+          4870
+          -
+          4881
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          def display
+        </td>
+      </tr><tr>
+        <td>
+          150
+        </td>
+        <td>
+          505
+        </td>
+        <td>
+          4899
+          -
+          4922
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          state.display(gamePane)
+        </td>
+      </tr><tr>
+        <td>
+          151
+        </td>
+        <td>
+          506
+        </td>
+        <td>
+          4928
+          -
+          4946
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          toFront
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          gamePane.toFront()
+        </td>
+      </tr><tr>
+        <td>
+          154
+        </td>
+        <td>
+          523
+        </td>
+        <td>
+          4957
+          -
+          4975
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          start
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          override def start
+        </td>
+      </tr><tr>
+        <td>
+          155
+        </td>
+        <td>
+          508
+        </td>
+        <td>
+          4993
+          -
+          5022
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setGuiActive
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.setGuiActive(true)
+        </td>
+      </tr><tr>
+        <td>
+          157
+        </td>
+        <td>
+          509
+        </td>
+        <td>
+          5069
+          -
+          5087
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          title_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          title = &quot;Uno Game&quot;
+        </td>
+      </tr><tr>
+        <td>
+          158
+        </td>
+        <td>
+          510
+        </td>
+        <td>
+          5095
+          -
+          5106
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          width_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          width = 800
+        </td>
+      </tr><tr>
+        <td>
+          159
+        </td>
+        <td>
+          511
+        </td>
+        <td>
+          5114
+          -
+          5126
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          height_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          height = 600
+        </td>
+      </tr><tr>
+        <td>
+          160
+        </td>
+        <td>
+          513
+        </td>
+        <td>
+          5146
+          -
+          5151
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          $lessinit$greater$default$1
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Scene
+        </td>
+      </tr><tr>
+        <td>
+          160
+        </td>
+        <td>
+          512
+        </td>
+        <td>
+          5134
+          -
+          5217
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scene_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          scene = new Scene {\r\n        fill = Color.Pink\r\n        content = rootPane\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          161
+        </td>
+        <td>
+          514
+        </td>
+        <td>
+          5163
+          -
+          5180
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          fill_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          fill = Color.Pink
+        </td>
+      </tr><tr>
+        <td>
+          162
+        </td>
+        <td>
+          515
+        </td>
+        <td>
+          5190
+          -
+          5208
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          content_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          content = rootPane
+        </td>
+      </tr><tr>
+        <td>
+          165
+        </td>
+        <td>
+          517
+        </td>
+        <td>
+          5230
+          -
+          5243
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          jfxScene2sfx
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          stage.scene()
+        </td>
+      </tr><tr>
+        <td>
+          165
+        </td>
+        <td>
+          516
+        </td>
+        <td>
+          5230
+          -
+          5273
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          onKeyPressed_=
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          stage.scene().onKeyPressed = handleKeyPress
+        </td>
+      </tr><tr>
+        <td>
+          165
+        </td>
+        <td>
+          519
+        </td>
+        <td>
+          5230
+          -
+          5241
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scene
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          stage.scene
+        </td>
+      </tr><tr>
+        <td>
+          165
+        </td>
+        <td>
+          521
+        </td>
+        <td>
+          5259
+          -
+          5273
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          handleKeyPress
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          handleKeyPress
+        </td>
+      </tr><tr>
+        <td>
+          165
+        </td>
+        <td>
+          518
+        </td>
+        <td>
+          5230
+          -
+          5243
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          stage.scene()
+        </td>
+      </tr><tr>
+        <td>
+          165
+        </td>
+        <td>
+          520
+        </td>
+        <td>
+          5259
+          -
+          5273
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          eventClosureWrapperWithParam
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          handleKeyPress
+        </td>
+      </tr><tr>
+        <td>
+          166
+        </td>
+        <td>
+          522
+        </td>
+        <td>
+          5279
+          -
+          5288
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          display()
+        </td>
+      </tr><tr>
+        <td>
+          169
+        </td>
+        <td>
+          529
+        </td>
+        <td>
+          5299
+          -
+          5325
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          handleKeyPress
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          private def handleKeyPress
+        </td>
+      </tr><tr>
+        <td>
+          170
+        </td>
+        <td>
+          525
+        </td>
+        <td>
+          5353
+          -
+          5397
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case ke: KeyEvent if ke.code == KeyCode.Left
+        </td>
+      </tr><tr>
+        <td>
+          170
+        </td>
+        <td>
+          524
+        </td>
+        <td>
+          5374
+          -
+          5381
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          code
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          ke.code
+        </td>
+      </tr><tr>
+        <td>
+          171
+        </td>
+        <td>
+          526
+        </td>
+        <td>
+          5416
+          -
+          5448
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new BeginState(this, controller)
+        </td>
+      </tr><tr>
+        <td>
+          172
+        </td>
+        <td>
+          527
+        </td>
+        <td>
+          5456
+          -
+          5465
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          display()
+        </td>
+      </tr><tr>
+        <td>
+          173
+        </td>
+        <td>
+          528
+        </td>
+        <td>
+          5471
+          -
+          5477
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case _
+        </td>
+      </tr><tr>
+        <td>
+          176
+        </td>
+        <td>
+          541
+        </td>
+        <td>
+          5491
+          -
+          5510
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          update
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          override def update
+        </td>
+      </tr><tr>
+        <td>
+          177
+        </td>
+        <td>
+          531
+        </td>
+        <td>
+          5544
+          -
+          5569
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          s&quot;GUI Received event: $e&quot;
+        </td>
+      </tr><tr>
+        <td>
+          177
+        </td>
+        <td>
+          530
+        </td>
+        <td>
+          5536
+          -
+          5570
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          println(s&quot;GUI Received event: $e&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          179
+        </td>
+        <td>
+          532
+        </td>
+        <td>
+          5593
+          -
+          5609
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Event.Start
+        </td>
+      </tr><tr>
+        <td>
+          180
+        </td>
+        <td>
+          533
+        </td>
+        <td>
+          5622
+          -
+          5731
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          runLater
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Platform.runLater(() =&gt; {\r\n          state = new GameState(this, controller)\r\n          display()\r\n        })
+        </td>
+      </tr><tr>
+        <td>
+          181
+        </td>
+        <td>
+          534
+        </td>
+        <td>
+          5667
+          -
+          5698
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new GameState(this, controller)
+        </td>
+      </tr><tr>
+        <td>
+          182
+        </td>
+        <td>
+          535
+        </td>
+        <td>
+          5710
+          -
+          5719
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          display()
+        </td>
+      </tr><tr>
+        <td>
+          184
+        </td>
+        <td>
+          536
+        </td>
+        <td>
+          5739
+          -
+          5807
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Event.Play | Event.Draw | Event.Undo | Event.Redo | Event.Error
+        </td>
+      </tr><tr>
+        <td>
+          185
+        </td>
+        <td>
+          537
+        </td>
+        <td>
+          5820
+          -
+          5918
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          runLater
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Platform.runLater(() =&gt; {\r\n          state.display(gamePane) // Refresh the game state\r\n        })
+        </td>
+      </tr><tr>
+        <td>
+          186
+        </td>
+        <td>
+          538
+        </td>
+        <td>
+          5857
+          -
+          5880
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          display
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          state.display(gamePane)
+        </td>
+      </tr><tr>
+        <td>
+          188
+        </td>
+        <td>
+          539
+        </td>
+        <td>
+          5926
+          -
+          5941
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Event.Quit
+        </td>
+      </tr><tr>
+        <td>
+          189
+        </td>
+        <td>
+          540
+        </td>
+        <td>
+          5954
+          -
+          5969
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          exit
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Platform.exit()
+        </td>
+      </tr><tr>
+        <td>
+          195
+        </td>
+        <td>
+          545
+        </td>
+        <td>
+          6007
+          -
+          6020
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          launchApp
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          def launchApp
+        </td>
+      </tr><tr>
+        <td>
+          196
+        </td>
+        <td>
+          543
+        </td>
+        <td>
+          6063
+          -
+          6085
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new UnoGUI(controller)
+        </td>
+      </tr><tr>
+        <td>
+          196
+        </td>
+        <td>
+          542
+        </td>
+        <td>
+          6063
+          -
+          6103
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          main
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          new UnoGUI(controller).main(Array.empty)
+        </td>
+      </tr><tr>
+        <td>
+          196
+        </td>
+        <td>
+          544
+        </td>
+        <td>
+          6091
+          -
+          6102
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          empty
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          Array.empty
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>
