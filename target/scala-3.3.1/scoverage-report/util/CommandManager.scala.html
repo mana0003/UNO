@@ -1,0 +1,644 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          util\CommandManager.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package util
+</span>2 <span style=''>
+</span>3 <span style=''>import scala.util.{Try, Success, Failure}
+</span>4 <span style=''>import util.Command
+</span>5 <span style=''>
+</span>6 <span style=''>class CommandManager extends Command {
+</span>7 <span style=''>  private var undoStack: List[Command] = </span><span style='background: #AEF1AE'>Nil</span><span style=''>
+</span>8 <span style=''>  private var redoStack: List[Command] = </span><span style='background: #AEF1AE'>Nil</span><span style=''>
+</span>9 <span style=''>
+</span>10 <span style=''>  </span><span style='background: #AEF1AE'>override def doStep</span><span style=''>(command: Command): Try[Unit] = {
+</span>11 <span style=''>    val result = </span><span style='background: #AEF1AE'>command.doStep(command)</span><span style=''>
+</span>12 <span style=''>    result match {
+</span>13 <span style=''>      </span><span style='background: #AEF1AE'>case Success(_)</span><span style=''> =&gt;
+</span>14 <span style=''>        undoStack = undoStack
+</span>15 <span style=''>        redoStack = </span><span style='background: #AEF1AE'>Nil</span><span style=''> // Clear the redo stack after a new command
+</span>16 <span style=''>      </span><span style='background: #AEF1AE'>case Failure(_)</span><span style=''> =&gt; // Do nothing
+</span>17 <span style=''>    }
+</span>18 <span style=''>    result
+</span>19 <span style=''>  }
+</span>20 <span style=''>
+</span>21 <span style=''>  </span><span style='background: #AEF1AE'>override def undoStep</span><span style=''>(): Try[Unit] = {
+</span>22 <span style=''>    undoStack match {
+</span>23 <span style=''>      </span><span style='background: #AEF1AE'>case Nil</span><span style=''> =&gt; Failure(</span><span style='background: #AEF1AE'>new NoSuchElementException(&quot;No commands to undo&quot;)</span><span style=''>)
+</span>24 <span style=''>      </span><span style='background: #F0ADAD'>case head :: tail</span><span style=''> =&gt;
+</span>25 <span style=''>        val result = </span><span style='background: #F0ADAD'>head.undoStep()</span><span style=''>
+</span>26 <span style=''>        result match {
+</span>27 <span style=''>          </span><span style='background: #F0ADAD'>case Success(_)</span><span style=''> =&gt;
+</span>28 <span style=''>            undoStack = tail
+</span>29 <span style=''>            redoStack = </span><span style='background: #F0ADAD'>head :: redoStack</span><span style=''>
+</span>30 <span style=''>          </span><span style='background: #F0ADAD'>case Failure(_)</span><span style=''> =&gt; // Do nothing
+</span>31 <span style=''>        }
+</span>32 <span style=''>        result
+</span>33 <span style=''>    }
+</span>34 <span style=''>  }
+</span>35 <span style=''>
+</span>36 <span style=''>  </span><span style='background: #AEF1AE'>override def redoStep</span><span style=''>(): Try[Unit] = {
+</span>37 <span style=''>    redoStack match {
+</span>38 <span style=''>      </span><span style='background: #AEF1AE'>case Nil</span><span style=''> =&gt; Failure(</span><span style='background: #AEF1AE'>new NoSuchElementException(&quot;No commands to redo&quot;)</span><span style=''>)
+</span>39 <span style=''>      </span><span style='background: #F0ADAD'>case head :: tail</span><span style=''> =&gt;
+</span>40 <span style=''>        val result = </span><span style='background: #F0ADAD'>head.redoStep()</span><span style=''>
+</span>41 <span style=''>        result match {
+</span>42 <span style=''>          </span><span style='background: #F0ADAD'>case Success(_)</span><span style=''> =&gt;
+</span>43 <span style=''>            redoStack = tail
+</span>44 <span style=''>            undoStack = </span><span style='background: #F0ADAD'>head :: undoStack</span><span style=''>
+</span>45 <span style=''>          </span><span style='background: #F0ADAD'>case Failure(_)</span><span style=''> =&gt; // Do nothing
+</span>46 <span style=''>        }
+</span>47 <span style=''>        result
+</span>48 <span style=''>    }
+</span>49 <span style=''>  }
+</span>50 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          6
+        </td>
+        <td>
+          222
+        </td>
+        <td>
+          163
+          -
+          166
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          Nil
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Nil
+        </td>
+      </tr><tr>
+        <td>
+          7
+        </td>
+        <td>
+          223
+        </td>
+        <td>
+          209
+          -
+          212
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          Nil
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Nil
+        </td>
+      </tr><tr>
+        <td>
+          9
+        </td>
+        <td>
+          228
+        </td>
+        <td>
+          218
+          -
+          237
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          doStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          override def doStep
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          224
+        </td>
+        <td>
+          289
+          -
+          312
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          doStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          command.doStep(command)
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          225
+        </td>
+        <td>
+          340
+          -
+          355
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Success(_)
+        </td>
+      </tr><tr>
+        <td>
+          14
+        </td>
+        <td>
+          226
+        </td>
+        <td>
+          411
+          -
+          414
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          Nil
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Nil
+        </td>
+      </tr><tr>
+        <td>
+          15
+        </td>
+        <td>
+          227
+        </td>
+        <td>
+          466
+          -
+          481
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Failure(_)
+        </td>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          236
+        </td>
+        <td>
+          528
+          -
+          549
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          undoStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          override def undoStep
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          229
+        </td>
+        <td>
+          597
+          -
+          605
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Nil
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          230
+        </td>
+        <td>
+          617
+          -
+          666
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          new NoSuchElementException(&quot;No commands to undo&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          231
+        </td>
+        <td>
+          675
+          -
+          692
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case head :: tail
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          232
+        </td>
+        <td>
+          718
+          -
+          733
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          undoStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          head.undoStep()
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          233
+        </td>
+        <td>
+          769
+          -
+          784
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Success(_)
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          234
+        </td>
+        <td>
+          843
+          -
+          860
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          head :: redoStack
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          235
+        </td>
+        <td>
+          872
+          -
+          887
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Failure(_)
+        </td>
+      </tr><tr>
+        <td>
+          35
+        </td>
+        <td>
+          244
+        </td>
+        <td>
+          949
+          -
+          970
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          redoStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          override def redoStep
+        </td>
+      </tr><tr>
+        <td>
+          37
+        </td>
+        <td>
+          238
+        </td>
+        <td>
+          1038
+          -
+          1087
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          new NoSuchElementException(&quot;No commands to redo&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          37
+        </td>
+        <td>
+          237
+        </td>
+        <td>
+          1018
+          -
+          1026
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Nil
+        </td>
+      </tr><tr>
+        <td>
+          38
+        </td>
+        <td>
+          239
+        </td>
+        <td>
+          1096
+          -
+          1113
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case head :: tail
+        </td>
+      </tr><tr>
+        <td>
+          39
+        </td>
+        <td>
+          240
+        </td>
+        <td>
+          1139
+          -
+          1154
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          redoStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          head.redoStep()
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          241
+        </td>
+        <td>
+          1190
+          -
+          1205
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Success(_)
+        </td>
+      </tr><tr>
+        <td>
+          43
+        </td>
+        <td>
+          242
+        </td>
+        <td>
+          1264
+          -
+          1281
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          head :: undoStack
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          243
+        </td>
+        <td>
+          1293
+          -
+          1308
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case Failure(_)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

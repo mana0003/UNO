@@ -9,6 +9,7 @@ import scala.io.AnsiColor._
 class UnoController(var field: UnoField) extends IUnoController with Observable {
   private val commandManager = new CommandManager()
   private var isGuiActive: Boolean = false
+  private var chosenColor: Option[cardColors] = None
 
   def setGuiActive(active: Boolean): Unit = {
     isGuiActive = active
@@ -71,5 +72,11 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
     
   override def notifyObservers(event: Event): Unit = {
     super.notifyObservers(event)
+  }
+
+  def getChosenColor: Option[cardColors] = chosenColor
+
+  def setChosenColor(color: Option[cardColors]): Unit = {
+    chosenColor = color
   }
 }

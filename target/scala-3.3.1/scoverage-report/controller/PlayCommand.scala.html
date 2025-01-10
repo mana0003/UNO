@@ -1,0 +1,781 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          controller\PlayCommand.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package controller
+</span>2 <span style=''>import controller.*
+</span>3 <span style=''>import model.*
+</span>4 <span style=''>import util.*
+</span>5 <span style=''>//import view.*
+</span>6 <span style=''>import scala.util.Failure
+</span>7 <span style=''>import scala.util.Try
+</span>8 <span style=''>
+</span>9 <span style=''>
+</span>10 <span style=''>class PlayCommand(controller: UnoController, card: Card) extends util.Command {
+</span>11 <span style=''>  private var previousState: Option[UnoField] = None
+</span>12 <span style=''>
+</span>13 <span style=''>  </span><span style='background: #AEF1AE'>override def doStep</span><span style=''>(command: Command): Try[Unit] = </span><span style='background: #AEF1AE'>Try {
+</span>14 <span style=''></span><span style='background: #AEF1AE'>    previousState = Some(controller.field) // Save the current game state
+</span>15 <span style=''></span><span style='background: #AEF1AE'>
+</span>16 <span style=''></span><span style='background: #AEF1AE'>    val currentPlayer = controller.field.players(controller.field.currentPlayer)
+</span>17 <span style=''></span><span style='background: #AEF1AE'>
+</span>18 <span style=''></span><span style='background: #AEF1AE'>    if (!card.canBePlayedOn(controller.field.topCard)) {
+</span>19 <span style=''></span><span style='background: #AEF1AE'>      throw new IllegalArgumentException(&quot;Card cannot be played on the current top card&quot;)
+</span>20 <span style=''></span><span style='background: #AEF1AE'>    }
+</span>21 <span style=''></span><span style='background: #AEF1AE'>
+</span>22 <span style=''></span><span style='background: #AEF1AE'>    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
+</span>23 <span style=''></span><span style='background: #AEF1AE'>    val updatedPlayers = controller.field.players.updated(
+</span>24 <span style=''></span><span style='background: #AEF1AE'>      controller.field.currentPlayer,
+</span>25 <span style=''></span><span style='background: #AEF1AE'>      updatedPlayer
+</span>26 <span style=''></span><span style='background: #AEF1AE'>    )
+</span>27 <span style=''></span><span style='background: #AEF1AE'>
+</span>28 <span style=''></span><span style='background: #AEF1AE'>    val nextPlayer = (controller.field.currentPlayer + 1) % controller.field.players.length
+</span>29 <span style=''></span><span style='background: #AEF1AE'>    controller.field = controller.field.copy(
+</span>30 <span style=''></span><span style='background: #AEF1AE'>      players = updatedPlayers,
+</span>31 <span style=''></span><span style='background: #AEF1AE'>      topCard = card,
+</span>32 <span style=''></span><span style='background: #AEF1AE'>      currentPlayer = nextPlayer
+</span>33 <span style=''></span><span style='background: #AEF1AE'>    )
+</span>34 <span style=''></span><span style='background: #AEF1AE'>    controller.notifyObservers(Event.Play)
+</span>35 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
+</span>36 <span style=''>
+</span>37 <span style=''>  </span><span style='background: #AEF1AE'>override def undoStep</span><span style=''>(): Try[Unit] = previousState match {
+</span>38 <span style=''>    </span><span style='background: #AEF1AE'>case Some(state)</span><span style=''> =&gt;
+</span>39 <span style=''>      </span><span style='background: #AEF1AE'>Try {
+</span>40 <span style=''></span><span style='background: #AEF1AE'>        controller.field = state // Revert to the previous state
+</span>41 <span style=''></span><span style='background: #AEF1AE'>        controller.notifyObservers(Event.Undo)
+</span>42 <span style=''></span><span style='background: #AEF1AE'>      }</span><span style=''>
+</span>43 <span style=''>    </span><span style='background: #AEF1AE'>case None</span><span style=''> =&gt; Failure(</span><span style='background: #AEF1AE'>new IllegalStateException(&quot;No state to undo to&quot;)</span><span style=''>)
+</span>44 <span style=''>  }
+</span>45 <span style=''>
+</span>46 <span style=''>  </span><span style='background: #AEF1AE'>override def redoStep</span><span style=''>(): Try[Unit] = </span><span style='background: #AEF1AE'>Try {
+</span>47 <span style=''></span><span style='background: #AEF1AE'>    val currentPlayer = controller.field.players(controller.field.currentPlayer)
+</span>48 <span style=''></span><span style='background: #AEF1AE'>
+</span>49 <span style=''></span><span style='background: #AEF1AE'>    if (!card.canBePlayedOn(controller.field.topCard)) {
+</span>50 <span style=''></span><span style='background: #AEF1AE'>      throw new IllegalStateException(&quot;Card cannot be redone on the current top card&quot;)
+</span>51 <span style=''></span><span style='background: #AEF1AE'>    }
+</span>52 <span style=''></span><span style='background: #AEF1AE'>
+</span>53 <span style=''></span><span style='background: #AEF1AE'>    val updatedPlayer = currentPlayer.copy(hand = </span><span style='background: #F0ADAD'>currentPlayer.hand.removeCard(card)</span><span style='background: #AEF1AE'>)
+</span>54 <span style=''></span><span style='background: #AEF1AE'>    val updatedPlayers = </span><span style='background: #F0ADAD'>controller.field.players.updated(
+</span>55 <span style=''></span><span style='background: #F0ADAD'>      controller.field.currentPlayer,
+</span>56 <span style=''></span><span style='background: #F0ADAD'>      updatedPlayer
+</span>57 <span style=''></span><span style='background: #F0ADAD'>    )</span><span style='background: #AEF1AE'>
+</span>58 <span style=''></span><span style='background: #AEF1AE'>
+</span>59 <span style=''></span><span style='background: #AEF1AE'>    val nextPlayer = (controller.field.currentPlayer + 1) % </span><span style='background: #F0ADAD'>controller.field.players.length</span><span style='background: #AEF1AE'>
+</span>60 <span style=''></span><span style='background: #AEF1AE'>    controller.field = controller.field.copy(
+</span>61 <span style=''></span><span style='background: #AEF1AE'>      players = updatedPlayers,
+</span>62 <span style=''></span><span style='background: #AEF1AE'>      topCard = card,
+</span>63 <span style=''></span><span style='background: #AEF1AE'>      currentPlayer = nextPlayer
+</span>64 <span style=''></span><span style='background: #AEF1AE'>    )
+</span>65 <span style=''></span><span style='background: #AEF1AE'>    </span><span style='background: #F0ADAD'>controller.notifyObservers(Event.Redo)</span><span style='background: #AEF1AE'>
+</span>66 <span style=''></span><span style='background: #AEF1AE'>  }</span><span style=''>
+</span>67 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          44
+        </td>
+        <td>
+          282
+          -
+          301
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          doStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          override def doStep
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          34
+        </td>
+        <td>
+          333
+          -
+          1160
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Try {\r\n    previousState = Some(controller.field) // Save the current game state\r\n\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n\r\n    if (!card.canBePlayedOn(controller.field.topCard)) {\r\n      throw new IllegalArgumentException(&quot;Card cannot be played on the current top card&quot;)\r\n    }\r\n\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    val nextPlayer = (controller.field.currentPlayer + 1) % controller.field.players.length\r\n    controller.field = controller.field.copy(\r\n      players = updatedPlayers,\r\n      topCard = card,\r\n      currentPlayer = nextPlayer\r\n    )\r\n    controller.notifyObservers(Event.Play)\r\n  }
+        </td>
+      </tr><tr>
+        <td>
+          15
+        </td>
+        <td>
+          35
+        </td>
+        <td>
+          441
+          -
+          497
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          36
+        </td>
+        <td>
+          510
+          -
+          554
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          canBePlayedOn
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          card.canBePlayedOn(controller.field.topCard)
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          39
+        </td>
+        <td>
+          556
+          -
+          655
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\r\n      throw new IllegalArgumentException(&quot;Card cannot be played on the current top card&quot;)\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          38
+        </td>
+        <td>
+          571
+          -
+          648
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          new IllegalArgumentException(&quot;Card cannot be played on the current top card&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          37
+        </td>
+        <td>
+          565
+          -
+          648
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          throw
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          throw new IllegalArgumentException(&quot;Card cannot be played on the current top card&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          40
+        </td>
+        <td>
+          709
+          -
+          744
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          removeCard
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          currentPlayer.hand.removeCard(card)
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          41
+        </td>
+        <td>
+          772
+          -
+          872
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          updated
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          42
+        </td>
+        <td>
+          936
+          -
+          967
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          length
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          controller.field.players.length
+        </td>
+      </tr><tr>
+        <td>
+          33
+        </td>
+        <td>
+          43
+        </td>
+        <td>
+          1117
+          -
+          1155
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          controller.notifyObservers(Event.Play)
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          50
+        </td>
+        <td>
+          1166
+          -
+          1187
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          undoStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          override def undoStep
+        </td>
+      </tr><tr>
+        <td>
+          37
+        </td>
+        <td>
+          45
+        </td>
+        <td>
+          1230
+          -
+          1246
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Some(state)
+        </td>
+      </tr><tr>
+        <td>
+          38
+        </td>
+        <td>
+          46
+        </td>
+        <td>
+          1257
+          -
+          1385
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Try {\r\n        controller.field = state // Revert to the previous state\r\n        controller.notifyObservers(Event.Undo)\r\n      }
+        </td>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          47
+        </td>
+        <td>
+          1338
+          -
+          1376
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          controller.notifyObservers(Event.Undo)
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          49
+        </td>
+        <td>
+          1412
+          -
+          1460
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          new IllegalStateException(&quot;No state to undo to&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          48
+        </td>
+        <td>
+          1391
+          -
+          1400
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case None
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          61
+        </td>
+        <td>
+          1472
+          -
+          1493
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          redoStep
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          override def redoStep
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          51
+        </td>
+        <td>
+          1509
+          -
+          2256
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          Try {\r\n    val currentPlayer = controller.field.players(controller.field.currentPlayer)\r\n\r\n    if (!card.canBePlayedOn(controller.field.topCard)) {\r\n      throw new IllegalStateException(&quot;Card cannot be redone on the current top card&quot;)\r\n    }\r\n\r\n    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))\r\n    val updatedPlayers = controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )\r\n\r\n    val nextPlayer = (controller.field.currentPlayer + 1) % controller.field.players.length\r\n    controller.field = controller.field.copy(\r\n      players = updatedPlayers,\r\n      topCard = card,\r\n      currentPlayer = nextPlayer\r\n    )\r\n    controller.notifyObservers(Event.Redo)\r\n  }
+        </td>
+      </tr><tr>
+        <td>
+          46
+        </td>
+        <td>
+          52
+        </td>
+        <td>
+          1540
+          -
+          1596
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          controller.field.players(controller.field.currentPlayer)
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          53
+        </td>
+        <td>
+          1609
+          -
+          1653
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          canBePlayedOn
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          card.canBePlayedOn(controller.field.topCard)
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          56
+        </td>
+        <td>
+          1655
+          -
+          1751
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\r\n      throw new IllegalStateException(&quot;Card cannot be redone on the current top card&quot;)\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          55
+        </td>
+        <td>
+          1670
+          -
+          1744
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          new IllegalStateException(&quot;Card cannot be redone on the current top card&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          54
+        </td>
+        <td>
+          1664
+          -
+          1744
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          throw
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          throw new IllegalStateException(&quot;Card cannot be redone on the current top card&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          52
+        </td>
+        <td>
+          57
+        </td>
+        <td>
+          1805
+          -
+          1840
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          removeCard
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          currentPlayer.hand.removeCard(card)
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          58
+        </td>
+        <td>
+          1868
+          -
+          1968
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          updated
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players.updated(\r\n      controller.field.currentPlayer,\r\n      updatedPlayer\r\n    )
+        </td>
+      </tr><tr>
+        <td>
+          58
+        </td>
+        <td>
+          59
+        </td>
+        <td>
+          2032
+          -
+          2063
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          length
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.field.players.length
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          60
+        </td>
+        <td>
+          2213
+          -
+          2251
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.notifyObservers(Event.Redo)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

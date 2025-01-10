@@ -1,0 +1,280 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          model\Player.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package model
+</span>2 <span style=''>import controller.*
+</span>3 <span style=''>import view.*
+</span>4 <span style=''>import model.*
+</span>5 <span style=''>import util.*
+</span>6 <span style=''>import scala.util.Failure
+</span>7 <span style=''>import scala.util.Success
+</span>8 <span style=''>import scala.util.Try
+</span>9 <span style=''>
+</span>10 <span style=''>case class Player(id: Int, hand: PlayerHand) {
+</span>11 <span style=''>  </span><span style='background: #AEF1AE'>def valid</span><span style=''>(card: Card): Boolean = {
+</span>12 <span style=''>    </span><span style='background: #AEF1AE'>hand.cards.exists(_.canBePlayedOn(card))</span><span style=''>
+</span>13 <span style=''>  }
+</span>14 <span style=''>
+</span>15 <span style=''>  </span><span style='background: #AEF1AE'>def play</span><span style=''>(card: Card): Try[Player] = {
+</span>16 <span style=''>    if (</span><span style='background: #AEF1AE'>valid(card)</span><span style=''>) </span><span style='background: #AEF1AE'>{
+</span>17 <span style=''></span><span style='background: #AEF1AE'>      Success(Player(id, hand.removeCard(card)))
+</span>18 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''> else </span><span style='background: #AEF1AE'>{
+</span>19 <span style=''></span><span style='background: #AEF1AE'>      Failure(IllegalArgumentException(&quot;Illeagal move.&quot;))
+</span>20 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''>
+</span>21 <span style=''>  }
+</span>22 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          198
+        </td>
+        <td>
+          211
+          -
+          220
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          valid
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def valid
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          196
+        </td>
+        <td>
+          251
+          -
+          291
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          exists
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          hand.cards.exists(_.canBePlayedOn(card))
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          197
+        </td>
+        <td>
+          269
+          -
+          290
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          canBePlayedOn
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          _.canBePlayedOn(card)
+        </td>
+      </tr><tr>
+        <td>
+          14
+        </td>
+        <td>
+          204
+        </td>
+        <td>
+          302
+          -
+          310
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          play
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def play
+        </td>
+      </tr><tr>
+        <td>
+          15
+        </td>
+        <td>
+          199
+        </td>
+        <td>
+          349
+          -
+          360
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          valid
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          valid(card)
+        </td>
+      </tr><tr>
+        <td>
+          15
+        </td>
+        <td>
+          201
+        </td>
+        <td>
+          362
+          -
+          420
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\r\n      Success(Player(id, hand.removeCard(card)))\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          200
+        </td>
+        <td>
+          390
+          -
+          411
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          removeCard
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          hand.removeCard(card)
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          203
+        </td>
+        <td>
+          426
+          -
+          493
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\r\n      Failure(IllegalArgumentException(&quot;Illeagal move.&quot;))\r\n    }
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          202
+        </td>
+        <td>
+          443
+          -
+          485
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          IllegalArgumentException(&quot;Illeagal move.&quot;)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

@@ -2,6 +2,7 @@ package controller
 
 import util.{Observer, Event}
 import model.{Card, UnoField}
+import model.cardColors
 
 trait IUnoController {
   def addObserver(observer: Observer): Unit
@@ -15,4 +16,5 @@ trait IUnoController {
   def startGame(): Unit
   def getField: UnoField
   def getCurrentPlayer: Int
+  def getChosenColor: Option[cardColors]
 }

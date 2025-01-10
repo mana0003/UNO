@@ -1,26 +1,53 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(model.PlayerHandTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(util.CommandManagerTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.UnoActionProcessorTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(model.PlayerTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(util.ObservableTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(model.CardsTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.UnoControllerTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.UnoActionBuilderTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.DrawCommandTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.PlayCommandTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.UnoActionStrategyTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(model.UnoFieldTest, org.scalatest.tools.Framework$$anon$1@1c0e6685, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.UnoActionProcessorTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(model.UnoFieldTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.UnoActionBuilderTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(util.ObservableTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.UnoActionStrategyTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mUnoFieldTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn UnoField[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should have two players[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mUnoActionBuilderTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- builder() should create a new UnoActionBuilder instance[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- setAction() should set the action type in the builder[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- setCard() should set the card in the builder[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- build() should create a PlayAction for action 'play'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- build() should create a DrawAction for action 'draw'[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- build() should throw IllegalArgumentException for unknown action[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- PlayAction.executeAction() should call play on the controller *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Card(YELLOW, WILD_DRAW_FOUR) was not equal to Card(RED, THREE) (UnoActionBuilderTest.scala:62)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- DrawAction.executeAction() should call draw on the controller *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  6 was not equal to 1 (UnoActionBuilderTest.scala:73)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mObservableTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should allow adding observers and notifying them[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should allow removing observers[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should notify all observers even with multiple events[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should handle empty observer list gracefully[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should handle removing all observers correctly[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should correctly manage Vector of observers[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should correctly handle an empty Vector and add/remove observers[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(model.PlayerHandTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.DrawCommandTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(model.PlayerTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.UnoControllerTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mUnoActionProcessorTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- processAction should successfully process a 'play' action for a valid card *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Card(RED, TWO) was not equal to Card(RED, THREE) (UnoActionProcessorTest.scala:25)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- processAction should throw an exception for an invalid 'play' action[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- processAction should throw an exception for an unknown action type[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- handleAction should invoke the correct handler from UnoActionBuilder *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Card(GREEN, NINE) was not equal to Card(RED, THREE) (UnoActionProcessorTest.scala:65)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- completeAction should notify observers correctly for 'draw' and 'play' actions *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Card(YELLOW, ONE) was not equal to Card(RED, THREE) (UnoActionProcessorTest.scala:80)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- completeAction should throw an exception for an unknown action type[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(controller.PlayCommandTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(util.CommandManagerTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(model.CardsTest, org.scalatest.tools.Framework$$anon$1@4b8d352, false, [SuiteSelector])[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mDrawCommandTest:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- execute() should draw a card and update the player's hand[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- undo() should revert to the previous state[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- redo() should reapply the drawing of the card[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- undo() without a prior execute should fail[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- redo() without a prior execute should fail[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mObservableTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should allow adding observers and notifying them[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should allow removing observers[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should notify all observers even with multiple events[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- Observable should handle empty observer list gracefully[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mPlayerHandTest:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mPlayerHand[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m  when created[0m[0m
@@ -29,48 +56,11 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m  when existing[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m  - should be able to get a card removed[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m  - should be able to get a card added[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mPlayCommandTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- execute() should play a valid card and update the game state[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- execute() should fail for an invalid card[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- undo() should revert the game state to before the card was played[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- redo() should reapply the playing of the card[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- undo() without a prior execute should fail[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- redo() without a prior execute should fail[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- redo() should fail if the card cannot be replayed[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mCommandManagerTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mCommandManager[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should execute a command successfully[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should undo a command successfully *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Failure(java.util.NoSuchElementException: No commands to undo) was not an instance of scala.util.Success, but an instance of scala.util.Failure (CommandManagerTest.scala:44)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should redo a command successfully *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Failure(java.util.NoSuchElementException: No commands to redo) was not an instance of scala.util.Success, but an instance of scala.util.Failure (CommandManagerTest.scala:54)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should fail to undo when there are no commands to undo[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should fail to redo when there are no commands to redo[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mPlayerTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mUnoActionStrategyTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- DrawCardStrategy should invoke draw on the controller *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  6 was not equal to 1 (UnoActionStrategyTest.scala:19)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- PlayCardStrategy should invoke play on the controller with the specified card *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Card(BLUE, FOUR) was not equal to Card(RED, THREE) (UnoActionStrategyTest.scala:33)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- UnoActionHandler should execute the assigned DrawCardStrategy *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  6 was not equal to 1 (UnoActionStrategyTest.scala:48)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- UnoActionHandler should execute the assigned PlayCardStrategy[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- UnoActionHandler should allow strategy swapping at runtime *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Card(BLUE, SEVEN) was not equal to Card(RED, THREE) (UnoActionStrategyTest.scala:87)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mPlayer[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should play a card[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should check if card is valid[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should not play a card[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mUnoActionProcessorTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- processAction should successfully process a 'play' action for a valid card *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Card(RED, TWO) was not equal to Card(RED, THREE) (UnoActionProcessorTest.scala:25)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- processAction should throw an exception for an invalid 'play' action[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- processAction should throw an exception for an unknown action type[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- handleAction should invoke the correct handler from UnoActionBuilder *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Card(GREEN, THREE) was not equal to Card(RED, THREE) (UnoActionProcessorTest.scala:65)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- completeAction should notify observers correctly for 'draw' and 'play' actions *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Card(RED, REVERSE) was not equal to Card(RED, THREE) (UnoActionProcessorTest.scala:80)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- completeAction should throw an exception for an unknown action type[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mUnoControllerTest:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mThe Controller[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- should notify its observers on start[0m[0m
@@ -80,43 +70,57 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- should draw a card[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- should quit the game *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  Error was not equal to Quit (UnoControllerTest.scala:88)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mUnoActionBuilderTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- builder() should create a new UnoActionBuilder instance[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- setAction() should set the action type in the builder[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- setCard() should set the card in the builder[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- build() should create a PlayAction for action 'play'[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- build() should create a DrawAction for action 'draw'[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- build() should throw IllegalArgumentException for unknown action[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- PlayAction.executeAction() should call play on the controller *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Card(YELLOW, SIX) was not equal to Card(RED, THREE) (UnoActionBuilderTest.scala:62)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- DrawAction.executeAction() should call draw on the controller *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  6 was not equal to 1 (UnoActionBuilderTest.scala:73)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mUnoFieldTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mAn UnoField[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- should have two players[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mPlayCommandTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- execute() should play a valid card and update the game state[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- execute() should fail for an invalid card[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- undo() should revert the game state to before the card was played[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- redo() should reapply the playing of the card *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Failure(java.lang.IllegalStateException: Card cannot be redone on the current top card) was not an instance of scala.util.Success, but an instance of scala.util.Failure (PlayCommandTest.scala:61)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- undo() without a prior execute should fail[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- redo() without a prior execute should fail[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- redo() should fail if the card cannot be replayed[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mUnoActionStrategyTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- DrawCardStrategy should invoke draw on the controller *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  6 was not equal to 1 (UnoActionStrategyTest.scala:19)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- PlayCardStrategy should invoke play on the controller with the specified card[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- UnoActionHandler should execute the assigned DrawCardStrategy *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  6 was not equal to 1 (UnoActionStrategyTest.scala:48)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- UnoActionHandler should execute the assigned PlayCardStrategy *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Card(BLUE, REVERSE) was not equal to Card(RED, THREE) (UnoActionStrategyTest.scala:64)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- UnoActionHandler should allow strategy swapping at runtime *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Card(YELLOW, SIX) was not equal to Card(RED, THREE) (UnoActionStrategyTest.scala:87)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mCardsTest:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m- canBePlayedOn should return true if the color or value matches or if it's a Wild card *** FAILED ***[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[31m  greenCard.canBePlayedOn(redCard) was false (CardsTest.scala:24)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- getColorCode should return correct color based on the card color or wild type[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- randomCard should return a Card with valid color and value[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- randomCards should return a list of random Cards with valid colors and values[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 774 milliseconds.[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 58[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCommandManagerTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mCommandManager[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should execute a command successfully[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should undo a command successfully *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Failure(java.util.NoSuchElementException: No commands to undo) was not an instance of scala.util.Success, but an instance of scala.util.Failure (CommandManagerTest.scala:44)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should redo a command successfully *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Failure(java.util.NoSuchElementException: No commands to redo) was not an instance of scala.util.Success, but an instance of scala.util.Failure (CommandManagerTest.scala:54)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should fail to undo when there are no commands to undo[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should fail to redo when there are no commands to redo[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 2 seconds, 168 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 61[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 12, aborted 0[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 45, failed 13, canceled 0, ignored 0, pending 0[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m*** 13 TESTS FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 47, failed 14, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 14 TESTS FAILED ***[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	model.UnoFieldTest[0m
 [0m[[0m[0mdebug[0m] [0m[0m	controller.DrawCommandTest[0m
 [0m[[0m[0mdebug[0m] [0m[0m	model.PlayerTest[0m
 [0m[[0m[0mdebug[0m] [0m[0m	model.PlayerHandTest[0m
 [0m[[0m[0mdebug[0m] [0m[0m	util.ObservableTest[0m
-[0m[[0m[0mdebug[0m] [0m[0m	controller.PlayCommandTest[0m
 [0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
 [0m[[0m[31merror[0m] [0m[0m	controller.UnoControllerTest[0m
 [0m[[0m[31merror[0m] [0m[0m	util.CommandManagerTest[0m
 [0m[[0m[31merror[0m] [0m[0m	controller.UnoActionStrategyTest[0m
 [0m[[0m[31merror[0m] [0m[0m	model.CardsTest[0m
 [0m[[0m[31merror[0m] [0m[0m	controller.UnoActionBuilderTest[0m
+[0m[[0m[31merror[0m] [0m[0m	controller.PlayCommandTest[0m
 [0m[[0m[31merror[0m] [0m[0m	controller.UnoActionProcessorTest[0m
 [0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m

@@ -1,0 +1,811 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          controller\UnoActionProcessor.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package controller
+</span>2 <span style=''>
+</span>3 <span style=''>import model.*
+</span>4 <span style=''>import controller.*
+</span>5 <span style=''>import util.Event
+</span>6 <span style=''>
+</span>7 <span style=''>abstract class UnoActionProcessor {
+</span>8 <span style=''>  </span><span style='background: #AEF1AE'>def processAction</span><span style=''>(controller: UnoController, player: Player, action: String): Unit = {
+</span>9 <span style=''>    </span><span style='background: #AEF1AE'>validateAction(controller, player, action)</span><span style=''>
+</span>10 <span style=''>    </span><span style='background: #AEF1AE'>handleAction(controller, player, action)</span><span style=''>
+</span>11 <span style=''>    </span><span style='background: #AEF1AE'>completeAction(controller, player, action)</span><span style=''>
+</span>12 <span style=''>  }
+</span>13 <span style=''>
+</span>14 <span style=''>  </span><span style='background: #AEF1AE'>def validateAction</span><span style=''>(controller: UnoController, player: Player, action: String): Unit = {
+</span>15 <span style=''>    </span><span style='background: #AEF1AE'>println(s&quot;Validating action: $action for player: ${player.id}&quot;)</span><span style=''>
+</span>16 <span style=''>    action match {
+</span>17 <span style=''>      </span><span style='background: #AEF1AE'>case &quot;play&quot;</span><span style=''> =&gt;
+</span>18 <span style=''>        // check if player played a valid card
+</span>19 <span style=''>        if (!</span><span style='background: #AEF1AE'>player.valid(controller.field.topCard)</span><span style=''>) </span><span style='background: #AEF1AE'>{
+</span>20 <span style=''></span><span style='background: #AEF1AE'>          throw new IllegalArgumentException(&quot;Card does not fit.&quot;)
+</span>21 <span style=''></span><span style='background: #AEF1AE'>        }</span><span style=''>
+</span>22 <span style=''>      </span><span style='background: #AEF1AE'>case _</span><span style=''> =&gt;
+</span>23 <span style=''>        </span><span style='background: #AEF1AE'>throw new IllegalArgumentException(&quot;Unknown action type&quot;)</span><span style=''>
+</span>24 <span style=''>    }
+</span>25 <span style=''>  }
+</span>26 <span style=''>
+</span>27 <span style=''>  </span><span style='background: #AEF1AE'>def completeAction</span><span style=''>(controller: UnoController, player: Player, action: String): Unit = {
+</span>28 <span style=''>    </span><span style='background: #AEF1AE'>println(s&quot;Completing action: $action for player: ${player.id}&quot;)</span><span style=''>
+</span>29 <span style=''>    action match {
+</span>30 <span style=''>      </span><span style='background: #F0ADAD'>case &quot;draw&quot;</span><span style=''> =&gt;
+</span>31 <span style=''>        // Notify observers that a card has been drawn
+</span>32 <span style=''>        </span><span style='background: #F0ADAD'>controller.notifyObservers(Event.Draw)</span><span style=''>
+</span>33 <span style=''>      </span><span style='background: #AEF1AE'>case &quot;play&quot;</span><span style=''> =&gt;
+</span>34 <span style=''>        // Notify observers that a card has been played
+</span>35 <span style=''>        </span><span style='background: #AEF1AE'>controller.notifyObservers(Event.Play)</span><span style=''>
+</span>36 <span style=''>      </span><span style='background: #AEF1AE'>case _</span><span style=''> =&gt;
+</span>37 <span style=''>        </span><span style='background: #AEF1AE'>throw new IllegalArgumentException(&quot;Unknown action type&quot;)</span><span style=''>
+</span>38 <span style=''>    }
+</span>39 <span style=''>  }
+</span>40 <span style=''>
+</span>41 <span style=''>  def handleAction(controller: UnoController, player: Player, action: String): Unit
+</span>42 <span style=''>}
+</span>43 <span style=''>
+</span>44 <span style=''>class ConcreteUnoActionProcessor extends UnoActionProcessor {
+</span>45 <span style=''>  </span><span style='background: #AEF1AE'>override def handleAction</span><span style=''>(controller: UnoController, player: Player, action: String): Unit = {
+</span>46 <span style=''>    val handler = </span><span style='background: #AEF1AE'>UnoActionBuilder.builder().setAction(action).build()</span><span style=''>
+</span>47 <span style=''>    </span><span style='background: #AEF1AE'>handler.executeAction(controller, player)</span><span style=''>
+</span>48 <span style=''>  }
+</span>49 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          7
+        </td>
+        <td>
+          81
+        </td>
+        <td>
+          119
+          -
+          136
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          processAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def processAction
+        </td>
+      </tr><tr>
+        <td>
+          8
+        </td>
+        <td>
+          78
+        </td>
+        <td>
+          211
+          -
+          253
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          validateAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          validateAction(controller, player, action)
+        </td>
+      </tr><tr>
+        <td>
+          9
+        </td>
+        <td>
+          79
+        </td>
+        <td>
+          259
+          -
+          299
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          handleAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          handleAction(controller, player, action)
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          80
+        </td>
+        <td>
+          305
+          -
+          347
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          completeAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          completeAction(controller, player, action)
+        </td>
+      </tr><tr>
+        <td>
+          13
+        </td>
+        <td>
+          92
+        </td>
+        <td>
+          358
+          -
+          376
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          validateAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def validateAction
+        </td>
+      </tr><tr>
+        <td>
+          14
+        </td>
+        <td>
+          83
+        </td>
+        <td>
+          459
+          -
+          513
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          s&quot;Validating action: $action for player: ${player.id}&quot;
+        </td>
+      </tr><tr>
+        <td>
+          14
+        </td>
+        <td>
+          82
+        </td>
+        <td>
+          451
+          -
+          514
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          println(s&quot;Validating action: $action for player: ${player.id}&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          84
+        </td>
+        <td>
+          542
+          -
+          553
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case &quot;play&quot;
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          85
+        </td>
+        <td>
+          619
+          -
+          657
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          valid
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          player.valid(controller.field.topCard)
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          88
+        </td>
+        <td>
+          659
+          -
+          739
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\r\n          throw new IllegalArgumentException(&quot;Card does not fit.&quot;)\r\n        }
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          86
+        </td>
+        <td>
+          672
+          -
+          728
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          throw
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          throw new IllegalArgumentException(&quot;Card does not fit.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          87
+        </td>
+        <td>
+          678
+          -
+          728
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          new IllegalArgumentException(&quot;Card does not fit.&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          89
+        </td>
+        <td>
+          747
+          -
+          753
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case _
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          91
+        </td>
+        <td>
+          772
+          -
+          823
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          new IllegalArgumentException(&quot;Unknown action type&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          90
+        </td>
+        <td>
+          766
+          -
+          823
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          throw
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          throw new IllegalArgumentException(&quot;Unknown action type&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          102
+        </td>
+        <td>
+          841
+          -
+          859
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          completeAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def completeAction
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          94
+        </td>
+        <td>
+          942
+          -
+          996
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          s
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          s&quot;Completing action: $action for player: ${player.id}&quot;
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          93
+        </td>
+        <td>
+          934
+          -
+          997
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          println
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          println(s&quot;Completing action: $action for player: ${player.id}&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          95
+        </td>
+        <td>
+          1025
+          -
+          1036
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          case &quot;draw&quot;
+        </td>
+      </tr><tr>
+        <td>
+          31
+        </td>
+        <td>
+          96
+        </td>
+        <td>
+          1105
+          -
+          1143
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          controller.notifyObservers(Event.Draw)
+        </td>
+      </tr><tr>
+        <td>
+          32
+        </td>
+        <td>
+          97
+        </td>
+        <td>
+          1151
+          -
+          1162
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case &quot;play&quot;
+        </td>
+      </tr><tr>
+        <td>
+          34
+        </td>
+        <td>
+          98
+        </td>
+        <td>
+          1232
+          -
+          1270
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          notifyObservers
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          controller.notifyObservers(Event.Play)
+        </td>
+      </tr><tr>
+        <td>
+          35
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          1278
+          -
+          1284
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case _
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          101
+        </td>
+        <td>
+          1303
+          -
+          1354
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          &lt;init&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          new IllegalArgumentException(&quot;Unknown action type&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          100
+        </td>
+        <td>
+          1297
+          -
+          1354
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          throw
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          throw new IllegalArgumentException(&quot;Unknown action type&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          107
+        </td>
+        <td>
+          1525
+          -
+          1550
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          handleAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          override def handleAction
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          104
+        </td>
+        <td>
+          1639
+          -
+          1683
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          setAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          UnoActionBuilder.builder().setAction(action)
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          103
+        </td>
+        <td>
+          1639
+          -
+          1691
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          build
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          UnoActionBuilder.builder().setAction(action).build()
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          105
+        </td>
+        <td>
+          1639
+          -
+          1665
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          builder
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          UnoActionBuilder.builder()
+        </td>
+      </tr><tr>
+        <td>
+          46
+        </td>
+        <td>
+          106
+        </td>
+        <td>
+          1697
+          -
+          1738
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          executeAction
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          handler.executeAction(controller, player)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

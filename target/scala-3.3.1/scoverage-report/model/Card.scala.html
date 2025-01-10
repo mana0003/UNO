@@ -1,0 +1,787 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          model\Card.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package model
+</span>2 <span style=''>
+</span>3 <span style=''>//import model.*
+</span>4 <span style=''>import view.*
+</span>5 <span style=''>//import scala.util.Event
+</span>6 <span style=''>//import scala.util.Observable
+</span>7 <span style=''>import controller.*
+</span>8 <span style=''>import scala.io._
+</span>9 <span style=''>import scalafx.scene.paint.Color
+</span>10 <span style=''>import scala.io.AnsiColor._
+</span>11 <span style=''>
+</span>12 <span style=''>enum cardColors {
+</span>13 <span style=''>  case RED, BLUE
+</span>14 <span style=''>  , YELLOW
+</span>15 <span style=''>  , GREEN
+</span>16 <span style=''>}
+</span>17 <span style=''>
+</span>18 <span style=''>enum cardValues {
+</span>19 <span style=''>  case ZERO, ONE
+</span>20 <span style=''>  , TWO
+</span>21 <span style=''>  , THREE
+</span>22 <span style=''>  , FOUR
+</span>23 <span style=''>  , FIVE
+</span>24 <span style=''>  , SIX
+</span>25 <span style=''>  , SEVEN
+</span>26 <span style=''>  , EIGHT
+</span>27 <span style=''>  , NINE
+</span>28 <span style=''>  , SKIP
+</span>29 <span style=''>  , REVERSE
+</span>30 <span style=''>  , DRAW_TWO
+</span>31 <span style=''>  , WILD
+</span>32 <span style=''>  , WILD_DRAW_FOUR
+</span>33 <span style=''>}
+</span>34 <span style=''>
+</span>35 <span style=''>case class Card(color: cardColors, value: cardValues) {
+</span>36 <span style=''>  // can card be played
+</span>37 <span style=''>  </span><span style='background: #AEF1AE'>def canBePlayedOn</span><span style=''>(topCard: Card): Boolean = {
+</span>38 <span style=''>    this.color == topCard.color || this.value == topCard.value || this.value == cardValues.WILD || this.value == cardValues.WILD_DRAW_FOUR
+</span>39 <span style=''>  }
+</span>40 <span style=''>
+</span>41 <span style=''>  /*def getColorCode: String = {
+</span>42 <span style=''>    this match {
+</span>43 <span style=''>      case Card(_, cardValues.WILD) =&gt; AnsiColor.WHITE
+</span>44 <span style=''>      case Card(_, cardValues.WILD_DRAW_FOUR) =&gt; AnsiColor.WHITE
+</span>45 <span style=''>      case Card(cardColors.RED, _) =&gt; AnsiColor.RED
+</span>46 <span style=''>      case Card(cardColors.GREEN, _) =&gt; AnsiColor.GREEN
+</span>47 <span style=''>      case Card(cardColors.YELLOW, _) =&gt; AnsiColor.YELLOW
+</span>48 <span style=''>      case Card(cardColors.BLUE, _) =&gt; AnsiColor.BLUE
+</span>49 <span style=''>    }
+</span>50 <span style=''>  }*/
+</span>51 <span style=''>
+</span>52 <span style=''>  </span><span style='background: #AEF1AE'>def getColorCode</span><span style=''>: Color = {
+</span>53 <span style=''>    this match {
+</span>54 <span style=''>      </span><span style='background: #AEF1AE'>case Card(_, cardValues.WILD) | Card(_, cardValues.WILD_DRAW_FOUR)</span><span style=''> =&gt; Color.Black
+</span>55 <span style=''>      </span><span style='background: #AEF1AE'>case Card(cardColors.RED, _)</span><span style=''> =&gt; Color.Red
+</span>56 <span style=''>      </span><span style='background: #AEF1AE'>case Card(cardColors.GREEN, _)</span><span style=''> =&gt; Color.Green
+</span>57 <span style=''>      </span><span style='background: #AEF1AE'>case Card(cardColors.YELLOW, _)</span><span style=''> =&gt; Color.Yellow
+</span>58 <span style=''>      </span><span style='background: #AEF1AE'>case Card(cardColors.BLUE, _)</span><span style=''> =&gt; Color.Blue
+</span>59 <span style=''>    }
+</span>60 <span style=''>  }
+</span>61 <span style=''>}
+</span>62 <span style=''>
+</span>63 <span style=''></span><span style='background: #AEF1AE'>def randomColor</span><span style=''> =
+</span>64 <span style=''>  </span><span style='background: #AEF1AE'>cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))</span><span style=''>
+</span>65 <span style=''>
+</span>66 <span style=''></span><span style='background: #AEF1AE'>def randomValue</span><span style=''> =
+</span>67 <span style=''>  </span><span style='background: #AEF1AE'>cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))</span><span style=''>
+</span>68 <span style=''>
+</span>69 <span style=''></span><span style='background: #AEF1AE'>def randomCard</span><span style=''> = Card(</span><span style='background: #AEF1AE'>randomColor</span><span style=''>, </span><span style='background: #AEF1AE'>randomValue</span><span style=''>)
+</span>70 <span style=''>
+</span>71 <span style=''></span><span style='background: #AEF1AE'>def randomCards</span><span style=''>(i: Int): List[Card] = {
+</span>72 <span style=''>  </span><span style='background: #AEF1AE'>(</span><span style='background: #F0ADAD'>0 until i</span><span style='background: #AEF1AE'>).map(_ =&gt; randomCard).toList</span><span style=''>
+</span>73 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          168
+        </td>
+        <td>
+          553
+          -
+          570
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          canBePlayedOn
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def canBePlayedOn
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          174
+        </td>
+        <td>
+          1163
+          -
+          1179
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          getColorCode
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def getColorCode
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          169
+        </td>
+        <td>
+          1216
+          -
+          1282
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Card(_, cardValues.WILD) | Card(_, cardValues.WILD_DRAW_FOUR)
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          170
+        </td>
+        <td>
+          1305
+          -
+          1333
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Card(cardColors.RED, _)
+        </td>
+      </tr><tr>
+        <td>
+          55
+        </td>
+        <td>
+          171
+        </td>
+        <td>
+          1354
+          -
+          1384
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Card(cardColors.GREEN, _)
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          172
+        </td>
+        <td>
+          1407
+          -
+          1438
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Card(cardColors.YELLOW, _)
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          173
+        </td>
+        <td>
+          1462
+          -
+          1491
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;none&gt;
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          case Card(cardColors.BLUE, _)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          180
+        </td>
+        <td>
+          1524
+          -
+          1539
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          randomColor
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def randomColor
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          176
+        </td>
+        <td>
+          1545
+          -
+          1562
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          wrapRefArray
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          cardColors.values
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          175
+        </td>
+        <td>
+          1545
+          -
+          1622
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          178
+        </td>
+        <td>
+          1570
+          -
+          1621
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          nextInt
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          scala.util.Random.nextInt(cardColors.values.length)
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          177
+        </td>
+        <td>
+          1545
+          -
+          1569
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toList
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          cardColors.values.toList
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          179
+        </td>
+        <td>
+          1596
+          -
+          1620
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          length
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          cardColors.values.length
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          186
+        </td>
+        <td>
+          1626
+          -
+          1641
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          randomValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def randomValue
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          182
+        </td>
+        <td>
+          1647
+          -
+          1664
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          wrapRefArray
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          cardValues.values
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          185
+        </td>
+        <td>
+          1698
+          -
+          1722
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          length
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          cardValues.values.length
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          184
+        </td>
+        <td>
+          1672
+          -
+          1723
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          nextInt
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          scala.util.Random.nextInt(cardValues.values.length)
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          181
+        </td>
+        <td>
+          1647
+          -
+          1724
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          183
+        </td>
+        <td>
+          1647
+          -
+          1671
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toList
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          cardValues.values.toList
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          187
+        </td>
+        <td>
+          1750
+          -
+          1761
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          randomColor
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          randomColor
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          189
+        </td>
+        <td>
+          1728
+          -
+          1742
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          randomCard
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def randomCard
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          188
+        </td>
+        <td>
+          1763
+          -
+          1774
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          randomValue
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          randomValue
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          195
+        </td>
+        <td>
+          1779
+          -
+          1794
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          randomCards
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def randomCards
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          191
+        </td>
+        <td>
+          1823
+          -
+          1832
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          until
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          0 until i
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          194
+        </td>
+        <td>
+          1822
+          -
+          1861
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          toList
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          (0 until i).map(_ =&gt; randomCard).toList
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          193
+        </td>
+        <td>
+          1843
+          -
+          1853
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          randomCard
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          randomCard
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          190
+        </td>
+        <td>
+          1822
+          -
+          1854
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          map
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          (0 until i).map(_ =&gt; randomCard)
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          192
+        </td>
+        <td>
+          1823
+          -
+          1824
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          intWrapper
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          0
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>
