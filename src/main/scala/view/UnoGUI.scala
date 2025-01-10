@@ -15,6 +15,7 @@ import scalafx.scene.control.{ListCell, ListView}
 import javafx.util.Callback
 import model.gameComponent.{IPlayer, IUnoField, IPlayerHand}
 import model.cardComponent.{ICard, cardColors, cardValues}
+import model.cardComponent.cardIm.Card
 
 trait State {
   def display(pane: Pane): Unit
@@ -96,7 +97,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
           if (card.value == cardValues.WILD || card.value == cardValues.WILD_DRAW_FOUR) {
             showColorButtons(card, pane)
           } else if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayed(controller.field.topCard)) {
-            controller.play(card)
+            controller.play(card.asInstanceOf[Card])
             Platform.runLater(() => {
               gui.display()
             })
@@ -174,7 +175,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
 
   private def chooseColor(card: ICard, color: model.cardComponent.cardColors): Unit = {
     controller.setChosenColor(Some(color))
-    controller.play(card.copy(color = Some(color)))
+    controller.play(card.asInstanceOf[Card].copy(color = Some(color)))
     Platform.runLater(() => gui.display())
   }
 

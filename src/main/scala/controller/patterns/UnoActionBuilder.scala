@@ -5,6 +5,7 @@ import controller.controllerComponent.IUnoController
 import model.*
 import model.cardComponent.ICard
 import model.gameComponent.IPlayer
+import model.cardComponent.cardIm.Card
 
 object UnoActionBuilder {
   def builder(): UnoActionBuilder = new UnoActionBuilder
@@ -38,7 +39,7 @@ object UnoActionBuilder {
 
   class PlayAction(card: ICard) extends UnoAction {
     override def executeAction(controller: IUnoController, player: IPlayer): Unit = {
-      controller.play(card)
+      controller.play(card.asInstanceOf[Card])
     }
   }
 

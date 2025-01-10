@@ -5,6 +5,7 @@ import controller.controllerComponent.IUnoController
 //import model.*
 import model.cardComponent.ICard
 import model.gameComponent.IPlayer
+import model.cardComponent.cardIm.Card
 
 trait UnoActionStrategy {
   def executeAction(controller: IUnoController, player: IPlayer): Unit
@@ -20,7 +21,7 @@ class DrawCardStrategy extends UnoActionStrategy {
 class PlayCardStrategy(card: ICard) extends UnoActionStrategy {
   override def executeAction(controller: IUnoController, player: IPlayer): Unit = {
     println(s"${player.id} plays a card")
-    controller.play(card)
+    controller.play(card.asInstanceOf[Card])
   }
 }
 

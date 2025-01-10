@@ -5,6 +5,7 @@ import model.gameComponent.IPlayer
 import model.gameComponent.IPlayerHand
 import scala.util.Try
 
+
 trait IPlayer {
   def id: Int
   def hand: IPlayerHand

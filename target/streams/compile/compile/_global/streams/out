@@ -1,34 +1,8 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E164] Declaration Error: C:\SoftwareEngineering\UNO\src\main\scala\model\cardComponent\cardIm\Card.scala:16:54 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m16 |[0m[33mcase class[0m [35mCard[0m @Inject() ([36mcolor[0m: [35mOption[0m[[35mcardColors[0m], [36mvalue[0m: [35mcardValues[0m) [33mextends[0m [35mICard[0m {[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                                      ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0merror overriding [33mmethod[0m [35mvalue[0m in [33mtrait[0m [35mICard[0m of type => model.cardComponent.cardValues;[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m  [33mvalue[0m [35mvalue[0m of type model.cardComponent.cardIm.cardValues has incompatible type[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E164] Declaration Error: C:\SoftwareEngineering\UNO\src\main\scala\model\cardComponent\cardIm\Card.scala:17:6 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m17 |[0m  [33mdef[0m [36mgetColor[0m: [35mOption[0m[[35mcardColors[0m] = color[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m      ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0merror overriding [33mmethod[0m [35mgetColor[0m in [33mtrait[0m [35mICard[0m of type => Option[model.cardComponent.cardColors];[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m  [33mmethod[0m [35mgetColor[0m of type => Option[model.cardComponent.cardIm.cardColors] has incompatible type[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E164] Declaration Error: C:\SoftwareEngineering\UNO\src\main\scala\model\cardComponent\cardIm\Card.scala:32:6 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m32 |[0m  [33mdef[0m [36mgetValue[0m: [35mcardValues[0m = value[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m      ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0merror overriding [33mmethod[0m [35mgetValue[0m in [33mtrait[0m [35mICard[0m of type => model.cardComponent.cardValues;[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m  [33mmethod[0m [35mgetValue[0m of type => model.cardComponent.cardIm.cardValues has incompatible type[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- Error: C:\SoftwareEngineering\UNO\src\main\scala\model\cardComponent\cardIm\Card.scala:16:11 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m16 |[0m[33mcase class[0m [35mCard[0m @Inject() ([36mcolor[0m: [35mOption[0m[[35mcardColors[0m], [36mvalue[0m: [35mcardValues[0m) [33mextends[0m [35mICard[0m {[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m           ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0mclass Card needs to be abstract, since def copy[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m  (color: Option[model.cardComponent.cardColors]): model.cardComponent.ICard in [33mtrait[0m [35mICard[0m in [33mpackage[0m [35mmodel.cardComponent[0m is not defined [0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m(Note that[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m parameter Option[model.cardComponent.cardColors] in def copy[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m  (color: Option[model.cardComponent.cardColors]): model.cardComponent.ICard in [33mtrait[0m [35mICard[0m in [33mpackage[0m [35mmodel.cardComponent[0m does not match[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m parameter Option[model.cardComponent.cardIm.cardColors] in def copy[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m  (color: Option[model.cardComponent.cardIm.cardColors]):[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m    model.cardComponent.ICard in [33mclass[0m [35mCard[0m in [33mpackage[0m [35mmodel.cardComponent.cardIm[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m their type parameters differ)[0m
-[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: C:\sem3\SE\UNO\src\main\scala\view\UnoGUI.scala:175:30 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m175 |[0m    controller.setChosenColor(color) [0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                              ^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                              Found:    [1m[31m([0m[1m[31mcolor[0m[1m[31m [0m[1m[31m:[0m[1m[31m [0mmodel.cardColors[1m[31m)[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                              Required: [1m[32mOption[0m[1m[32m[[0mmodel.cardColors[1m[32m][0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

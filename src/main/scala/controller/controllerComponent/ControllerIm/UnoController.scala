@@ -3,8 +3,10 @@ package controller.controllerComponent.ControllerIm
 import controller.*
 import controller.controllerComponent.IUnoController
 import com.google.inject.{AbstractModule, Guice, Inject}
+
+import model.cardComponent.cardColors
 import model.gameComponent.IUnoField
-import model.cardComponent.{ICard, cardColors}
+import model.cardComponent.ICard
 import controller.command.commandIm.{DrawCommand, PlayCommand}
 import util.*
 import model.*
