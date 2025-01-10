@@ -1,6 +1,6 @@
 package view
 
-import controller.controllerComponent.ControllerIm.UnoController
+import controller.controllerComponent.IUnoController
 import scalafx.application.{JFXApp3, Platform}
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
@@ -10,16 +10,18 @@ import scalafx.scene.paint.Color
 import scalafx.Includes.*
 import util.{Event, Observer}
 import util.Event.*
-import model.*
+//import model.*
 import scalafx.scene.control.{ListCell, ListView}
 import javafx.util.Callback
-import model.cardComponent.cardIm.Card
+import model.cardComponent.ICard
+import model.gameComponent.gameIm.{Player, UnoField, PlayerHand}
+import model.cardComponent.cardIm.{Card, cardColors}
 
 trait State {
   def display(pane: Pane): Unit
 }
 
-class BeginState(gui: UnoGUI, controller: UnoController) extends State {
+class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
   override def display(pane: Pane): Unit = {
     pane.children.clear()
     val beginLabel = new scalafx.scene.control.Label("Welcome to UNO Game")
@@ -37,29 +39,44 @@ class BeginState(gui: UnoGUI, controller: UnoController) extends State {
   }
 }
 
-class GameState(gui: UnoGUI, controller: UnoController) extends State {
+class GameState(gui: UnoGUI, controller: IUnoController) extends State {
   override def display(pane: Pane): Unit = {
     pane.children.clear()
 
     val playerLabel = new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
-    val topCardLabel = new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.value}") {
+    /*val topCardLabel = new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.value}") {
       textFill = controller.field.topCard.getColorCode
-    }
-
-    val handListView = new ListView[Card] {
-      items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
-
-      cellFactory = new Callback[ListView[Card], ListCell[Card]] {
-        override def call(param: ListView[Card]): ListCell[Card] = {
-          new ListCell[Card] {
-            item.onChange { (_, _, cardOpt) =>
-              val cardOption = Option(cardOpt)
-              text = cardOption.map(_.value.toString).getOrElse("")
-              textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
-            }
+    }*/
+    val topCardLabel = controller.getChosenColor match {
+      case Some(color) =>
+        new scalafx.scene.control.Label(s"Your opponent chose the color: $color") {
+          textFill = color match {
+            case cardColors.RED => Color.Red
+            case cardColors.BLUE => Color.Blue
+            case cardColors.GREEN => Color.Green
+            case cardColors.YELLOW => Color.Yellow
           }
         }
+      case None =>
+        new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.value}") {
+          textFill = controller.field.topCard.getColorCode
+        }
+    }
+
+    val handListView = new ListView[ICard] {
+      items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
+
+      cellFactory = new javafx.util.Callback[javafx.scene.control.ListView[ICard], javafx.scene.control.ListCell[ICard]] {
+  override def call(param: javafx.scene.control.ListView[ICard]): javafx.scene.control.ListCell[ICard] = {
+    new ListCell[ICard] {
+      item.onChange { (_, _, cardOpt) =>
+        val cardOption = Option(cardOpt)
+        text = cardOption.map(_.value.toString).getOrElse("")
+        textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
       }
+    }
+  }
+}
     }
 
     val drawButton = new scalafx.scene.control.Button("Draw Card") {
@@ -76,7 +93,7 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
         val selectedCardIndex = handListView.selectionModel().getSelectedIndex
         if (selectedCardIndex >= 0) {
           val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)
-          if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayedOn(controller.field.topCard)) {
+          if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayed(controller.field.topCard)) {
             controller.play(card)
             Platform.runLater(() => {
               gui.display()
@@ -133,7 +150,7 @@ class GameState(gui: UnoGUI, controller: UnoController) extends State {
   }
 }
 
-class UnoGUI(controller: UnoController) extends JFXApp3 with Observer {
+class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
   controller.addObserver(this)
 
   private var state: State = new BeginState(this, controller)
@@ -193,7 +210,7 @@ class UnoGUI(controller: UnoController) extends JFXApp3 with Observer {
 }
 
 object UnoGUI {
-  def launchApp(controller: UnoController): Unit = {
+  def launchApp(controller: IUnoController): Unit = {
     new UnoGUI(controller).main(Array.empty)
   }
 }

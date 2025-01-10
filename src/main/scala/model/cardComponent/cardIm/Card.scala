@@ -1,64 +1,49 @@
 package model.cardComponent.cardIm
 
-//import model.*
-//import model.cardComponent.{cardColors, cardValues}
-//import model.{cardColors, cardValues}
-//import view.*
-//import scala.util.Event
-//import scala.util.Observable
-//import controller.*
-//import scalafx.scene.paint.Color
-
-import scala.io.*
-import scala.io.AnsiColor.*
+import com.google.inject.{AbstractModule, Guice, Inject}
+import net.codingwell.scalaguice.ScalaModule
+import model.cardComponent.ICard
+import scalafx.scene.paint.Color
 
 enum cardColors {
-  case RED, BLUE
-  , YELLOW
-  , GREEN
+  case RED, BLUE, YELLOW, GREEN
 }
 
 enum cardValues {
-  case ZERO, ONE
-  , TWO
-  , THREE
-  , FOUR
-  , FIVE
-  , SIX
-  , SEVEN
-  , EIGHT
-  , NINE
-  , SKIP
-  , REVERSE
-  , DRAW_TWO
-  , WILD
-  , WILD_DRAW_FOUR
+  case ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, SKIP, REVERSE, DRAW_TWO, WILD, WILD_DRAW_FOUR
 }
 
-case class Card(color: cardColors, value: cardValues) {
-  // can card be played
-  def canBePlayedOn(topCard: Card): Boolean = {
-    this.color == topCard.color || this.value == topCard.value || this.value == cardValues.WILD || this.value == cardValues.WILD_DRAW_FOUR
+case class Card @Inject() (color: Option[cardColors], value: cardValues) extends ICard {
+  def getColor: Option[cardColors] = color
+
+  def canBePlayed(topCard: ICard): Boolean = {
+    this.color == topCard.getColor || this.value == topCard.getValue || this.value == cardValues.WILD || this.value == cardValues.WILD_DRAW_FOUR
   }
 
   def getColorCode: Color = {
-    this match {
-      case Card(_, cardValues.WILD) | Card(_, cardValues.WILD_DRAW_FOUR) => Color.Black
-      case Card(cardColors.RED, _) => Color.Red
-      case Card(cardColors.GREEN, _) => Color.Green
-      case Card(cardColors.YELLOW, _) => Color.Yellow
-      case Card(cardColors.BLUE, _) => Color.Blue
+    color match {
+      case Some(cardColors.RED) => Color.Red
+      case Some(cardColors.GREEN) => Color.Green
+      case Some(cardColors.YELLOW) => Color.Yellow
+      case Some(cardColors.BLUE) => Color.Blue
+      case _ => Color.Black
     }
+  }
+
+  def getValue: cardValues = value
+
+  def copy(color: Option[cardColors]): ICard = {
+    Card(color, getValue)
   }
 }
 
-def randomColor =
-  cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
+def randomColor: cardColors = cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
 
-def randomValue =
-  cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
+def randomValue: cardValues = cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
 
-def randomCard = Card(randomColor, randomValue)
+def randomCard: Card = {
+  new Card(Some(randomColor), randomValue)
+}
 
 def randomCards(i: Int): List[Card] = {
   (0 until i).map(_ => randomCard).toList

@@ -1,19 +1,23 @@
 package controller.command.commandIm
 
-import controller.controllerComponent.ControllerIm.UnoController
-import model.*
-import model.cardComponent.cardIm.{Card, randomCard}
-import model.gameComponent.gameIm.UnoField
+//import controller.command.IDrawCommand
+
+import controller.controllerComponent.IUnoController
+
+import model.cardComponent.cardIm.*
+import model.cardComponent.ICard
+import model.gameComponent.IUnoField
+import model.gameComponent.IPlayer
 import util.*
 //import view.*
 import controller.*
-
+import model.*
 import scala.util.{Failure, Try}
 
 
-class DrawCommand(controller: UnoController) extends util.Command {
-  private var previousState: Option[UnoField] = None
-  private var drawnCard: Option[Card] = None
+class DrawCommand(controller: IUnoController) extends util.Command {
+  private var previousState: Option[IUnoField] = None
+  private var drawnCard: Option[ICard] = None
 
   override def doStep(command: Command): Try[Unit] = Try {
     previousState = Some(controller.field) // Save the current game state
@@ -24,11 +28,13 @@ class DrawCommand(controller: UnoController) extends util.Command {
     val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))
 
     val updatedPlayers = controller.field.players.updated(
-      controller.field.currentPlayer,
-      updatedPlayer
-    )
+  controller.field.currentPlayer,
+  updatedPlayer
+).collect { case player: IPlayer => player }
+    val topCard: ICard = controller.field.topCard
+    //val currentPlayer: Int = controller.field.currentPlayer
 
-    controller.field = controller.field.copy(players = updatedPlayers)
+    controller.field = controller.field.copy(players = updatedPlayers, topCard = topCard, currentPlayer = controller.field.currentPlayer)
     controller.notifyObservers(Event.Draw)
   }
 
@@ -46,14 +52,15 @@ class DrawCommand(controller: UnoController) extends util.Command {
     val newCard = drawnCard.get
 
     val currentPlayer = controller.field.players(controller.field.currentPlayer)
-    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))
-
+    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))    
     val updatedPlayers = controller.field.players.updated(
-      controller.field.currentPlayer,
-      updatedPlayer
-    )
+  controller.field.currentPlayer,
+  updatedPlayer
+).collect { case player: IPlayer => player }
+    val topCard: ICard = controller.field.topCard
+    //val currentPlayer: Int = controller.field.currentPlayer
 
-    controller.field = controller.field.copy(players = updatedPlayers)
+    controller.field = controller.field.copy(players = updatedPlayers, topCard = topCard, currentPlayer = controller.field.currentPlayer)
     controller.notifyObservers(Event.Redo)
   }
 }

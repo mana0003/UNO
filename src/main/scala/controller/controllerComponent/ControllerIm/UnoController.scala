@@ -2,17 +2,26 @@ package controller.controllerComponent.ControllerIm
 
 import controller.*
 import controller.controllerComponent.IUnoController
-import model.*
-import model.cardComponent.cardIm.Card
-import model.gameComponent.gameIm.UnoField
+import com.google.inject.{AbstractModule, Guice, Inject}
+
+import model.cardComponent.{cardColors}
+import model.gameComponent.IUnoField
+import model.cardComponent.ICard
+import controller.command.commandIm.{DrawCommand, PlayCommand}
 import util.*
+import model.*
+import UNO.MainModule
 
 import scala.io.AnsiColor.*
 import scala.util.{Failure, Success}
 
-class UnoController(var field: UnoField) extends IUnoController with Observable {
+
+class UnoController @Inject() (var field: IUnoField) extends IUnoController with Observable {
   private val commandManager = new CommandManager()
   private var isGuiActive: Boolean = false
+  private var chosenColor: Option[cardColors] = None
+  private val injector = Guice.createInjector(new MainModule)
+
 
   def setGuiActive(active: Boolean): Unit = {
     isGuiActive = active
@@ -21,7 +30,7 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
   def isGuiMode: Boolean = isGuiActive
 
 
-  def play(card: Card): Unit = {
+  def play(card: ICard): Unit = {
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
       case Success(_) =>
@@ -65,15 +74,22 @@ class UnoController(var field: UnoField) extends IUnoController with Observable 
     notifyObservers(Event.Start)
   }
 
-  def getField: UnoField = field
+  def getField: IUnoField = field
 
   def getCurrentPlayer: Int = field.currentPlayer
 
   override def addObserver(observer: Observer): Unit = {
-    super.addObserver(observer)
+    super[Observable].addObserver(observer)
   }
     
   override def notifyObservers(event: Event): Unit = {
-    super.notifyObservers(event)
+    super[Observable].notifyObservers(event)
   }
+
+  def getChosenColor: Option[cardColors] = chosenColor
+
+  def setChosenColor(color: Option[cardColors]): Unit = {
+    chosenColor = color
+  }
+
 }

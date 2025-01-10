@@ -1,9 +1,9 @@
 package model.gameComponent
 
-import model.cardComponent.*
+import model.cardComponent.ICard
 
 trait IPlayerHand {
-  def cards: List[Card]
-  def addCard(card: Card): IPlayerHand
-  def removeCard(card: Card): IPlayerHand
+  def cards: List[ICard]
+  def addCard(card: ICard): IPlayerHand
+  def removeCard(card: ICard): IPlayerHand
 }

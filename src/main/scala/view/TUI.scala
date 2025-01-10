@@ -1,12 +1,12 @@
 package view
 
 import controller.controllerComponent.IUnoController
-import controller.patterns.patternsIm.UnoActionBuilder
 import util.{Event, Observer}
 import scala.io.StdIn
 import scala.io.AnsiColor._
+import controller.patterns.patternsIm.UnoActionBuilder
 
-class TUI(val controller: IUnoController) extends Observer with IView {
+class TUI(val controller: IUnoController) extends Observer{
   // controller.addObserver(this)
 
   private def processInputLine(input: Int, handSize: Int): Unit = {
@@ -15,7 +15,7 @@ class TUI(val controller: IUnoController) extends Observer with IView {
       gameContinue()
     } else {
       val card = controller.getField.players(controller.getCurrentPlayer).hand.cards(input - 1)
-      if (controller.getField.players(controller.getCurrentPlayer).valid(card) && card.canBePlayedOn(controller.getField.topCard)) {
+      if (controller.getField.players(controller.getCurrentPlayer).valid(card) && card.canBePlayed(controller.getField.topCard)) {
         UnoActionBuilder.builder().setAction("play").setCard(card).build().executeAction(controller, controller.getField.players(controller.getCurrentPlayer))
       } else {
         println("Card does not fit. Do you want to:")

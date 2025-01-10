@@ -1,9 +1,16 @@
 package model.gameComponent
 
-import model.cardComponent.cardIm.*
+import model.cardComponent.ICard
+import model.gameComponent.IPlayer
+import model.cardComponent.cardIm.Card
 
 trait IUnoField {
-  def players: List[Player]
-  def topCard: Card
+  def players: List[IPlayer]
+  def topCard: ICard
   def currentPlayer: Int
+  def copy(
+            players: List[IPlayer],
+            topCard: ICard,
+            currentPlayer: Int
+          ): IUnoField
 }

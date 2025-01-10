@@ -1,11 +1,19 @@
 package model.gameComponent.gameIm
 
-import model.cardComponent.cardIm.Card
-import model.gameComponent.IPlayer
-import model.gameComponent.IPlayerHand
+import model.cardComponent.ICard
+import model.gameComponent.{IPlayerHand, IPlayer, IUnoField}
+import com.google.inject.{AbstractModule, Guice, Inject}
 
-case class UnoField(
-                     val players: List[Player] = (0 until 2).map(i => Player(i, PlayerHand())).toList,
-                     val topCard: Card = randomCard,
-                     val currentPlayer: Int = 0
-                   )
+case class UnoField @Inject() (
+                     val players: List[IPlayer],
+                     val topCard: ICard,
+                     val currentPlayer: Int
+                   ) extends IUnoField {
+  def copy(
+            players: List[IPlayer] = players,
+            topCard: ICard = topCard,
+            currentPlayer: Int = currentPlayer
+          ): UnoField = {
+    UnoField(players, topCard, currentPlayer)
+  }
+}

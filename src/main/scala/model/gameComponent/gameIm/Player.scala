@@ -1,19 +1,27 @@
 package model.gameComponent.gameIm
 
-import model.cardComponent.cardIm.Card
+import com.google.inject.{AbstractModule, Guice, Inject}
+
+import model.cardComponent.ICard
+import model.gameComponent.{IPlayer, IPlayerHand}
 
 import scala.util.{Failure, Success, Try}
 
-case class Player(id: Int, hand: PlayerHand) {
-  def valid(card: Card): Boolean = {
-    hand.cards.exists(_.canBePlayedOn(card))
+case class Player @Inject() (id: Int, hand: IPlayerHand) extends IPlayer {
+
+  def copy(hand: IPlayerHand): IPlayer = {
+    Player(id, hand)
   }
 
-  def play(card: Card): Try[Player] = {
+  def valid(card: ICard): Boolean = {
+    hand.cards.exists(_.canBePlayed(card))
+  }
+
+  def play(card: ICard): Try[IPlayer] = {
     if (valid(card)) {
       Success(Player(id, hand.removeCard(card)))
     } else {
-      Failure(IllegalArgumentException("Illeagal move."))
+      Failure(new IllegalArgumentException("Illegal move."))
     }
   }
 }

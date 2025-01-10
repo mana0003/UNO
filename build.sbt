@@ -16,6 +16,7 @@ lazy val root = project
     libraryDependencies += "org.scalatestplus" %% "mockito-3-4" % "3.2.10.0" % Test,
     libraryDependencies += "org.scalafx" %% "scalafx" % "23.0.1-R34",
     libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "3.0.0",
+      libraryDependencies += "net.codingwell" %% "scala-guice" % "7.0.0",
     // Enable code coverage
     coverageEnabled :=
       true
