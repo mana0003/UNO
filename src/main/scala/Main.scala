@@ -1,6 +1,8 @@
-import controller._
-import model._
-import view._
+import controller.*
+import controller.controllerComponent.ControllerIm.UnoController
+import model.*
+import model.gameComponent.gameIm.UnoField
+import view.*
 
 object Main {
   def main(args: Array[String]): Unit = {
@@ -10,7 +12,7 @@ object Main {
     }
 
     // Initialize TUI and GUI
-    val tui: IView = new TUI(contr)
+    val tui = new TUI(contr)
     new Thread(() => tui.asInstanceOf[TUI].startGame()).start()
     UnoGUI.launchApp(contr)
   }

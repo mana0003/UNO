@@ -1,6 +1,8 @@
 package model
 import org.scalatest.funsuite.AnyFunSuite
 import model.*
+import model.cardComponent.cardIm.{Card, cardColors, cardValues, randomCards}
+import model.gameComponent.gameIm.PlayerHand
 //import view.*
 //import util.*
 //import controller.*

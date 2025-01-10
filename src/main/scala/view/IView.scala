@@ -1,4 +1,4 @@
-package view
+/*package view
 
 import util.*
 
@@ -8,4 +8,4 @@ trait IView {
   def undoAction(): Unit
   def redoAction(): Unit
   def addObservers(): Unit*/
-}
+}*/

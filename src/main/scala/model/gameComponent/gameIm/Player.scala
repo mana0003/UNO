@@ -1,11 +1,8 @@
-package model
-import controller.*
-import view.*
-import model.*
-import util.*
-import scala.util.Failure
-import scala.util.Success
-import scala.util.Try
+package model.gameComponent.gameIm
+
+import model.cardComponent.cardIm.Card
+
+import scala.util.{Failure, Success, Try}
 
 case class Player(id: Int, hand: PlayerHand) {
   def valid(card: Card): Boolean = {

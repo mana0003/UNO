@@ -1,5 +1,6 @@
 package model
 
+import model.cardComponent.cardIm.{Card, cardColors, cardValues, randomCard, randomCards}
 import org.scalatest.funsuite.AnyFunSuite
 //import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*

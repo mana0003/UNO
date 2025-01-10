@@ -1,5 +1,7 @@
-package model
-import model.*
+package model.gameComponent.gameIm
+
+import model.cardComponent.cardIm.Card.*
+
 case class PlayerHand(cards: List[Card] = randomCards(5)) {
   def addCard(card: Card): PlayerHand = copy(cards = card :: cards)
 

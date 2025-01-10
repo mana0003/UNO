@@ -2,6 +2,7 @@ package controller
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.BeforeAndAfter
+
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 import org.scalatest.matchers.should.Matchers.*
@@ -10,8 +11,12 @@ import view.*
 import model.*
 import util.*
 import controller.*
-import model.cardValues.*
-import model.cardColors.*
+import controller.controllerComponent.ControllerIm.UnoController
+import model.cardComponent.cardIm.cardValues.*
+import model.cardComponent.cardIm.cardColors.*
+import model.cardComponent.cardIm.Card
+import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
+import model.gameComponent.gameIm
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*
 import util.Event.*
@@ -20,7 +25,7 @@ class UnoControllerTest extends AnyWordSpec {
   "The Controller" should {
     val field =
       UnoField(
-        List(Player(0, PlayerHand(List(Card(RED, ONE), Card(RED, TWO))))),
+        List(gameIm.Player(0, PlayerHand(List(Card(RED, ONE), Card(RED, TWO))))),
         Card(RED, THREE)
       )
     val controller = UnoController(field)
@@ -73,7 +78,7 @@ class UnoControllerTest extends AnyWordSpec {
       controller.draw()
       controller.field.players.head.hand.cards.size should be(2)
       controller.field =
-        UnoField(List(Player(0, PlayerHand(List(Card(RED, ONE), Card(BLUE, TWO))))))
+        UnoField(List(gameIm.Player(0, PlayerHand(List(Card(RED, ONE), Card(BLUE, TWO))))))
     }
     "quit the game" in {
       class TestObserver(val controller: UnoController) extends Observer {

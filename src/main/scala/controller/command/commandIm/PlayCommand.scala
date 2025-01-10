@@ -1,11 +1,16 @@
-package controller
+package controller.command.commandIm
+
 import controller.*
+import controller.controllerComponent.ControllerIm.UnoController
 import model.*
+import model.cardComponent.cardIm.Card
+import model.gameComponent.gameIm.UnoField
 import util.*
 //import view.*
 import scala.util.Failure
 import scala.util.Try
-import model.randomCards 
+import model.randomCards
+import scala.util.{Failure, Try}
 
 class PlayCommand(controller: UnoController, card: Card) extends util.Command {
   private var previousState: Option[UnoField] = None

@@ -1,7 +1,11 @@
 package controller
 
+import controller.controllerComponent.ControllerIm.UnoController
+import controller.patterns.patternsIm.{DrawCardStrategy, PlayCardStrategy, UnoActionHandler}
 import model.*
-import org.scalatest._
+import model.cardComponent.cardIm.{Card, cardColors, cardValues}
+import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
+import org.scalatest.*
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
 

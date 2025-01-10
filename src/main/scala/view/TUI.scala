@@ -1,6 +1,7 @@
 package view
 
-import controller.{IUnoController, UnoActionBuilder}
+import controller.controllerComponent.IUnoController
+import controller.patterns.patternsIm.UnoActionBuilder
 import util.{Event, Observer}
 import scala.io.StdIn
 import scala.io.AnsiColor._

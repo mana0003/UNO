@@ -1,19 +1,19 @@
 package view
 
+import controller.controllerComponent.ControllerIm.UnoController
 import scalafx.application.{JFXApp3, Platform}
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.scene.input.{KeyCode, KeyEvent}
 import scalafx.scene.layout.{Pane, StackPane, VBox}
 import scalafx.scene.paint.Color
-import scalafx.Includes._
-import controller.UnoController
+import scalafx.Includes.*
 import util.{Event, Observer}
-import util.Event._
-import model._
-import scalafx.scene.control.{ListView, ListCell}
-
+import util.Event.*
+import model.*
+import scalafx.scene.control.{ListCell, ListView}
 import javafx.util.Callback
+import model.cardComponent.cardIm.Card
 
 trait State {
   def display(pane: Pane): Unit
