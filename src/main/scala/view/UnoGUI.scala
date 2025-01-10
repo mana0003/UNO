@@ -13,9 +13,8 @@ import util.Event.*
 //import model.*
 import scalafx.scene.control.{ListCell, ListView}
 import javafx.util.Callback
-import model.cardComponent.ICard
-import model.gameComponent.gameIm.{Player, UnoField, PlayerHand}
-import model.cardComponent.cardIm.{Card, cardColors}
+import model.gameComponent.{IPlayer, IUnoField, IPlayerHand}
+import model.cardComponent.{ICard, cardColors, cardValues}
 
 trait State {
   def display(pane: Pane): Unit
@@ -173,9 +172,9 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
     pane.children.add(layout)
   }
 
-  private def chooseColor(card: Card, color: cardColors): Unit = {
+  private def chooseColor(card: ICard, color: model.cardComponent.cardColors): Unit = {
     controller.setChosenColor(Some(color))
-    controller.play(card.copy(color = color))
+    controller.play(card.copy(color = Some(color)))
     Platform.runLater(() => gui.display())
   }
 

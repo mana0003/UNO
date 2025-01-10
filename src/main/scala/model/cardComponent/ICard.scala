@@ -10,7 +10,6 @@ trait ICard {
   def getColorCode: Color
   def getValue: cardValues
   def copy(color: Option[cardColors]): ICard
-  
 }
 enum cardColors {
   case RED, BLUE, YELLOW, GREEN
