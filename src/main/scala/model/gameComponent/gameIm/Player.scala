@@ -3,6 +3,7 @@ package model.gameComponent.gameIm
 import com.google.inject.{AbstractModule, Guice, Inject}
 
 import model.cardComponent.ICard
+import model.cardComponent.cardIm.Card
 import model.gameComponent.{IPlayer, IPlayerHand}
 
 import scala.util.{Failure, Success, Try}

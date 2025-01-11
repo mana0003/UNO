@@ -1,3 +1,4 @@
+// File: src/main/scala/model/gameComponent/IPlayerHand.scala
 package model.gameComponent
 
 import model.cardComponent.ICard

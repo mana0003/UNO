@@ -5,8 +5,8 @@ import controller.controllerComponent.IUnoController
 import controller.controllerComponent.ControllerIm.UnoController
 import model.gameComponent.{IPlayer, IPlayerHand, IUnoField}
 import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
-import model.cardComponent.cardIm.{Card, cardColors, cardValues}
-import model.cardComponent.ICard
+import model.cardComponent.cardIm.Card
+import model.cardComponent.{ICard, cardColors, cardValues}
 
 class MainModule extends AbstractModule with ScalaModule {
 
@@ -17,7 +17,7 @@ class MainModule extends AbstractModule with ScalaModule {
     bind[IUnoController].to[UnoController]
     bind[ICard].to[Card]
     bind[IPlayer].to[Player]
-    bind[IPlayerHand].to[PlayerHand]
+    bind[IPlayerHand].to[IPlayerHand]
 
     // Bindings for cardColors and cardValues
     bind[cardColors].toInstance(cardColors.RED) // Example binding, adjust as needed

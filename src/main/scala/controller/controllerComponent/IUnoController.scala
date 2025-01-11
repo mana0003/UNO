@@ -1,6 +1,6 @@
 package controller.controllerComponent
 
-import model.cardComponent.cardIm.Card
+import model.cardComponent.ICard
 import model.gameComponent.gameIm.UnoField
 import model.gameComponent.IUnoField
 import util.{Event, Observer}
@@ -12,7 +12,7 @@ trait IUnoController {
   def notifyObservers(event: Event): Unit
   def setGuiActive(active: Boolean): Unit
   def isGuiMode: Boolean
-  def play(card: Card): Unit
+  def play(card: ICard): Unit
   def draw(): Unit
   def undo(): Unit
   def redo(): Unit

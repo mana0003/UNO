@@ -26,7 +26,7 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     val updatedCurrentPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
     val updatedPlayers = controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
 
-    val cardsToDraw = card.value match {
+    val cardsToDraw = card.getValue match {
       case cardValues.DRAW_TWO => 2
       case cardValues.WILD_DRAW_FOUR => 4
       case _ => 0
@@ -69,12 +69,12 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
       case None => controller.getChosenColor() // If console-based color selection
     }*/
 
-    val newCurrentPlayer = if (card.value == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
+    val newCurrentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
 
     // Handle Wild and Wild Draw Four cards with color selection
-    val updatedTopCard = card.value match {
+    val updatedTopCard = card.getValue match {
       case cardValues.WILD | cardValues.WILD_DRAW_FOUR =>
-        val chosenColor = Some(controller.getChosenColor.getOrElse(cardColors.RED)) // Prompt for color selection
+        val chosenColor = controller.getChosenColor.getOrElse(cardColors.RED) // Prompt for color selection
         card.copy(color = chosenColor)
       case _ => card
     }
@@ -112,7 +112,7 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
       updatedPlayer
     )
 
-    val isSkipCard = card.value match {
+    val isSkipCard = card.getValue match {
       case cardValues.SKIP => true
       case _ => false
     }

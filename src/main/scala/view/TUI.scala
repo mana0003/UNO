@@ -109,9 +109,9 @@ class TUI(val controller: IUnoController) extends Observer{
   private def gameContinue(): Unit = {
     val currentPlayer = controller.getField.players(controller.getCurrentPlayer)
     println(s"Current player: Player ${controller.getCurrentPlayer + 1}")
-    println(s"Current top card: ${controller.getField.topCard.getColorCode}${controller.getField.topCard.value}$RESET")
+    println(s"Current top card: ${controller.getField.topCard.getColorCode}${controller.getField.topCard.getValue}$RESET")
     currentPlayer.hand.cards.zipWithIndex.foreach { case (card, index) =>
-      println(s"${index + 1}: ${card.getColorCode}${card.value}$RESET")
+      println(s"${index + 1}: ${card.getColorCode}${card.getValue}$RESET")
     }
     println("Enter the number of the card you want to play:")
     val cardNumber = StdIn.readLine().toIntOption

@@ -1,8 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: C:\sem3\SE\UNO\src\main\scala\view\UnoGUI.scala:175:30 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m175 |[0m    controller.setChosenColor(color) [0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                              ^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                              Found:    [1m[31m([0m[1m[31mcolor[0m[1m[31m [0m[1m[31m:[0m[1m[31m [0mmodel.cardColors[1m[31m)[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                              Required: [1m[32mOption[0m[1m[32m[[0mmodel.cardColors[1m[32m][0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m

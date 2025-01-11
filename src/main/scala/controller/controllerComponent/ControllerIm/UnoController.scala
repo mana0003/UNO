@@ -29,12 +29,12 @@ class UnoController @Inject() (var field: IUnoField) extends IUnoController with
   def isGuiMode: Boolean = isGuiActive
 
 
-  def play(card: ICard): Unit = {
+  override def play(card: ICard): Unit = {
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
       case Success(_) =>
-        println(s"Player ${field.currentPlayer + 1} played: ${card.getColorCode}${card.value}$RESET")
-        println(s"Player ${field.currentPlayer + 1} hand: ${field.players(field.currentPlayer).hand.cards.map(c => s"${c.getColorCode}${c.value}$RESET").mkString(", ")}")
+        println(s"Player ${field.currentPlayer + 1} played: ${card.getColorCode}${card.getValue}$RESET")
+        println(s"Player ${field.currentPlayer + 1} hand: ${field.players(field.currentPlayer).hand.cards.map(c => s"${c.getColorCode}${c.getValue}$RESET").mkString(", ")}")
         notifyObservers(Event.Play)
       case Failure(exception) =>
         notifyObservers(Event.Error)
@@ -73,8 +73,7 @@ class UnoController @Inject() (var field: IUnoField) extends IUnoController with
     notifyObservers(Event.Start)
   }
 
-  def getField: IUnoField = field
-
+  override def getField: model.gameComponent.gameIm.UnoField = field.asInstanceOf[model.gameComponent.gameIm.UnoField]
   def getCurrentPlayer: Int = field.currentPlayer
 
   override def addObserver(observer: Observer): Unit = {

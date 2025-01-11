@@ -1,15 +1,15 @@
 package model.cardComponent
 
 import scalafx.scene.paint.Color
-import model.cardComponent.cardIm.{cardColors, cardValues}
+import model.cardComponent.cardIm.Card
 
 trait ICard {
-  def getColor: Option[cardColors]
-  def value: cardValues
+  def getColor: cardColors
+  //def value: cardValues
   def canBePlayed(topCard: ICard): Boolean
   def getColorCode: Color
   def getValue: cardValues
-  def copy(color: Option[cardColors]): ICard
+  def copy(color: cardColors): ICard
 }
 enum cardColors {
   case RED, BLUE, YELLOW, GREEN

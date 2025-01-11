@@ -58,7 +58,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
           }
         }
       case None =>
-        new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.value}") {
+        new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.getValue}") {
           textFill = controller.field.topCard.getColorCode
         }
     }
@@ -72,7 +72,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
     new ListCell[ICard] {
       item.onChange { (_, _, cardOpt) =>
         val cardOption = Option(cardOpt)
-        text = cardOption.map(_.value.toString).getOrElse("")
+        text = cardOption.map(_.getValue.toString).getOrElse("")
         textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
       }
     }
@@ -94,7 +94,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
         val selectedCardIndex = handListView.selectionModel().getSelectedIndex
         if (selectedCardIndex >= 0) {
           val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)
-          if (card.value == cardValues.WILD || card.value == cardValues.WILD_DRAW_FOUR) {
+          if (card.getValue == cardValues.WILD || card.getValue == cardValues.WILD_DRAW_FOUR) {
             showColorButtons(card, pane)
           } else if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayed(controller.field.topCard)) {
             controller.play(card.asInstanceOf[Card])
@@ -175,7 +175,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
 
   private def chooseColor(card: ICard, color: model.cardComponent.cardColors): Unit = {
     controller.setChosenColor(Some(color))
-    controller.play(card.asInstanceOf[Card].copy(color = Some(color)))
+    controller.play(card.asInstanceOf[Card].copy(color = color))
     Platform.runLater(() => gui.display())
   }
 
