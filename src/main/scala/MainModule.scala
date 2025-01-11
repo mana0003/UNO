@@ -17,7 +17,7 @@ class MainModule extends AbstractModule with ScalaModule {
     bind[IUnoController].to[UnoController]
     bind[ICard].to[Card]
     bind[IPlayer].to[Player]
-    bind[IPlayerHand].to[IPlayerHand]
+    bind[IPlayerHand].to[PlayerHand]
 
     // Bindings for cardColors and cardValues
     bind[cardColors].toInstance(cardColors.RED) // Example binding, adjust as needed
