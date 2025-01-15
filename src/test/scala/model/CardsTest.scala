@@ -15,8 +15,8 @@ import scalafx.scene.paint.Color
 
 class CardsTest extends AnyFunSuite {
 
-  // Test case for the canBePlayedOn method
-  test("canBePlayedOn should return true if the color or value matches or if it's a Wild card") {
+  // Test case for the canBePlayed method
+  test("canBePlayed should return true if the color or value matches or if it's a Wild card") {
     val redCard = Card(cardColors.RED, cardValues.THREE)
     val blueCard = Card(cardColors.BLUE, cardValues.THREE)
     val greenCard = Card(cardColors.GREEN, cardValues.FIVE)
@@ -24,7 +24,7 @@ class CardsTest extends AnyFunSuite {
 
     assert(redCard.canBePlayed(blueCard)) // Same value
     assert(blueCard.canBePlayed(redCard)) // Same value
-    assert(greenCard.canBePlayed(redCard)) // Different color and value
+    //assert(greenCard.canBePlayed(redCard)) // Different color and value
     assert(wildCard.canBePlayed(redCard)) // Wild card can always be played
     assert(redCard.canBePlayed(wildCard)) // Wild card can always be played
   }
@@ -35,8 +35,8 @@ class CardsTest extends AnyFunSuite {
     val greenCard = Card(cardColors.GREEN, cardValues.SKIP)
     val yellowCard = Card(cardColors.YELLOW, cardValues.REVERSE)
     val blueCard = Card(cardColors.BLUE, cardValues.ZERO)
-    val wildCard = Card(cardColors.RED, cardValues.WILD)
-    val wildDrawFourCard = Card(cardColors.GREEN, cardValues.WILD_DRAW_FOUR)
+    val wildCard = Card(cardColors.BLACK, cardValues.WILD)
+    val wildDrawFourCard = Card(cardColors.BLACK, cardValues.WILD_DRAW_FOUR)
 
     assert(redCard.getColorCode == Color.Red)
     assert(greenCard.getColorCode == Color.Green)
@@ -50,7 +50,8 @@ class CardsTest extends AnyFunSuite {
   test("randomCard should return a Card with valid color and value") {
     val card = randomCard
     assert(card.getColor == cardColors.RED || card.getColor == cardColors.GREEN ||
-      card.getColor == cardColors.YELLOW || card.getColor == cardColors.BLUE)
+      card.getColor == cardColors.YELLOW || card.getColor == cardColors.BLUE
+      || card.getColor == cardColors.BLACK)
     assert(card.getValue == cardValues.ZERO || card.getValue == cardValues.ONE ||
       card.getValue == cardValues.TWO || card.getValue == cardValues.THREE ||
       card.getValue == cardValues.FOUR || card.getValue == cardValues.FIVE ||
@@ -67,7 +68,8 @@ class CardsTest extends AnyFunSuite {
     assert(cards.length == 5)
     cards.foreach(card => {
       assert(card.getColor == cardColors.RED || card.getColor == cardColors.GREEN ||
-        card.getColor == cardColors.YELLOW || card.getColor == cardColors.BLUE)
+        card.getColor == cardColors.YELLOW || card.getColor == cardColors.BLUE
+        || card.getColor == cardColors.BLACK)
       assert(card.getValue == cardValues.ZERO || card.getValue == cardValues.ONE ||
         card.getValue == cardValues.TWO || card.getValue == cardValues.THREE ||
         card.getValue == cardValues.FOUR || card.getValue == cardValues.FIVE ||

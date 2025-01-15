@@ -55,6 +55,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
             case cardColors.BLUE => Color.Blue
             case cardColors.GREEN => Color.Green
             case cardColors.YELLOW => Color.Yellow
+            case cardColors.BLACK => Color.Black
           }
         }
       case None =>

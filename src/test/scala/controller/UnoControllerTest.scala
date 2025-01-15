@@ -80,7 +80,7 @@ class UnoControllerTest extends AnyWordSpec {
       controller.field.players.head.hand.cards.size should be(2)
       controller.field = UnoField(
         List(gameIm.Player(0, PlayerHand(List(Card(RED, ONE), Card(BLUE, TWO))))), // players
-        topCard = Card(RED, THREE), // You need to specify a valid topCard here
+        topCard = Card(RED, THREE),
         currentPlayer = 0 // Specify the current player
       )
     }
