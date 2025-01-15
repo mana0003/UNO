@@ -3,14 +3,24 @@ package controller
 import controller.controllerComponent.ControllerIm.UnoController
 import controller.patterns.patternsIm.UnoActionBuilder
 import model.*
-import model.cardComponent.cardIm.{Card, cardColors, cardValues}
+import model.cardComponent.cardIm.Card
+import model.cardComponent.{cardColors, cardValues}
 import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
+import model.gameComponent.IPlayer
+import model.cardComponent.ICard
 import org.scalatest.*
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
+import org.mockito.Mockito.*
+import org.mockito.ArgumentMatchers.*
 
 class UnoActionBuilderTest extends AnyFunSuite with Matchers {
-
+  def createInitialField(): UnoField = {
+    val players = List(mock(classOf[IPlayer]), mock(classOf[IPlayer]))
+    val topCard = mock(classOf[ICard])
+    new UnoField(players, topCard, 0)
+  }
+  
   test("builder() should create a new UnoActionBuilder instance") {
     val builder = UnoActionBuilder.builder()
     builder shouldBe a[UnoActionBuilder.UnoActionBuilder]
@@ -56,7 +66,7 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
 
   test("PlayAction.executeAction() should call play on the controller") {
     val card = Card(cardColors.RED, cardValues.THREE)
-    val controller = new UnoController(new UnoField())
+    val controller = new UnoController(createInitialField())
     val player = new Player(0, PlayerHand(List(card)))
     controller.field = controller.field.copy(players = List(player))
     val action = new UnoActionBuilder.PlayAction(card)
@@ -68,7 +78,7 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
   }
 
   test("DrawAction.executeAction() should call draw on the controller") {
-    val controller = new UnoController(new UnoField())
+    val controller = new UnoController(createInitialField())
     val player = new Player(0, PlayerHand(List()))
     val action = new UnoActionBuilder.DrawAction
 

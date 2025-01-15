@@ -5,6 +5,8 @@ import controller.command.commandIm.DrawCommand
 import controller.controllerComponent.ControllerIm.UnoController
 import model.*
 import model.gameComponent.gameIm.UnoField
+import model.gameComponent.IPlayer
+import model.cardComponent.ICard
 import util.*
 import org.scalatest.*
 import org.scalatest.matchers.should.Matchers
@@ -16,21 +18,30 @@ import scala.util.{Failure, Success}
 
 class DrawCommandTest extends AnyFunSuite with Matchers {
 
+  def createInitialField(): UnoField = {
+    val players = List(mock(classOf[IPlayer]), mock(classOf[IPlayer]))
+    val topCard = mock(classOf[ICard])
+    new UnoField(players, topCard, 0)
+  }
+
   test("execute() should draw a card and update the player's hand") {
-    val initialField = new UnoField()
+    val initialField = createInitialField()
     val controller = new UnoController(initialField)
     val drawCommand = new DrawCommand(controller)
 
-    val result = drawCommand.doStep(drawCommand)
+    when(controller.field).thenReturn(initialField)
+    when(controller.randomCard).thenReturn(mock(classOf[ICard]))
 
+    val result = drawCommand.doStep(drawCommand)
     result shouldBe a[Success[_]]
+
     val updatedPlayer = controller.field.players(controller.field.currentPlayer)
     updatedPlayer.hand.cards.size shouldBe (initialField.players(initialField.currentPlayer).hand.cards.size + 1)
   }
 
   test("undo() should revert to the previous state") {
-    val initialField = new UnoField()
-    val controller = new UnoController(initialField)
+    val initialField = createInitialField()
+    val controller = spy(new UnoController(initialField))
     val drawCommand = new DrawCommand(controller)
 
     drawCommand.doStep(drawCommand) // Perform a draw
@@ -41,8 +52,8 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("redo() should reapply the drawing of the card") {
-    val initialField = new UnoField()
-    val controller = new UnoController(initialField)
+    val initialField = createInitialField()
+    val controller = spy(new UnoController(initialField))
     val drawCommand = new DrawCommand(controller)
 
     drawCommand.doStep(drawCommand) // Perform a draw
@@ -55,8 +66,8 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("undo() without a prior execute should fail") {
-    val initialField = new UnoField()
-    val controller = new UnoController(initialField)
+    val initialField = createInitialField()
+    val controller = spy(new UnoController(initialField))
     val drawCommand = new DrawCommand(controller)
 
     val result = drawCommand.undoStep()
@@ -66,7 +77,7 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("redo() without a prior execute should fail") {
-    val initialField = new UnoField()
+    val initialField = createInitialField()
     val controller = new UnoController(initialField)
     val drawCommand = new DrawCommand(controller)
 
