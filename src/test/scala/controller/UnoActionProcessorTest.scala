@@ -28,7 +28,11 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
     val controller = new UnoController(initialField)
     val player = new Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.THREE))))
     val topCard = Card(cardColors.RED, cardValues.TWO)
-    controller.field = controller.field.copy(topCard = topCard)
+    controller.field = controller.field.copy(
+      players = controller.field.players,
+      topCard = topCard,
+      currentPlayer = controller.field.currentPlayer
+    )
 
     val processor = new ConcreteUnoActionProcessor
 
@@ -45,7 +49,11 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
     val controller = new UnoController(initialField)
     val player = new Player(0, PlayerHand(List(Card(cardColors.BLUE, cardValues.THREE))))
     val topCard = Card(cardColors.RED, cardValues.TWO)
-    controller.field = controller.field.copy(topCard = topCard)
+    controller.field = controller.field.copy(
+      players = controller.field.players,
+      topCard = topCard,
+      currentPlayer = controller.field.currentPlayer
+    )
 
     val processor = new ConcreteUnoActionProcessor
 

@@ -66,9 +66,14 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
 
   test("PlayAction.executeAction() should call play on the controller") {
     val card = Card(cardColors.RED, cardValues.THREE)
-    val controller = new UnoController(createInitialField())
+    val initialField = createInitialField()
+    val controller = new UnoController(initialField)
     val player = new Player(0, PlayerHand(List(card)))
-    controller.field = controller.field.copy(players = List(player))
+    controller.field = controller.field.copy(
+      players = List(player),
+      topCard = initialField.topCard,
+      currentPlayer = initialField.currentPlayer
+    )    
     val action = new UnoActionBuilder.PlayAction(card)
 
     action.executeAction(controller, player)

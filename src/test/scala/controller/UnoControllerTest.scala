@@ -12,8 +12,8 @@ import model.*
 import util.*
 import controller.*
 import controller.controllerComponent.ControllerIm.UnoController
-import model.cardComponent.cardIm.cardValues.*
-import model.cardComponent.cardIm.cardColors.*
+import model.cardComponent.cardValues.*
+import model.cardComponent.cardColors.*
 import model.cardComponent.cardIm.Card
 import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
 import model.gameComponent.gameIm
@@ -26,7 +26,8 @@ class UnoControllerTest extends AnyWordSpec {
     val field =
       UnoField(
         List(gameIm.Player(0, PlayerHand(List(Card(RED, ONE), Card(RED, TWO))))),
-        Card(RED, THREE)
+        Card(RED, THREE),
+        currentPlayer = 0
       )
     val controller = UnoController(field)
 
@@ -77,8 +78,11 @@ class UnoControllerTest extends AnyWordSpec {
     "draw a card" in {
       controller.draw()
       controller.field.players.head.hand.cards.size should be(2)
-      controller.field =
-        UnoField(List(gameIm.Player(0, PlayerHand(List(Card(RED, ONE), Card(BLUE, TWO))))))
+      controller.field = UnoField(
+        List(gameIm.Player(0, PlayerHand(List(Card(RED, ONE), Card(BLUE, TWO))))), // players
+        topCard = Card(RED, THREE), // You need to specify a valid topCard here
+        currentPlayer = 0 // Specify the current player
+      )
     }
     "quit the game" in {
       class TestObserver(val controller: UnoController) extends Observer {
