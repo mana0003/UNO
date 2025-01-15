@@ -38,7 +38,7 @@ class UnoControllerTest extends AnyWordSpec {
 
         def update(e: Event): Unit = bing = true
       }
-      val testObserver = TestObserver(controller)
+      val testObserver = new TestObserver(controller)
       testObserver.bing should be(false)
       controller.notifyObservers(Event.Start)
       testObserver.bing should be(true)
@@ -51,7 +51,7 @@ class UnoControllerTest extends AnyWordSpec {
 
         def update(e: Event): Unit = bing = true
       }
-      val testObserver = TestObserver(controller)
+      val testObserver = new TestObserver(controller)
       testObserver.bing should be(false)
       controller.notifyObservers(Event.Quit)
       testObserver.bing should be(true)
@@ -64,7 +64,7 @@ class UnoControllerTest extends AnyWordSpec {
 
         def update(e: Event): Unit = bing = true
       }
-      val testObserver = TestObserver(controller)
+      val testObserver = new TestObserver(controller)
       testObserver.controller.removeObserver(testObserver)
       testObserver.bing should be(false)
       controller.notifyObservers(Event.Start)
@@ -90,7 +90,7 @@ class UnoControllerTest extends AnyWordSpec {
       var bing: Event = Start
       def update(e: Event): Unit = bing = e
       }
-      val testObserver = TestObserver(controller)
+      val testObserver = new TestObserver(controller)
       val cards = controller.field.players.head.hand.cards
       controller.play(cards.head)
       controller.play(cards(1))

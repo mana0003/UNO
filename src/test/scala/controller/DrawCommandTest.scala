@@ -26,11 +26,11 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
 
   test("execute() should draw a card and update the player's hand") {
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField))
     val drawCommand = new DrawCommand(controller)
 
-    when(controller.field).thenReturn(initialField)
-    when(controller.randomCard).thenReturn(mock(classOf[ICard]))
+    when(controller.getField).thenReturn(initialField)
+    //when(controller.randomCard).thenReturn(mock(classOf[ICard]))
 
     val result = drawCommand.doStep(drawCommand)
     result shouldBe a[Success[_]]

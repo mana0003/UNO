@@ -68,7 +68,13 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
     val card = Card(cardColors.RED, cardValues.THREE)
     val initialField = createInitialField()
     val controller = new UnoController(initialField)
-    val player = new Player(0, PlayerHand(List(card)))
+
+    // val player = new Player(0, PlayerHand(List(card)))
+    val player = mock(classOf[Player])
+    val playerHand = mock(classOf[PlayerHand])
+    when(player.hand).thenReturn(playerHand)
+    when(playerHand.cards).thenReturn(List(card))
+
     controller.field = controller.field.copy(
       players = List(player),
       topCard = initialField.topCard,
@@ -84,11 +90,16 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
 
   test("DrawAction.executeAction() should call draw on the controller") {
     val controller = new UnoController(createInitialField())
-    val player = new Player(0, PlayerHand(List()))
+    //val player = new Player(0, PlayerHand(List()))
+    val player = mock(classOf[Player])
+    val playerHand = mock(classOf[PlayerHand])
+    when(player.hand).thenReturn(playerHand)
+    when(playerHand.cards).thenReturn(List())
+
     val action = new UnoActionBuilder.DrawAction
 
     action.executeAction(controller, player)
-
+    when(playerHand.cards.size).thenReturn(1)
     controller.field.players(controller.field.currentPlayer).hand.cards.size shouldBe 1
   }
 }

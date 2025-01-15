@@ -69,7 +69,7 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
       case None => controller.getChosenColor() // If console-based color selection
     }*/
 
-    val newCurrentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
+    //val newCurrentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
 
     // Handle Wild and Wild Draw Four cards with color selection
     val updatedTopCard = card.getValue match {
@@ -80,10 +80,16 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     }
 
     // Update game field
-    controller.field = controller.field.copy(
+    /*controller.field = controller.field.copy(
       players = finalPlayers.collect { case player: IPlayer => player },
       topCard = card,
       currentPlayer = newCurrentPlayer % controller.field.players.length
+    )
+    controller.notifyObservers(Event.Play)*/
+    controller.field = controller.field.copy(
+      players = finalPlayers,
+      topCard = updatedTopCard,
+      currentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
     )
     controller.notifyObservers(Event.Play)
   }
@@ -112,15 +118,18 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
       updatedPlayer
     )
 
-    val isSkipCard = card.getValue match {
-      case cardValues.SKIP => true
-      case _ => false
-    }
+    val isSkipCard = card.getValue == cardValues.SKIP
     val nextPlayer = if (isSkipCard) controller.field.currentPlayer else (controller.field.currentPlayer + 1) % controller.field.players.length
 
     //val nextPlayer = (controller.field.currentPlayer + 1) % controller.field.players.length
-    controller.field = controller.field.copy(
+    /*controller.field = controller.field.copy(
       players = updatedPlayers.collect { case player: IPlayer => player },
+      topCard = card,
+      currentPlayer = nextPlayer
+    )
+    controller.notifyObservers(Event.Redo)*/
+    controller.field = controller.field.copy(
+      players = updatedPlayers,
       topCard = card,
       currentPlayer = nextPlayer
     )
