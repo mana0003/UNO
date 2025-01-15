@@ -1,6 +1,7 @@
 package model
 
 import model.cardComponent.cardIm.{Card, randomCard, randomCards}
+import model.cardComponent.ICard
 import model.cardComponent.{cardColors, cardValues}
 import org.scalatest.funsuite.AnyFunSuite
 //import org.scalatest.wordspec.AnyWordSpec
@@ -48,16 +49,16 @@ class CardsTest extends AnyFunSuite {
   // Test case for randomCard generation
   test("randomCard should return a Card with valid color and value") {
     val card = randomCard
-    assert(card.color == cardColors.RED || card.color == cardColors.GREEN ||
-      card.color == cardColors.YELLOW || card.color == cardColors.BLUE)
-    assert(card.value == cardValues.ZERO || card.value == cardValues.ONE ||
-      card.value == cardValues.TWO || card.value == cardValues.THREE ||
-      card.value == cardValues.FOUR || card.value == cardValues.FIVE ||
-      card.value == cardValues.SIX || card.value == cardValues.SEVEN ||
-      card.value == cardValues.EIGHT || card.value == cardValues.NINE ||
-      card.value == cardValues.SKIP || card.value == cardValues.REVERSE ||
-      card.value == cardValues.DRAW_TWO || card.value == cardValues.WILD ||
-      card.value == cardValues.WILD_DRAW_FOUR)
+    assert(card.getColor == cardColors.RED || card.getColor == cardColors.GREEN ||
+      card.getColor == cardColors.YELLOW || card.getColor == cardColors.BLUE)
+    assert(card.getValue == cardValues.ZERO || card.getValue == cardValues.ONE ||
+      card.getValue == cardValues.TWO || card.getValue == cardValues.THREE ||
+      card.getValue == cardValues.FOUR || card.getValue == cardValues.FIVE ||
+      card.getValue == cardValues.SIX || card.getValue == cardValues.SEVEN ||
+      card.getValue == cardValues.EIGHT || card.getValue == cardValues.NINE ||
+      card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
+      card.getValue == cardValues.DRAW_TWO || card.getValue == cardValues.WILD ||
+      card.getValue == cardValues.WILD_DRAW_FOUR)
   }
 
   // Test case for randomCards generation
@@ -65,16 +66,16 @@ class CardsTest extends AnyFunSuite {
     val cards = randomCards(5)
     assert(cards.length == 5)
     cards.foreach(card => {
-      assert(card.color == cardColors.RED || card.color == cardColors.GREEN ||
-        card.color == cardColors.YELLOW || card.color == cardColors.BLUE)
-      assert(card.value == cardValues.ZERO || card.value == cardValues.ONE ||
-        card.value == cardValues.TWO || card.value == cardValues.THREE ||
-        card.value == cardValues.FOUR || card.value == cardValues.FIVE ||
-        card.value == cardValues.SIX || card.value == cardValues.SEVEN ||
-        card.value == cardValues.EIGHT || card.value == cardValues.NINE ||
-        card.value == cardValues.SKIP || card.value == cardValues.REVERSE ||
-        card.value == cardValues.DRAW_TWO || card.value == cardValues.WILD ||
-        card.value == cardValues.WILD_DRAW_FOUR)
+      assert(card.getColor == cardColors.RED || card.getColor == cardColors.GREEN ||
+        card.getColor == cardColors.YELLOW || card.getColor == cardColors.BLUE)
+      assert(card.getValue == cardValues.ZERO || card.getValue == cardValues.ONE ||
+        card.getValue == cardValues.TWO || card.getValue == cardValues.THREE ||
+        card.getValue == cardValues.FOUR || card.getValue == cardValues.FIVE ||
+        card.getValue == cardValues.SIX || card.getValue == cardValues.SEVEN ||
+        card.getValue == cardValues.EIGHT || card.getValue == cardValues.NINE ||
+        card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
+        card.getValue == cardValues.DRAW_TWO || card.getValue == cardValues.WILD ||
+        card.getValue == cardValues.WILD_DRAW_FOUR)
     })
   }
 }
