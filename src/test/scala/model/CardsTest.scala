@@ -1,6 +1,7 @@
 package model
 
-import model.cardComponent.cardIm.{Card, cardColors, cardValues, randomCard, randomCards}
+import model.cardComponent.cardIm.{Card, randomCard, randomCards}
+import model.cardComponent.{cardColors, cardValues}
 import org.scalatest.funsuite.AnyFunSuite
 //import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*
@@ -20,11 +21,11 @@ class CardsTest extends AnyFunSuite {
     val greenCard = Card(cardColors.GREEN, cardValues.FIVE)
     val wildCard = Card(cardColors.RED, cardValues.WILD)
 
-    assert(redCard.canBePlayedOn(blueCard)) // Same value
-    assert(blueCard.canBePlayedOn(redCard)) // Same value
-    assert(greenCard.canBePlayedOn(redCard)) // Different color and value
-    assert(wildCard.canBePlayedOn(redCard)) // Wild card can always be played
-    assert(redCard.canBePlayedOn(wildCard)) // Wild card can always be played
+    assert(redCard.canBePlayed(blueCard)) // Same value
+    assert(blueCard.canBePlayed(redCard)) // Same value
+    assert(greenCard.canBePlayed(redCard)) // Different color and value
+    assert(wildCard.canBePlayed(redCard)) // Wild card can always be played
+    assert(redCard.canBePlayed(wildCard)) // Wild card can always be played
   }
 
   // Test case for the getColorCode method

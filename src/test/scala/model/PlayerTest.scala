@@ -5,7 +5,9 @@ import model.*
 import view.*
 import util.*
 import controller.*
-import model.cardComponent.cardIm.{Card, cardColors, cardValues}
+import model.cardComponent.cardIm.Card
+import model.cardComponent.{cardColors, cardValues}
+
 import model.gameComponent.gameIm
 import model.gameComponent.gameIm.{Player, PlayerHand}
 

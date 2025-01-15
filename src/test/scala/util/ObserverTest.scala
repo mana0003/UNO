@@ -28,8 +28,10 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observable.addObserver(observer1)
     observable.addObserver(observer2)
 
+    observable.getSubscribers.size should be(2)
+
     // Verify the internal subscribers Vector is modified
-    assert(observable.subscribers.size == 2)
+    //assert(observable.subscribers.size == 2)
 
     // Notify observers
     observable.notifyObservers(Event.Start)
@@ -47,15 +49,16 @@ class ObservableTest extends AnyFunSuite with Matchers {
     // Add observers
     observable.addObserver(observer1)
     observable.addObserver(observer2)
-
+    observable.getSubscribers.size should be(2)
     // Verify the internal subscribers Vector is modified
-    assert(observable.subscribers.size == 2)
+    //assert(observable.subscribers.size == 2)
 
     // Remove one observer
     observable.removeObserver(observer1)
+    observable.getSubscribers.size should be(1)
 
     // Verify the internal subscribers Vector is modified after removal
-    assert(observable.subscribers.size == 1)
+    //assert(observable.subscribers.size == 1)
 
     // Notify observers
     observable.notifyObservers(Event.Quit)
@@ -75,7 +78,8 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observable.addObserver(observer2)
 
     // Verify the internal subscribers Vector is modified
-    assert(observable.subscribers.size == 2)
+    observable.getSubscribers.size should be(2)
+    //assert(observable.subscribers.size == 2)
 
     // Notify multiple events
     observable.notifyObservers(Event.Play)
@@ -94,8 +98,10 @@ class ObservableTest extends AnyFunSuite with Matchers {
       observable.notifyObservers(Event.Undo)
     }
 
+    observable.getSubscribers.size should be(0)
+    
     // Verify the internal subscribers Vector is still empty
-    assert(observable.subscribers.isEmpty)
+    //assert(observable.subscribers.isEmpty)
   }
 
   test("Observable should handle removing all observers correctly") {
@@ -108,14 +114,18 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observable.addObserver(observer2)
 
     // Verify the internal subscribers Vector is modified
-    assert(observable.subscribers.size == 2)
+    observable.getSubscribers.size should be(2)
+
+    //assert(observable.subscribers.size == 2)
 
     // Remove all observers
     observable.removeObserver(observer1)
     observable.removeObserver(observer2)
 
     // Verify the internal subscribers Vector is now empty
-    assert(observable.subscribers.isEmpty)
+    observable.getSubscribers.size should be(0)
+
+    //assert(observable.subscribers.isEmpty)
 
     // Notify observers (should not notify anyone)
     observable.notifyObservers(Event.Redo)
@@ -137,7 +147,9 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observable.addObserver(observer3)
 
     // Verify the internal subscribers Vector is modified
-    assert(observable.subscribers.size == 3)
+    observable.getSubscribers.size should be(3)
+
+    //assert(observable.subscribers.size == 3)
 
     // Notify observers, all should receive the event
     observable.notifyObservers(Event.Start)
@@ -148,8 +160,10 @@ class ObservableTest extends AnyFunSuite with Matchers {
     // Remove one observer
     observable.removeObserver(observer2)
 
+
+    observable.getSubscribers.size should be(2)
     // Verify the internal subscribers Vector is modified after removal
-    assert(observable.subscribers.size == 2)
+    //assert(observable.subscribers.size == 2)
 
     // Notify again, only two observers should receive the event
     observable.notifyObservers(Event.Quit)

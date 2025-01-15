@@ -15,6 +15,8 @@ trait Observable {
   def notifyObservers(event: Event): Unit = {
     subscribers.foreach(o => o.update(event))
   }
+
+  def getSubscribers: Vector[Observer] = subscribers
 }
 
 trait Observer {
