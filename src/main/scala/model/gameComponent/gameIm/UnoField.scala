@@ -16,4 +16,7 @@ case class UnoField @Inject() (
           ): UnoField = {
     UnoField(players, topCard, currentPlayer)
   }
+  def nextPlayer(): IUnoField = {
+    copy(currentPlayer = (currentPlayer + 1) % players.length)
+  }
 }

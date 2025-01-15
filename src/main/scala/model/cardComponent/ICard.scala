@@ -12,7 +12,7 @@ trait ICard {
   def copy(color: cardColors): ICard
 }
 enum cardColors {
-  case RED, BLUE, YELLOW, GREEN
+  case RED, BLUE, YELLOW, GREEN, BLACK
 }
 enum cardValues {
   case ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, SKIP, REVERSE, DRAW_TWO, WILD, WILD_DRAW_FOUR

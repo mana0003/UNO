@@ -4,7 +4,7 @@ import controller.controllerComponent.IUnoController
 import util.{Event, Observer}
 import scala.io.StdIn
 import scala.io.AnsiColor._
-import controller.patterns.patternsIm.UnoActionBuilder
+import controller.patterns.UnoActionBuilder
 
 class TUI(val controller: IUnoController) extends Observer{
   // controller.addObserver(this)

@@ -1,5 +1,5 @@
 
-package controller.patterns.patternsIm
+package controller.patterns
 
 import controller.*
 import controller.controllerComponent.ControllerIm.UnoController

@@ -13,4 +13,5 @@ trait IUnoField {
             topCard: ICard,
             currentPlayer: Int
           ): IUnoField
+  def nextPlayer(): IUnoField
 }

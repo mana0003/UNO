@@ -1,5 +1,6 @@
 package view
 
+//import UNO.images.*
 import controller.controllerComponent.IUnoController
 import scalafx.application.{JFXApp3, Platform}
 import scalafx.application.JFXApp3.PrimaryStage
@@ -16,6 +17,7 @@ import javafx.util.Callback
 import model.gameComponent.{IPlayer, IUnoField, IPlayerHand}
 import model.cardComponent.{ICard, cardColors, cardValues}
 import model.cardComponent.cardIm.Card
+import scalafx.scene.image.{Image, ImageView}
 
 trait State {
   def display(pane: Pane): Unit
@@ -38,15 +40,12 @@ class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
     pane.children.add(layout)
   }
 }
-
+// Update the GameState class to use images for the cards
 class GameState(gui: UnoGUI, controller: IUnoController) extends State {
   override def display(pane: Pane): Unit = {
     pane.children.clear()
 
     val playerLabel = new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
-    /*val topCardLabel = new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.value}") {
-      textFill = controller.field.topCard.getColorCode
-    }*/
     val topCardLabel = controller.getChosenColor match {
       case Some(color) =>
         new scalafx.scene.control.Label(s"Your opponent chose the color: $color") {
@@ -55,7 +54,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
             case cardColors.BLUE => Color.Blue
             case cardColors.GREEN => Color.Green
             case cardColors.YELLOW => Color.Yellow
-            case cardColors.BLACK => Color.Black
+            case _ => Color.Black
           }
         }
       case None =>
@@ -65,49 +64,32 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
     }
     controller.setChosenColor(None)
 
-    val handListView = new ListView[ICard] {
-      items = scalafx.collections.ObservableBuffer(controller.field.players(controller.field.currentPlayer).hand.cards: _*)
-
-      cellFactory = new javafx.util.Callback[javafx.scene.control.ListView[ICard], javafx.scene.control.ListCell[ICard]] {
-  override def call(param: javafx.scene.control.ListView[ICard]): javafx.scene.control.ListCell[ICard] = {
-    new ListCell[ICard] {
-      item.onChange { (_, _, cardOpt) =>
-        val cardOption = Option(cardOpt)
-        text = cardOption.map(_.getValue.toString).getOrElse("")
-        textFill = cardOption.map(_.getColorCode).getOrElse(Color.Pink)
+    val handBox = new scalafx.scene.layout.HBox {
+      spacing = 10
+      // val cardImage = new ImageView(new Image("file:/C:/SoftwareEngineering/UNO/src/main/images/.png"))
+      children = controller.field.players(controller.field.currentPlayer).hand.cards.map { card =>
+        val cardImage = new ImageView(new Image(s"file:/C:/SoftwareEngineering/UNO/src/main/images/${card.getColorCode}_${card.getValue}.png")) {
+          fitHeight = 150
+          fitWidth = 100
+        }
+        cardImage.onMouseClicked = _ => {
+          if (card.getValue == cardValues.WILD || card.getValue == cardValues.WILD_DRAW_FOUR) {
+            showColorButtons(card, pane)
+          } else if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayed(controller.field.topCard)) {
+            controller.play(card.asInstanceOf[Card])
+            Platform.runLater(() => gui.display())
+          } else {
+            showAlert("Invalid Move", "The selected card cannot be played.")
+          }
+        }
+        cardImage
       }
-    }
-  }
-}
     }
 
     val drawButton = new scalafx.scene.control.Button("Draw Card") {
       onAction = _ => {
         controller.draw()
-        Platform.runLater(() => {
-          gui.display()
-        })
-      }
-    }
-
-    val playButton = new scalafx.scene.control.Button("Play Card") {
-      onAction = _ => {
-        val selectedCardIndex = handListView.selectionModel().getSelectedIndex
-        if (selectedCardIndex >= 0) {
-          val card = controller.field.players(controller.field.currentPlayer).hand.cards(selectedCardIndex)
-          if (card.getValue == cardValues.WILD || card.getValue == cardValues.WILD_DRAW_FOUR) {
-            showColorButtons(card, pane)
-          } else if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayed(controller.field.topCard)) {
-            controller.play(card.asInstanceOf[Card])
-            Platform.runLater(() => {
-              gui.display()
-            })
-          } else {
-            showAlert("Invalid Move", "The selected card cannot be played.")
-          }
-        } else {
-          showAlert("No Card Selected", "Please select a card to play.")
-        }
+        Platform.runLater(() => gui.display())
       }
     }
 
@@ -134,12 +116,12 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
 
     val buttonLayout = new scalafx.scene.layout.HBox {
       spacing = 10
-      children = Seq(drawButton, playButton, undoButton, redoButton, quitButton)
+      children = Seq(drawButton, undoButton, redoButton, quitButton)
     }
 
     val layout = new scalafx.scene.layout.VBox {
       spacing = 20
-      children = Seq(playerLabel, topCardLabel, handListView, buttonLayout)
+      children = Seq(playerLabel, topCardLabel, handBox, buttonLayout)
     }
     pane.children.add(layout)
   }

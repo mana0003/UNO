@@ -1,4 +1,4 @@
-package controller.patterns.patternsIm
+package controller.patterns
 
 import controller.controllerComponent.IUnoController
 //import controller.patterns.IUnoActionBuilder
