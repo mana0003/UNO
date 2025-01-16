@@ -19,7 +19,7 @@ class Card @Inject() (color: cardColors, value: cardValues) extends ICard {
       case cardColors.GREEN => Color.Green
       case cardColors.YELLOW => Color.Yellow
       case cardColors.BLUE => Color.Blue
-      case null => Color.Black
+      case _ => Color.Black
     }
   }
 
@@ -30,12 +30,28 @@ class Card @Inject() (color: cardColors, value: cardValues) extends ICard {
   }
 }
 
-def randomColor: cardColors = cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
+//def randomColor: cardColors = cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
+def randomColor(cardValue: cardValues): cardColors = {
+  if (cardValue == cardValues.WILD || cardValue == cardValues.WILD_DRAW_FOUR) {
+    cardColors.BLACK
+  } else {
+    cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
+  }
+}
+def randomValue: cardValues = {
+  cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
+}
 
-def randomValue: cardValues = cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
+//def randomValue: cardValues = cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
+
+/*def randomCard: Card = {
+  Card(randomColor, randomValue)
+}*/
 
 def randomCard: Card = {
-  Card(randomColor, randomValue)
+  val value = randomValue
+  val color = randomColor(value) // Use the value to determine the color
+  Card(color, value)
 }
 
 def randomCards(i: Int): List[Card] = {

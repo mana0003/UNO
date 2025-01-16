@@ -43,11 +43,13 @@ class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
 // Update the GameState class to use images for the cards
 class GameState(gui: UnoGUI, controller: IUnoController) extends State {
   override def display(pane: Pane): Unit = {
+    println("Inside GameState display")
     pane.children.clear()
 
     val playerLabel = new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
     val topCardLabel = controller.getChosenColor match {
       case Some(color) =>
+        println(s"Chosen color: $color")
         new scalafx.scene.control.Label(s"Your opponent chose the color: $color") {
           textFill = color match {
             case cardColors.RED => Color.Red
@@ -58,6 +60,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
           }
         }
       case None =>
+        println("No chosen color, setting default label.")
         new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.getValue}") {
           textFill = controller.field.topCard.getColorCode
         }
@@ -68,7 +71,13 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
       spacing = 10
       // val cardImage = new ImageView(new Image("file:/C:/SoftwareEngineering/UNO/src/main/images/.png"))
       children = controller.field.players(controller.field.currentPlayer).hand.cards.map { card =>
-        val cardImage = new ImageView(new Image(s"file:/C:/SoftwareEngineering/UNO/src/main/images/${card.getColorCode}_${card.getValue}.png")) {
+
+        val imageUrl = getClass.getResource(s"/images/${card.getColor}_${card.getValue}.png")
+        if (imageUrl == null) {
+          println(s"Image not found for ${card.getColor}_${card.getValue}")
+        }
+
+        val cardImage = new ImageView(new Image(imageUrl.toString)) {
           fitHeight = 150
           fitWidth = 100
         }
@@ -202,6 +211,7 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
         content = rootPane
       }
     }
+    stage.show()
     stage.scene().onKeyPressed = handleKeyPress
     display()
   }
