@@ -1,7 +1,7 @@
 package controller
 
 import controller.controllerComponent.ControllerIm.UnoController
-import controller.patterns.patternsIm.UnoActionBuilder
+import controller.patterns.UnoActionBuilder
 import model.*
 import model.cardComponent.cardIm.Card
 import model.cardComponent.{cardColors, cardValues}

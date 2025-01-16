@@ -5,6 +5,8 @@ import util.Observable
 import org.scalatest._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
+import org.mockito.Mockito.*
+import org.mockito.ArgumentMatchers.*
 
 class TestObserver extends Observer {
   var receivedEvents: List[Event] = List()
@@ -15,6 +17,18 @@ class TestObserver extends Observer {
 }
 
 class ObservableTest extends AnyFunSuite with Matchers {
+  class TestObservableDirectAccess extends Observable {
+    def directSubscriberAccess: Vector[Observer] = getSubscribers
+  }
+
+  test("Direct access to subscribers for coverage") {
+    val observable = new TestObservableDirectAccess
+    val observer1 = new TestObserver
+    observable.addObserver(observer1)
+
+    // Access and confirm size via direct access
+    observable.directSubscriberAccess.size should be(1)
+  }
 
   // Test observable implementation
   class TestObservable extends Observable
@@ -41,6 +55,16 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observer2.receivedEvents should contain theSameElementsAs List(Event.Start)
   }
 
+  /*test("Observable should iterate over all observers") {
+    val observable = new TestObservable
+    val mockObserver = mock[Observer]
+
+    observable.addObserver(mockObserver)
+    observable.notifyObservers(Event.Start)
+
+    verify(mockObserver).observable.notifyObservers(Event.Start) // Verify iteration invoked update on mockObserver
+  }*/
+  
   test("Observable should allow removing observers") {
     val observable = new TestObservable
     val observer1 = new TestObserver
@@ -171,4 +195,26 @@ class ObservableTest extends AnyFunSuite with Matchers {
     observer2.receivedEvents should have size 1 // It only received Event.Start before removal
     observer3.receivedEvents should contain theSameElementsAs List(Event.Start, Event.Quit)
   }
+
+  test("Adding the same observer twice should result in two entries") {
+    val observable = new TestObservable
+    val observer = new TestObserver
+
+    observable.addObserver(observer)
+    observable.addObserver(observer)
+    observable.getSubscribers.size should be(2)
+  }
+
+  test("Removing a non-existent observer should not affect subscribers") {
+    val observable = new TestObservable
+    val observer = new TestObserver
+    val nonExistentObserver = new TestObserver
+
+    observable.addObserver(observer)
+    observable.getSubscribers.size should be(1)
+
+    observable.removeObserver(nonExistentObserver)
+    observable.getSubscribers.size should be(1)
+  }
+
 }

@@ -7,6 +7,15 @@ class CommandManager extends Command {
   private var undoStack: List[Command] = Nil
   private var redoStack: List[Command] = Nil
 
+  private[util] def pushToUndoStack(command: Command): Unit = {
+    undoStack = command :: undoStack
+  }
+
+  private[util] def pushToRedoStack(command: Command): Unit = {
+    redoStack = command :: redoStack
+  }
+
+
   override def doStep(command: Command): Try[Unit] = {
     val result = command.doStep(command)
     result match {

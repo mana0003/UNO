@@ -2,7 +2,7 @@ package controller
 
 import controller.*
 import controller.controllerComponent.ControllerIm.UnoController
-import controller.patterns.patternsIm.ConcreteUnoActionProcessor
+import controller.patterns.ConcreteUnoActionProcessor
 import model.*
 import model.cardComponent.cardIm.Card
 import model.cardComponent.{cardColors, cardValues}
