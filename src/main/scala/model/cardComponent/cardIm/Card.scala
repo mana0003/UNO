@@ -35,18 +35,13 @@ def randomColor(cardValue: cardValues): cardColors = {
   if (cardValue == cardValues.WILD || cardValue == cardValues.WILD_DRAW_FOUR) {
     cardColors.BLACK
   } else {
-    cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))
+    val nonBlackColors = cardColors.values.filterNot(_ == cardColors.BLACK)
+    nonBlackColors(scala.util.Random.nextInt(nonBlackColors.length))
   }
 }
 def randomValue: cardValues = {
   cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
 }
-
-//def randomValue: cardValues = cardValues.values.toList(scala.util.Random.nextInt(cardValues.values.length))
-
-/*def randomCard: Card = {
-  Card(randomColor, randomValue)
-}*/
 
 def randomCard: Card = {
   val value = randomValue

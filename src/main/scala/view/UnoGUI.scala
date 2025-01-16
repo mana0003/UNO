@@ -26,18 +26,37 @@ trait State {
 class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
   override def display(pane: Pane): Unit = {
     pane.children.clear()
-    val beginLabel = new scalafx.scene.control.Label("Welcome to UNO Game")
-    val startButton = new scalafx.scene.control.Button("Start Game") {
+
+    val logoImage = new ImageView(new Image(getClass.getResource("/extras/Logo.png").toString)) {
+      fitHeight = 200
+      fitWidth = 300
+      preserveRatio = true
+    }
+
+    val startButtonImage = new ImageView(new Image(getClass.getResource("/extras/StartButton.png").toString)) {
+      fitHeight = 120
+      fitWidth = 300
+      preserveRatio = true
+    }
+
+    val startButton = new scalafx.scene.control.Button {
+      graphic = startButtonImage
       onAction = _ => {
         gui.setState(new GameState(gui, controller))
         gui.display()
       }
+      style = "-fx-background-color: transparent;"
     }
-    val layout = new scalafx.scene.layout.VBox {
+
+    val vbox = new VBox {
+      alignment = scalafx.geometry.Pos.Center
       spacing = 20
-      children = Seq(beginLabel, startButton)
+      children = Seq(logoImage, startButton)
     }
-    pane.children.add(layout)
+
+    vbox.layoutX <== pane.width / 2 - vbox.width / 2
+    vbox.layoutY <== pane.height / 2 - vbox.height / 2
+    pane.children.add(vbox)
   }
 }
 // Update the GameState class to use images for the cards
