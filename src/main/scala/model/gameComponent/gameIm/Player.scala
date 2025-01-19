@@ -1,12 +1,12 @@
 package model.gameComponent.gameIm
 
 import com.google.inject.{AbstractModule, Guice, Inject}
-
 import model.cardComponent.ICard
 import model.cardComponent.cardIm.Card
 import model.gameComponent.{IPlayer, IPlayerHand}
 
 import scala.util.{Failure, Success, Try}
+import scala.xml.Node
 
 case class Player @Inject() (id: Int, hand: IPlayerHand) extends IPlayer {
 
@@ -24,5 +24,16 @@ case class Player @Inject() (id: Int, hand: IPlayerHand) extends IPlayer {
     } else {
       Failure(new IllegalArgumentException("Illegal move."))
     }
+  }
+
+  override def toXml: Node = {
+    <player>
+      <id>
+        {id}
+      </id>
+      <hand>
+        {hand.toXml}
+      </hand>
+    </player>
   }
 }

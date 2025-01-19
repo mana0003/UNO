@@ -19,4 +19,18 @@ case class UnoField @Inject() (
   def nextPlayer(): IUnoField = {
     copy(currentPlayer = (currentPlayer + 1) % players.length)
   }
+  def toXml: scala.xml.Node = {
+    <unoField>
+      <players>
+        {players.map(_.toXml)}
+      </players>
+      <topCard>
+        {topCard.toXml}
+      </topCard>
+      <currentPlayer>
+        {currentPlayer}
+      </currentPlayer>
+    </unoField>
+  }
+  
 }

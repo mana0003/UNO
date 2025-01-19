@@ -10,18 +10,20 @@ import model.gameComponent.IPlayerHand
 import model.cardComponent.ICard
 import view.*
 import UNO.MainModule
+import model.fileIoComponent.IFileIo
 
 object Main {
   def main(args: Array[String]): Unit = {
     val injector: Injector = Guice.createInjector(new MainModule)
     val controller = injector.getInstance(classOf[IUnoController])
+    val fileIO = injector.getInstance(classOf[IFileIo])
+    
 
     val players = List(Player(0, new PlayerHand().asInstanceOf[IPlayerHand]))
     val topCard = randomCard
     val currentPlayer = 0
     val field = new UnoField(players, topCard, currentPlayer)
-
-    val contr: IUnoController = new UnoController(field)
+    val contr: IUnoController = new UnoController(field, fileIO)
 
     // Initialize TUI and GUI
     val tui = new TUI(contr)

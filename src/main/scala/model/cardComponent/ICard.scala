@@ -10,6 +10,7 @@ trait ICard {
   def getColorCode: Color
   def getValue: cardValues
   def copy(color: cardColors): ICard
+  def toXml: scala.xml.Node
 }
 enum cardColors {
   case RED, BLUE, YELLOW, GREEN, BLACK

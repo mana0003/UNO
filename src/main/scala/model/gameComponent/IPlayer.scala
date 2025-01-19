@@ -12,5 +12,6 @@ trait IPlayer {
   def valid(card: ICard): Boolean
   def play(card: ICard): Try[IPlayer]
   def copy(hand: IPlayerHand): IPlayer
+  def toXml: scala.xml.Node
 }
 

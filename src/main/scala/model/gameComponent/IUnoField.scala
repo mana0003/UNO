@@ -14,4 +14,5 @@ trait IUnoField {
             currentPlayer: Int
           ): IUnoField
   def nextPlayer(): IUnoField
+  def toXml: scala.xml.Node
 }

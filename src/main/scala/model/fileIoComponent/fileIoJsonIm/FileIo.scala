@@ -1,6 +1,6 @@
 package model.fileIoComponent.fileIoJsonIm
 
-import com.google.inject.Guice
+import com.google.inject.{Guice, Inject}
 import net.codingwell.scalaguice.InjectorExtensions.*
 import UNO.MainModule
 import model.fileIoComponent.IFileIo
@@ -57,7 +57,7 @@ object JsonFormats {
   implicit val playerHandFormat: Format[IPlayerHand] = Format(playerHandReads, playerHandWrites)
 }
 
-class FileIo extends IFileIo {
+class FileIo @Inject extends IFileIo {
   import JsonFormats._
 
   override def load: IUnoField = {
@@ -70,13 +70,11 @@ class FileIo extends IFileIo {
     unoField
   }
 
-  override def save(unoField: IUnoField, players: List[IPlayer], playerHands: List[IPlayerHand]): Unit = {
+  override def save(unoField: IUnoField): Unit = {
     import java.io._
     val pw = new PrintWriter(new File("uno.json"))
     pw.write(Json.prettyPrint(Json.obj(
-      "unoField" -> Json.toJson(unoField),
-      "players" -> Json.toJson(players),
-      "playerHands" -> Json.toJson(playerHands)
+      "unoField" -> Json.toJson(unoField)
     )))
     pw.close()
   }

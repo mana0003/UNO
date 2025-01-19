@@ -1,8 +1,8 @@
 package model.fileIoComponent
 
-import model.gameComponent.{IPlayer, IPlayerHand, IUnoField}
+import model.gameComponent.IUnoField
 
 trait IFileIo {
   def load: IUnoField
-  def save(unoField: IUnoField, players: List[IPlayer], playerHands: List[IPlayerHand]): Unit
+  def save(unoField: IUnoField): Unit
 }

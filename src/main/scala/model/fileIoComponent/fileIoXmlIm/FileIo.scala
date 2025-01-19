@@ -1,14 +1,14 @@
 package model.fileIoComponent.fileIoXmlIm
 
-import com.google.inject.Guice
+import com.google.inject.{Guice, Inject}
 import net.codingwell.scalaguice.InjectorExtensions.*
 import UNO.MainModule
 import model.fileIoComponent.IFileIo
 import model.gameComponent.{IPlayer, IPlayerHand, IUnoField}
-import scala.xml.{Elem, XML}
+import scala.xml.{PrettyPrinter, XML}
 import java.io.{File, PrintWriter}
-
-class FileIo extends IFileIo {
+import scala.util.Using
+class FileIo @Inject() (var fileName: String) extends IFileIo {
   override def load: IUnoField = {
     val file = XML.loadFile("uno.xml")
     val injector = Guice.createInjector(new MainModule)
@@ -26,30 +26,13 @@ class FileIo extends IFileIo {
     unoField
   }
 
-  override def save(unoField: IUnoField, players: List[IPlayer], playerHands: List[IPlayerHand]): Unit = {
-    val xml =
-      <uno>
-        <unoField>
-          <!-- Serialize unoField to XML -->
-        </unoField>
-        <players>
-          {players.map { player =>
-            <player>
-              <!-- Serialize player to XML -->
-            </player>
-          }}
-        </players>
-        <playerHands>
-          {playerHands.map { hand =>
-            <playerHand>
-              <!-- Serialize player hand to XML -->
-            </playerHand>
-          }}
-        </playerHands>
-      </uno>
-
+  override def save(unoField: IUnoField): Unit = {
+    Using(new PrintWriter(fileName)) { writer =>
+      writer.write(PrettyPrinter(120, 4).format(unoField.toXml))
+    }
     val pw = new PrintWriter(new File("uno.xml"))
-    pw.write(new scala.xml.PrettyPrinter(80, 2).format(xml))
+    
+    pw.write(new scala.xml.PrettyPrinter(80, 2).format(unoField.toXml))
     pw.close()
   }
 }

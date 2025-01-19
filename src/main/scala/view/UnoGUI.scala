@@ -48,12 +48,19 @@ class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
       style = "-fx-background-color: transparent;"
     }
 
+    val loadButton = new scalafx.scene.control.Button("Load Game") {
+      onAction = _ => {
+        controller.loadGame()
+        gui.setState(new GameState(gui, controller))
+        gui.display()
+      }
+    }
+
     val vbox = new VBox {
       alignment = scalafx.geometry.Pos.Center
       spacing = 20
-      children = Seq(logoImage, startButton)
+      children = Seq(logoImage, startButton, loadButton)
     }
-
     vbox.layoutX <== pane.width / 2 - vbox.width / 2
     vbox.layoutY <== pane.height / 2 - vbox.height / 2
     pane.children.add(vbox)
@@ -88,9 +95,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
 
     val handBox = new scalafx.scene.layout.HBox {
       spacing = 10
-      // val cardImage = new ImageView(new Image("file:/C:/SoftwareEngineering/UNO/src/main/images/.png"))
       children = controller.field.players(controller.field.currentPlayer).hand.cards.map { card =>
-
         val imageUrl = getClass.getResource(s"/images/${card.getColor}_${card.getValue}.png")
         if (imageUrl == null) {
           println(s"Image not found for ${card.getColor}_${card.getValue}")
@@ -135,6 +140,17 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
       }
     }
 
+    val saveButton = new scalafx.scene.control.Button("Save Game") {
+      onAction = _ => {
+      controller.saveGame()
+      gui.setState(new BeginState(gui, controller))
+      //gui.display()
+      gui.getMenuPane.toFront()
+        gui.display()
+      showAlert("Game Saved", "The game state has been saved.")
+    }
+  }
+
     val quitButton = new scalafx.scene.control.Button("Quit") {
       onAction = _ => {
         controller.notifyObservers(Event.Quit)
@@ -144,7 +160,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
 
     val buttonLayout = new scalafx.scene.layout.HBox {
       spacing = 10
-      children = Seq(drawButton, undoButton, redoButton, quitButton)
+      children = Seq(drawButton, undoButton, redoButton, saveButton, quitButton)
     }
 
     val layout = new scalafx.scene.layout.VBox {
@@ -213,6 +229,8 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
   def setState(newState: State): Unit = {
     state = newState
   }
+
+  def getMenuPane: Pane = menuPane
 
   def display(): Unit = {
     state.display(gamePane)

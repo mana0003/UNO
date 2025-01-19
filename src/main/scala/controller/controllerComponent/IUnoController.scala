@@ -17,9 +17,11 @@ trait IUnoController {
   def undo(): Unit
   def redo(): Unit
   def startGame(): Unit
-  def getField: UnoField
+  def getField: IUnoField
   def getCurrentPlayer: Int
   //def getChosenColor: Option[cardColors]
   def getChosenColor: Option[model.cardComponent.cardColors]
   def setChosenColor(color: Option[model.cardComponent.cardColors]): Unit
+  def saveGame(): Unit
+  def loadGame(): Unit
 }

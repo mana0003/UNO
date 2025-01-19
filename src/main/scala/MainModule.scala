@@ -1,12 +1,14 @@
 package UNO
 import com.google.inject.AbstractModule
 import net.codingwell.scalaguice.ScalaModule
-import controller.controllerComponent.IUnoController
+import controller.controllerComponent.{ControllerIm, IUnoController}
 import controller.controllerComponent.ControllerIm.UnoController
 import model.gameComponent.{IPlayer, IPlayerHand, IUnoField}
 import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
 import model.cardComponent.cardIm.Card
 import model.cardComponent.{ICard, cardColors, cardValues}
+import model.fileIoComponent.IFileIo
+import model.fileIoComponent.fileIoJsonIm.FileIo
 
 class MainModule extends AbstractModule with ScalaModule {
 
@@ -18,6 +20,10 @@ class MainModule extends AbstractModule with ScalaModule {
     bind[ICard].to[Card]
     bind[IPlayer].to[Player]
     bind[IPlayerHand].to[PlayerHand]
+    bind(classOf[IUnoController]).to(classOf[ControllerIm.UnoController])
+    bind(classOf[IFileIo]).to(classOf[model.fileIoComponent.fileIoJsonIm.FileIo]) // or fileioImp.FileIOJSON
+    bind(classOf[IUnoField]).to(classOf[UnoField])
+
 
     // Bindings for cardColors and cardValues
     bind[cardColors].toInstance(cardColors.RED) // Example binding, adjust as needed
