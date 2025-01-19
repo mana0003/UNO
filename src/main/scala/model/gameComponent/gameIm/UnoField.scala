@@ -5,10 +5,10 @@ import model.gameComponent.{IPlayerHand, IPlayer, IUnoField}
 import com.google.inject.{AbstractModule, Guice, Inject}
 
 case class UnoField @Inject() (
-                     val players: List[IPlayer],
-                     val topCard: ICard,
-                     val currentPlayer: Int
-                   ) extends IUnoField {
+                                val players: List[IPlayer],
+                                val topCard: ICard,
+                                val currentPlayer: Int
+                              ) extends IUnoField {
   def copy(
             players: List[IPlayer] = players,
             topCard: ICard = topCard,
@@ -32,5 +32,5 @@ case class UnoField @Inject() (
       </currentPlayer>
     </unoField>
   }
-  
+
 }

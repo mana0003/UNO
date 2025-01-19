@@ -31,5 +31,6 @@ enum Event {
   , Undo
   , Redo
   , Error
+  , Load
 }
 

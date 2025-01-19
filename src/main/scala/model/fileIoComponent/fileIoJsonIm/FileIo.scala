@@ -5,50 +5,71 @@ import net.codingwell.scalaguice.InjectorExtensions.*
 import UNO.MainModule
 import model.fileIoComponent.IFileIo
 import model.gameComponent.{IPlayer, IPlayerHand, IUnoField}
+import model.gameComponent.gameIm.{PlayerHand, UnoField, Player}
 import play.api.libs.json._
 import scala.io.Source
+import model.cardComponent.ICard
+import model.cardComponent.{cardColors, cardValues}
+import model.cardComponent.cardIm.Card
 
-// Define custom Reads and Writes for IUnoField, IPlayer, and IPlayerHand
 object JsonFormats {
-  implicit val unoFieldReads: Reads[IUnoField] = new Reads[IUnoField] {
-    def reads(json: JsValue): JsResult[IUnoField] = {
-      // Implement custom deserialization logic for IUnoField
-      JsSuccess(Guice.createInjector(new MainModule).instance[IUnoField])
+  implicit val cardWrites: Writes[ICard] = new Writes[ICard] {
+    def writes(card: ICard): JsValue = {
+      Json.obj(
+        "color" -> card.getColor.toString,
+        "value" -> card.getValue.toString
+      )
     }
+  }
+
+  implicit val cardReads: Reads[ICard] = (json: JsValue) => {
+    val color = (json \ "color").as[String]
+    val value = (json \ "value").as[String]
+    JsSuccess(new Card(cardColors.valueOf(color), cardValues.valueOf(value)))
+  }
+
+  implicit val unoFieldReads: Reads[IUnoField] = (json: JsValue) => {
+    val players = (json \ "players").as[List[IPlayer]]
+    val topCard = (json \ "topCard").as[ICard]
+    val currentPlayer = (json \ "currentPlayer").as[Int]
+    JsSuccess(UnoField(players, topCard, currentPlayer))
   }
 
   implicit val unoFieldWrites: Writes[IUnoField] = new Writes[IUnoField] {
-    def writes(unoField: IUnoField): JsValue = {
-      // Implement custom serialization logic for IUnoField
-      Json.obj()
+    def writes(field: IUnoField): JsValue = {
+      Json.obj(
+        "players" -> Json.toJson(field.players),
+        "topCard" -> Json.toJson(field.topCard),
+        "currentPlayer" -> field.currentPlayer
+      )
     }
   }
 
-  implicit val playerReads: Reads[IPlayer] = new Reads[IPlayer] {
-    def reads(json: JsValue): JsResult[IPlayer] = {
-      // Implement custom deserialization logic for IPlayer
-      JsSuccess(Guice.createInjector(new MainModule).instance[IPlayer])
-    }
+  implicit val playerReads: Reads[IPlayer] = (json: JsValue) => {
+    val id = (json \ "id").as[Int]
+    val hand = (json \ "hand").as[IPlayerHand]
+    JsSuccess(Player(id, hand))
   }
 
   implicit val playerWrites: Writes[IPlayer] = new Writes[IPlayer] {
     def writes(player: IPlayer): JsValue = {
-      // Implement custom serialization logic for IPlayer
-      Json.obj()
+      Json.obj(
+        "id" -> player.id,
+        "hand" -> Json.toJson(player.hand)
+      )
     }
   }
 
-  implicit val playerHandReads: Reads[IPlayerHand] = new Reads[IPlayerHand] {
-    def reads(json: JsValue): JsResult[IPlayerHand] = {
-      // Implement custom deserialization logic for IPlayerHand
-      JsSuccess(Guice.createInjector(new MainModule).instance[IPlayerHand])
-    }
+  implicit val playerHandReads: Reads[IPlayerHand] = (json: JsValue) => {
+    val cards = (json \ "cards").as[List[ICard]]
+    JsSuccess(PlayerHand(cards))
   }
 
   implicit val playerHandWrites: Writes[IPlayerHand] = new Writes[IPlayerHand] {
-    def writes(playerHand: IPlayerHand): JsValue = {
-      // Implement custom serialization logic for IPlayerHand
-      Json.obj()
+    def writes(hand: IPlayerHand): JsValue = {
+      Json.obj(
+        "cards" -> Json.toJson(hand.cards)
+      )
     }
   }
 
@@ -64,18 +85,18 @@ class FileIo @Inject extends IFileIo {
     val source = Source.fromFile("uno.json")
     val lines = try source.mkString finally source.close()
     val json: JsValue = Json.parse(lines)
-    val unoField = (json \ "unoField").as[IUnoField]
-    val players = (json \ "players").as[List[IPlayer]]
-    val playerHands = (json \ "playerHands").as[List[IPlayerHand]]
-    unoField
+    //val unoField = (json \ "unoField").as[IUnoField]
+    //val players = (json \ "players").as[List[IPlayer]]
+    //val playerHands = (json \ "playerHands").as[List[IPlayerHand]]
+    //unoField
+    json.as[IUnoField]
   }
+  import java.io._
 
   override def save(unoField: IUnoField): Unit = {
-    import java.io._
+    val json = Json.toJson(unoField)
     val pw = new PrintWriter(new File("uno.json"))
-    pw.write(Json.prettyPrint(Json.obj(
-      "unoField" -> Json.toJson(unoField)
-    )))
+    pw.write(Json.prettyPrint(json))
     pw.close()
   }
 }
