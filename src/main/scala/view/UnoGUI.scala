@@ -6,15 +6,12 @@ import scalafx.application.{JFXApp3, Platform}
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.scene.input.{KeyCode, KeyEvent}
-import scalafx.scene.layout.{Pane, StackPane, VBox}
+import scalafx.scene.layout.{HBox, Pane, StackPane, VBox}
 import scalafx.scene.paint.Color
 import scalafx.Includes.*
+import scalafx.scene.control.{Button, Label}
 import util.{Event, Observer}
 import util.Event.*
-//import model.*
-import scalafx.scene.control.{ListCell, ListView}
-import javafx.util.Callback
-import model.gameComponent.{IPlayer, IUnoField, IPlayerHand}
 import model.cardComponent.{ICard, cardColors, cardValues}
 import model.cardComponent.cardIm.Card
 import scalafx.scene.image.{Image, ImageView}
@@ -26,6 +23,7 @@ trait State {
 class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
   override def display(pane: Pane): Unit = {
     pane.children.clear()
+    val currentPlayer = controller.getField.players(controller.getCurrentPlayer)
 
     val logoImage = new ImageView(new Image(getClass.getResource("/extras/Logo.png").toString)) {
       fitHeight = 200
@@ -72,11 +70,11 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
     println("Inside GameState display")
     pane.children.clear()
 
-    val playerLabel = new scalafx.scene.control.Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
+    val playerLabel = new Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
     val topCardLabel = controller.getChosenColor match {
       case Some(color) =>
         println(s"Chosen color: $color")
-        new scalafx.scene.control.Label(s"Your opponent chose the color: $color") {
+        new Label(s"Your opponent chose the color: $color") {
           textFill = color match {
             case cardColors.RED => Color.Red
             case cardColors.BLUE => Color.Blue
@@ -87,13 +85,13 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
         }
       case None =>
         println("No chosen color, setting default label.")
-        new scalafx.scene.control.Label(s"Current top card: ${controller.field.topCard.getValue}") {
+        new Label(s"Current top card: ${controller.field.topCard.getValue}") {
           textFill = controller.field.topCard.getColorCode
         }
     }
     controller.setChosenColor(None)
 
-    val handBox = new scalafx.scene.layout.HBox {
+    val handBox = new HBox {
       spacing = 10
       children = controller.field.players(controller.field.currentPlayer).hand.cards.map { card =>
         val imageUrl = getClass.getResource(s"/images/${card.getColor}_${card.getValue}.png")
@@ -119,51 +117,50 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
       }
     }
 
-    val drawButton = new scalafx.scene.control.Button("Draw Card") {
+    val drawButton = new Button("Draw Card") {
       onAction = _ => {
         controller.draw()
         Platform.runLater(() => gui.display())
       }
     }
 
-    val undoButton = new scalafx.scene.control.Button("Undo") {
+    val undoButton = new Button("Undo") {
       onAction = _ => {
         controller.undo()
         Platform.runLater(() => gui.display())
       }
     }
 
-    val redoButton = new scalafx.scene.control.Button("Redo") {
+    val redoButton = new Button("Redo") {
       onAction = _ => {
         controller.redo()
         Platform.runLater(() => gui.display())
       }
     }
 
-    val saveButton = new scalafx.scene.control.Button("Save Game") {
+    val saveButton = new Button("Save Game") {
       onAction = _ => {
-      controller.saveGame()
-      gui.setState(new BeginState(gui, controller))
-      //gui.display()
-      gui.getMenuPane.toFront()
+        controller.saveGame()
+        gui.setState(new BeginState(gui, controller))
+        gui.getMenuPane.toFront()
         gui.display()
-      showAlert("Game Saved", "The game state has been saved.")
+        showAlert("Game Saved", "The game state has been saved.")
+      }
     }
-  }
 
-    val quitButton = new scalafx.scene.control.Button("Quit") {
+    val quitButton = new Button("Quit") {
       onAction = _ => {
         controller.notifyObservers(Event.Quit)
         Platform.exit()
       }
     }
 
-    val buttonLayout = new scalafx.scene.layout.HBox {
+    val buttonLayout = new HBox {
       spacing = 10
       children = Seq(drawButton, undoButton, redoButton, saveButton, quitButton)
     }
 
-    val layout = new scalafx.scene.layout.VBox {
+    val layout = new VBox {
       spacing = 20
       children = Seq(playerLabel, topCardLabel, handBox, buttonLayout)
     }
@@ -172,27 +169,27 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
 
   private def showColorButtons(card: ICard, pane: Pane): Unit = {
     pane.children.clear() // Clear current UI elements to show color options
-    val label = new scalafx.scene.control.Label("Choose a color for the wild card:")
+    val label = new Label("Choose a color for the wild card:")
 
-    val redButton = new scalafx.scene.control.Button("Red") {
+    val redButton = new Button("Red") {
       onAction = _ => chooseColor(card, cardColors.RED)
     }
-    val blueButton = new scalafx.scene.control.Button("Blue") {
+    val blueButton = new Button("Blue") {
       onAction = _ => chooseColor(card, cardColors.BLUE)
     }
-    val greenButton = new scalafx.scene.control.Button("Green") {
+    val greenButton = new Button("Green") {
       onAction = _ => chooseColor(card, cardColors.GREEN)
     }
-    val yellowButton = new scalafx.scene.control.Button("Yellow") {
+    val yellowButton = new Button("Yellow") {
       onAction = _ => chooseColor(card, cardColors.YELLOW)
     }
 
-    val buttonLayout = new scalafx.scene.layout.HBox {
+    val buttonLayout = new HBox {
       spacing = 10
       children = Seq(redButton, blueButton, greenButton, yellowButton)
     }
 
-    val layout = new scalafx.scene.layout.VBox {
+    val layout = new VBox {
       spacing = 20
       children = Seq(label, buttonLayout)
     }
@@ -200,7 +197,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
     pane.children.add(layout)
   }
 
-  private def chooseColor(card: ICard, color: model.cardComponent.cardColors): Unit = {
+  private def chooseColor(card: ICard, color: cardColors): Unit = {
     controller.setChosenColor(Some(color))
     controller.play(card.asInstanceOf[Card].copy(color = color))
     Platform.runLater(() => gui.display())
@@ -268,7 +265,12 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
           state = new GameState(this, controller)
           display()
         })
-      case Event.Play | Event.Draw | Event.Undo | Event.Redo | Event.Error =>
+      case Event.Play | Event.Draw =>
+          var currentPlayer = (controller.getField.currentPlayer + 1) % controller.getField.players.length     
+          Platform.runLater(() => {
+          state.display(gamePane) // Refresh the game state
+          }) 
+      case Event.Undo | Event.Redo | Event.Error =>
         Platform.runLater(() => {
           state.display(gamePane) // Refresh the game state
         })

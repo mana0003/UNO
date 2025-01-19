@@ -2,9 +2,12 @@ package view
 
 import controller.controllerComponent.IUnoController
 import util.{Event, Observer}
+
 import scala.io.StdIn
-import scala.io.AnsiColor._
+import scala.io.AnsiColor.*
 import controller.patterns.UnoActionBuilder
+
+import scala.annotation.tailrec
 
 class TUI(val controller: IUnoController) extends Observer{
   // controller.addObserver(this)
@@ -106,6 +109,7 @@ class TUI(val controller: IUnoController) extends Observer{
     println(options.mkString("\n"))
   }
 
+  @tailrec
   private def gameContinue(): Unit = {
     val currentPlayer = controller.getField.players(controller.getCurrentPlayer)
     println(s"Current player: Player ${controller.getCurrentPlayer + 1}")
