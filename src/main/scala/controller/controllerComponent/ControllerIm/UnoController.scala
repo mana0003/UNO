@@ -1,9 +1,9 @@
 package controller.controllerComponent.ControllerIm
-
+import UNO.MainModule
 import controller.*
 import util.{Event, Observer}
 import controller.controllerComponent.IUnoController
-import com.google.inject.{Guice, Inject}
+import com.google.inject.{Guice, Inject, Injector}
 import model.cardComponent.cardColors
 import model.gameComponent.IUnoField
 import model.cardComponent.ICard
@@ -11,7 +11,6 @@ import controller.command.commandIm.{DrawCommand, PlayCommand}
 import util.*
 import model.*
 import model.fileIoComponent.IFileIo
-
 import scala.io.AnsiColor.*
 import scala.util.{Failure, Success}
 
@@ -19,6 +18,7 @@ class UnoController @Inject() (var field: IUnoField, fileIO: IFileIo) extends IU
   private val commandManager = new CommandManager()
   private var isGuiActive: Boolean = false
   private var chosenColor: Option[cardColors] = None
+  val injector: Injector = Guice.createInjector(new MainModule)
 
   def setGuiActive(active: Boolean): Unit = {
     isGuiActive = active
@@ -38,17 +38,18 @@ class UnoController @Inject() (var field: IUnoField, fileIO: IFileIo) extends IU
     }
   }
 
-  def draw(): Unit = {
+  override def draw(): Unit = {
     val command = new DrawCommand(this)
     commandManager.doStep(command) match {
       case Success(_) =>
+        println(s"Player ${field.currentPlayer + 1} drew a card.")
         notifyObservers(Event.Draw)
       case Failure(exception) =>
         notifyObservers(Event.Error)
     }
   }
 
-  def undo(): Unit = {
+  override def undo(): Unit = {
     commandManager.undoStep() match {
       case Success(_) =>
         notifyObservers(Event.Undo)
@@ -57,7 +58,7 @@ class UnoController @Inject() (var field: IUnoField, fileIO: IFileIo) extends IU
     }
   }
 
-  def redo(): Unit = {
+  override def redo(): Unit = {
     commandManager.redoStep() match {
       case Success(_) =>
         notifyObservers(Event.Redo)
@@ -66,12 +67,13 @@ class UnoController @Inject() (var field: IUnoField, fileIO: IFileIo) extends IU
     }
   }
 
-  def startGame(): Unit = {
+  override def startGame(): Unit = {
     notifyObservers(Event.Start)
   }
 
   override def getField: IUnoField = field
-  def getCurrentPlayer: Int = field.currentPlayer
+
+  override def getCurrentPlayer: Int = field.currentPlayer
 
   override def addObserver(observer: Observer): Unit = {
     super[Observable].addObserver(observer)
@@ -81,18 +83,18 @@ class UnoController @Inject() (var field: IUnoField, fileIO: IFileIo) extends IU
     super[Observable].notifyObservers(event)
   }
 
-  def getChosenColor: Option[cardColors] = chosenColor
+  override def getChosenColor: Option[cardColors] = chosenColor
 
-  def setChosenColor(color: Option[cardColors]): Unit = {
+  override def setChosenColor(color: Option[cardColors]): Unit = {
     chosenColor = color
   }
 
-  def saveGame(): Unit = {
+  override def saveGame(): Unit = {
     fileIO.save(field)
     notifyObservers(Event.Start)
   }
 
-  def loadGame(): Unit = {
+  override def loadGame(): Unit = {
     field = fileIO.load
     notifyObservers(Event.Play)
   }
