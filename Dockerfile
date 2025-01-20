@@ -1,15 +1,15 @@
 # Use an official Scala image as a parent image
-FROM hseeberger/scala-sbt:8u222_1.3.5_2.13.1
+FROM hseeberger/scala-sbt:11.0.12_1.5.5_2.13.6
 
 # Update and install additional dependencies
 RUN apt-get update && \
-    apt-get install -y sbt libxrender1 libxtst6 libxi6
+    apt-get install -y libxrender1 libxtst6 libxi6
 
 # Set the working directory in the container
 WORKDIR /uno
 
 # Copy the current directory contents into the container at /uno
-ADD . /uno
+COPY . /uno
 
 # Install sbt dependencies and build the project
 RUN sbt compile

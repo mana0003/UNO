@@ -7,12 +7,13 @@ import model.*
 import model.gameComponent.IPlayer
 import util.Event
 
-abstract class UnoActionProcessor {
+abstract class UnoActionProcessor() {
   def processAction(controller: UnoController, player: IPlayer, action: String): Unit = {
     validateAction(controller, player, action)
     handleAction(controller, player, action)
     completeAction(controller, player, action)
   }
+  //def handleAction(controller: UnoController, player: IPlayer, action: String): Unit
 
   private def validateAction(controller: UnoController, player: IPlayer, action: String): Unit = {
     println(s"Validating action: $action for player: ${player.id}")

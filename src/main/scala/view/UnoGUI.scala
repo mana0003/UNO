@@ -10,12 +10,15 @@ import scalafx.scene.input.{KeyCode, KeyEvent}
 import scalafx.scene.layout.{HBox, Pane, StackPane, VBox}
 import scalafx.scene.paint.Color
 import scalafx.Includes.*
-import scalafx.scene.control.{Button, Label}
+import scalafx.scene.control.{Button, Label, ScrollPane}
 import util.{Event, Observer}
 import util.Event.*
 import model.cardComponent.{ICard, cardColors, cardValues}
 import model.cardComponent.cardIm.Card
+import model.gameComponent.IPlayer
 import scalafx.scene.image.{Image, ImageView}
+import controller.patterns.{ConcreteUnoActionProcessor, UnoActionHandler, UnoActionProcessor, UnoActionStrategy}
+import controller.controllerComponent.ControllerIm.UnoController
 
 trait State {
   def display(pane: Pane): Unit
@@ -69,6 +72,7 @@ class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
 //var cPlayer = controller.field.currentPlayer
 // Update the GameState class to use images for the cards
 class GameState(gui: UnoGUI, controller: IUnoController) extends State {
+  private val cardThreshold = 7
   override def display(pane: Pane): Unit = {
     println("Inside GameState display")
     pane.children.clear()
@@ -111,7 +115,6 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
         cardImage.onMouseClicked = _ => {
           if (card.getValue == cardValues.WILD || card.getValue == cardValues.WILD_DRAW_FOUR) {
             showColorButtons(card, pane)
-            // once a color has been clicked on, "play" will be called again
             if (controller.getChosenColor.isDefined) {
               controller.play(card.asInstanceOf[Card].copy(color = controller.getChosenColor.get))
             }
@@ -125,6 +128,18 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
         }
         cardImage
       }
+    }
+
+    val handContainer = if (controller.field.players(controller.field.currentPlayer).hand.cards.size > cardThreshold) {
+      new ScrollPane {
+        content = handBox
+        fitToHeight = false
+        fitToWidth = true
+        prefHeight = 200
+        prefWidth = 800
+      }
+    } else {
+      handBox
     }
 
     val drawButton = new Button("Draw Card") {
@@ -172,7 +187,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
 
     val layout = new VBox {
       spacing = 20
-      children = Seq(playerLabel, topCardLabel, handBox, buttonLayout)
+      children = Seq(playerLabel, topCardLabel, handContainer, buttonLayout)
     }
     pane.children.add(layout)
   }
@@ -287,6 +302,16 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
       case Event.Quit =>
         Platform.exit()
     }
+  }
+
+  def processPlayerAction(player: IPlayer, action: String): Unit = {
+    val actionProcessor = new ConcreteUnoActionProcessor()
+    actionProcessor.processAction(controller.asInstanceOf[UnoController], player, action)
+  }
+
+  def executeStrategy(player: IPlayer, strategy: UnoActionStrategy): Unit = {
+    val actionHandler = new UnoActionHandler(strategy)
+    actionHandler.executeStrategy(controller, player)
   }
 }
 
