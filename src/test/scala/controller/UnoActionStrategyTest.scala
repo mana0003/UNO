@@ -42,7 +42,7 @@ class UnoActionStrategyTest extends AnyFunSuite with Matchers {
       players = List(player),
       topCard = initialField.topCard,
       currentPlayer = initialField.currentPlayer
-    )  
+    )
     val strategy = new PlayCardStrategy(card)
     strategy.executeAction(controller, player)
 

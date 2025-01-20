@@ -29,7 +29,7 @@ class Card @Inject() (color: cardColors, value: cardValues) extends ICard {
   def copy(color: cardColors): ICard = {
     Card(color, getValue)
   }
-  def toXml: scala.xml.Node = {
+  /*def toXml: scala.xml.Node = {
     <card>
       <color>
         {color}
@@ -38,7 +38,17 @@ class Card @Inject() (color: cardColors, value: cardValues) extends ICard {
         {value}
       </value>
     </card>
-  }
+  }*/
+  def toXml: scala.xml.Node =
+    <card>
+      <color>
+        {color.toString}
+      </color>
+      <value>
+        {value.toString}
+      </value>
+    </card>
+
 }
 
 //def randomColor: cardColors = cardColors.values.toList(scala.util.Random.nextInt(cardColors.values.length))

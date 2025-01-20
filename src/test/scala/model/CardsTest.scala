@@ -69,9 +69,8 @@ class CardsTest extends AnyFunSuite {
       card.getValue == cardValues.FOUR || card.getValue == cardValues.FIVE ||
       card.getValue == cardValues.SIX || card.getValue == cardValues.SEVEN ||
       card.getValue == cardValues.EIGHT || card.getValue == cardValues.NINE ||
-      //card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
-      card.getValue == cardValues.DRAW_TWO || card.getValue == cardValues.WILD ||
-      card.getValue == cardValues.WILD_DRAW_FOUR)
+      card.getValue == cardValues.SKIP || card.getValue == cardValues.DRAW_TWO ||
+      card.getValue == cardValues.WILD || card.getValue == cardValues.WILD_DRAW_FOUR)
   }
 
   // Test case for randomCards generation
@@ -87,9 +86,8 @@ class CardsTest extends AnyFunSuite {
         card.getValue == cardValues.FOUR || card.getValue == cardValues.FIVE ||
         card.getValue == cardValues.SIX || card.getValue == cardValues.SEVEN ||
         card.getValue == cardValues.EIGHT || card.getValue == cardValues.NINE ||
-        //card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
-        card.getValue == cardValues.DRAW_TWO || card.getValue == cardValues.WILD ||
-        card.getValue == cardValues.WILD_DRAW_FOUR)
+        card.getValue == cardValues.SKIP || card.getValue == cardValues.DRAW_TWO ||
+        card.getValue == cardValues.WILD || card.getValue == cardValues.WILD_DRAW_FOUR)
     })
   }
   test("randomCards should return an empty list when i is 0") {

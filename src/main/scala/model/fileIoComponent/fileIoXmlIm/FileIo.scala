@@ -36,7 +36,7 @@ class FileIo @Inject() (var fileName: String) extends IFileIo {
     ).asInstanceOf[ICard]
 
     val currentPlayer = (file \ "currentPlayer").text.toInt
-    UnoField(players, topCard, currentPlayer).asInstanceOf[IUnoField]
+    return UnoField(players, topCard, currentPlayer).asInstanceOf[IUnoField]
     //val injector = Guice.createInjector(new MainModule)
     /*val unoField = injector.instance[IUnoField]
 

@@ -5,11 +5,12 @@ import model.*
 import view.*
 import util.*
 import controller.*
-import model.gameComponent.gameIm.UnoField
+import model.gameComponent.gameIm.{UnoField, Player, PlayerHand}
+import model.cardComponent.cardIm.Card
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*
 import model.gameComponent.IPlayer
-import model.cardComponent.ICard
+import model.cardComponent.{ICard, cardColors, cardValues}
 import org.mockito.Mockito.*
 import org.mockito.ArgumentMatchers.*
 import scala.xml.Node
@@ -19,23 +20,24 @@ class UnoFieldTest extends AnyWordSpec {
     //val players = List(mock(classOf[IPlayer]), mock(classOf[IPlayer]))
     //val topCard = mock(classOf[ICard])
     //new UnoField(players, topCard, 0)
-    val player1 = mock(classOf[IPlayer])
-    val player2 = mock(classOf[IPlayer])
-    val topCard = mock(classOf[ICard])
+    val player1Hand = new PlayerHand(List(Card(cardColors.RED, cardValues.ONE)))
+    val player2Hand = new PlayerHand(List(Card(cardColors.GREEN, cardValues.TWO)))
+    val topCard = new Card(cardColors.RED, cardValues.FIVE)
 
-    // Mock the toXml method for IPlayer to return a simple XML node
-    when(player1.toXml).thenReturn(<player>
+    val player1 = new Player(1, player1Hand)
+    val player2 = new Player(2, player2Hand)
+    
+    /*when(player1.toXml).thenReturn(<player>
       <name>Player 1</name>
     </player>)
     when(player2.toXml).thenReturn(<player>
       <name>Player 2</name>
     </player>)
 
-    // Mock the toXml method for ICard to return a simple XML node
     when(topCard.toXml).thenReturn(<card>
       <color>Red</color> <value>5</value>
     </card>)
-
+*/
     new UnoField(List(player1, player2), topCard, 0)
   }
   "An UnoField" should {
@@ -74,6 +76,9 @@ class UnoFieldTest extends AnyWordSpec {
 
       (xml \ "topCard" \ "color").text should be("Red")
       (xml \ "topCard" \ "value").text should be("5")
+
+      (xml \ "players" \ "player" \ "name").headOption.map(_.text) should be(Some("Player 1"))
+      (xml \ "players" \ "player" \ "name").lastOption.map(_.text) should be(Some("Player 2"))
     }
   }
 }

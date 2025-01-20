@@ -6,7 +6,7 @@ import controller.controllerComponent.ControllerIm.UnoController
 import controller.command.commandIm.PlayCommand
 import model.cardComponent.cardIm.Card
 import model.cardComponent.{cardColors, cardValues}
-import model.gameComponent.IPlayer
+import model.gameComponent.{IPlayer, IPlayerHand}
 import model.cardComponent.ICard
 import model.gameComponent.gameIm.UnoField
 //import controller.command.commandIm.PlayCommand
@@ -23,7 +23,7 @@ import model.fileIoComponent.IFileIo
 
 class PlayCommandTest extends AnyFunSuite with Matchers {
   def createInitialField(): UnoField = {
-    val players = List(mock(classOf[IPlayer]), mock(classOf[IPlayer]))
+    val players = List(mock(classOf[IPlayer]),  mock(classOf[IPlayer]))
     val topCard = mock(classOf[ICard])
     new UnoField(players, topCard, 0)
   }
@@ -32,7 +32,19 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
     val controller = spy(new UnoController(initialField, mockFileIo))
-    val validCard = Card(cardColors.RED, cardValues.THREE)
+
+    //val topCard = mock(classOf[ICard])
+    //val validCard = Card(cardColors.RED, cardValues.THREE)
+    val validCard = mock(classOf[ICard])
+    //val topCard = mock(classOf[ICard])
+    //when(validCard.canBePlayed(topCard)).thenReturn(true)
+
+    doReturn(cardColors.RED).when(initialField.topCard).getColor
+    doReturn(cardValues.TWO).when(initialField.topCard).getValue
+    doReturn(cardColors.RED).when(validCard).getColor
+    doReturn(cardValues.THREE).when(validCard).getValue
+    doReturn(true).when(validCard).canBePlayed(initialField.topCard)
+
     val playCommand = new PlayCommand(controller, validCard)
 
     val result = playCommand.doStep(playCommand)
@@ -45,10 +57,20 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   test("execute() should fail for an invalid card") {
     val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = spy(new UnoController(initialField, mockFileIo))
-    val invalidCard = Card(cardColors.RED, cardValues.THREE) // Assuming this card is invalid in the current context
-    val playCommand = new PlayCommand(controller, invalidCard)
+    //val controller = spy(new UnoController(initialField, mockFileIo))
+    val controller = new UnoController(initialField, mockFileIo)
+    //val invalidCard = Card(cardColors.RED, cardValues.THREE)
+    val invalidCard = mock(classOf[ICard])
+    val playerHand = mock(classOf[IPlayerHand])
+    when(controller.field.topCard).thenReturn(initialField.topCard)
+    when(invalidCard.canBePlayed(controller.field.topCard)).thenReturn(false)
 
+    val currentPlayer = controller.field.players(initialField.currentPlayer)
+    when(currentPlayer.hand).thenReturn(playerHand) // Correctly mock IPlayer's hand
+
+    //doReturn(cardColors.RED).when(invalidCard).getColor
+    //doReturn(cardValues.THREE).when(invalidCard).getValue
+    val playCommand = new PlayCommand(controller, invalidCard)
     val result = playCommand.doStep(playCommand)
 
     result shouldBe a[Failure[_]]
@@ -73,11 +95,20 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
     val controller = spy(new UnoController(initialField, mockFileIo))
-    val validCard = Card(cardColors.RED, cardValues.THREE)
+    //val validCard = Card(cardColors.RED, cardValues.THREE)
+    val validCard = mock(classOf[ICard])
     val playCommand = new PlayCommand(controller, validCard)
+
+    //val topCard = mock(classOf[ICard])
+    doReturn(cardColors.RED).when(initialField.topCard).getColor
+    doReturn(cardValues.TWO).when(initialField.topCard).getValue
+    doReturn(true).when(validCard).canBePlayed(initialField.topCard)
 
     playCommand.doStep(playCommand) // Perform the play
     playCommand.undoStep() // Undo the play
+    when(initialField.topCard.getColor).thenReturn(cardColors.RED)
+    when(initialField.topCard.getValue).thenReturn(cardValues.TWO)
+
     val result = playCommand.redoStep() // Redo the play
 
     result shouldBe a[Success[_]]

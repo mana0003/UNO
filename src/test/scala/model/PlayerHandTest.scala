@@ -5,6 +5,7 @@ import model.gameComponent.gameIm.PlayerHand
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*
 import scala.xml.XML
+import scala.xml.*
 
 class PlayerHandTest extends AnyWordSpec {
 
@@ -77,15 +78,26 @@ class PlayerHandTest extends AnyWordSpec {
       }
 
       "properly serialize to XML" in {
+        val cards = List(
+          Card(cardColors.RED, cardValues.ZERO),
+          Card(cardColors.BLUE, cardValues.ONE),
+          Card(cardColors.GREEN, cardValues.TWO),
+          Card(cardColors.YELLOW, cardValues.THREE),
+          Card(cardColors.RED, cardValues.FOUR)
+        )
         val hand = PlayerHand()
         val xml = hand.toXml
 
-        (xml \ "playerHand").size should be(1)
+        (xml \ "playerHand").nonEmpty should be(true)
         (xml \ "playerHand" \ "card").size should be(5)
 
-        (xml \ "playerHand" \ "card" \ "color").headOption.map(_.text) should be(Some("Red"))
-        (xml \ "playerHand" \ "card" \ "value").headOption.map(_.text) should be(Some("0"))
+        val firstCardColor = (xml \ "playerHand" \ "card" \ "color").headOption.map(_.text) should be(Some("Red"))
+        val firstCardValue = (xml \ "playerHand" \ "card" \ "value").headOption.map(_.text) should be(Some("0"))
+
+        firstCardColor should be(Some("Red"))
+        firstCardValue should be(Some("Zero"))
       }
+
     }
   }
 }

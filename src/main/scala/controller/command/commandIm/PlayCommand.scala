@@ -89,10 +89,7 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     }
 
     val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
-    val updatedPlayers = controller.field.players.updated(
-      controller.field.currentPlayer,
-      updatedPlayer
-    )
+    val updatedPlayers = controller.field.players.updated(controller.field.currentPlayer, updatedPlayer)
 
     val isSkipCard = card.getValue == cardValues.SKIP
     val nextPlayer = if (isSkipCard) controller.field.currentPlayer else (controller.field.currentPlayer + 1) % controller.field.players.length
