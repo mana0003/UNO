@@ -13,6 +13,8 @@ import util.*
 import org.scalatest.*
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
+import org.mockito.Mockito.*
+import model.fileIoComponent.IFileIo
 
 class UnoActionProcessorTest extends AnyFunSuite with Matchers {
   def createInitialField(): UnoField = {
@@ -25,7 +27,7 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
   }
 
   test("processAction should successfully process a 'play' action for a valid card") {
-    val controller = new UnoController(createInitialField())
+    val controller = spy(new UnoController(createInitialField(), mock(classOf[IFileIo])))
     val processor = new ConcreteUnoActionProcessor
     val player = controller.field.players(controller.field.currentPlayer)
 
@@ -43,7 +45,7 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
   }
 
   test("processAction should throw an exception for an invalid 'play' action") {
-    val controller = new UnoController(createInitialField())
+    val controller = spy(new UnoController(createInitialField(), mock(classOf[IFileIo])))
     val processor = new ConcreteUnoActionProcessor
     val player = new Player(0, PlayerHand(List(Card(cardColors.BLUE, cardValues.THREE))))
 
@@ -60,7 +62,7 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
   }
 
   test("processAction should throw an exception for an unknown action type") {
-    val controller = new UnoController(createInitialField())
+    val controller = spy(new UnoController(createInitialField(), mock(classOf[IFileIo])))
     val processor = new ConcreteUnoActionProcessor
     val player = controller.field.players(controller.field.currentPlayer)
 
@@ -70,7 +72,7 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
   }
 
   test("handleAction should invoke the correct handler from UnoActionBuilder") {
-    val controller = new UnoController(createInitialField())
+    val controller = spy(new UnoController(createInitialField(), mock(classOf[IFileIo])))
     val processor = new ConcreteUnoActionProcessor
     val player = controller.field.players(controller.field.currentPlayer)
 
@@ -81,7 +83,7 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
   }
 
   test("completeAction should notify observers correctly for 'draw' and 'play' actions") {
-    val controller = new UnoController(createInitialField())
+    val controller = spy(new UnoController(createInitialField(), mock(classOf[IFileIo])))
     val processor = new ConcreteUnoActionProcessor
     val player = controller.field.players(controller.field.currentPlayer)
 
@@ -99,7 +101,7 @@ class UnoActionProcessorTest extends AnyFunSuite with Matchers {
   }
 
   test("completeAction should throw an exception for an unknown action type") {
-    val controller = new UnoController(createInitialField())
+    val controller = spy(new UnoController(createInitialField(), mock(classOf[IFileIo])))
     val processor = new ConcreteUnoActionProcessor
     val player = controller.field.players(controller.field.currentPlayer)
 

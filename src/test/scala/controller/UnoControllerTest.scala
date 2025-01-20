@@ -15,8 +15,10 @@ import controller.controllerComponent.ControllerIm.UnoController
 import model.cardComponent.cardValues.*
 import model.cardComponent.cardColors.*
 import model.cardComponent.cardIm.Card
+import model.fileIoComponent.IFileIo
 import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
 import model.gameComponent.gameIm
+import org.mockito.Mockito.{mock, spy}
 import org.scalatest.wordspec.AnyWordSpec
 import org.scalatest.matchers.should.Matchers.*
 import util.Event.*
@@ -29,7 +31,9 @@ class UnoControllerTest extends AnyWordSpec {
         Card(RED, THREE),
         currentPlayer = 0
       )
-    val controller = UnoController(field)
+    //val controller = UnoController(field)
+    val controller = spy(UnoController(field, mock(classOf[IFileIo])))
+    
 
     "notify its observers on start" in {
       class TestObserver(controller: UnoController) extends Observer {

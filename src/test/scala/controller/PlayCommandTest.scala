@@ -18,6 +18,8 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
 import org.mockito.Mockito.*
 import org.mockito.ArgumentMatchers.*
+import model.fileIoComponent.IFileIo
+
 
 class PlayCommandTest extends AnyFunSuite with Matchers {
   def createInitialField(): UnoField = {
@@ -27,8 +29,9 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("execute() should play a valid card and update the game state") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
@@ -40,8 +43,9 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("execute() should fail for an invalid card") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val invalidCard = Card(cardColors.RED, cardValues.THREE) // Assuming this card is invalid in the current context
     val playCommand = new PlayCommand(controller, invalidCard)
 
@@ -52,8 +56,9 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("undo() should revert the game state to before the card was played") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
@@ -65,8 +70,9 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("redo() should reapply the playing of the card") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
@@ -80,8 +86,9 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("undo() without a prior execute should fail") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
@@ -92,8 +99,9 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("redo() without a prior execute should fail") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 
@@ -104,8 +112,9 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("redo() should fail if the card cannot be replayed") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val validCard = Card(cardColors.RED, cardValues.THREE)
     val playCommand = new PlayCommand(controller, validCard)
 

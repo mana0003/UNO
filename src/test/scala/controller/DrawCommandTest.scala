@@ -13,6 +13,7 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
 import org.mockito.Mockito._
 import org.mockito.ArgumentMatchers._
+import model.fileIoComponent.IFileIo
 
 import scala.util.{Failure, Success}
 
@@ -25,14 +26,15 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("execute() should draw a card and update the player's hand") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = spy(new UnoController(initialField))
+    val controller = spy(new UnoController(initialField, mockFileIo))    
     val drawCommand = new DrawCommand(controller)
     val drawnCard = mock(classOf[ICard])
 
     //when(controller.getField).thenReturn(initialField)
-    //doReturn(mock(classOf[ICard])).when(controller).draw()
-    doReturn(initialField).when(controller).getField
+    doReturn(mock(classOf[ICard])).when(controller).draw()
+    //doReturn(initialField).when(controller).getField
     doReturn(drawnCard).when(controller).draw()
     val result = drawCommand.doStep(drawCommand)
     result shouldBe a[Success[_]]
@@ -42,8 +44,9 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("undo() should revert to the previous state") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = spy(new UnoController(initialField))
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val drawCommand = new DrawCommand(controller)
 
     drawCommand.doStep(drawCommand) // Perform a draw
@@ -54,8 +57,9 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("redo() should reapply the drawing of the card") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = spy(new UnoController(initialField))
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val drawCommand = new DrawCommand(controller)
 
     doReturn(mock(classOf[ICard])).when(controller).draw() // Properly stub draw()
@@ -70,8 +74,9 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("undo() without a prior execute should fail") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = spy(new UnoController(initialField))
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val drawCommand = new DrawCommand(controller)
 
     val result = drawCommand.undoStep()
@@ -81,8 +86,9 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
   }
 
   test("redo() without a prior execute should fail") {
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val drawCommand = new DrawCommand(controller)
 
     val result = drawCommand.redoStep()

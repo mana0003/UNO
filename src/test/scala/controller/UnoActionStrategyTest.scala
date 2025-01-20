@@ -7,6 +7,7 @@ import model.cardComponent.cardIm.Card
 import model.gameComponent.IPlayer
 import model.cardComponent.ICard
 import model.cardComponent.{cardColors, cardValues}
+import model.fileIoComponent.IFileIo
 import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
 import org.scalatest.*
 import org.scalatest.matchers.should.Matchers
@@ -22,8 +23,7 @@ class UnoActionStrategyTest extends AnyFunSuite with Matchers {
   }
 
   test("DrawCardStrategy should invoke draw on the controller") {
-    val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(createInitialField(), mock(classOf[IFileIo])))
     val player = new Player(0, PlayerHand(List()))
 
     val strategy = new DrawCardStrategy
@@ -35,7 +35,7 @@ class UnoActionStrategyTest extends AnyFunSuite with Matchers {
 
   test("PlayCardStrategy should invoke play on the controller with the specified card") {
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mock(classOf[IFileIo])))
     val card = Card(cardColors.RED, cardValues.THREE)
     val player = new Player(0, PlayerHand(List(card)))
     controller.field = controller.field.copy(
@@ -52,8 +52,7 @@ class UnoActionStrategyTest extends AnyFunSuite with Matchers {
   }
 
   test("UnoActionHandler should execute the assigned DrawCardStrategy") {
-    val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(createInitialField(), mock(classOf[IFileIo])))
     val player = new Player(0, PlayerHand(List()))
 
     val drawStrategy = new DrawCardStrategy
@@ -67,7 +66,7 @@ class UnoActionStrategyTest extends AnyFunSuite with Matchers {
 
   test("UnoActionHandler should execute the assigned PlayCardStrategy") {
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mock(classOf[IFileIo])))
     val card = Card(cardColors.RED, cardValues.THREE)
     val player = new Player(0, PlayerHand(List(card)))
     controller.field = controller.field.copy(
@@ -87,7 +86,7 @@ class UnoActionStrategyTest extends AnyFunSuite with Matchers {
 
   test("UnoActionHandler should allow strategy swapping at runtime") {
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
+    val controller = spy(new UnoController(initialField, mock(classOf[IFileIo])))
     val card = Card(cardColors.RED, cardValues.THREE)
     val player = new Player(0, PlayerHand(List(card)))
     controller.field = controller.field.copy(

@@ -13,6 +13,8 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
 import org.mockito.Mockito.*
 import org.mockito.ArgumentMatchers.*
+import model.fileIoComponent.IFileIo
+
 
 class UnoActionBuilderTest extends AnyFunSuite with Matchers {
   def createInitialField(): UnoField = {
@@ -66,9 +68,10 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
 
   test("PlayAction.executeAction() should call play on the controller") {
     val card = Card(cardColors.RED, cardValues.THREE)
+    val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
-    val controller = new UnoController(initialField)
-
+    val controller = spy(new UnoController(initialField, mockFileIo))
+    
     // val player = new Player(0, PlayerHand(List(card)))
     val player = mock(classOf[Player])
     val playerHand = mock(classOf[PlayerHand])
@@ -89,8 +92,9 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
   }
 
   test("DrawAction.executeAction() should call draw on the controller") {
-    val controller = new UnoController(createInitialField())
-    //val player = new Player(0, PlayerHand(List()))
+    val mockFileIo = mock(classOf[IFileIo])
+    val initialField = createInitialField()
+    val controller = spy(new UnoController(initialField, mockFileIo))
     val player = mock(classOf[Player])
     val playerHand = mock(classOf[PlayerHand])
     when(player.hand).thenReturn(playerHand)
