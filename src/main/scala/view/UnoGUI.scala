@@ -1,6 +1,7 @@
 package view
 
 //import UNO.images.*
+
 import controller.controllerComponent.IUnoController
 import scalafx.application.{JFXApp3, Platform}
 import scalafx.application.JFXApp3.PrimaryStage
@@ -64,6 +65,8 @@ class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
     pane.children.add(vbox)
   }
 }
+
+//var cPlayer = controller.field.currentPlayer
 // Update the GameState class to use images for the cards
 class GameState(gui: UnoGUI, controller: IUnoController) extends State {
   override def display(pane: Pane): Unit = {
@@ -85,8 +88,10 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
         }
       case None =>
         println("No chosen color, setting default label.")
-        new Label(s"Current top card: ${controller.field.topCard.getValue}") {
-          textFill = controller.field.topCard.getColorCode
+        new Label(s"Current top card:") {}
+        new ImageView(new Image(getClass.getResource(s"/images/${controller.field.topCard.getColor}_${controller.field.topCard.getValue}.png").toString)) {
+          fitHeight = 150
+          fitWidth = 100
         }
     }
     controller.setChosenColor(None)
@@ -106,6 +111,11 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
         cardImage.onMouseClicked = _ => {
           if (card.getValue == cardValues.WILD || card.getValue == cardValues.WILD_DRAW_FOUR) {
             showColorButtons(card, pane)
+            // once a color has been clicked on, "play" will be called again
+            if (controller.getChosenColor.isDefined) {
+              controller.play(card.asInstanceOf[Card].copy(color = controller.getChosenColor.get))
+            }
+            Platform.runLater(() => gui.display())
           } else if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayed(controller.field.topCard)) {
             controller.play(card.asInstanceOf[Card])
             Platform.runLater(() => gui.display())
@@ -266,10 +276,10 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
           display()
         })
       case Event.Play | Event.Draw =>
-          var currentPlayer = (controller.getField.currentPlayer + 1) % controller.getField.players.length     
-          Platform.runLater(() => {
+        var currentPlayer = (controller.getField.currentPlayer + 1) % controller.getField.players.length
+        Platform.runLater(() => {
           state.display(gamePane) // Refresh the game state
-          }) 
+        })
       case Event.Undo | Event.Redo | Event.Error =>
         Platform.runLater(() => {
           state.display(gamePane) // Refresh the game state

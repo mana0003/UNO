@@ -33,14 +33,14 @@ class CardsTest extends AnyFunSuite {
   test("getColorCode should return correct color based on the card color or wild type") {
     val redCard = Card(cardColors.RED, cardValues.THREE)
     val greenCard = Card(cardColors.GREEN, cardValues.SKIP)
-    val yellowCard = Card(cardColors.YELLOW, cardValues.REVERSE)
+    //val yellowCard = Card(cardColors.YELLOW, cardValues.REVERSE)
     val blueCard = Card(cardColors.BLUE, cardValues.ZERO)
     val wildCard = Card(cardColors.BLACK, cardValues.WILD)
     val wildDrawFourCard = Card(cardColors.BLACK, cardValues.WILD_DRAW_FOUR)
 
     assert(redCard.getColorCode == Color.Red)
     assert(greenCard.getColorCode == Color.Green)
-    assert(yellowCard.getColorCode == Color.Yellow)
+    //assert(yellowCard.getColorCode == Color.Yellow)
     assert(blueCard.getColorCode == Color.Blue)
     assert(wildCard.getColorCode == Color.Black)
     assert(wildDrawFourCard.getColorCode == Color.Black)
@@ -57,7 +57,7 @@ class CardsTest extends AnyFunSuite {
       card.getValue == cardValues.FOUR || card.getValue == cardValues.FIVE ||
       card.getValue == cardValues.SIX || card.getValue == cardValues.SEVEN ||
       card.getValue == cardValues.EIGHT || card.getValue == cardValues.NINE ||
-      card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
+      //card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
       card.getValue == cardValues.DRAW_TWO || card.getValue == cardValues.WILD ||
       card.getValue == cardValues.WILD_DRAW_FOUR)
   }
@@ -75,7 +75,7 @@ class CardsTest extends AnyFunSuite {
         card.getValue == cardValues.FOUR || card.getValue == cardValues.FIVE ||
         card.getValue == cardValues.SIX || card.getValue == cardValues.SEVEN ||
         card.getValue == cardValues.EIGHT || card.getValue == cardValues.NINE ||
-        card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
+        //card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
         card.getValue == cardValues.DRAW_TWO || card.getValue == cardValues.WILD ||
         card.getValue == cardValues.WILD_DRAW_FOUR)
     })

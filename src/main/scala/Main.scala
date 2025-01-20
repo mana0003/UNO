@@ -19,7 +19,7 @@ object Main {
     val fileIO = injector.getInstance(classOf[IFileIo])
     
 
-    val players = List(Player(0, new PlayerHand().asInstanceOf[IPlayerHand]))
+    val players = List(Player(0, new PlayerHand().asInstanceOf[IPlayerHand]),Player(1, new PlayerHand().asInstanceOf[IPlayerHand]))
     val topCard = randomCard
     val currentPlayer = 0
     val field = new UnoField(players, topCard, currentPlayer)
