@@ -4,7 +4,6 @@ import controller.*
 import controller.controllerComponent.IUnoController
 import model.gameComponent.{IUnoField, IPlayer, IPlayerHand}
 import util.*
-//import view.*
 import model.cardComponent.{ICard, cardColors, cardValues}
 import model.cardComponent.cardIm.{randomCards, Card}
 import scala.util.{Failure, Try}
@@ -22,8 +21,10 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     if (!card.canBePlayed(controller.field.topCard)) {
       throw new IllegalArgumentException("Card cannot be played on the current top card")
     }
-
-    val updatedCurrentPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
+    //val updatedCurrentPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
+    val updatedCurrentPlayer = currentPlayer.copy(
+      hand = currentPlayer.hand.removeCard(card)
+    )
     val updatedPlayers = controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
 
     val cardsToDraw = card.getValue match {
@@ -35,12 +36,15 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     // Update game field
     val finalPlayers = if (cardsToDraw > 0) {
       val drawnCards = randomCards(cardsToDraw) // Draw random cards directly
-      val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard))
-      updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand))
+      val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard)) // next Player
+      updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand)) // next Player
+      // remove the card from the current player
     } else {
       //updatedPlayers
       controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
     }
+
+    val newCurrentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
 
     // Handle Wild and Wild Draw Four cards with color selection
     val updatedTopCard = card.getValue match {
@@ -58,7 +62,7 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     controller.field = controller.field.copy(
       players = finalPlayers,
       topCard = updatedTopCard,
-      currentPlayer = if (card.getValue == cardValues.SKIP | card.getValue == cardValues.REVERSE)
+      currentPlayer = if (card.getValue == cardValues.SKIP)
                         (controller.field.currentPlayer + 2) % controller.field.players.length
                       else
                         (controller.field.currentPlayer + 1) % controller.field.players.length
