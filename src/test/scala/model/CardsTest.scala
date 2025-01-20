@@ -33,17 +33,29 @@ class CardsTest extends AnyFunSuite {
   test("getColorCode should return correct color based on the card color or wild type") {
     val redCard = Card(cardColors.RED, cardValues.THREE)
     val greenCard = Card(cardColors.GREEN, cardValues.SKIP)
-    //val yellowCard = Card(cardColors.YELLOW, cardValues.REVERSE)
+    val yellowCard = Card(cardColors.YELLOW, cardValues.DRAW_TWO)
     val blueCard = Card(cardColors.BLUE, cardValues.ZERO)
     val wildCard = Card(cardColors.BLACK, cardValues.WILD)
     val wildDrawFourCard = Card(cardColors.BLACK, cardValues.WILD_DRAW_FOUR)
 
     assert(redCard.getColorCode == Color.Red)
     assert(greenCard.getColorCode == Color.Green)
-    //assert(yellowCard.getColorCode == Color.Yellow)
+    assert(yellowCard.getColorCode == Color.Yellow)
     assert(blueCard.getColorCode == Color.Blue)
     assert(wildCard.getColorCode == Color.Black)
     assert(wildDrawFourCard.getColorCode == Color.Black)
+  }
+
+  test("getColorCode should handle null color gracefully") {
+    val nullCard = new Card(null.asInstanceOf[cardColors], cardValues.THREE)
+    assert(nullCard.getColorCode == Color.Black)
+  }
+
+  test("copy should create a new card with the same value and new color") {
+    val originalCard = Card(cardColors.RED, cardValues.THREE)
+    val copiedCard = originalCard.copy(cardColors.GREEN)
+    assert(copiedCard.getColor == cardColors.GREEN)
+    assert(copiedCard.getValue == originalCard.getValue)
   }
 
   // Test case for randomCard generation
@@ -78,6 +90,19 @@ class CardsTest extends AnyFunSuite {
         //card.getValue == cardValues.SKIP || card.getValue == cardValues.REVERSE ||
         card.getValue == cardValues.DRAW_TWO || card.getValue == cardValues.WILD ||
         card.getValue == cardValues.WILD_DRAW_FOUR)
+    })
+  }
+  test("randomCards should return an empty list when i is 0") {
+    val cards = randomCards(0)
+    assert(cards.isEmpty)
+  }
+
+  test("randomCards should return a list of valid cards with the correct length") {
+    val cards = randomCards(5)
+    assert(cards.length == 5)
+    cards.foreach(card => {
+      assert(card.getColor != null)
+      assert(card.getValue != null)
     })
   }
 }
