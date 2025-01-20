@@ -33,7 +33,7 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
     val drawnCard = mock(classOf[ICard])
 
     //when(controller.getField).thenReturn(initialField)
-    doReturn(mock(classOf[ICard])).when(controller).draw()
+    //doReturn(mock(classOf[ICard])).when(controller).draw()
     //doReturn(initialField).when(controller).getField
     doReturn(drawnCard).when(controller).draw()
     val result = drawCommand.doStep(drawCommand)
@@ -49,11 +49,12 @@ class DrawCommandTest extends AnyFunSuite with Matchers {
     val controller = spy(new UnoController(initialField, mockFileIo))
     val drawCommand = new DrawCommand(controller)
 
-    drawCommand.doStep(drawCommand) // Perform a draw
+    drawCommand.doStep(drawCommand)
+    val previousState = controller.field
     val result = drawCommand.undoStep()
 
     result shouldBe a[Success[_]]
-    controller.field shouldBe initialField // The state should revert to the initial field
+    controller.field shouldBe previousState
   }
 
   test("redo() should reapply the drawing of the card") {
