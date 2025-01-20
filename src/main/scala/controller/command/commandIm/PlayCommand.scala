@@ -6,7 +6,7 @@ import model.gameComponent.{IUnoField, IPlayer, IPlayerHand}
 import util.*
 //import view.*
 import model.cardComponent.{ICard, cardColors, cardValues}
-import model.cardComponent.cardIm.randomCards
+import model.cardComponent.cardIm.{randomCards, Card}
 import scala.util.{Failure, Try}
 
 class PlayCommand(controller: IUnoController, card: ICard) extends util.Command {
@@ -32,64 +32,36 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
       case _ => 0
     }
 
-    /*val finalPlayers = if (cardsToDraw > 0) {
-      val drawnCards = randomCards(cardsToDraw)  // Draw random cards directly
-      val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard))
-      updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand))
-    } else {
-      updatedPlayers
-    }*/
-
-    /*val chosenColor = controller.getChosenColorFromGUI() match {
-      case Some(color) => color // If GUI-based color selection
-      case None => controller.getChosenColor() // If console-based color selection
-    }*/
-
-    //val newCurrentPlayer = if (card.value == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
-
-    // Handle Wild and Wild Draw Four cards with color selection
-    /*val updatedTopCard = card.value match {
-      case cardValues.WILD | cardValues.WILD_DRAW_FOUR =>
-        val chosenColor = controller.getChosenColor.getOrElse(cardColors.RED) // Prompt for color selection
-        card.copy(color = chosenColor)
-      case _ => card
-    }*/
-
     // Update game field
     val finalPlayers = if (cardsToDraw > 0) {
       val drawnCards = randomCards(cardsToDraw) // Draw random cards directly
       val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard))
       updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand))
     } else {
-      updatedPlayers
+      //updatedPlayers
+      controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
     }
-
-    /*val chosenColor = controller.getChosenColorFromGUI() match {
-      case Some(color) => color // If GUI-based color selection
-      case None => controller.getChosenColor() // If console-based color selection
-    }*/
-
-    //val newCurrentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
 
     // Handle Wild and Wild Draw Four cards with color selection
     val updatedTopCard = card.getValue match {
       case cardValues.WILD | cardValues.WILD_DRAW_FOUR =>
-        val chosenColor = controller.getChosenColor.getOrElse(cardColors.RED) // Prompt for color selection
-        card.copy(color = chosenColor)
+        controller.getChosenColor match {
+          case Some(chosenColor) =>
+            controller.setChosenColor(None)
+            card.asInstanceOf[Card].copy(color = chosenColor)
+          case None =>
+            throw new IllegalStateException("No color chosen for Wild or Wild Draw Four card")
+        }
       case _ => card
     }
 
-    // Update game field
-    /*controller.field = controller.field.copy(
-      players = finalPlayers.collect { case player: IPlayer => player },
-      topCard = card,
-      currentPlayer = newCurrentPlayer % controller.field.players.length
-    )
-    controller.notifyObservers(Event.Play)*/
     controller.field = controller.field.copy(
       players = finalPlayers,
       topCard = updatedTopCard,
-      currentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
+      currentPlayer = if (card.getValue == cardValues.SKIP | card.getValue == cardValues.REVERSE)
+                        (controller.field.currentPlayer + 2) % controller.field.players.length
+                      else
+                        (controller.field.currentPlayer + 1) % controller.field.players.length
     )
     controller.notifyObservers(Event.Play)
   }
@@ -121,13 +93,6 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     val isSkipCard = card.getValue == cardValues.SKIP
     val nextPlayer = if (isSkipCard) controller.field.currentPlayer else (controller.field.currentPlayer + 1) % controller.field.players.length
 
-    //val nextPlayer = (controller.field.currentPlayer + 1) % controller.field.players.length
-    /*controller.field = controller.field.copy(
-      players = updatedPlayers.collect { case player: IPlayer => player },
-      topCard = card,
-      currentPlayer = nextPlayer
-    )
-    controller.notifyObservers(Event.Redo)*/
     controller.field = controller.field.copy(
       players = updatedPlayers,
       topCard = card,

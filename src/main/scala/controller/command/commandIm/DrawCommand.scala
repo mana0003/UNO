@@ -34,7 +34,7 @@ class DrawCommand(controller: IUnoController) extends util.Command {
     val topCard: ICard = controller.field.topCard
     //val currentPlayer: Int = controller.field.currentPlayer
 
-    controller.field = controller.field.copy(players = updatedPlayers, topCard = topCard, currentPlayer = controller.field.currentPlayer)
+    controller.field = controller.field.copy(players = updatedPlayers, topCard = topCard, currentPlayer = (controller.field.currentPlayer + 1) % controller.field.players.length)
     controller.notifyObservers(Event.Draw)
   }
 
