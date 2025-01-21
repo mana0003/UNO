@@ -59,6 +59,10 @@ jobs:
       - name: Compile and test with coverage
         run: sbt clean coverage test coverageReport
 
+      - name: Display coverage report content
+        run: |
+          cat ./target/scala-3.3.1/scoverage-report/scoverage.xml
+
       - name: Upload coverage data to Coveralls
         uses: coverallsapp/github-action@v2.3.4
         with:
