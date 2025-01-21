@@ -16,8 +16,8 @@ import scala.util.{Failure, Try}
 
 
 class DrawCommand(controller: IUnoController) extends util.Command {
-  private var previousState: Option[IUnoField] = None
-  private var drawnCard: Option[ICard] = None
+  var previousState: Option[IUnoField] = None
+  var drawnCard: Option[ICard] = None
 
   override def doStep(command: Command): Try[Unit] = Try {
     previousState = Some(controller.field) // Save the current game state
@@ -28,9 +28,9 @@ class DrawCommand(controller: IUnoController) extends util.Command {
     val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))
 
     val updatedPlayers = controller.field.players.updated(
-  controller.field.currentPlayer,
-  updatedPlayer
-).collect { case player: IPlayer => player }
+      controller.field.currentPlayer,
+      updatedPlayer
+    ).collect { case player: IPlayer => player }
     val topCard: ICard = controller.field.topCard
     //val currentPlayer: Int = controller.field.currentPlayer
 
@@ -52,11 +52,11 @@ class DrawCommand(controller: IUnoController) extends util.Command {
     val newCard = drawnCard.get
 
     val currentPlayer = controller.field.players(controller.field.currentPlayer)
-    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))    
+    val updatedPlayer = currentPlayer.copy(hand = currentPlayer.hand.addCard(newCard))
     val updatedPlayers = controller.field.players.updated(
-  controller.field.currentPlayer,
-  updatedPlayer
-).collect { case player: IPlayer => player }
+      controller.field.currentPlayer,
+      updatedPlayer
+    ).collect { case player: IPlayer => player }
     val topCard: ICard = controller.field.topCard
     //val currentPlayer: Int = controller.field.currentPlayer
 
