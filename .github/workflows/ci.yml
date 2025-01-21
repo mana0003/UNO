@@ -27,8 +27,8 @@ jobs:
 
       - name: Set JAVA_HOME
         run: |
-          echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
-          echo "JAVA_HOME is set to: $JAVA_HOME"
+          echo "JAVA_HOME=$JAVA_HOME" >> $GITHUB_ENV
+          echo "JAVA_HOME path is: $JAVA_HOME"
 
       - name: Setup sbt
         uses: olafurpg/setup-scala@v14
@@ -37,6 +37,13 @@ jobs:
 
       - name: Check Java version
         run: java -version
+
+      - name: Set JAVA_HOME for sbt
+        run: |
+          echo "JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
+          echo "export PATH=$JAVA_HOME/bin:$PATH" >> ~/.bashrc
+          source ~/.bashrc
+          java -version  
 
       - name: Compile and test with coverage
         run: sbt clean coverage test coverageReport
