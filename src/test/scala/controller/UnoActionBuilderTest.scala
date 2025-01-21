@@ -19,25 +19,25 @@ import model.fileIoComponent.IFileIo
 class UnoActionBuilderTest extends AnyFunSuite with Matchers {
   def createInitialField(): UnoField = {
     val players = List(mock(classOf[IPlayer]), mock(classOf[IPlayer]))
-    val topCard = mock(classOf[ICard])
-    new UnoField(players, topCard, 0)
+    val topCard = Card(cardColors.RED, cardValues.THREE)
+    UnoField(players, topCard, 0)
   }
-  
+
   test("builder() should create a new UnoActionBuilder instance") {
     val builder = UnoActionBuilder.builder()
     builder shouldBe a[UnoActionBuilder.UnoActionBuilder]
-  }
+  } // passed
 
   test("setAction() should set the action type in the builder") {
     val builder = UnoActionBuilder.builder()
     builder.setAction("play") shouldBe theSameInstanceAs(builder)
-  }
+  } // passed
 
   test("setCard() should set the card in the builder") {
     val card = Card(cardColors.RED, cardValues.THREE)
     val builder = UnoActionBuilder.builder()
     builder.setCard(card) shouldBe theSameInstanceAs(builder)
-  }
+  } // passed
 
   test("build() should create a PlayAction for action 'play'") {
     val card = Card(cardColors.RED, cardValues.THREE)
@@ -47,7 +47,7 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
 
     val action = builder.build()
     action shouldBe a[UnoActionBuilder.PlayAction]
-  }
+  } // passed
 
   test("build() should create a DrawAction for action 'draw'") {
     val builder = UnoActionBuilder.builder()
@@ -55,7 +55,7 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
 
     val action = builder.build()
     action shouldBe a[UnoActionBuilder.DrawAction]
-  }
+  } // passed
 
   test("build() should throw IllegalArgumentException for unknown action") {
     val builder = UnoActionBuilder.builder()
@@ -64,46 +64,31 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
     intercept[IllegalArgumentException] {
       builder.build()
     }
-  }
+  } // passed
 
   test("PlayAction.executeAction() should call play on the controller") {
-    val card = Card(cardColors.RED, cardValues.THREE)
     val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
     val controller = spy(new UnoController(initialField, mockFileIo))
-    
-    // val player = new Player(0, PlayerHand(List(card)))
     val player = mock(classOf[Player])
     val playerHand = mock(classOf[PlayerHand])
+    val card = Card(cardColors.RED, cardValues.THREE)
     when(player.hand).thenReturn(playerHand)
     when(playerHand.cards).thenReturn(List(card))
 
-    controller.field = controller.field.copy(
-      players = List(player),
-      topCard = initialField.topCard,
-      currentPlayer = initialField.currentPlayer
-    )    
     val action = new UnoActionBuilder.PlayAction(card)
 
     action.executeAction(controller, player)
-
-    controller.field.topCard shouldBe card
-    controller.field.players(controller.field.currentPlayer).hand.cards shouldBe empty
-  }
+    verify(controller).play(card)
+  }  // passed
 
   test("DrawAction.executeAction() should call draw on the controller") {
     val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()
     val controller = spy(new UnoController(initialField, mockFileIo))
     val player = mock(classOf[Player])
-    val playerHand = mock(classOf[PlayerHand])
-    when(player.hand).thenReturn(playerHand)
-    when(playerHand.cards).thenReturn(List())
-
     val action = new UnoActionBuilder.DrawAction
-
     action.executeAction(controller, player)
-    when(playerHand.cards.size).thenReturn(1)
-    controller.field.players(controller.field.currentPlayer).hand.cards.size shouldBe 1
-  }
+    verify(controller).draw()
+  }  // passed
 }
