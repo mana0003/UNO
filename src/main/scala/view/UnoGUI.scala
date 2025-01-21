@@ -1,11 +1,9 @@
 package view
 
-//import UNO.images.*
-
 import controller.controllerComponent.IUnoController
 import scalafx.application.{JFXApp3, Platform}
 import scalafx.application.JFXApp3.PrimaryStage
-import scalafx.scene.Scene
+import scalafx.scene.{Scene, Node}
 import scalafx.scene.input.{KeyCode, KeyEvent}
 import scalafx.scene.layout.{HBox, Pane, StackPane, VBox}
 import scalafx.scene.paint.Color
@@ -19,6 +17,8 @@ import model.gameComponent.IPlayer
 import scalafx.scene.image.{Image, ImageView}
 import controller.patterns.{ConcreteUnoActionProcessor, UnoActionHandler, UnoActionProcessor, UnoActionStrategy}
 import controller.controllerComponent.ControllerIm.UnoController
+import scalafx.util.Duration
+import scalafx.animation.TranslateTransition
 
 trait State {
   def display(pane: Pane): Unit
@@ -30,8 +30,8 @@ class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
     val currentPlayer = controller.getField.players(controller.getCurrentPlayer)
 
     val logoImage = new ImageView(new Image(getClass.getResource("/extras/Logo.png").toString)) {
-      fitHeight = 200
-      fitWidth = 300
+      fitHeight = 400
+      fitWidth = 500
       preserveRatio = true
     }
 
@@ -71,8 +71,19 @@ class BeginState(gui: UnoGUI, controller: IUnoController) extends State {
 
 //var cPlayer = controller.field.currentPlayer
 // Update the GameState class to use images for the cards
+def slideDown(targetNode: Node, onFinish: => Unit): Unit = {
+  val transition = new TranslateTransition {
+    duration = Duration(500)
+    byY = 600
+    node = targetNode
+    onFinished = _ => onFinish
+  }
+  transition.play()
+}
+
 class GameState(gui: UnoGUI, controller: IUnoController) extends State {
   private val cardThreshold = 7
+
   override def display(pane: Pane): Unit = {
     println("Inside GameState display")
     pane.children.clear()
@@ -117,8 +128,8 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
             showColorButtons(card, pane)
             if (controller.getChosenColor.isDefined) {
               controller.play(card.asInstanceOf[Card].copy(color = controller.getChosenColor.get))
+              Platform.runLater(() => gui.display())
             }
-            Platform.runLater(() => gui.display())
           } else if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayed(controller.field.topCard)) {
             controller.play(card.asInstanceOf[Card])
             Platform.runLater(() => gui.display())
@@ -266,7 +277,7 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
       width = 800
       height = 600
       scene = new Scene {
-        fill = Color.Pink
+        fill = Color.DarkRed
         content = rootPane
       }
     }
