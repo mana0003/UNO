@@ -26,7 +26,9 @@ object UnoActionBuilder {
 
     def build(): UnoAction = {
       action match {
-        case "play" => new PlayAction(card)
+        case "play" =>
+          if (card == null) throw new IllegalStateException("Card must be set for play action")
+          new PlayAction(card)
         case "draw" => new DrawAction
         case _ => throw new IllegalArgumentException("Unknown action")
       }
@@ -39,6 +41,7 @@ object UnoActionBuilder {
 
   class PlayAction(card: ICard) extends UnoAction {
     override def executeAction(controller: IUnoController, player: IPlayer): Unit = {
+      //controller.play(card.asInstanceOf[Card])
       controller.play(card.asInstanceOf[Card])
     }
   }

@@ -19,6 +19,7 @@ import controller.patterns.{ConcreteUnoActionProcessor, UnoActionHandler, UnoAct
 import controller.controllerComponent.ControllerIm.UnoController
 import scalafx.util.Duration
 import scalafx.animation.TranslateTransition
+import controller.patterns.UnoActionBuilder.*
 
 trait State {
   def display(pane: Pane): Unit
@@ -326,7 +327,8 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
   }
 
   def processPlayerAction(player: IPlayer, action: String): Unit = {
-    val actionProcessor = new ConcreteUnoActionProcessor()
+    val actionBuilder = new UnoActionBuilder()
+    val actionProcessor = new ConcreteUnoActionProcessor(actionBuilder)
     actionProcessor.processAction(controller.asInstanceOf[UnoController], player, action)
   }
 

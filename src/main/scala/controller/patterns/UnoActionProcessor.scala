@@ -3,6 +3,7 @@ package controller.patterns
 
 import controller.*
 import controller.controllerComponent.ControllerIm.UnoController
+import controller.patterns.UnoActionBuilder.*
 import model.*
 import model.gameComponent.IPlayer
 import util.Event
@@ -19,7 +20,6 @@ abstract class UnoActionProcessor() {
     println(s"Validating action: $action for player: ${player.id}")
     action match {
       case "play" =>
-        // check if player played a valid card
         if (!player.valid(controller.field.topCard)) {
           throw new IllegalArgumentException("Card does not fit.")
         }
@@ -45,7 +45,7 @@ abstract class UnoActionProcessor() {
   def handleAction(controller: UnoController, player: IPlayer, action: String): Unit
 }
 
-class ConcreteUnoActionProcessor extends UnoActionProcessor {
+class ConcreteUnoActionProcessor(actionBuilder: UnoActionBuilder) extends UnoActionProcessor {
   override def handleAction(controller: UnoController, player: IPlayer, action: String): Unit = {
     val handler = UnoActionBuilder.builder().setAction(action).build()
     handler.executeAction(controller, player)
