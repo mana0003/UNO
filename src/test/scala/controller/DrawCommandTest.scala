@@ -26,7 +26,7 @@ import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.mockito.MockitoSugar
 import org.mockito.Mockito._
 
-class DrawCommandSpec extends AnyWordSpec with MockitoSugar {
+class DrawCommandTest extends AnyWordSpec with MockitoSugar {
 
   "A DrawCommand" when {
 
@@ -62,6 +62,7 @@ class DrawCommandSpec extends AnyWordSpec with MockitoSugar {
       }  // passed
 
       "fail if no previous state is available" in {
+        drawCommand.previousState = None
         drawCommand.undoStep() shouldBe a[Failure[_]]
       }  // passed
     }  // passed
@@ -76,14 +77,10 @@ class DrawCommandSpec extends AnyWordSpec with MockitoSugar {
         when(unoFieldMock.topCard).thenReturn(mock[ICard])
       }  // passed
 
-      "fail if no card was drawn previously" in {  // failed
-        // Ensure no drawn card is set
-        // Ensure no drawn card is set
-        when(drawCommand.drawnCard).thenReturn(None)
-
-        // Execute redo
+      "fail if no card was drawn previously" in {
+        drawCommand.drawnCard = None
         drawCommand.redoStep() shouldBe a[Failure[_]]
-      }
+      }  // passed
     }
   }
 }
