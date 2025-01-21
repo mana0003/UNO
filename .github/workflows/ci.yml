@@ -23,11 +23,13 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Set JAVA_HOME to Java 21
-        run: echo "JAVA_HOME=/usr/lib/jvm/java-21-temurin" >> $GITHUB_ENV
+      - name: Check Java version
+        run: java -version
 
-      - name: Display JAVA_HOME
-        run: echo $JAVA_HOME
+      - name: Set JAVA_HOME
+        run: |
+          echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
+          echo "JAVA_HOME is set to: $JAVA_HOME"
 
       - name: Setup sbt
         uses: olafurpg/setup-scala@v14
