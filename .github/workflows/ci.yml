@@ -23,8 +23,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Check Java version
-        run: java -version
+
 
       - name: Set JAVA_HOME
         run: |
@@ -35,6 +34,9 @@ jobs:
         uses: olafurpg/setup-scala@v14
         with:
           java-version: '21'
+
+      - name: Check Java version
+        run: java -version
 
       - name: Compile and test with coverage
         run: sbt clean coverage test coverageReport
