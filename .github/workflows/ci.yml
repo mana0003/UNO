@@ -21,10 +21,19 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '21'
-          distribution: 'adopt'
+          distribution: 'temurin'
 
-      - name: Check Java version
-        run: java -version
+      - name: Clean sbt caches
+        run: sbt clean cleanFiles
+
+      - name: Set JAVA_HOME to Java 21
+        run: echo "JAVA_HOME=/usr/lib/jvm/java-21-temurin" >> $GITHUB_ENV
+
+      - name: Display JAVA_HOME
+        run: echo $JAVA_HOME
+
+      - name: Check Java version in sbt
+        run: sbt "show javaVersion"
 
       - name: Setup sbt
         uses: olafurpg/setup-scala@v14

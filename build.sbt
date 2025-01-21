@@ -5,6 +5,8 @@ lazy val root = project
   .settings(
     name := "uno",
     version := "0.1.0-SNAPSHOT",
+    javaHome := Some(file("/usr/lib/jvm/java-21-temurin")),
+
 
     scalaVersion := scala3Version,
     Compile / mainClass := Some("UNO.Main"),
