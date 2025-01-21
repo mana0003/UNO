@@ -37,7 +37,7 @@ jobs:
           java-version: '21'
 
       - name: Compile and test with coverage
-        run: sbt clean coverage test coverageReport coverageAggregate
+        run: sbt clean coverage test coverageReport
           #working-directory: ./UNO
 
           #  - name: Upload coverage data to Coveralls
