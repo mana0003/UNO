@@ -31,9 +31,7 @@ case class Player @Inject() (id: Int, hand: IPlayerHand) extends IPlayer {
       <id>
         {id}
       </id>
-      <hand>
         {hand.toXml}
-      </hand>
     </player>
   }
 }

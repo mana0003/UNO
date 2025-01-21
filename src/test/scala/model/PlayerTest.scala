@@ -1,15 +1,15 @@
 package model
 
-import model.cardComponent.ICard
+import model.cardComponent.{ICard, cardColors, cardValues}
 import model.cardComponent.cardIm.Card
 import model.gameComponent.{IPlayer, IPlayerHand}
-import model.gameComponent.gameIm.Player
+import model.gameComponent.gameIm.{Player, PlayerHand, UnoField}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 import org.scalatestplus.mockito.MockitoSugar
 import org.mockito.Mockito._
 import scala.util.{Failure, Success}
-import scala.xml.Node
+import scala.xml.{Node, Utility}
 
 class PlayerTest extends AnyFlatSpec with Matchers with MockitoSugar {
 
@@ -88,16 +88,27 @@ class PlayerTest extends AnyFlatSpec with Matchers with MockitoSugar {
   }
 
   it should "serialize to XML correctly" in {
-    val mockHand = mock[IPlayerHand]
-    val player = Player(1, mockHand)
+    val playerHand = PlayerHand(List(
+      Card(cardColors.RED, cardValues.ONE),
+      Card(cardColors.BLUE, cardValues.SKIP)
+    ))
+    val player = new Player(1, playerHand)
 
-    when(mockHand.toXml).thenReturn(<hand><card>Card1</card></hand>)
+    val expectedXml =
+      <player>
+        <id>1</id>
+        <hand>
+          <card>
+            <color>RED</color>
+            <value>ONE</value>
+          </card>
+          <card>
+            <color>BLUE</color>
+            <value>SKIP</value>
+          </card>
+        </hand>
+      </player>
 
-    val xml: Node = player.toXml
-
-    xml.toString() should include("<player>")
-    xml.toString() should include("<id>1</id>")
-    xml.toString() should include("<hand>")
-    xml.toString() should include("<card>Card1</card>")
+    player.toXml should equal(expectedXml)
   }
 }
