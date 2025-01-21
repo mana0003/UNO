@@ -23,12 +23,7 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     if (!card.canBePlayed(controller.field.topCard)) {
       throw new IllegalArgumentException("Card cannot be played on the current top card")
     }
-
-
-    /*if (!card.canBePlayed(controller.field.topCard)) {
-      throw new IllegalArgumentException("Card cannot be played on the current top card")
-    }*/
-    //val updatedCurrentPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
+    
     val updatedCurrentPlayer = currentPlayer.copy(
       hand = currentPlayer.hand.removeCard(card)
     )
@@ -42,13 +37,11 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
 
     // Update game field
     val finalPlayers = if (cardsToDraw > 0) {
-      val drawnCards = randomCards(cardsToDraw) // Draw random cards directly
-      val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard)) // next Player
-      updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand)) // next Player
-      // remove the card from the current player
+      val drawnCards = randomCards(cardsToDraw) 
+      val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard)) 
+      updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand)) 
     } else {
-      //updatedPlayers
-      controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
+      updatedPlayers
     }
 
     val newCurrentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
@@ -65,7 +58,6 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
         }
       case _ => card
     }
-    // Remove the wild card from the current player's hand
     controller.field = controller.field.copy(
       players = finalPlayers,
       topCard = updatedTopCard,
