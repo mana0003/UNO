@@ -58,26 +58,12 @@ jobs:
 
       - name: Compile and test with coverage
         run: sbt clean coverage test coverageReport
-          #working-directory: ./UNO
-
-          #  - name: Upload coverage data to Coveralls
-          #run: sbt coverageAggregate coveralls
-          #env:
-          #  COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #  COVERALLS_FLAG_NAME: Scala ${{ matrix.scala }}
-
-          #- name: Coveralls GitHub Action
-          # uses: coverallsapp/github-action@v2.3.4
-        #with:
-        # path-to-lcov: ./UNO/target/scala-3.3.1/scoverage-report/scoverage.xml
-        # env:
-        #  COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
       - name: Upload coverage data to Coveralls
         uses: coverallsapp/github-action@v2.3.4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./target/scala-3.3.1/scoverage-report/scoverage.xml
+          path-to-lcov: ./target/scala-3.3.1/scoverage-report/index.xml
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
@@ -85,10 +71,4 @@ jobs:
 
       - name: Package jar
         run: sbt package
-        #working-directory: ./UNO
 
-     # - name: Upload coverage data to Coveralls
-     #   run: sbt coverageReport coveralls
-     #   env:
-     #     COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-     #     COVERALLS_FLAG_NAME: Scala ${{ matrix.scala }}
