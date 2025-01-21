@@ -29,9 +29,6 @@ jobs:
       - name: Display JAVA_HOME
         run: echo $JAVA_HOME
 
-      - name: Check Java version in sbt
-        run: sbt "show javaVersion"
-
       - name: Setup sbt
         uses: olafurpg/setup-scala@v14
         with:
