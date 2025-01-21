@@ -23,6 +23,9 @@ jobs:
           java-version: '21'
           distribution: 'adopt'
 
+      - name: Check Java version
+        run: java -version
+
       - name: Setup sbt
         uses: olafurpg/setup-scala@v14
         with:
