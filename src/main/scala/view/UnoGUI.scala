@@ -126,10 +126,10 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
         cardImage.onMouseClicked = _ => {
           if (card.getValue == cardValues.WILD || card.getValue == cardValues.WILD_DRAW_FOUR) {
             showColorButtons(card, pane)
-            if (controller.getChosenColor.isDefined) {
+            /*if (controller.getChosenColor.isDefined) {
               controller.play(card.asInstanceOf[Card].copy(color = controller.getChosenColor.get))
               Platform.runLater(() => gui.display())
-            }
+            }*/
           } else if (controller.field.players(controller.field.currentPlayer).valid(card) && card.canBePlayed(controller.field.topCard)) {
             controller.play(card.asInstanceOf[Card])
             Platform.runLater(() => gui.display())
@@ -318,7 +318,7 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
             initOwner(stage)
             title = "Game Over"
             headerText = None
-            contentText = s"Player ${controller.getField.currentPlayer + 1} has won the game!"
+            contentText = s"Player ${controller.getField.currentPlayer} has won the game!"
           }.showAndWait()
           controller.notifyObservers(Event.Quit)
         })

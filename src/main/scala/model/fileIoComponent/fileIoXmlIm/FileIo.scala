@@ -37,29 +37,9 @@ class FileIo @Inject() (var fileName: String) extends IFileIo {
 
     val currentPlayer = (file \ "currentPlayer").text.toInt
     return UnoField(players, topCard, currentPlayer).asInstanceOf[IUnoField]
-    //val injector = Guice.createInjector(new MainModule)
-    /*val unoField = injector.instance[IUnoField]
-
-    val players = (file \ "players" \ "player").map { playerNode =>
-      // Deserialize player from XML
-      injector.instance[IPlayer] // Replace this with actual deserialization logic
-    }.toList
-
-    val playerHands = (file \ "playerHands" \ "playerHand").map { handNode =>
-      // Deserialize player hand from XML
-      injector.instance[IPlayerHand] // Replace this with actual deserialization logic
-    }.toList
-    unoField*/
   }
 
   override def save(unoField: IUnoField): Unit = {
-    /*Using(new PrintWriter(fileName)) { writer =>
-      writer.write(PrettyPrinter(120, 4).format(unoField.toXml))
-    }
-    val pw = new PrintWriter(new File("uno.xml"))
-
-    pw.write(new scala.xml.PrettyPrinter(80, 2).format(unoField.toXml))
-    pw.close()*/
     val xml =
       <unoField>
         <players>

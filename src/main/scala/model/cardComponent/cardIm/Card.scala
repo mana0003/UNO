@@ -29,16 +29,7 @@ class Card @Inject() (color: cardColors, value: cardValues) extends ICard {
   def copy(color: cardColors): ICard = {
     Card(color, getValue)
   }
-  /*def toXml: scala.xml.Node = {
-    <card>
-      <color>
-        {color}
-      </color>
-      <value>
-        {value}
-      </value>
-    </card>
-  }*/
+
   def toXml: scala.xml.Node =
     <card>
       <color>

@@ -1,91 +1,103 @@
 package model
-import org.scalatest.wordspec.AnyWordSpec
-import org.scalatest.matchers.should.Matchers.*
-import model.*
-import view.*
-import util.*
-import controller.*
+
+import model.cardComponent.ICard
 import model.cardComponent.cardIm.Card
-import model.cardComponent.{cardColors, cardValues}
-import scala.util.{Failure, Success}
+import model.gameComponent.{IPlayer, IPlayerHand}
+import model.gameComponent.gameIm.Player
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
+import org.scalatestplus.mockito.MockitoSugar
 import org.mockito.Mockito._
-import model.gameComponent.gameIm
-import model.gameComponent.IPlayerHand
-import model.gameComponent.gameIm.{Player, PlayerHand}
+import scala.util.{Failure, Success}
+import scala.xml.Node
 
-class PlayerTest extends AnyWordSpec {
-  "Player" should {
-    "be created with a hand of cards" in {
-      val mockHand = mock(classOf[IPlayerHand])
-      when(mockHand.cards).thenReturn(List(Card(cardColors.RED, cardValues.ONE)))
-      val player = Player(0, mockHand)
+class PlayerTest extends AnyFlatSpec with Matchers with MockitoSugar {
 
-      player.id should be(0)
-      player.hand.cards should contain(Card(cardColors.RED, cardValues.ONE))
+  "Player" should "create a copy with a new hand" in {
+    val mockHand = mock[IPlayerHand]
+    val player = Player(1, mockHand)
+
+    val newHand = mock[IPlayerHand]
+    val copiedPlayer = player.copy(newHand)
+
+    copiedPlayer.hand shouldEqual newHand
+    copiedPlayer.id shouldEqual player.id
+  }
+
+  it should "return true if the card can be played" in {
+    val mockHand = mock[IPlayerHand]
+    val mockCard = mock[ICard]
+    val player = Player(1, mockHand)
+
+    when(mockHand.cards).thenReturn(List(mockCard))
+    when(mockCard.canBePlayed(mockCard)).thenReturn(true)
+
+    player.valid(mockCard) shouldEqual true
+  }
+
+  it should "return false if the card cannot be played" in {
+    val mockHand = mock[IPlayerHand]
+    val mockCard = mock[ICard]
+    val player = Player(1, mockHand)
+
+    when(mockHand.cards).thenReturn(List(mockCard))
+    when(mockCard.canBePlayed(mockCard)).thenReturn(false)
+
+    player.valid(mockCard) shouldEqual false
+  }
+
+  it should "successfully play a valid card" in {
+    val mockHand = mock[IPlayerHand]
+    val mockCard = mock[ICard]
+    val player = Player(1, mockHand)
+
+    when(mockHand.cards).thenReturn(List(mockCard))
+    when(mockCard.canBePlayed(mockCard)).thenReturn(true)
+    when(mockHand.removeCard(mockCard)).thenReturn(mockHand)
+
+    player.play(mockCard) shouldEqual Success(Player(1, mockHand))
+  }
+
+  it should "fail to play an invalid card" in {
+    val mockHand = mock[IPlayerHand]
+    val mockCard = mock[ICard]
+    val player = Player(1, mockHand)
+
+    when(mockHand.cards).thenReturn(List(mockCard))
+    when(mockCard.canBePlayed(mockCard)).thenReturn(false)
+
+    val actual = player.play(mockCard)
+
+    actual match {
+      case Failure(e) =>
+        // Print the actual exception and message for debugging purposes
+        println(s"Actual failure message: ${e.getMessage}")
+        println(s"Actual failure type: ${e.getClass.getName}")
+
+        // Check if the exception message is what we expect
+        e.getMessage shouldEqual "Illegal move."
+
+        // Check if the exception type is the expected one
+        e shouldBe a[IllegalArgumentException]
+
+      case _ =>
+        fail("Expected Failure")
     }
-    "copy a player with a new hand" in {
-      val hand1 = PlayerHand(List(Card(cardColors.RED, cardValues.ONE)))
-      val player1 = Player(0, hand1)
-      val hand2 = PlayerHand(List(Card(cardColors.BLUE, cardValues.TWO)))
-      val player2 = player1.copy(hand2)
 
-      player2.id should be(0)
-      player2.hand.cards should contain(Card(cardColors.BLUE, cardValues.TWO))
-    }
-    "validate a card" in {
-      val player = Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.ONE))))
-      val validCard = Card(cardColors.RED, cardValues.ONE)
-      val invalidCard = Card(cardColors.BLUE, cardValues.TWO)
+    //player.play(mockCard) shouldEqual Failure(new IllegalArgumentException("Illegal move."))
+  }
 
-      player.valid(validCard) should be(true) // Valid card
-      player.valid(invalidCard) should be(false) // Invalid card
-    }
-    "play a valid card" in {
-      val player = Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.ONE))))
-      val validCard = Card(cardColors.RED, cardValues.ONE)
+  it should "serialize to XML correctly" in {
+    val mockHand = mock[IPlayerHand]
+    val player = Player(1, mockHand)
 
-      player.play(validCard) match {
-        case Success(p) => p.hand.cards should not contain validCard
-        case Failure(_) => fail("Card play should succeed")
-      }
-    }
+    when(mockHand.toXml).thenReturn(<hand><card>Card1</card></hand>)
 
-    "fail to play an invalid card" in {
-      val player = Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.ONE))))
-      val invalidCard = Card(cardColors.BLUE, cardValues.TWO)
+    val xml: Node = player.toXml
 
-      player.play(invalidCard) match {
-        case Success(_) => fail("Card play should fail")
-        case Failure(ex) => ex shouldBe a[IllegalArgumentException]
-      }
-    }
-
-    "serialize to XML" in {
-      val player = Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.ONE))))
-      val xml = player.toXml
-
-      (xml \ "player" \ "id").text should be("0")
-      //(xml \ "player" \ "hand").nonEmpty should be(true)
-
-      (xml \ "player" \ "hand" \ "card").size should be(1)
-      (xml \ "player" \ "hand" \ "card" \ "color").text should be("Red")
-      (xml \ "player" \ "hand" \ "card" \ "value").text should be("1")
-    }
-
-    /*"play a card" in {
-      val player = gameIm.Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.ONE))))
-      val card = Card(cardColors.RED, cardValues.ONE)
-      player.play(card).isSuccess should be (true)
-    }
-    "check if card is valid" in {
-      val player = gameIm.Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.ONE))))
-      val card = Card(cardColors.RED, cardValues.ONE)
-      player.valid(card) should be (true)
-    }
-    "not play a card" in {
-      val player = gameIm.Player(0, PlayerHand(List(Card(cardColors.RED, cardValues.ONE))))
-      val card = Card(cardColors.BLUE, cardValues.TWO)
-      player.play(card).isFailure should be (true)
-    }*/
+    xml.toString() should include("<player>")
+    xml.toString() should include("<id>1</id>")
+    xml.toString() should include("<hand>")
+    xml.toString() should include("<card>Card1</card>")
   }
 }

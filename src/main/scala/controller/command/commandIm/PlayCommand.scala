@@ -20,9 +20,26 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     val nextPlayerIndex = (controller.field.currentPlayer + 1) % controller.field.players.length
     val nextPlayer = controller.field.players(nextPlayerIndex)
 
-    if (!card.canBePlayed(controller.field.topCard)) {
+    val updatedTopCard = card.getValue match {
+      case cardValues.WILD | cardValues.WILD_DRAW_FOUR =>
+        controller.getChosenColor match {
+          case Some(chosenColor) =>
+            controller.setChosenColor(None)
+            card.asInstanceOf[Card].copy(color = chosenColor)
+          case None =>
+            throw new IllegalStateException("No color chosen for Wild or Wild Draw Four card")
+        }
+      case _ => card
+    }
+
+    if (!updatedTopCard.canBePlayed(controller.field.topCard)) {
       throw new IllegalArgumentException("Card cannot be played on the current top card")
     }
+
+
+    /*if (!card.canBePlayed(controller.field.topCard)) {
+      throw new IllegalArgumentException("Card cannot be played on the current top card")
+    }*/
     //val updatedCurrentPlayer = currentPlayer.copy(hand = currentPlayer.hand.removeCard(card))
     val updatedCurrentPlayer = currentPlayer.copy(
       hand = currentPlayer.hand.removeCard(card)
@@ -42,33 +59,18 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
       updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand)) // next Player
       // remove the card from the current player
     } else {
-      //updatedPlayers
-      controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
+      updatedPlayers
+      //controller.field.players.updated(controller.field.currentPlayer, updatedCurrentPlayer)
     }
 
     val newCurrentPlayer = if (card.getValue == cardValues.SKIP) (controller.field.currentPlayer + 2) % controller.field.players.length else nextPlayerIndex
 
-    // Handle Wild and Wild Draw Four cards with color selection
-    val updatedTopCard = card.getValue match {
-      case cardValues.WILD | cardValues.WILD_DRAW_FOUR =>
-        controller.getChosenColor match {
-          case Some(chosenColor) =>
-            controller.setChosenColor(None)
-            card.asInstanceOf[Card].copy(color = chosenColor)
-          case None =>
-            throw new IllegalStateException("No color chosen for Wild or Wild Draw Four card")
-        }
-      case _ => card
-    }
-
     controller.field = controller.field.copy(
       players = finalPlayers,
       topCard = updatedTopCard,
-      currentPlayer = if (card.getValue == cardValues.SKIP)
-                        (controller.field.currentPlayer + 2) % controller.field.players.length
-                      else
-                        (controller.field.currentPlayer + 1) % controller.field.players.length
+      currentPlayer = newCurrentPlayer
     )
+
     if(updatedCurrentPlayer.hand.cards.isEmpty) {
       controller.notifyObservers(Event.Win)
     } else {
