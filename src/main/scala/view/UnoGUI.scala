@@ -301,6 +301,16 @@ class UnoGUI(controller: IUnoController) extends JFXApp3 with Observer {
         })
       case Event.Quit =>
         Platform.exit()
+      case Event.Win =>
+        Platform.runLater(() => {
+          new scalafx.scene.control.Alert(scalafx.scene.control.Alert.AlertType.Information) {
+            initOwner(stage)
+            title = "Game Over"
+            headerText = None
+            contentText = s"Player ${controller.getField.currentPlayer + 1} has won the game!"
+          }.showAndWait()
+          controller.notifyObservers(Event.Quit)
+        })
     }
   }
 

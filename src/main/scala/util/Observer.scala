@@ -32,5 +32,6 @@ enum Event {
   , Redo
   , Error
   , Load
+  , Win
 }
 

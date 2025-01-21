@@ -2,10 +2,12 @@ package controller.command.commandIm
 
 import controller.*
 import controller.controllerComponent.IUnoController
-import model.gameComponent.{IUnoField, IPlayer, IPlayerHand}
+import model.gameComponent.{IPlayer, IPlayerHand, IUnoField}
 import util.*
 import model.cardComponent.{ICard, cardColors, cardValues}
-import model.cardComponent.cardIm.{randomCards, Card}
+import model.cardComponent.cardIm.{Card, randomCards}
+import util.Event.Win
+
 import scala.util.{Failure, Try}
 
 class PlayCommand(controller: IUnoController, card: ICard) extends util.Command {
@@ -67,7 +69,11 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
                       else
                         (controller.field.currentPlayer + 1) % controller.field.players.length
     )
-    controller.notifyObservers(Event.Play)
+    if(updatedCurrentPlayer.hand.cards.isEmpty) {
+      controller.notifyObservers(Event.Win)
+    } else {
+      controller.notifyObservers(Event.Play)
+    }
   }
 
   override def undoStep(): Try[Unit] = previousState match {
