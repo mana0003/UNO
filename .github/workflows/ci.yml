@@ -33,7 +33,7 @@ jobs:
       - name: Setup sbt
         uses: olafurpg/setup-scala@v14
         with:
-          java-version: '21'
+          scala-version: '3.3.1'
 
       - name: Check Java version
         run: java -version
