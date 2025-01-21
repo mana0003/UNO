@@ -31,6 +31,11 @@ jobs:
           echo "JAVA_HOME path is: $JAVA_HOME"
 
       - name: Setup sbt
+        uses: coursier/setup-action@v1
+        with:
+          apps: sbt
+
+      - name: Setup Scala
         uses: olafurpg/setup-scala@v14
         with:
           scala-version: '3.3.1'
