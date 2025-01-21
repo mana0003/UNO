@@ -12,6 +12,22 @@ import java.io.File
 
 
 class FileIoXmlTest extends AnyWordSpec with Matchers {
+  def normalize(xml: Elem): Elem = {
+    def trimText(node: scala.xml.Node): scala.xml.Node = {
+      node match {
+        case e: scala.xml.Elem =>
+          e.copy(child = e.child.map(trimText))
+        case t: scala.xml.Text =>
+          scala.xml.Text(t.text.trim)
+        case other => other
+      }
+    }
+    trimText(xml) match {
+      case e: scala.xml.Elem => e
+      case _ => throw new IllegalArgumentException("Expected an Elem")
+    }
+  }
+
   val testFileName = "testUno.xml"
 
   "A FileIo" should {
@@ -92,10 +108,10 @@ class FileIoXmlTest extends AnyWordSpec with Matchers {
       val fileIo = new FileIo(testFileName)
       fileIo.save(unoField)
 
-      val loadedXml = XML.loadFile(testFileName)
+      val loadedXml = normalize(XML.loadFile(testFileName))
       (loadedXml \ "players" \ "player").length should be(2)
-      (loadedXml \ "topCard" \ "color").text should be("RED")
-      (loadedXml \ "topCard" \ "value").text should be("FIVE")
+      (loadedXml \ "topCard" \ "card" \ "color").text should be("RED")
+      (loadedXml \ "topCard" \ "card" \ "value").text should be("FIVE")
       (loadedXml \ "currentPlayer").text should be("0")
 
       new File(testFileName).delete()
