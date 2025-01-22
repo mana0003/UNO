@@ -71,7 +71,6 @@ jobs:
         java-version: '21'
         distribution: 'adopt'
 
-
     - name: Install SBT
       run: |
         echo "Installing SBT..."
