@@ -30,7 +30,6 @@ jobs:
           distribution: 'temurin'
 
 
-
       - name: Set JAVA_HOME
         run: |
           echo "JAVA_HOME=$JAVA_HOME" >> $GITHUB_ENV
@@ -40,11 +39,6 @@ jobs:
         uses: coursier/setup-action@v1
         with:
           apps: sbt
-
-      #- name: Setup Scala
-      #  uses: olafurpg/setup-scala@v14
-      #  with:
-      #    scala-version: '3.3.1'
 
       - name: Check Java version
         run: java -version
@@ -66,15 +60,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-
-
-        #   - name: Upload coverage data to Coveralls
-    #    uses: coverallsapp/github-action@v2.3.4
-     #   with:
-      #    github-token: ${{ secrets.GITHUB_TOKEN }}
-       #   path-to-lcov: ./target/scala-3.3.1/scoverage-report/scoverage.xml
-       # env:
-        #  COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
       - name: Package jar
         run: sbt package
