@@ -19,6 +19,12 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
+    - name: Install SBT
+      run: |
+        echo "Installing SBT..."
+        sudo apt-get update
+        sudo apt-get install -y sbt
+
     - name: Cache SBT
       uses: actions/cache@v2
       with:
