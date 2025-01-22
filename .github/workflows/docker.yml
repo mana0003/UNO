@@ -81,9 +81,13 @@ jobs:
         sudo apt-get install -y sbt
 
     - name: Create tag
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT }}
       run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git tag v1.0.0
-        git push origin v1.0.0
+        git push https://x-access-token:${{ secrets.PAT }}@github.com/mana0003/UNO.git v1.0.0
 
     - name: Create release
       uses: softprops/action-gh-release@v1
