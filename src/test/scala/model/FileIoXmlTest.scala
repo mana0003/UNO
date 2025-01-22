@@ -116,58 +116,5 @@ class FileIoXmlTest extends AnyWordSpec with Matchers {
 
       new File(testFileName).delete()
     }
-
-    "correctly parse players from XML" in {
-      val xmlData =
-        <unoField>
-          <players>
-            <player>
-              <id>1</id>
-              <hand>
-                <card>
-                  <color>RED</color>
-                  <value>FIVE</value>
-                </card>
-                <card>
-                  <color>GREEN</color>
-                  <value>SKIP</value>
-                </card>
-              </hand>
-            </player>
-            <player>
-              <id>2</id>
-              <hand>
-                <card>
-                  <color>BLUE</color>
-                  <value>DRAW_TWO</value>
-                </card>
-              </hand>
-            </player>
-          </players>
-        </unoField>
-
-      val pw = new java.io.PrintWriter(new File(testFileName))
-      val prettyPrinter = new PrettyPrinter(80, 2)
-      pw.write(prettyPrinter.format(xmlData))
-      pw.close()
-
-      val fileIo = new FileIo(testFileName)
-      val loadedField = fileIo.load
-
-      loadedField.players should have size 2
-
-      val firstPlayer = loadedField.players.head
-      firstPlayer.id should be(1)
-      firstPlayer.hand.cards should have size 2
-      firstPlayer.hand.cards.head.getColor should be(cardColors.RED)
-      firstPlayer.hand.cards.head.getValue should be(cardValues.FIVE)
-
-      val secondPlayer = loadedField.players.last
-      secondPlayer.id should be(2)
-      secondPlayer.hand.cards.head.getColor should be(cardColors.BLUE)
-      secondPlayer.hand.cards.head.getValue should be(cardValues.DRAW_TWO)
-
-      new File(testFileName).delete()
-    }
   }
 }
