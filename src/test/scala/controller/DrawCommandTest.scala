@@ -3,7 +3,7 @@ package controller
 
 import controller.controllerComponent.IUnoController
 import model.cardComponent.{ICard, cardColors, cardValues}
-import model.gameComponent.IPlayer
+import model.gameComponent.{IPlayer, IUnoField}
 import model.gameComponent.gameIm.UnoField
 import org.mockito.Mockito._
 import org.scalatest.funsuite.AnyFunSuite
@@ -83,6 +83,67 @@ class DrawCommandTest extends AnyWordSpec with MockitoSugar {
       }  // passed
     }
   }
+
+  "doStep" should {
+    "update the player's hand and move to the next player" in {
+      val controllerMock = mock[IUnoController]
+      //val initialField = UnoField(List(mock[IPlayer], mock[IPlayer]), mock[ICard], 0)
+      val initialField = mock[IUnoField]
+      val card = mock[ICard]
+      val player = mock[IPlayer]
+      val updatedPlayer = mock[IPlayer]
+      val playerHand = mock[IPlayerHand]
+      val updatedHand = mock[IPlayerHand]
+
+      when(controllerMock.field).thenReturn(initialField)
+      when(initialField.players).thenReturn(List(player, mock[IPlayer]))
+      when(initialField.currentPlayer).thenReturn(0)
+      when(player.hand).thenReturn(playerHand)
+      when(playerHand.addCard(any[ICard])).thenReturn(updatedHand)
+      when(player.copy(hand = updatedHand)).thenReturn(updatedPlayer)
+      when(initialField.copy(players = any[List[IPlayer]],
+        topCard = any[ICard], currentPlayer = any[Int])).thenReturn(initialField)
+     // when(controllerMock.field.players).thenReturn(List(player, mock[IPlayer]))
+     // when(controllerMock.field.currentPlayer).thenReturn(0)
+      //when(player.copy(hand = playerHand)).thenReturn(player)
+
+      val drawCommand = new DrawCommand(controllerMock)
+      drawCommand.drawnCard = Some(card)
+      drawCommand.doStep(mock[Command]) shouldBe a[Success[_]]
+
+      verify(player).copy(hand = updatedHand)
+      //verify(playerHand).addCard(any[ICard])
+      verify(initialField).copy(players = any[List[IPlayer]], topCard = any[ICard], currentPlayer = any[Int])
+      verify(controllerMock).notifyObservers(Event.Draw)
+    }
+  }
+  "redoStep" should {
+    "update the field with the previously drawn card" in {
+      val controllerMock = mock[IUnoController]
+      //val initialField = UnoField(List(mock[IPlayer], mock[IPlayer]), mock[ICard], 0)
+      val initialField = mock[IUnoField]
+      val card = mock[ICard]
+      val player = mock[IPlayer]
+      val playerHand = mock[IPlayerHand]
+
+      when(controllerMock.field).thenReturn(initialField)
+      when(initialField.players).thenReturn(List(player, mock[IPlayer]))
+      when(initialField.currentPlayer).thenReturn(0)
+      when(player.hand).thenReturn(playerHand)
+      when(playerHand.addCard(any[ICard])).thenReturn(playerHand)
+      //when(controllerMock.field.players).thenReturn(List(player, mock[IPlayer]))
+      //when(controllerMock.field.currentPlayer).thenReturn(0)
+      when(player.copy(hand = playerHand)).thenReturn(player)
+
+      val drawCommand = new DrawCommand(controllerMock)
+      drawCommand.drawnCard = Some(card)
+      drawCommand.redoStep() shouldBe a[Success[_]]
+
+      verify(playerHand).addCard(any[ICard])
+      verify(controllerMock).notifyObservers(Event.Redo)
+    }
+  }
+
 }
 
 

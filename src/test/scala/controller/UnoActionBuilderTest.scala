@@ -66,6 +66,16 @@ class UnoActionBuilderTest extends AnyFunSuite with Matchers {
     }
   } // passed
 
+  test("build() should throw IllegalStateException when no card is set for play action") {
+    val builder = UnoActionBuilder.builder()
+      .setAction("play")
+
+    intercept[IllegalStateException] {
+      builder.build()
+    }
+  }
+
+
   test("PlayAction.executeAction() should call play on the controller") {
     val mockFileIo = mock(classOf[IFileIo])
     val initialField = createInitialField()

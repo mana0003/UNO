@@ -23,7 +23,7 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     if (!card.canBePlayed(controller.field.topCard)) {
       throw new IllegalArgumentException("Card cannot be played on the current top card")
     }
-    
+
     val updatedCurrentPlayer = currentPlayer.copy(
       hand = currentPlayer.hand.removeCard(card)
     )
@@ -37,9 +37,9 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
 
     // Update game field
     val finalPlayers = if (cardsToDraw > 0) {
-      val drawnCards = randomCards(cardsToDraw) 
-      val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard)) 
-      updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand)) 
+      val drawnCards = randomCards(cardsToDraw)
+      val updatedNextPlayerHand = drawnCards.foldLeft(nextPlayer.hand)((hand, newCard) => hand.addCard(newCard))
+      updatedPlayers.updated(nextPlayerIndex, nextPlayer.copy(hand = updatedNextPlayerHand))
     } else {
       updatedPlayers
     }
@@ -93,7 +93,8 @@ class PlayCommand(controller: IUnoController, card: ICard) extends util.Command 
     val updatedPlayers = controller.field.players.updated(controller.field.currentPlayer, updatedPlayer)
 
     val isSkipCard = card.getValue == cardValues.SKIP
-    val nextPlayer = if (isSkipCard) controller.field.currentPlayer else (controller.field.currentPlayer + 1) % controller.field.players.length
+    val nextPlayer = if (isSkipCard) controller.field.currentPlayer
+                      else (controller.field.currentPlayer + 1) % controller.field.players.length
 
     controller.field = controller.field.copy(
       players = updatedPlayers,

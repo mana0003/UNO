@@ -2,7 +2,6 @@ package model.fileIoComponent.fileIoJsonIm
 
 import com.google.inject.{Guice, Inject}
 import net.codingwell.scalaguice.InjectorExtensions.*
-import UNO.MainModule
 import model.fileIoComponent.IFileIo
 import model.gameComponent.{IPlayer, IPlayerHand, IUnoField}
 import model.gameComponent.gameIm.{PlayerHand, UnoField, Player}
@@ -85,10 +84,6 @@ class FileIo @Inject extends IFileIo {
     val source = Source.fromFile("uno.json")
     val lines = try source.mkString finally source.close()
     val json: JsValue = Json.parse(lines)
-    //val unoField = (json \ "unoField").as[IUnoField]
-    //val players = (json \ "players").as[List[IPlayer]]
-    //val playerHands = (json \ "playerHands").as[List[IPlayerHand]]
-    //unoField
     json.as[IUnoField]
   }
   import java.io._
