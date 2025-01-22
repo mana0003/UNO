@@ -20,6 +20,7 @@ import controller.controllerComponent.ControllerIm.UnoController
 import scalafx.util.Duration
 import scalafx.animation.TranslateTransition
 import controller.patterns.UnoActionBuilder.*
+import scalafx.scene.text.{Text, TextFlow}
 
 trait State {
   def display(pane: Pane): Unit
@@ -89,7 +90,10 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
     println("Inside GameState display")
     pane.children.clear()
 
-    val playerLabel = new Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
+    val playerText = new Text(s"Current player: Player ${controller.field.currentPlayer + 1}")
+    playerText.setFill(javafx.scene.paint.Color.YELLOW)
+    val playerLabel = new TextFlow(playerText)
+    //val playerLabel = new Label(s"Current player: Player ${controller.field.currentPlayer + 1}")
     val topCardLabel = controller.getChosenColor match {
       case Some(color) =>
         println(s"Chosen color: $color")
@@ -105,10 +109,18 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
       case None =>
         println("No chosen color, setting default label.")
         new Label(s"Current top card:") {}
-        new ImageView(new Image(getClass.getResource(s"/images/${controller.field.topCard.getColor}_${controller.field.topCard.getValue}.png").toString)) {
-          fitHeight = 150
-          fitWidth = 100
+        if (controller.field.topCard.getValue == cardValues.WILD_DRAW_FOUR){
+          new ImageView(new Image(getClass.getResource("/images/BLACK_WILD_DRAW_FOUR.png").toString)) {
+            fitHeight = 150
+            fitWidth = 100
+          }
+        } else {
+          new ImageView(new Image(getClass.getResource(s"/images/${controller.field.topCard.getColor}_${controller.field.topCard.getValue}.png").toString)) {
+            fitHeight = 150
+            fitWidth = 100
+          }
         }
+
     }
     controller.setChosenColor(None)
 
