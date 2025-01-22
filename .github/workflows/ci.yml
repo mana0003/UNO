@@ -61,7 +61,7 @@ jobs:
 
 
       - name: Upload coverage data to Coveralls
-        run: sbt coveralls
+        run: coverallsapp/github-action@v2.3.4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
