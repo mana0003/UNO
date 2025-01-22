@@ -57,10 +57,10 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git tag -d v1.0.1
-          git push origin :refs/tags/v1.0.1
-          git tag v1.0.1
-          git push origin v1.0.1
+          git tag -d v1.0.3
+          git push origin :refs/tags/v1.0.3
+          git tag v1.0.3
+          git push origin v1.0.3
 
       - name: Debug tags
         run: git tag --list
