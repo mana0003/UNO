@@ -59,19 +59,20 @@ jobs:
       - name: Compile and test with coverage
         run: sbt clean coverage test coverageReport
 
-      - name: Display coverage report content
-        run: |
-          cat ./target/scala-3.3.1/scoverage-report/scoverage.xml
 
       - name: Upload coverage data to Coveralls
-        uses: coverallsapp/github-action@v2.3.4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./target/scala-3.3.1/scoverage-report/scoverage.xml
+        run: sbt coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
 
+        #   - name: Upload coverage data to Coveralls
+    #    uses: coverallsapp/github-action@v2.3.4
+     #   with:
+      #    github-token: ${{ secrets.GITHUB_TOKEN }}
+       #   path-to-lcov: ./target/scala-3.3.1/scoverage-report/scoverage.xml
+       # env:
+        #  COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
       - name: Package jar
         run: sbt package
