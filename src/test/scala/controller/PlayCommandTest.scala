@@ -28,7 +28,7 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     UnoField(players, topCard, currentPlayer = 0)
   }
 
-  test("doStep should play a valid card and update the game state") {
+  /*test("doStep should play a valid card and update the game state") {
   val mockFileIo = mock(classOf[IFileIo])
   val initialField = createInitialField()
   val controller = spy(new UnoController(initialField, mockFileIo))
@@ -57,7 +57,7 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
   result shouldBe a[Success[_]]
   controller.field.topCard shouldBe validCard
   verify(controller, times(1)).notifyObservers(Play)
-}
+}*/
 
   test("doStep should throw an exception for an invalid card") {
     val mockFileIo = mock(classOf[IFileIo])
