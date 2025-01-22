@@ -27,8 +27,8 @@ class UnoController @Inject() (var field: IUnoField, fileIO: IFileIo) extends IU
     val command = new PlayCommand(this, card)
     commandManager.doStep(command) match {
       case Success(_) =>
-        println(s"Player ${field.currentPlayer + 1} played: ${card.getColor}${card.getValue}$RESET")
-        println(s"Player ${field.currentPlayer + 1} hand: ${field.players(field.currentPlayer).hand.cards.map(c => s"${c.getColor}${c.getValue}$RESET").mkString(", ")}")
+        //println(s"Player ${field.currentPlayer + 1} played: ${card.getColor}${card.getValue}$RESET")
+        //println(s"Player ${field.currentPlayer + 1} hand: ${field.players(field.currentPlayer).hand.cards.map(c => s"${c.getColor}${c.getValue}$RESET").mkString(", ")}")
         notifyObservers(Event.Play)
       case Failure(exception) =>
         notifyObservers(Event.Error)

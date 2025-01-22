@@ -21,7 +21,7 @@ class MainModule extends AbstractModule with ScalaModule {
     bind[IPlayer].to[Player]
     bind[IPlayerHand].to[PlayerHand]
     bind(classOf[IUnoController]).to(classOf[ControllerIm.UnoController])
-    bind(classOf[IFileIo]).to(classOf[model.fileIoComponent.fileIoJsonIm.FileIo]) // or fileioImp.FileIOJSON
+    bind(classOf[IFileIo]).to(classOf[model.fileIoComponent.fileIoJsonIm.FileIo])
     bind(classOf[IUnoField]).to(classOf[UnoField])
 
 

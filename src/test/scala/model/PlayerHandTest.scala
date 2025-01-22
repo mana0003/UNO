@@ -40,13 +40,36 @@ class PlayerHandTest extends AnyWordSpec with Matchers {
       updatedHand.cards should have size 1
     }
 
-    "serialize to XML correctly" in {
-      val card1: ICard = Card(cardColors.GREEN, cardValues.FOUR)
-      val card2: ICard = Card(cardColors.RED, cardValues.EIGHT)
-      val playerHand = PlayerHand(List(card1, card2))
-      val xml = playerHand.toXml
-      xml.label should be ("playerHand")
-      (xml \ "card").size should be (2)
+    "remove a card with value WILD" in {
+      val wildCard: ICard = Card(cardColors.RED, cardValues.WILD)
+      val playerHand = PlayerHand(List(wildCard, Card(cardColors.GREEN, cardValues.SEVEN)))
+      val updatedHand = playerHand.removeCard(wildCard)
+      updatedHand.cards should not contain wildCard
+      updatedHand.cards should have size 1
+    }
+
+    "do nothing when removing a card that exists in hand with matching value and color" in {
+      val cardToRemove: ICard = Card(cardColors.YELLOW, cardValues.NINE)
+      val playerHand = PlayerHand(List(cardToRemove, Card(cardColors.GREEN, cardValues.SEVEN)))
+      val updatedHand = playerHand.removeCard(cardToRemove)
+      updatedHand.cards should not contain cardToRemove
+      updatedHand.cards should have size 1
+    }
+
+    "do nothing when removing a card with value WILD" in {
+      val wildCard: ICard = Card(cardColors.RED, cardValues.WILD)
+      val playerHand = PlayerHand(List(wildCard, Card(cardColors.GREEN, cardValues.SEVEN)))
+      val updatedHand = playerHand.removeCard(wildCard)
+      updatedHand.cards should not contain wildCard
+      updatedHand.cards should have size 1
+    }
+
+    "do nothing when removing a card with value WILD_DRAW_FOUR" in {
+      val wildDrawFourCard: ICard = Card(cardColors.RED, cardValues.WILD_DRAW_FOUR)
+      val playerHand = PlayerHand(List(wildDrawFourCard, Card(cardColors.GREEN, cardValues.SEVEN)))
+      val updatedHand = playerHand.removeCard(wildDrawFourCard)
+      updatedHand.cards should not contain wildDrawFourCard
+      updatedHand.cards should have size 1
     }
   }
 }

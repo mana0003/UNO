@@ -87,7 +87,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
   private val cardThreshold = 7
 
   override def display(pane: Pane): Unit = {
-    println("Inside GameState display")
+    //println("Inside GameState display")
     pane.children.clear()
 
     val playerText = new Text(s"Current player: Player ${controller.field.currentPlayer + 1}")
@@ -107,7 +107,7 @@ class GameState(gui: UnoGUI, controller: IUnoController) extends State {
           }
         }
       case None =>
-        println("No chosen color, setting default label.")
+        //println("No chosen color, setting default label.")
         new Label(s"Current top card:") {}
         if (controller.field.topCard.getValue == cardValues.WILD_DRAW_FOUR){
           new ImageView(new Image(getClass.getResource("/images/BLACK_WILD_DRAW_FOUR.png").toString)) {
