@@ -54,7 +54,7 @@ jobs:
         # Add your deployment commands here, for example:
         # scp -r target/scala-2.13/ your_user@your_server:/path/to/deploy
         # ssh your_user@your_server 'cd /path/to/deploy && ./restart.sh'
-      environment: production
+      environment: Production
 
   release:
     needs: build
