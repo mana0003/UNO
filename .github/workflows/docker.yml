@@ -13,48 +13,36 @@ jobs:
     environment: Production
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up JDK 21
-      uses: actions/setup-java@v2
-      with:
-        java-version: '21'
-        distribution: 'adopt'
+      - name: Set up JDK 21
+        uses: actions/setup-java@v2
+        with:
+          java-version: '21'
+          distribution: 'adopt'
 
-    - name: Install SBT
-      run: |
-        echo "Installing SBT..."
-        echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/apt/sources.list.d/sbt.list
-        echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | sudo tee /etc/apt/sources.list.d/sbt_old.list
-        curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x99E82A75642AC823" | sudo apt-key add
-        sudo apt-get update
-        sudo apt-get install -y sbt
+      - name: Install SBT
+        run: |
+          echo "Installing SBT..."
+          echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/apt/sources.list.d/sbt.list
+          curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x99E82A75642AC823" | sudo apt-key add
+          sudo apt-get update
+          sudo apt-get install -y sbt
 
-    - name: Cache SBT
-      uses: actions/cache@v2
-      with:
-        path: |
-          ~/.ivy2/cache
-          ~/.sbt
-          ~/.coursier
-        key: ${{ runner.os }}-sbt-${{ hashFiles('**/build.sbt') }}
-        restore-keys: |
-          ${{ runner.os }}-sbt-
+      - name: Cache SBT
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.ivy2/cache
+            ~/.sbt
+            ~/.coursier
+          key: ${{ runner.os }}-sbt-${{ hashFiles('**/build.sbt') }}
+          restore-keys: |
+            ${{ runner.os }}-sbt-
 
-    - name: Build with SBT
-      run: sbt clean compile test
-
-    - name: Deploy to server
-      env:
-        DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
-        DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
-      run: |
-        echo "Deploying to server..."
-        # Add your deployment commands here, for example:
-        # scp -r target/scala-2.13/ your_user@your_server:/path/to/deploy
-        # ssh your_user@your_server 'cd /path/to/deploy && ./restart.sh'
+      - name: Build with SBT
+        run: sbt clean compile test
 
   release:
     needs: build
@@ -62,37 +50,25 @@ jobs:
     environment: Production
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up JDK 21
-      uses: actions/setup-java@v2
-      with:
-        java-version: '21'
-        distribution: 'adopt'
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-    - name: Install SBT
-      run: |
-        echo "Installing SBT..."
-        echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | sudo tee /etc/apt/sources.list.d/sbt.list
-        echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | sudo tee /etc/apt/sources.list.d/sbt_old.list
-        curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x99E82A75642AC823" | sudo apt-key add
-        sudo apt-get update
-        sudo apt-get install -y sbt
+      - name: Create new tag
+        run: |
+          git tag v1.0.0
+          git push origin v1.0.0
 
-    - name: Create tag
-      env:
-        GITHUB_TOKEN: ${{ secrets.PAT }}
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git tag v1.0.0
-        git push https://x-access-token:${{ secrets.PAT }}@github.com/mana0003/UNO.git v1.0.0
+      - name: Debug tags
+        run: git tag --list
 
-    - name: Create release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: |
-          target/scala-2.13/*.jar
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/scala-2.13/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

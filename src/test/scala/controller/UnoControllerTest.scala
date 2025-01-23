@@ -24,6 +24,7 @@ import org.scalatest.matchers.should.Matchers.*
 import util.Event.*
 
 class UnoControllerTest extends AnyWordSpec {
+
   "The Controller" should {
     val field =
       UnoField(
@@ -33,7 +34,7 @@ class UnoControllerTest extends AnyWordSpec {
       )
     //val controller = UnoController(field)
     val controller = spy(UnoController(field, mock(classOf[IFileIo])))
-    
+
 
     "notify its observers on start" in {
       class TestObserver(controller: UnoController) extends Observer {
@@ -48,6 +49,10 @@ class UnoControllerTest extends AnyWordSpec {
       testObserver.bing should be(true)
     }
 
+    "set the gui active" in {
+      controller.setGuiActive(true)
+      controller.isGuiMode should be(true)
+    }
     "notify its observers on quit" in {
       class TestObserver(controller: UnoController) extends Observer {
         controller.addObserver(this)
@@ -77,6 +82,7 @@ class UnoControllerTest extends AnyWordSpec {
     "play a card" in {
       val card = Card(RED, ONE)
       controller.play(card)
+      controller.field.players(controller.field.currentPlayer).hand.cards should not contain card
       controller.field.players.head.hand.cards should not contain card
     }
     "draw a card" in {
@@ -96,6 +102,7 @@ class UnoControllerTest extends AnyWordSpec {
       class TestObserver(val controller: UnoController) extends Observer {
         controller.addObserver(this)
         var bing: Event = Start
+
         def update(e: Event): Unit = bing = e
       }
       val testObserver = new TestObserver(controller)
@@ -104,6 +111,80 @@ class UnoControllerTest extends AnyWordSpec {
       //controller.play(cards.head)
       //controller.play(cards(1))
       testObserver.bing should be(Event.Quit)
+    }
+
+    "undo the last action" in {
+      val initialHandSize = controller.field.players.head.hand.cards.size
+      controller.draw()
+      controller.field.players.head.hand.cards.size should be(initialHandSize + 1)
+      controller.undo()
+      controller.field.players.head.hand.cards.size should be(initialHandSize)
+    }
+
+    "redo the last action" in {
+      val initialHandSize = controller.field.players.head.hand.cards.size
+      controller.draw()
+      controller.field.players.head.hand.cards.size should be(initialHandSize + 1)
+      controller.undo()
+      controller.field.players.head.hand.cards.size should be(initialHandSize)
+      controller.redo()
+      controller.field.players.head.hand.cards.size should be(initialHandSize + 1)
+    }
+    // a test for this
+    // override def startGame(): Unit = {
+    //    notifyObservers(Event.Start)
+    //  }
+    "start the game" in {
+      class TestObserver(controller: UnoController) extends Observer {
+        controller.addObserver(this)
+        var bing = false
+
+        def update(e: Event): Unit = bing = true
+      }
+      val testObserver = new TestObserver(controller)
+      testObserver.bing should be(false)
+      controller.startGame()
+      testObserver.bing should be(true)
+    }
+
+    "notify Observer when save" in {
+      class TestObserver(controller: UnoController) extends Observer {
+        controller.addObserver(this)
+        var bing = false
+
+        def update(e: Event): Unit = bing = true
+      }
+      val testObserver = new TestObserver(controller)
+      testObserver.bing should be(false)
+      controller.saveGame()
+      testObserver.bing should be(true)
+    }
+    "notify Observer when load" in {
+      class TestObserver(controller: UnoController) extends Observer {
+        controller.addObserver(this)
+        var bing = false
+
+        def update(e: Event): Unit = bing = true
+      }
+      val testObserver = new TestObserver(controller)
+      testObserver.bing should be(false)
+      controller.loadGame()
+      testObserver.bing should be(true)
+    }
+    "getChosenColor" in {
+      controller.setChosenColor(Some(RED))
+      controller.getChosenColor should be(Some(RED))
+    }
+    "setChosenColor" in {
+      controller.setChosenColor(Some(RED))
+      controller.getChosenColor should be(Some(RED))
+    }
+    "getField" in {
+      controller.field = field
+      controller.getField should be(field)
+    }
+    "getCurrentPlayer" in {
+      controller.getCurrentPlayer should be(0)
     }
   }
 }
