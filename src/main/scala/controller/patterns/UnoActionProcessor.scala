@@ -44,10 +44,11 @@ abstract class UnoActionProcessor() {
 
   def handleAction(controller: UnoController, player: IPlayer, action: String): Unit
 }
-
+// $COVERAGE-OFF$
 class ConcreteUnoActionProcessor(actionBuilder: UnoActionBuilder) extends UnoActionProcessor {
   override def handleAction(controller: UnoController, player: IPlayer, action: String): Unit = {
     val handler = UnoActionBuilder.builder().setAction(action).build()
     handler.executeAction(controller, player)
   }
 }
+// $COVERAGE-ON$

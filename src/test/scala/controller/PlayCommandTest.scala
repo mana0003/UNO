@@ -4,11 +4,14 @@ import controller.*
 import model.gameComponent.{IPlayer, IPlayerHand, IUnoField}
 import util.*
 import model.cardComponent.{ICard, cardColors, cardValues}
-import util.Event.{Play, Undo, Win, Redo}
+import model.cardComponent.cardIm.{Card, randomCards}
+import util.Event.{Play, Redo, Undo, Win}
+
 import scala.util.{Failure, Success, Try}
 import org.scalatest.*
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.funsuite.AnyFunSuite
+import org.mockito.ArgumentMatchers.*
 import org.mockito.Mockito.*
 import model.gameComponent.gameIm.UnoField
 import controller.controllerComponent.ControllerIm.UnoController
@@ -74,6 +77,64 @@ class PlayCommandTest extends AnyFunSuite with Matchers {
     result shouldBe a[Failure[_]]
     result.failed.get shouldBe an[IllegalArgumentException]
   }  // passed
+
+  /*test("doStep should make the next player draw two cards when a DRAW_TWO card is played") {
+    val mockFileIo = mock(classOf[IFileIo])
+    //val initialField = createInitialField()
+    val initialField = mock(classOf[IUnoField])
+    val controller = spy(new UnoController(initialField, mockFileIo))
+
+    val mockTopCard = mock(classOf[ICard])
+    when(initialField.topCard).thenReturn(mockTopCard)
+
+    when(initialField.currentPlayer).thenReturn(0)
+
+    val currentPlayerHand = mock(classOf[IPlayerHand])
+    val nextPlayerHand = mock(classOf[IPlayerHand])
+    val currentPlayer = mock(classOf[IPlayer])
+    val nextPlayer = mock(classOf[IPlayer])
+
+    when(currentPlayer.hand).thenReturn(currentPlayerHand)
+    when(nextPlayer.hand).thenReturn(nextPlayerHand)
+
+    val players = List(currentPlayer, nextPlayer)
+    when(initialField.players).thenReturn(players)
+
+    val drawTwoCard = mock(classOf[ICard])
+    when(drawTwoCard.canBePlayed(mockTopCard)).thenReturn(true)
+    when(drawTwoCard.getValue).thenReturn(cardValues.DRAW_TWO)
+
+    val drawnCards = List(mock(classOf[ICard]), mock(classOf[ICard]))
+    when(nextPlayerHand.addCard(any())).thenReturn(nextPlayerHand)
+
+    when(randomCards(2)).thenReturn(drawnCards)
+
+    val playCommand = new PlayCommand(controller, drawTwoCard)
+    val result = playCommand.doStep(playCommand)
+
+    result shouldBe a[Success[_]]
+    verify(controller, times(1)).notifyObservers(Event.Play)
+  } // failed */
+
+    /*val drawTwoCard = mock(classOf[ICard])
+    when(drawTwoCard.canBePlayed(any())).thenReturn(true)
+    when(drawTwoCard.getValue).thenReturn(cardValues.DRAW_TWO)
+    when(initialField.topCard).thenReturn(mock(classOf[ICard]))
+
+    val nextPlayerHand = mock(classOf[IPlayerHand])
+    when(nextPlayerHand.addCard(any())).thenReturn(nextPlayerHand)
+    //val drawnCards = List(mock(classOf[ICard]), mock(classOf[ICard]))
+    //when(nextPlayerHand.addCard(any())).thenReturn(nextPlayerHand)
+    //val mockCard = mock(classOf[Card])
+    //when(randomCards(2)).thenReturn(drawnCards)
+
+    val playCommand = new PlayCommand(controller, drawTwoCard)
+    val result = playCommand.doStep(playCommand)
+
+    result shouldBe a[Success[_]]
+    verify(controller, times(1)).notifyObservers(Event.Play)
+  }*/
+
 
   test("undoStep should revert the game state to before the card was played") {
     val mockFileIo = mock(classOf[IFileIo])
