@@ -9,9 +9,11 @@
 ```
 git clone https://github.com/mana0003/UNO.git
 ```
+### Get into the directory
 ```
 cd UNO
 ```
+### Run the game
 ```
 sbt run
 ```
