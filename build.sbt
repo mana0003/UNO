@@ -26,7 +26,7 @@ lazy val root = project
     // Enable code coverage
     coverageEnabled := true,
     coverageExcludedPackages := ".*Main.*, .*UnoGUI.*, .*TUI.*",
-      coverageExcludedFiles := ".*(UnoGUI|TUI).*"
+    coverageExcludedFiles := ".*(UnoGUI|TUI).*"
    // coverageExcludedFiles := ".*(UnoGUI|TUI).*"
     //coverageExcludedPackages := ".*",
 
