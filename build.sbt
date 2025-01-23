@@ -1,3 +1,5 @@
+import scoverage.ScoverageKeys.coverageExcludedFiles
+
 val scala3Version = "3.3.1"
 
 lazy val root = project
@@ -22,5 +24,15 @@ lazy val root = project
     libraryDependencies += "org.scala-lang.modules" %% "scala-xml" % "2.3.0",
     libraryDependencies += "com.typesafe.play" %% "play-json" % "2.10.5",
     // Enable code coverage
-    coverageEnabled := true
+    coverageEnabled := true,
+    coverageExcludedPackages := "UNO.*;.*view.*"
+   // coverageExcludedFiles := ".*(UnoGUI|TUI).*"
+    //coverageExcludedPackages := ".*",
+
+    /*Compile / coverageExcludedPackages := {
+        println("Excluded packages: " + coverageExcludedPackages.value)
+        coverageExcludedPackages.value
+    }*/
+
   )
+
